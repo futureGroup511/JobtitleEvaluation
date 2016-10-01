@@ -18,6 +18,7 @@ public class LoginAction extends BaseAction{
 		if(test!=null){
 			return "success";
 		}
+		System.out.println();
 		return "erro";
 		
 	}
