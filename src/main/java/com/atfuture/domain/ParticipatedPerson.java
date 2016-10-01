@@ -19,6 +19,7 @@ public class ParticipatedPerson {
 	private Specialty parti_specialty;
 	private JobTitle parti_jobTitle;
 	private Unit parti_recommendUnit;
+	private String parti_pathurl;
 	
 	@Id
 	@GeneratedValue
@@ -55,6 +56,12 @@ public class ParticipatedPerson {
 	}
 	public void setParti_recommendUnit(Unit parti_recommendUnit) {
 		this.parti_recommendUnit = parti_recommendUnit;
+	}
+	public String getParti_pathurl() {
+		return parti_pathurl;
+	}
+	public void setParti_pathurl(String parti_pathurl) {
+		this.parti_pathurl = parti_pathurl;
 	}
 	
 	
