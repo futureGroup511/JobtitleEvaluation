@@ -20,7 +20,6 @@ public class LoginAction extends BaseAction{
 		}
 		System.out.println();
 		return "erro";
-		
 	}
 	
 	
