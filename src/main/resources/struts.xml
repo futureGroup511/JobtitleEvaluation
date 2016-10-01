@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.ui.theme" value="simple"></constant>
+    <constant name="struts.devMode" value="true"></constant>
+    <constant name="struts.configuration.xml.reload" value="true"></constant>
+    <!-- 禁止缓存 -->
+    <constant name="struts.serve.static.browserCache" value="false" /> 
+	<constant name="struts.action.extension" value="action,do,,"/>
+     
+     <!-- 由spring 管理action的创建  -->
+    <constant name="struts.objectFactory" value="spring" />
+    
+    <package name="default" namespace="/" extends="json-default">
+    	<!-- 定义新的拦截器栈, 配置 prepare 拦截器栈的 alwaysInvokePrepare 参数值为 false -->
+		<interceptors>
+			<interceptor-stack name="sshStack">
+				<interceptor-ref name="paramsPrepareParamsStack">
+					<param name="prepare.alwaysInvokePrepare">false</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 使用新的拦截器栈 -->
+		<default-interceptor-ref name="sshStack"></default-interceptor-ref>
+		
+		
+		
+		
+		
+	    	<!-- 配置默认 paramsPrepareParam 拦截器栈 -->
+	    	<!-- <default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref> -->
+	    <action name="loginAction_*" method="{1}" class="loginAction">
+    		<result name="success" >success.jsp</result>
+    		<result name="erro" >erro.jsp</result>
+ 		</action> 
+ 		
+    	
+    </package>
+</struts>
