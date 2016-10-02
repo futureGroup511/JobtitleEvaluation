@@ -1,5 +1,8 @@
 package com.atfuture.dao;
 
-public interface JobTitleDao {
+import com.atfuture.base.BaseDao;
+import com.atfuture.domain.JobTitle;
+
+public interface JobTitleDao extends BaseDao<JobTitle>{
 
 }

@@ -1,5 +1,8 @@
 package com.atfuture.dao;
 
-public interface UnitDao {
+import com.atfuture.base.BaseDao;
+import com.atfuture.domain.Unit;
+
+public interface UnitDao extends BaseDao<Unit>{
 
 }

@@ -12,7 +12,7 @@
 		密码:<input type="password" name="password"><br>
 			<input type="submit">
 	</form>
-	<a>教职工评教</a>
+	<a href="expert_allEvaluaTeacher">教职工评教</a>
 	
 </body>
 </html>

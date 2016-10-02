@@ -1,5 +1,8 @@
 package com.atfuture.dao;
 
-public interface StatisticsDao {
+import com.atfuture.base.BaseDao;
+import com.atfuture.domain.Statistics;
+
+public interface StatisticsDao extends BaseDao<Statistics>{
 
 }

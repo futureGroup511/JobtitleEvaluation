@@ -1,5 +1,8 @@
 package com.atfuture.dao;
 
-public interface EvaluatedStandardDao {
+import com.atfuture.base.BaseDao;
+import com.atfuture.domain.EvaluatedStandard;
+
+public interface EvaluatedStandardDao extends BaseDao<EvaluatedStandard>{
 
 }

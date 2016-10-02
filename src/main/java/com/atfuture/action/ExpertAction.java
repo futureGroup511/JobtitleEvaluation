@@ -9,4 +9,10 @@ import com.atfuture.domain.Expert;
 @Scope("prototype")
 public class ExpertAction extends BaseAction<Expert> {
 
+	
+	public String allEvaluaTeacher(){
+		
+		
+		return null;
+	}
 }

@@ -1,5 +1,8 @@
 package com.atfuture.dao;
 
-public interface ExpertDao {
+import com.atfuture.base.BaseDao;
+import com.atfuture.domain.Expert;
+
+public interface ExpertDao extends BaseDao<Expert>{
 
 }

@@ -1,5 +1,8 @@
 package com.atfuture.dao;
 
-public interface SuperManagerDao {
+import com.atfuture.base.BaseDao;
+import com.atfuture.domain.SuperManager;
+
+public interface SuperManagerDao extends BaseDao<SuperManager>{
 
 }

@@ -1,5 +1,8 @@
 package com.atfuture.dao;
 
-public interface ParticipatedPersonDao {
+import com.atfuture.base.BaseDao;
+import com.atfuture.domain.ParticipatedPerson;
+
+public interface ParticipatedPersonDao extends BaseDao<ParticipatedPerson>{
 
 }
