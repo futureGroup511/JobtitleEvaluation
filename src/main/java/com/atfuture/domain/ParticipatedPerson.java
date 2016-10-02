@@ -30,13 +30,14 @@ public class ParticipatedPerson {
 	public void setParti_id(Integer parti_id) {
 		this.parti_id = parti_id;
 	}
-	@ManyToOne(cascade=CascadeType.PERSIST,optional=true,fetch=FetchType.EAGER)
+	
 	public String getParti_name() {
 		return parti_name;
 	}
 	public void setParti_name(String parti_name) {
 		this.parti_name = parti_name;
 	}
+	@ManyToOne(cascade=CascadeType.PERSIST,optional=true,fetch=FetchType.EAGER)
 	public Specialty getParti_specialty() {
 		return parti_specialty;
 	}

@@ -11,13 +11,13 @@
     	<property name="hibernate.use_sql_comments">true</property>
     	<!-- 注解映射类 -->
     	 <mapping class="com.atfuture.domain.EvaluatedStandard"/>
-    	<mapping class="com.atfuture.domain.EvaluateRecord"/>
-    	<mapping class="com.atfuture.domain.Expart"/>
+    	<mapping class="com.atfuture.domain.EvaluatedRecord"/>
+    	<mapping class="com.atfuture.domain.Expert"/>
     	<mapping class="com.atfuture.domain.JobTitle"/>
     	<mapping class="com.atfuture.domain.ParticipatedPerson"/>
     	<mapping class="com.atfuture.domain.Specialty"/>
     	<mapping class="com.atfuture.domain.Statistics"/>
     	<mapping class="com.atfuture.domain.SuperManager"/>
-    	
+    	<mapping class="com.atfuture.domain.Unit"/>
     </session-factory>
 </hibernate-configuration>

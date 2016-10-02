@@ -39,6 +39,9 @@ public class Page_S {
 		}
 	}
 
+	public static Page_S newInstance(){
+		return new Page_S();
+	}
 	public Page_S() {
 		super();
 	}

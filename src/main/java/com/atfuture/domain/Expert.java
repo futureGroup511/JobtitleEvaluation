@@ -1,5 +1,8 @@
 package com.atfuture.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +25,7 @@ public class Expert {
 	private JobTitle exp_jobTitle;
 	private String exp_educationLevel;
 	private Unit exp_unit;
-	private EvaluatedRecord exp_evaluateRecord;
+	private Set<EvaluatedRecord> exp_evaluateRecord=new HashSet<EvaluatedRecord>();
 	@Id
 	@GeneratedValue
 	@Column(name="exp_id")
@@ -70,18 +74,23 @@ public class Expert {
 	public void setExp_educationLevel(String exp_educationLevel) {
 		this.exp_educationLevel = exp_educationLevel;
 	}
+	@ManyToOne(cascade=CascadeType.PERSIST,optional=true,fetch=FetchType.EAGER)
 	public Unit getExp_unit() {
 		return exp_unit;
 	}
 	public void setExp_unit(Unit exp_unit) {
 		this.exp_unit = exp_unit;
 	}
-	public EvaluatedRecord getExp_evaluateRecord() {
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY,mappedBy="evalRecor_expart")
+	public Set<EvaluatedRecord> getExp_evaluateRecord() {
 		return exp_evaluateRecord;
 	}
-	public void setExp_evaluateRecord(EvaluatedRecord exp_evaluateRecord) {
+	public void setExp_evaluateRecord(Set<EvaluatedRecord> exp_evaluateRecord) {
 		this.exp_evaluateRecord = exp_evaluateRecord;
 	}
+	
+	
+	
 	
 	
 	

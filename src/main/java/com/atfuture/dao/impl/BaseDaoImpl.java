@@ -1,6 +1,7 @@
 package com.atfuture.dao.impl;
 
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Repository;
 
 import com.atfuture.base.BaseDao;
 
-@Repository
 public class BaseDaoImpl<T> implements BaseDao<T>  {
 	
 	@Autowired
@@ -23,9 +23,15 @@ public class BaseDaoImpl<T> implements BaseDao<T>  {
 	}
 
 	
+	@SuppressWarnings("unchecked")
 	public BaseDaoImpl(){
-		ParameterizedType pType = (ParameterizedType) this.getClass().getGenericSuperclass();
-		clazz = (Class<T>) pType.getActualTypeArguments()[0];
+		/*ParameterizedType pType = (ParameterizedType) this.getClass().getGenericSuperclass();
+		clazz = (Class<T>) pType.getActualTypeArguments()[0];*/
+		Type type = this.getClass().getGenericSuperclass();
+		if(!(type instanceof ParameterizedType)){
+		    type = this.getClass().getSuperclass().getGenericSuperclass();
+		}
+		clazz = (Class<T>)((ParameterizedType)type).getActualTypeArguments()[0];
 	}
 	
 	public Session getSession(){

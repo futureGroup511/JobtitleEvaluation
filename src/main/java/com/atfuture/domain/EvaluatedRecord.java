@@ -46,7 +46,6 @@ public class EvaluatedRecord {
 	public void setEvalRecor_expart(Expert evalRecor_expart) {
 		this.evalRecor_expart = evalRecor_expart;
 	}
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY,mappedBy="evalRecor_spciaFamiliar")
 	public String getEvalRecor_spciaFamiliar() {
 		return evalRecor_spciaFamiliar;
 	}
