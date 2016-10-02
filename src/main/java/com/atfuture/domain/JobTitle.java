@@ -9,8 +9,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name="jobtitle")
 public class JobTitle {
-
+	
+	//职称id
 	private Integer jobTi_id;
+	//职称名称
 	private String jobTi_name;
 	
 	@Id

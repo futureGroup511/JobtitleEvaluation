@@ -19,5 +19,6 @@
     	<mapping class="com.atfuture.domain.Statistics"/>
     	<mapping class="com.atfuture.domain.SuperManager"/>
     	<mapping class="com.atfuture.domain.Unit"/>
+    	<mapping class="com.atfuture.domain.RequestCode"/>
     </session-factory>
 </hibernate-configuration>

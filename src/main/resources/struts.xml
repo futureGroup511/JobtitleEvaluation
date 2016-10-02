@@ -35,6 +35,9 @@
  		    
  		    
  		</action>
+ 		<action name="super_*" method="{1}" class="superManagerAction">
+			<result name="RequestCodePublish">WEB-INF/jsp/SuperManager/PublishRequestCode.jsp</result> 		    
+ 		</action>
     	
     </package>
 </struts>

@@ -10,10 +10,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name="evaluatedstandard")
 public class EvaluatedStandard {
-
+	
+	//评价标准id
 	private Integer evalStan_id;
+	//职称
 	private JobTitle evalStan_jobtile;
+	//标题
 	private String  evalStan_title;
+	//内容
+	private String evalStan_content;
+	//选项A B C D
 	private String evalStan_itemA;
 	private String evalStan_itemB;
 	private String evalStan_itemC;
@@ -27,6 +33,13 @@ public class EvaluatedStandard {
 	}
 	public void setEvalStan_id(Integer evalStan_id) {
 		this.evalStan_id = evalStan_id;
+	}
+	
+	public String getEvalStan_content() {
+		return evalStan_content;
+	}
+	public void setEvalStan_content(String evalStan_content) {
+		this.evalStan_content = evalStan_content;
 	}
 	@OneToOne()
 	public JobTitle getEvalStan_jobtile() {

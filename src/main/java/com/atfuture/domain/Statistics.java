@@ -10,12 +10,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name="statistics")
 public class Statistics {
-
+	//统计id
 	private Integer sta_id;
+	//统计所属申报人
 	private ParticipatedPerson sta_participatedPerson;
+	//A类专家评论得分
 	private float sta_AScored;
+	//B类专家评论得分
 	private float sta_BScored;
 	private float sta_CScored;
+	//总得分
 	private float sta_AllScored;
 	
 	@Id

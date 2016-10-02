@@ -9,8 +9,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="specialty")
 public class Specialty {
-
+	//专业id
 	private Integer spec_id;
+	//专业名称
 	private String spec_name;
 	
 	@Id

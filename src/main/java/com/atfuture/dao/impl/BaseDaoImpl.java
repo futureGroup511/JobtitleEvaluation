@@ -32,6 +32,7 @@ public class BaseDaoImpl<T> implements BaseDao<T>  {
 		    type = this.getClass().getSuperclass().getGenericSuperclass();
 		}
 		clazz = (Class<T>)((ParameterizedType)type).getActualTypeArguments()[0];
+		System.out.println("======="+clazz);
 	}
 	
 	public Session getSession(){
