@@ -8,9 +8,11 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.atfuture.base.BaseDao;
 
+@Repository
 public class BaseDaoImpl<T> implements BaseDao<T>  {
 	
 	@Autowired
@@ -21,7 +23,6 @@ public class BaseDaoImpl<T> implements BaseDao<T>  {
 	}
 
 	
-	@SuppressWarnings("unchecked")
 	public BaseDaoImpl(){
 		ParameterizedType pType = (ParameterizedType) this.getClass().getGenericSuperclass();
 		clazz = (Class<T>) pType.getActualTypeArguments()[0];
