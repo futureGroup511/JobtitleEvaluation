@@ -45,9 +45,7 @@ public class SuperManagerAction extends BaseAction<SuperManager> implements Requ
 		requestMap.put("requestCode", requestCode.getReqCode_info());
 		return "RequestCodePublish";
 	}
-	
-	
-	
+
 	
 	
 	public void setRequest(Map<String, Object> requestMap) {

@@ -19,10 +19,9 @@
 		<li><a href="super_generateRequestCode">生成邀请码</a></li>
 		<li><a href="super_showRequestCode">查看当前邀请码</a></li>
 	</ol>
-	
-	
-	
-	
+	<ol>
+		<li><a href="participated_manageParticipatedPerson">管理参评人员信息</a></li>
+	</ol>
 	
 </body>
 </html>
