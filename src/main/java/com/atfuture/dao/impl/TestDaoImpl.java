@@ -2,12 +2,11 @@ package com.atfuture.dao.impl;
 
 import org.springframework.stereotype.Repository;
 
-import com.atfuture.base.BaseDao;
 import com.atfuture.dao.TestDao;
 import com.atfuture.domain.Test;
 
 
-@Repository
+/*@Repository
 public class TestDaoImpl extends BaseDao implements TestDao {
 
 	public Test loginByNumAndPassword(String num, String password) {
@@ -17,3 +16,4 @@ public class TestDaoImpl extends BaseDao implements TestDao {
 	}
 
 }
+*/

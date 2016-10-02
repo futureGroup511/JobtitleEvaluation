@@ -12,11 +12,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="evaluaterecord")
-public class EvaluateRecord {
+public class EvaluatedRecord {
 
 	private Integer evalRecor_id;
 	private ParticipatedPerson evalRecor_participatedPerson;
-	private Expart evalRecor_expart;
+	private Expert evalRecor_expart;
 	private String evalRecor_spciaFamiliar;
 	private String evalRecor_teaching;
 	private String evalRecor_research;
@@ -40,10 +40,10 @@ public class EvaluateRecord {
 		this.evalRecor_participatedPerson = evalRecor_participatedPerson;
 	}
 	@ManyToOne(cascade=CascadeType.PERSIST,optional=true,fetch=FetchType.EAGER)
-	public Expart getEvalRecor_expart() {
+	public Expert getEvalRecor_expart() {
 		return evalRecor_expart;
 	}
-	public void setEvalRecor_expart(Expart evalRecor_expart) {
+	public void setEvalRecor_expart(Expert evalRecor_expart) {
 		this.evalRecor_expart = evalRecor_expart;
 	}
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY,mappedBy="evalRecor_spciaFamiliar")

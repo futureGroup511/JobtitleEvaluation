@@ -4,11 +4,10 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.atfuture.base.BaseAction;
-import com.atfuture.base.BaseDao;
-import com.atfuture.dao.ParticipatedPersonDao;
+import com.atfuture.domain.ParticipatedPerson;
 
 @Controller
 @Scope("prototype")
-public class ParticipatedPersonAction extends BaseAction{
+public class ParticipatedPersonAction extends BaseAction<ParticipatedPerson>{
 
 }

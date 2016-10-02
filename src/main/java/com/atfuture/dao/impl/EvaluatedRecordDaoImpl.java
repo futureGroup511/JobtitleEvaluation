@@ -2,9 +2,9 @@ package com.atfuture.dao.impl;
 
 import org.springframework.stereotype.Repository;
 
-import com.atfuture.base.BaseDao;
 import com.atfuture.dao.EvaluatedRecordDao;
+import com.atfuture.domain.EvaluatedRecord;
 @Repository
-public class EvaluatedRecordDaoImpl extends BaseDao implements EvaluatedRecordDao{
+public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> implements EvaluatedRecordDao{
 
 }

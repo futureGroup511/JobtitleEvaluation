@@ -1,5 +1,7 @@
 package com.atfuture.base;
 
+import java.lang.reflect.ParameterizedType;
+
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
@@ -16,9 +18,11 @@ import com.atfuture.service.SuperManagerService;
 import com.atfuture.service.TestService;
 import com.atfuture.service.UnitService;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.Preparable;
 @Controller
 @Scope("prototype")
-public class BaseAction extends ActionSupport{
+public abstract class BaseAction<T> extends ActionSupport implements ModelDriven<T>,Preparable{
 
 	@Resource
 	protected TestService testser; 
@@ -41,7 +45,24 @@ public class BaseAction extends ActionSupport{
 	@Resource
 	protected UnitService unitService;
 	
+	protected T model;
+	public BaseAction(){
+		try {
+			ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
+			Class clazz = (Class) type.getActualTypeArguments()[0];
+			model = (T) clazz.newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
+	public void prepare() throws Exception {}
+
+	public  T getModel(){
+		return model;
+	}
+	
+		
 	
 	
 }

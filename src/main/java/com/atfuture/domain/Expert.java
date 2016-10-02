@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="expert")
-public class Expart {
+public class Expert {
 
 	private Integer exp_id;
 	private String exp_name;
@@ -21,7 +21,7 @@ public class Expart {
 	private JobTitle exp_jobTitle;
 	private String exp_educationLevel;
 	private Unit exp_unit;
-	private EvaluateRecord exp_evaluateRecord;
+	private EvaluatedRecord exp_evaluateRecord;
 	@Id
 	@GeneratedValue
 	@Column(name="exp_id")
@@ -76,10 +76,10 @@ public class Expart {
 	public void setExp_unit(Unit exp_unit) {
 		this.exp_unit = exp_unit;
 	}
-	public EvaluateRecord getExp_evaluateRecord() {
+	public EvaluatedRecord getExp_evaluateRecord() {
 		return exp_evaluateRecord;
 	}
-	public void setExp_evaluateRecord(EvaluateRecord exp_evaluateRecord) {
+	public void setExp_evaluateRecord(EvaluatedRecord exp_evaluateRecord) {
 		this.exp_evaluateRecord = exp_evaluateRecord;
 	}
 	

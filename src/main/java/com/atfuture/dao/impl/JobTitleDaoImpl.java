@@ -2,10 +2,10 @@ package com.atfuture.dao.impl;
 
 import org.springframework.stereotype.Repository;
 
-import com.atfuture.base.BaseDao;
 import com.atfuture.dao.JobTitleDao;
+import com.atfuture.domain.JobTitle;
 
 @Repository
-public class JobTitleDaoImpl extends BaseDao implements JobTitleDao{
+public class JobTitleDaoImpl extends BaseDaoImpl<JobTitle> implements JobTitleDao{
 
 }
