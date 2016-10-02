@@ -1,6 +1,7 @@
 package com.atfuture.base;
 
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 
 import javax.annotation.Resource;
 
@@ -20,8 +21,7 @@ import com.atfuture.service.UnitService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
-@Controller
-@Scope("prototype")
+
 public abstract class BaseAction<T> extends ActionSupport implements ModelDriven<T>,Preparable{
 
 	@Resource
@@ -48,8 +48,11 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 	protected T model;
 	public BaseAction(){
 		try {
-			ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
-			Class clazz = (Class) type.getActualTypeArguments()[0];
+			Type type = this.getClass().getGenericSuperclass();
+			if(!(type instanceof ParameterizedType)){
+			    type = this.getClass().getSuperclass().getGenericSuperclass();
+			}
+			Class clazz = (Class<T>)((ParameterizedType)type).getActualTypeArguments()[0];
 			model = (T) clazz.newInstance();
 		} catch (Exception e) {
 			e.printStackTrace();

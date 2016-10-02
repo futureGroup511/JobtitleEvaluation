@@ -18,10 +18,6 @@ public class BaseDaoImpl<T> implements BaseDao<T>  {
 	@Autowired
 	private SessionFactory sessionFactory;
 	private Class<T> clazz;
-	public Session getsession(){
-		return sessionFactory.openSession();
-	}
-
 	
 	@SuppressWarnings("unchecked")
 	public BaseDaoImpl(){

@@ -8,7 +8,12 @@ import com.atfuture.domain.Test;
 import com.atfuture.service.TestService;
 
 @Service
-public class TestServiceImpl {
+public class TestServiceImpl implements TestService{
+	@Resource
+	private TestDao testDaO;
+	public Test loginByNumAndPassword(String num, String password) {
+		return testDaO.loginByNumAndPassword(num, password);
+	}
 
 	
 	

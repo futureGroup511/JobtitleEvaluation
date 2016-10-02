@@ -32,7 +32,7 @@
     		<result name="erro" >erro.jsp</result>
  		</action> 
  		<action name="expert_*" method="{1}" class="expertAction">
- 		    
+ 		    <result name="allEvaluaTeacher">\WEB-INF\ParticipatedPerson\all.jsp</result>
  		    
  		</action>
     	
