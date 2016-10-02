@@ -63,5 +63,5 @@ public class JobTitleAction extends BaseAction<JobTitle>{
 		Page_S ps=jobTitleService.page_s(page_s);
 		request.put("page_s",ps);
 		return "page_sSuccess";
-	}
+	} 
 }
