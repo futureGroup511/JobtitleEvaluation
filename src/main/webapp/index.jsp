@@ -14,5 +14,15 @@
 	</form>
 	<a href="expert_allEvaluaTeacher">教职工评教</a>
 	
+	
+	<ol>
+		<li><a href="super_generateRequestCode">生成邀请码</a></li>
+		<li><a href="super_showRequestCode">查看当前邀请码</a></li>
+	</ol>
+	
+	
+	
+	
+	
 </body>
 </html>

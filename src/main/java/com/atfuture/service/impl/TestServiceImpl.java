@@ -13,6 +13,7 @@ public class TestServiceImpl implements TestService{
 	private TestDao testDaO;
 	public Test loginByNumAndPassword(String num, String password) {
 		return testDaO.loginByNumAndPassword(num, password);
+
 	}
 
 	

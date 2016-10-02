@@ -17,14 +17,23 @@ import javax.persistence.Table;
 @Table(name="expert")
 public class Expert {
 
+	//专家id
 	private Integer exp_id;
+	//专家姓名
 	private String exp_name;
+	//专家账号
 	private String exp_accountNum;
+	//专家密码
 	private String exp_password;
+	//专家专业
 	private Specialty exp_specialty;
+	//专家职称
 	private JobTitle exp_jobTitle;
+	//专家学历
 	private String exp_educationLevel;
+	//所属单元
 	private Unit exp_unit;
+	//评议记录
 	private Set<EvaluatedRecord> exp_evaluateRecord=new HashSet<EvaluatedRecord>();
 	@Id
 	@GeneratedValue
@@ -89,7 +98,9 @@ public class Expert {
 		this.exp_evaluateRecord = exp_evaluateRecord;
 	}
 	
-	
+	public static Expert newInstance(){
+		return new Expert();
+	}
 	
 	
 	

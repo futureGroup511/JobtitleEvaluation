@@ -13,6 +13,7 @@ import com.atfuture.service.EvaluatedStandardService;
 import com.atfuture.service.ExpertService;
 import com.atfuture.service.JobTitleService;
 import com.atfuture.service.ParticipatedPersonService;
+import com.atfuture.service.RequestCodeService;
 import com.atfuture.service.SpecialtyService;
 import com.atfuture.service.StatisticsService;
 import com.atfuture.service.SuperManagerService;
@@ -44,6 +45,8 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 	protected SuperManagerService superManagerService;
 	@Resource
 	protected UnitService unitService;
+	@Resource
+	protected RequestCodeService requestCodeService;
 	
 	protected T model;
 	public BaseAction(){

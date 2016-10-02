@@ -25,4 +25,8 @@ public class ParticipatedPersonDaoImpl extends BaseDaoImpl<ParticipatedPerson> i
 		return result;
 	}
 
+	public ParticipatedPerson findById(Integer id) {
+		return getEntity(id);
+	}
+
 }

@@ -9,8 +9,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="unit")
 public class Unit {
-
+	//单元id
 	private Integer uni_id;
+	//单元名称
 	private String uni_name;
 	
 	@Id

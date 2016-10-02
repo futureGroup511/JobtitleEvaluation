@@ -14,11 +14,17 @@ import javax.persistence.Table;
 @Table(name="participateperson")
 public class ParticipatedPerson {
 
+	//参评人id
 	private Integer parti_id;
+	//参评人姓名
 	private String  parti_name;
+	//参评人申报专业
 	private Specialty parti_specialty;
+	//参评人申报职称
 	private JobTitle parti_jobTitle;
+	//推荐单位
 	private Unit parti_recommendUnit;
+	//资料url路径
 	private String parti_pathurl;
 	
 	@Id
@@ -65,5 +71,8 @@ public class ParticipatedPerson {
 		this.parti_pathurl = parti_pathurl;
 	}
 	
+	public static ParticipatedPerson newInstance(){
+		return new ParticipatedPerson();
+	}
 	
 }

@@ -9,10 +9,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name="supermanager")
 public class SuperManager {
-
+	
+	//超级管理员id
 	private Integer sup_id;
+	//超级管理员姓名
 	private String sup_name;
+	//超级管理员账号
 	private String sup_accountNum;
+	//超级管理员密码
 	private String sup_password;
 	@Id
 	@GeneratedValue

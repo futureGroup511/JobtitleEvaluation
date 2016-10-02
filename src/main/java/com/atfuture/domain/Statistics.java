@@ -10,12 +10,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name="statistics")
 public class Statistics {
-
+	//统计id
 	private Integer sta_id;
+	//统计所属申报人
 	private ParticipatedPerson sta_participatedPerson;
+	//A类专家评论得分
 	private float sta_AScored;
+	//B类专家评论得分
 	private float sta_BScored;
 	private float sta_CScored;
+	//总得分
 	private float sta_AllScored;
 	
 	@Id
@@ -58,5 +62,11 @@ public class Statistics {
 	public void setSta_AllScored(float sta_AllScored) {
 		this.sta_AllScored = sta_AllScored;
 	}
-	
+	public static Statistics newInstance(){
+		return new Statistics();
+		
+	}
+	public void calculate(){
+		this.sta_AllScored=(float) (this.sta_AScored*0.50+this.sta_BScored*0.30+this.sta_CScored*0.20);
+	}
 }

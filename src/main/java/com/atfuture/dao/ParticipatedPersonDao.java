@@ -8,4 +8,7 @@ public interface ParticipatedPersonDao extends BaseDao<ParticipatedPerson>{
 
 	
 	public Page_S findAllParticipatedPerson(Page_S p);
+	
+	//通过id查找
+	public ParticipatedPerson findById(Integer id);
 }

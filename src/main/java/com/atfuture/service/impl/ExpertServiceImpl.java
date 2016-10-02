@@ -8,10 +8,15 @@ import org.springframework.stereotype.Service;
 import com.atfuture.service.ExpertService;
 import com.future.utils.Page_S;
 import com.atfuture.dao.ExpertDao;
+import com.atfuture.domain.Expert;
 @Service
 public class ExpertServiceImpl  implements ExpertService {
 	
 	@Resource
 	private ExpertDao  expertDao ;
+
+	public Expert findById(Integer id) {
+		return expertDao.findById(id);
+	}
 
 }

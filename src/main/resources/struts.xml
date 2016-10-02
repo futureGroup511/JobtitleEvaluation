@@ -32,9 +32,23 @@
     		<result name="erro" >erro.jsp</result>
  		</action> 
  		<action name="expert_*" method="{1}" class="expertAction">
- 		    <result name="allEvaluaTeacher">\WEB-INF\ParticipatedPerson\all.jsp</result>
- 		    
+ 		    <result name="allEvaluaTeacher">WEB-INF/jsp/ParticipatedPerson/allperson.jsp</result>
+ 		    <result name="assess">WEB-INF/jsp/Expert/assess.jsp</result>
  		</action>
+ 		<action name="super_*" method="{1}" class="superManagerAction">
+			<result name="RequestCodePublish">WEB-INF/jsp/SuperManager/PublishRequestCode.jsp</result> 		    
+ 		</action>
+ 		
+    	<action name="person_*" method="{1}" class="participatedPersonAction">
+    	    <result type="stream">
+               <param name="contentType">image/gif</param>
+                <param name="inputName">inputStream</param>
+                <param name="bufferSize">4096</param>
+        	</result>  
+    	</action>
     	
+    	<action name="evaluatedrecord_*" method="{1}" class="evaluatedRecordAction">
+    	   <result name="finishAssess">success.jsp</result>
+    	</action>
     </package>
 </struts>

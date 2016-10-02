@@ -10,14 +10,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name="evaluatedstandard")
 public class EvaluatedStandard {
-
+	
+	//评价标准id
 	private Integer evalStan_id;
+	//职称
 	private JobTitle evalStan_jobtile;
-	private String  evalStan_title;
-	private String evalStan_itemA;
-	private String evalStan_itemB;
-	private String evalStan_itemC;
-	private String evalStan_itemD;
+	//教学指标
+	private String evalStan_teachStandard;
+	//科研指标
+	private String evalStan_scientifiStandard;
+	//师德指标
+	private String evalStan_moralityStandard; 
 	
 	@Id
 	@GeneratedValue
@@ -28,6 +31,7 @@ public class EvaluatedStandard {
 	public void setEvalStan_id(Integer evalStan_id) {
 		this.evalStan_id = evalStan_id;
 	}
+	
 	@OneToOne()
 	public JobTitle getEvalStan_jobtile() {
 		return evalStan_jobtile;
@@ -35,35 +39,23 @@ public class EvaluatedStandard {
 	public void setEvalStan_jobtile(JobTitle evalStan_jobtile) {
 		this.evalStan_jobtile = evalStan_jobtile;
 	}
-	public String getEvalStan_title() {
-		return evalStan_title;
+	public String getEvalStan_teachStandard() {
+		return evalStan_teachStandard;
 	}
-	public void setEvalStan_title(String evalStan_title) {
-		this.evalStan_title = evalStan_title;
+	public void setEvalStan_teachStandard(String evalStan_teachStandard) {
+		this.evalStan_teachStandard = evalStan_teachStandard;
 	}
-	public String getEvalStan_itemA() {
-		return evalStan_itemA;
+	public String getEvalStan_scientifiStandard() {
+		return evalStan_scientifiStandard;
 	}
-	public void setEvalStan_itemA(String evalStan_itemA) {
-		this.evalStan_itemA = evalStan_itemA;
+	public void setEvalStan_scientifiStandard(String evalStan_scientifiStandard) {
+		this.evalStan_scientifiStandard = evalStan_scientifiStandard;
 	}
-	public String getEvalStan_itemB() {
-		return evalStan_itemB;
+	public String getEvalStan_moralityStandard() {
+		return evalStan_moralityStandard;
 	}
-	public void setEvalStan_itemB(String evalStan_itemB) {
-		this.evalStan_itemB = evalStan_itemB;
-	}
-	public String getEvalStan_itemC() {
-		return evalStan_itemC;
-	}
-	public void setEvalStan_itemC(String evalStan_itemC) {
-		this.evalStan_itemC = evalStan_itemC;
-	}
-	public String getEvalStan_itemD() {
-		return evalStan_itemD;
-	}
-	public void setEvalStan_itemD(String evalStan_itemD) {
-		this.evalStan_itemD = evalStan_itemD;
+	public void setEvalStan_moralityStandard(String evalStan_moralityStandard) {
+		this.evalStan_moralityStandard = evalStan_moralityStandard;
 	}
 	
 	

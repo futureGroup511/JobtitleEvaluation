@@ -13,14 +13,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name="evaluaterecord")
 public class EvaluatedRecord {
-
+	//评估记录id
 	private Integer evalRecor_id;
+	//评估记录参与人
 	private ParticipatedPerson evalRecor_participatedPerson;
+	//评估专家
 	private Expert evalRecor_expart;
+	//熟悉度
 	private String evalRecor_spciaFamiliar;
+	//教学
 	private String evalRecor_teaching;
+	//科研
 	private String evalRecor_research;
+	//师德
 	private String evalRecor_ethics;
+	//总和得分
 	private String evalRecor_allAssessment;
 	
 	@Id
@@ -77,6 +84,9 @@ public class EvaluatedRecord {
 		this.evalRecor_allAssessment = evalRecor_allAssessment;
 	}
 	
+	public static EvaluatedRecord newInstance(){
+		return new EvaluatedRecord();
+	}
 	
 	
 	

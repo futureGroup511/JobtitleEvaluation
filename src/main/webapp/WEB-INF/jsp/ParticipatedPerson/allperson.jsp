@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>所有参评人员信息界面</title>
+<title>所有参评人员信息</title>
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" >
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -23,7 +23,6 @@
 			</tr>
 		</thead>
 		<tbody>
-			
 				<c:forEach items="${p.recordlist}" var="person" varStatus="index">
 					<tr>
 						<td>${index.index+1}</td>
@@ -31,10 +30,9 @@
 						<td>${person.parti_specialty.spec_name}</td>
 						<td>${person.parti_jobTitle.jobTi_name}</td>
 						<td>${person.parti_recommendUnit.uni_name}</td>
-						<td><a href="expert_assess">审评</a></td>
+						<td><a href="expert_assess?person.parti_id=${person.parti_id}">审评</a></td>
 					</tr>
 				</c:forEach>
-			
 		</tbody>
 	</table>
 	<div class="center-block" style="width:500px">
