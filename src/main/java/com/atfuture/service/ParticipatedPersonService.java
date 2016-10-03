@@ -14,5 +14,8 @@ public interface ParticipatedPersonService {
 	public ParticipatedPerson getParticipatedPersonById(Integer id);
 	//分页查询得到参评人信息
 	public List<ParticipatedPerson> getParticipatedPersonByPage(Page_S page);
+	//增加参评人员信息
+	public void addParticipatedPerson(ParticipatedPerson participatedPerson);
+	public void updateParticipatedPerson(ParticipatedPerson participatedPerson);
 
 }

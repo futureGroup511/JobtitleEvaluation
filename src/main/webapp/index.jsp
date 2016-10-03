@@ -21,6 +21,8 @@
 	</ol>
 	<ol>
 		<li><a href="participated_manageParticipatedPerson">管理参评人员信息</a></li>
+		<li><a href="jobTitleStandard_manageJobTitleStandard">管理职称申报标准信息</a></li>
+		
 	</ol>
 	
 </body>
