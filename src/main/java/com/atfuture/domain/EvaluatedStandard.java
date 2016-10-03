@@ -1,7 +1,9 @@
 package com.atfuture.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -32,7 +34,7 @@ public class EvaluatedStandard {
 		this.evalStan_id = evalStan_id;
 	}
 	
-	@OneToOne()
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY,targetEntity=JobTitle.class)
 	public JobTitle getEvalStan_jobtile() {
 		return evalStan_jobtile;
 	}

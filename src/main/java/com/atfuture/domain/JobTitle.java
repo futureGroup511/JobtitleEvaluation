@@ -1,9 +1,12 @@
 package com.atfuture.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +18,7 @@ public class JobTitle {
 	//职称名称
 	private String jobTi_name;
 	
+	private EvaluatedStandard jobTi_evaluastand;
 	@Id
 	@GeneratedValue
 	@Column(name="jobTi_id")
@@ -30,5 +34,14 @@ public class JobTitle {
 	public void setJobTi_name(String jobTi_name) {
 		this.jobTi_name = jobTi_name;
 	}
+	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy="evalStan_jobtile",targetEntity=EvaluatedStandard.class)
+	public EvaluatedStandard getJobTi_evaluastand() {
+		return jobTi_evaluastand;
+	}
+	public void setJobTi_evaluastand(EvaluatedStandard jobTi_evaluastand) {
+		this.jobTi_evaluastand = jobTi_evaluastand;
+	}
+	
 	
 }

@@ -22,12 +22,13 @@ public class ParticipatedPersonDaoImpl extends BaseDaoImpl<ParticipatedPerson> i
 		criteria.setMaxResults(p.getPageSize());
 		List<ParticipatedPerson> persons=criteria.list(); 
 		Page_S result=new Page_S(p.getCurrentPage(), p.getPageSize(), num, persons);*/
-		String hql="select * from participateperson p join evaluaterecord e join expert ex where p.parti_id<>e.evalRecor_participatedPerson_parti_id and e.evalRecor_expart_exp_id<>?";
-		
+		String hql="select count(parti_id) as num from participateperson p where p.parti_id not in(select e.evalRecor_participatedPerson_parti_id from evaluaterecord e where e.evalRecor_expart_exp_id =?)";
 		Query query=getSession().createSQLQuery(hql).setParameter(0, id);
-		List list = query.list(); 
-		Integer num=((Integer) list.get(0)).intValue();
+		List<Object[]> list = query.list(); 
+		Integer num=Integer.valueOf(list.get(0)[0].toString());
 		getSession().flush();
+		String hq2="select count * from participateperson p where p.parti_id not in(select e.evalRecor_participatedPerson_parti_id from evaluaterecord e where e.evalRecor_expart_exp_id =?)";
+		query=getSession().createQuery(hq2).setParameter(0, id);
 		List<ParticipatedPerson> persons=query.setFirstResult(p.getPageSize()*(p.getCurrentPage()-1)).setMaxResults(p.getPageSize()).list();
 		Page_S result=new Page_S(p.getCurrentPage(), p.getPageSize(), num, persons);
 		return result;
