@@ -24,7 +24,7 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware{
 		Page_S p=Page_S.newInstance();
 		p.setCurrentPage(currentPage);
 		p.setPageSize(pageSize);
-		p=participatedPersonService.findAllParticipatedPerson(p);
+		p=participatedPersonService.findAllParticipatedPerson(p,1);
 		request.put("p", p);
 		return "allEvaluaTeacher";
 	}

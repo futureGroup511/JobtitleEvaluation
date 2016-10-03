@@ -46,6 +46,10 @@
                 <param name="bufferSize">4096</param>
         	</result>  
     	</action>
+ 		<action name="participated_*" method="{1}" class="participatedPersonAction">
+			<result name="ManageParticipatedPerson">WEB-INF/jsp/ParticipatedPerson/ParticipatedPersonList.jsp</result>
+			<result name="ToIncrementParticipatedPersonPage">WEB-INF/jsp/ParticipatedPerson/AddParticipatedPerson.jsp</result> 		    
+ 		</action>
     	
     	<action name="evaluatedrecord_*" method="{1}" class="evaluatedRecordAction">
     	   <result name="finishAssess">success.jsp</result>
