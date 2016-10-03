@@ -71,5 +71,8 @@ public class ParticipatedPerson {
 		this.parti_pathurl = parti_pathurl;
 	}
 	
+	public static ParticipatedPerson newInstance(){
+		return new ParticipatedPerson();
+	}
 	
 }

@@ -98,7 +98,9 @@ public class Expert {
 		this.exp_evaluateRecord = exp_evaluateRecord;
 	}
 	
-	
+	public static Expert newInstance(){
+		return new Expert();
+	}
 	
 	
 	

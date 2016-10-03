@@ -5,4 +5,5 @@ import com.atfuture.domain.Expert;
 
 public interface ExpertDao extends BaseDao<Expert>{
 
+	public Expert findById(Integer id);
 }

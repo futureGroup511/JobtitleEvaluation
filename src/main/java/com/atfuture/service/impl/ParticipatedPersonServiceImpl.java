@@ -17,6 +17,13 @@ public class ParticipatedPersonServiceImpl  implements ParticipatedPersonService
 	@Resource
 	private ParticipatedPersonDao participatedPersonDao;
 
+	public Page_S findAllParticipatedPerson(Page_S p,Integer id) {
+		return participatedPersonDao.findAllParticipatedPerson(p,id);
+	}
+
+	public ParticipatedPerson findById(Integer id) {
+		return participatedPersonDao.findById(id);
+	}
 	public List<ParticipatedPerson> getAllParticipatedPerson() {
 		String sql = "from ParticipatedPerson";
 		return participatedPersonDao.findEntityByHQL(sql);

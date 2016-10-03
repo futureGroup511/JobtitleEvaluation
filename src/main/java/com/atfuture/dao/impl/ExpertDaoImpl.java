@@ -7,4 +7,8 @@ import com.atfuture.domain.Expert;
 @Repository
 public class ExpertDaoImpl extends BaseDaoImpl<Expert> implements ExpertDao {
 
+	public Expert findById(Integer id) {
+		return getEntity(id);
+	}
+
 }

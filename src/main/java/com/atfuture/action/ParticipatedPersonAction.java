@@ -1,14 +1,12 @@
 package com.atfuture.action;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.RequestAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -111,6 +109,26 @@ public class ParticipatedPersonAction extends BaseAction<ParticipatedPerson> imp
 		this.currentPage = currentPage;
 	}
 
+	
+	//查看资料
+	public InputStream getInputStream() throws IOException{
+		File f=new File("E://shuju.png");
+		/*HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("multipart/form-data");
+		ServletOutputStream  out=response.getOutputStream();
+		FileInputStream in=new FileInputStream(f);
+		byte[] data=new byte[1024];
+		int length=0;
+		while((length=in.read(data))!=-1){
+			out.write(data, 0, length);
+		}
+		out.flush();
+		in.close();
+		out.close();*/
+		FileInputStream in=new FileInputStream(f);
+		BufferedInputStream bis=new BufferedInputStream(in);
+		return bis;
+	}
 	public void setRequest(Map<String, Object> requestMap) {
 		this.requestMap = requestMap;
 	}

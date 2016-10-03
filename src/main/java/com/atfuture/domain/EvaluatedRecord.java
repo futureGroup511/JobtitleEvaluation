@@ -84,6 +84,9 @@ public class EvaluatedRecord {
 		this.evalRecor_allAssessment = evalRecor_allAssessment;
 	}
 	
+	public static EvaluatedRecord newInstance(){
+		return new EvaluatedRecord();
+	}
 	
 	
 	

@@ -9,9 +9,11 @@ import com.atfuture.service.TestService;
 
 @Service
 public class TestServiceImpl implements TestService{
-
+	@Resource
+	private TestDao testDaO;
 	public Test loginByNumAndPassword(String num, String password) {
-		return new Test();
+		return testDaO.loginByNumAndPassword(num, password);
+
 	}
 
 	
