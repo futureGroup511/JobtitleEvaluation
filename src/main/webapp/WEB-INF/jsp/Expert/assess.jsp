@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,6 +12,17 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<c:choose>
+		<c:when test="${(fn:endsWith( person.parti_pathurl,'.jpg') or fn:endsWith( person.parti_pathurl,'.png'))}">
+			<a href="#" onclick="return go('${pageContext.request.contextPath}/participated_lookPicture?parti_pathurl=${person.parti_pathurl}')">显示图片</a>
+		</c:when>
+		<c:when test="${empty person.parti_pathurl}">
+			资料不存在
+		</c:when>
+		<c:otherwise>
+			无法显示请下载文件
+		</c:otherwise>
+	</c:choose>
 	<form action="evaluatedrecord_finishAssess" method="post">
 		<input type="hidden" name="expert_id" value="1">
 		<input type="hidden" name="person_id" value="${person.parti_id }">
@@ -75,16 +88,27 @@
 		</table>
 		<input type="submit">
 	</form>
-	<a href="#" onclick="return popWinGD('person_getInputStream?parti_pathurl=${person.parti_pathurl}')">查看资料</a>
+	<c:if test="${!empty person.parti_pathurl }">
+		<a href="#" onclick="return popWinGD('${pageContext.request.contextPath}/participated_lookResource?parti_pathurl=${person.parti_pathurl}')">下载文件</a>
+	</c:if>
+	
 </body>
 
 <script language="JavaScript">
+	
 		function popWinGD(theURL){
+			
+			 window.location.href=theURL;
+			return false;
+		}
+		
+		function go(url){
 			var pop,w=670,h=450; //window.navigate(theURL);
 			pop=window.open(theURL,"winGD","width="+w+",height="+h+",resizable=yes,menubar=no,toolbar=no,location=no,scrollbars=no,status=no")
  			pop.moveTo((screen.width-w)/2,(screen.height-h)/2);
-			return false;
+			 
 		}
+		
 </script>
 
 </html>

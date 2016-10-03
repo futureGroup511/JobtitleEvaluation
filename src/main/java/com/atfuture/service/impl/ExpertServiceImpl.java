@@ -19,4 +19,8 @@ public class ExpertServiceImpl  implements ExpertService {
 		return expertDao.findById(id);
 	}
 
+	public Expert findByNumAndPassword(String num, String password) {
+		return expertDao.findByNumAndPassword(num, password);
+	}
+
 }

@@ -38,7 +38,10 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware{
 		return "assess";
 	}
 	
-	
+	//查看个人信息
+	public String lookInformation(){
+		return "lookInformation";
+	}
 	public Integer getCurrentPage() {
 		return currentPage;
 	}

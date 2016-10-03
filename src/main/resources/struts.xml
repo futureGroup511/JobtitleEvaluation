@@ -32,6 +32,7 @@
 	    <action name="loginAction_*" method="{1}" class="loginAction">
     		<result name="success" >success.jsp</result>
     		<result name="erro" >erro.jsp</result>
+    		<result name="login" type="json"></result>
  		</action> 
  		<action name="expert_*" method="{1}" class="expertAction">
  		    <result name="allEvaluaTeacher">WEB-INF/jsp/ParticipatedPerson/allperson.jsp</result>
@@ -39,15 +40,10 @@
  		</action>
  		<action name="super_*" method="{1}" class="superManagerAction">
 			<result name="RequestCodePublish">WEB-INF/jsp/SuperManager/PublishRequestCode.jsp</result> 		    
+ 			<result name=""></result>
  		</action>
  		
-    	<action name="person_*" method="{1}" class="participatedPersonAction">
-    	    <result type="stream">
-               <param name="contentType">image/gif</param>
-                <param name="inputName">inputStream</param>
-                <param name="bufferSize">4096</param>
-        	</result>  
-    	</action>
+    	
  		<action name="participated_*" method="{1}" class="participatedPersonAction">
 			<result name="ManageParticipatedPerson">WEB-INF/jsp/ParticipatedPerson/ParticipatedPersonList.jsp</result>
 			<result name="ToIncrementParticipatedPersonPage">WEB-INF/jsp/ParticipatedPerson/AddParticipatedPerson.jsp</result>
@@ -55,6 +51,16 @@
 			<result name="FileTypeNotAllowed">FileTypeNotAllowed.html</result>
 			<result name="ToUpdateParticipatedPerson">WEB-INF/jsp/ParticipatedPerson/UpdateParticipatedPerson.jsp</result>
 			<result name="RedirectManageParticipatedPersonToPage" type="redirect">participated_manageParticipatedPerson?currentPage=${currentPage}</result>
+ 			<result type="stream" name="lookResource">
+ 			    <!-- Stream返回类型的各项参数 -->
+             <param name="inputName">inputStream</param> 
+			<!-- 这里的文件格式建议写这个，可以接收多种格式文件 -->
+             <param name="contentType">application/octet-stream;charset=utf-8</param>
+             <!-- <param name="contentType">multipart/form-data</param> -->
+             <param name="contentDisposition">attachment;fileName="${filename}"</param>
+             <param name="bufferSize">4096</param>
+ 			</result>
+ 			<result name="lookPicture">picture.jsp</result>
  		</action>
  		
  		<action name="jobTitleStandard_*" method="{1}" class="jobTitleAction">

@@ -14,4 +14,6 @@ public interface ParticipatedPersonDao extends BaseDao<ParticipatedPerson>{
 	//通过id查找
 	public ParticipatedPerson findById(Integer id);
 	public List<ParticipatedPerson> getParticipatedPersonByPage(Page_S page);
+	//删除所有参评人员
+	public void deleteAll();
 }

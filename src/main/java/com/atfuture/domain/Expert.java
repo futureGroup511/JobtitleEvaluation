@@ -63,14 +63,14 @@ public class Expert {
 		this.exp_password = exp_password;
 	}
 	
-	@ManyToOne(cascade=CascadeType.PERSIST,optional=true,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.MERGE,optional=true,fetch=FetchType.EAGER)
 	public Specialty getExp_specialty() {
 		return exp_specialty;
 	}
 	public void setExp_specialty(Specialty exp_specialty) {
 		this.exp_specialty = exp_specialty;
 	}
-	@ManyToOne(cascade=CascadeType.PERSIST,optional=true,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.MERGE,optional=true,fetch=FetchType.EAGER)
 	public JobTitle getExp_jobTitle() {
 		return exp_jobTitle;
 	}
@@ -83,14 +83,14 @@ public class Expert {
 	public void setExp_educationLevel(String exp_educationLevel) {
 		this.exp_educationLevel = exp_educationLevel;
 	}
-	@ManyToOne(cascade=CascadeType.PERSIST,optional=true,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.MERGE,optional=true,fetch=FetchType.EAGER)
 	public Unit getExp_unit() {
 		return exp_unit;
 	}
 	public void setExp_unit(Unit exp_unit) {
 		this.exp_unit = exp_unit;
 	}
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY,mappedBy="evalRecor_expart")
+	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.LAZY,mappedBy="evalRecor_expart")
 	public Set<EvaluatedRecord> getExp_evaluateRecord() {
 		return exp_evaluateRecord;
 	}
