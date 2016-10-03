@@ -36,4 +36,13 @@ public class ParticipatedPersonServiceImpl  implements ParticipatedPersonService
 	public List<ParticipatedPerson> getParticipatedPersonByPage(Page_S page) {
 		return participatedPersonDao.getParticipatedPersonByPage(page);
 	}
+
+	public void addParticipatedPerson(ParticipatedPerson participatedPerson) {
+		participatedPersonDao.saveEntity(participatedPerson);
+	}
+	
+	public void updateParticipatedPerson(ParticipatedPerson participatedPerson){
+		participatedPersonDao.updateEntity(participatedPerson);
+	}
+
 }

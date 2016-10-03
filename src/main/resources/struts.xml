@@ -9,6 +9,8 @@
     <!-- 禁止缓存 -->
     <constant name="struts.serve.static.browserCache" value="false" /> 
 	<constant name="struts.action.extension" value="action,do,,"/>
+	 <!-- 指定允许上传的文件最大字节数。默认值是2097152(2M) -->
+    <constant name="struts.multipart.maxSize" value="107010960"/>
      
      <!-- 由spring 管理action的创建  -->
     <constant name="struts.objectFactory" value="spring" />
@@ -48,7 +50,15 @@
     	</action>
  		<action name="participated_*" method="{1}" class="participatedPersonAction">
 			<result name="ManageParticipatedPerson">WEB-INF/jsp/ParticipatedPerson/ParticipatedPersonList.jsp</result>
-			<result name="ToIncrementParticipatedPersonPage">WEB-INF/jsp/ParticipatedPerson/AddParticipatedPerson.jsp</result> 		    
+			<result name="ToIncrementParticipatedPersonPage">WEB-INF/jsp/ParticipatedPerson/AddParticipatedPerson.jsp</result>
+			<result name="RedirectManageParticipatedPerson" type="redirectAction">participated_manageParticipatedPerson</result>
+			<result name="FileTypeNotAllowed">FileTypeNotAllowed.html</result>
+			<result name="ToUpdateParticipatedPerson">WEB-INF/jsp/ParticipatedPerson/UpdateParticipatedPerson.jsp</result>
+			<result name="RedirectManageParticipatedPersonToPage" type="redirect">participated_manageParticipatedPerson?currentPage=${currentPage}</result>
+ 		</action>
+ 		
+ 		<action name="jobTitleStandard_*" method="{1}" class="jobTitleAction">
+			<result name="ManageJobTitleList">WEB-INF/jsp/JobTitle/ManageJobTitleStandard.jsp</result> 		    
  		</action>
     	
     	<action name="evaluatedrecord_*" method="{1}" class="evaluatedRecordAction">
