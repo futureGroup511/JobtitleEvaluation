@@ -1,5 +1,7 @@
 package com.atfuture.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -18,5 +20,22 @@ public class ExpertServiceImpl  implements ExpertService {
 	public Expert findById(Integer id) {
 		return expertDao.findById(id);
 	}
+
+	public List<Expert> getExpertByPage(Page_S page) {
+		return expertDao.getExpertByPage(page);
+	}
+
+	public void saveExpertInfo(Expert expert) {
+		expertDao.saveEntity(expert);
+	}
+
+	public void updateExpertInfo(Expert expert) {
+		expertDao.updateEntity(expert);
+	}
+
+	public List<Expert> getAllExpert() {
+		return expertDao.getAllExpert();
+	}
+
 
 }

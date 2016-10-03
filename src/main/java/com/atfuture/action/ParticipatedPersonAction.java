@@ -38,7 +38,7 @@ public class ParticipatedPersonAction extends BaseAction<ParticipatedPerson> imp
 		Integer recordCount = participatedPersonService.getAllParticipatedPerson().size();
 		Integer pageSize = 2;
 		if(currentPage == null || (currentPage+"").trim() == ""){
-			currentPage = 0;
+			currentPage = 1;
 		}
 		List<ParticipatedPerson> recordList = null; 
 		Page_S page = new Page_S(currentPage, pageSize, recordCount, null);

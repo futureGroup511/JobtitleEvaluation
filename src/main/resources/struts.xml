@@ -60,6 +60,23 @@
  		<action name="jobTitleStandard_*" method="{1}" class="jobTitleAction">
 			<result name="ManageJobTitleList">WEB-INF/jsp/JobTitle/ManageJobTitleStandard.jsp</result> 		    
  		</action>
+    	<action name="statistic_*" method="{1}" class="statisticsAction">
+    	</action>
+    	<action name="expert_*" method="{1}" class="expertAction">
+			<result name="InputRequestCodePage">WEB-INF/jsp/Expert/InputRequestCode.jsp</result> 		    
+			<result name="ExpertRegisterPage">WEB-INF/jsp/Expert/RegisterExpertPage.jsp</result> 		    
+			<result name="RequestCodeWrong">WEB-INF/jsp/Expert/RequestCodeWrong.jsp</result> 		    
+			<result name="ExpertRegisterSuccess">WEB-INF/jsp/Expert/RegisterSuccess.jsp</result>
+			<result name="ManageExpertInfoPage">WEB-INF/jsp/Expert/ManageExpertListPage.jsp</result>
+			<result name="RedirectToManageExpertInfo"  type="redirect">expert_manageExpertInfoList?currentPage=${currentPage}</result>
+			<result name="ShowExpertInfoPage">WEB-INF/jsp/Expert/ShowExpertInfo.jsp</result>
+			<result name="RedirectToManageExpertInfo" type="redirect">expert_manageExpertInfoList?currentPage=${currentPage}</result>
+    	</action>
+    	
+    	
+    	
+    	
+    	
     	
     	<action name="evaluatedrecord_*" method="{1}" class="evaluatedRecordAction">
     	   <result name="finishAssess">success.jsp</result>
