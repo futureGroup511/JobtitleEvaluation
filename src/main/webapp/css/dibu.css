@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	padding:0;
+	margin:0;
+}
+.row{
+	width:100%;
+}
+.container form{
+	margin-top:25px;
+	}
