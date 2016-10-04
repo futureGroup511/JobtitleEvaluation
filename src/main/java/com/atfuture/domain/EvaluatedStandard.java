@@ -34,7 +34,11 @@ public class EvaluatedStandard {
 		this.evalStan_id = evalStan_id;
 	}
 	
+<<<<<<< HEAD
 	@OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY,targetEntity=JobTitle.class)
+=======
+	@OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY,targetEntity=JobTitle.class)
+>>>>>>> e3392cd1701015ce007624b273b903d8d4437ab9
 	public JobTitle getEvalStan_jobtile() {
 		return evalStan_jobtile;
 	}

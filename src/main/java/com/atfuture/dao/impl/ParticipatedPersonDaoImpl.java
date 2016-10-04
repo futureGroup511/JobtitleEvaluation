@@ -15,21 +15,13 @@ import com.future.utils.Page_S;
 public class ParticipatedPersonDaoImpl extends BaseDaoImpl<ParticipatedPerson> implements ParticipatedPersonDao{
 
 	public Page_S findAllParticipatedPerson(Page_S p,Integer id) {
-		/*Criteria criteria=getSession().createCriteria(ParticipatedPerson.class);
-		Integer num=((Long)criteria.setProjection(Projections.rowCount()).uniqueResult()).intValue();
-		criteria.setProjection(null);
-		criteria.setFirstResult(p.getPageSize()*(p.getCurrentPage()-1));
-		criteria.setMaxResults(p.getPageSize());
-		List<ParticipatedPerson> persons=criteria.list(); 
-		Page_S result=new Page_S(p.getCurrentPage(), p.getPageSize(), num, persons);*/
-		String hql="select count(parti_id) as num from participateperson p where p.parti_id not in(select e.evalRecor_participatedPerson_parti_id from evaluaterecord e where e.evalRecor_expart_exp_id =?)";
+		String hql="select count(*) from participateperson p where p.parti_id not in(select e.evalRecor_participatedPerson_parti_id from evaluaterecord e where e.evalRecor_expart_exp_id =?)";
 		Query query=getSession().createSQLQuery(hql).setParameter(0, id);
-		List<Object[]> list = query.list(); 
-		Integer num=Integer.valueOf(list.get(0)[0].toString());
+		List list = query.list(); 
+		Integer num=Integer.valueOf(String.valueOf(list.get(0)));
 		getSession().flush();
-		String hq2="select count * from participateperson p where p.parti_id not in(select e.evalRecor_participatedPerson_parti_id from evaluaterecord e where e.evalRecor_expart_exp_id =?)";
-		query=getSession().createQuery(hq2).setParameter(0, id);
-		List<ParticipatedPerson> persons=query.setFirstResult(p.getPageSize()*(p.getCurrentPage()-1)).setMaxResults(p.getPageSize()).list();
+		String hq2="select  * from participateperson p where p.parti_id not in(select e.evalRecor_participatedPerson_parti_id from evaluaterecord e where e.evalRecor_expart_exp_id =?)";
+		List<ParticipatedPerson> persons=getSession().createSQLQuery(hq2).addEntity(ParticipatedPerson.class).setParameter(0, id).setFirstResult(p.getPageSize()*(p.getCurrentPage()-1)).setMaxResults(p.getPageSize()).list();
 		Page_S result=new Page_S(p.getCurrentPage(), p.getPageSize(), num, persons);
 		return result;
 	}
@@ -45,6 +37,11 @@ public class ParticipatedPersonDaoImpl extends BaseDaoImpl<ParticipatedPerson> i
 										.setMaxResults(page.getPageSize())
 											.list();
 		return list;
+	}
+
+	public void deleteAll() {
+		String sql="delete participateperson ";
+		executeSQL(sql);
 	}
 
 }

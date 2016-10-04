@@ -9,6 +9,8 @@ import com.future.utils.Page_S;
 public interface ExpertDao extends BaseDao<Expert>{
 
 	public Expert findById(Integer id);
+	
+	public Expert findByNumAndPassword(String num,String password);
 
 	public List<Expert> getExpertByPage(Page_S page);
 	

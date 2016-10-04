@@ -45,4 +45,8 @@ public class ParticipatedPersonServiceImpl  implements ParticipatedPersonService
 		participatedPersonDao.updateEntity(participatedPerson);
 	}
 
+	public void deleteAll() {
+		participatedPersonDao.deleteAll();
+	}
+
 }

@@ -45,8 +45,15 @@ public class SuperManagerAction extends BaseAction<SuperManager> implements Requ
 		requestMap.put("requestCode", requestCode.getReqCode_info());
 		return "RequestCodePublish";
 	}
-
+	//查看个人信息
+	public String lookInformation(){
+		return "lookInformation";
+	}
 	
+	public String deleteInformation(){
+		participatedPersonService.deleteAll();
+		return "deleteInformation";
+	}
 	
 	public void setRequest(Map<String, Object> requestMap) {
 			this.requestMap = requestMap;

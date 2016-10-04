@@ -46,7 +46,15 @@
 	  	跳到第：
 			<select name="currentPage">
 				<c:forEach begin="1"  end="${p.pageCount}" varStatus="index">
-					<option value="${index.index}">${index.index}</option>
+					<c:choose>
+						<c:when test="${p.currentPage eq index.index}">
+							<option value="${index.index}" selected="selected">${index.index}</option>
+						</c:when>
+						<c:otherwise>
+							<option value="${index.index}" >${index.index}</option>
+						</c:otherwise>
+					</c:choose>
+					
 				</c:forEach>
 			</select>
 			页

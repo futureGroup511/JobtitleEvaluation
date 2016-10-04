@@ -20,6 +20,9 @@ public class ExpertServiceImpl  implements ExpertService {
 	public Expert findById(Integer id) {
 		return expertDao.findById(id);
 	}
+	public Expert findByNumAndPassword(String num, String password) {
+		return expertDao.findByNumAndPassword(num, password);
+	}
 
 	public List<Expert> getExpertByPage(Page_S page) {
 		return expertDao.getExpertByPage(page);

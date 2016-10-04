@@ -10,6 +10,10 @@ public interface ExpertService {
 	
 	//通过id查询专家
 	public Expert findById(Integer id);
+	
+	//根据账号密码查询
+	public Expert findByNumAndPassword(String num, String password);
+	
 	//分页查询专家信息
 	public List<Expert> getExpertByPage(Page_S page);
 	//保存专家信息

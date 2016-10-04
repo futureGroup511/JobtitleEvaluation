@@ -21,5 +21,8 @@ public interface ParticipatedPersonService {
 	//增加参评人员信息
 	public void addParticipatedPerson(ParticipatedPerson participatedPerson);
 	public void updateParticipatedPerson(ParticipatedPerson participatedPerson);
+	//删除所有人员信息
+	public void deleteAll();
+	
 
 }
