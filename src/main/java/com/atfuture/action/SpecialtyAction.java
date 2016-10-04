@@ -65,7 +65,11 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 		return "changePage";
 	}
 	public String change(){
-		if(null==specialty||"".equals(specialty.getSpec_id())||"".equals(specialty.getSpec_name())){
+		if(null==specialty){
+			this.addRemind("错误!请正确操作!");
+			return "changePage";
+		}
+		if("".equals(specialty.getSpec_id())||"".equals(specialty.getSpec_name())){
 			this.addRemind("修改失败,请正确操作!");
 			Specialty jt=specialtyService.getSpecialty(specialty.getSpec_id());
 			this.getRequest().setAttribute("findResult",jt);

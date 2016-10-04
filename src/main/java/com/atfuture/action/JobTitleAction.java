@@ -69,7 +69,11 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 	}
 	
 	public String change(){
-		if(null==jobTitle||"".equals(jobTitle.getJobTi_id())||"".equals(jobTitle.getJobTi_name())){
+		if(null==jobTitle){
+			this.addRemind("错误!请正确操作!");
+			return "changePage";
+		}
+		if("".equals(jobTitle.getJobTi_id())||"".equals(jobTitle.getJobTi_name())){
 			this.addRemind("修改失败,请正确操作!");
 			JobTitle jt=jobTitleService.getJobTitle(jobTitle.getJobTi_id());
 			this.getRequest().setAttribute("findResult",jt);
