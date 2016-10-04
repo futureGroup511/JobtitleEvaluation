@@ -48,7 +48,7 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 	}
 	public String add(){
 		if(null==jobTitle){
-			return SUCCESS;
+			return "addSuccess";
 		}
 		if("".equals(jobTitle.getJobTi_name())){
 			this.addRemind("添加失败,请不要输入空的名字!");
