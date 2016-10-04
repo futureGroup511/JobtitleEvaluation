@@ -35,14 +35,10 @@
     		<result name="login" type="json"></result>
     		<result name="finishLogin">success.jsp</result>
  		</action> 
- 		<action name="expert_*" method="{1}" class="expertAction">
- 		    
- 		    <result name="allEvaluaTeacher">WEB-INF/jsp/ParticipatedPerson/allperson.jsp</result>
- 		    <result name="assess">WEB-INF/jsp/Expert/assess.jsp</result>
- 		</action>
+ 		
  		<action name="super_*" method="{1}" class="superManagerAction">
 			<result name="RequestCodePublish">WEB-INF/jsp/SuperManager/PublishRequestCode.jsp</result> 		    
- 			
+ 			<result name="lookInformation">WEB-INF/jsp/SuperManager/information.jsp</result>
  		</action>
  		
     	
@@ -66,10 +62,10 @@
  			<result name="lookPicture">picture.jsp</result>
  		</action>
  		
- 		<action name="jobTitleStandard_*" method="{1}" class="jobTitleAction">
+ 		<!-- <action name="jobTitleStandard_*" method="{1}" class="jobTitleAction">
 			<result name="ManageJobTitleList">WEB-INF/jsp/JobTitle/ManageJobTitleStandard.jsp</result>
 			<result name="JobTitleStandardPage">WEB-INF/jsp/JobTitle/UpdateJobTitleStandard.jsp</result>
- 		</action>
+ 		</action> -->
  		<action name="evaluatedStandard_*" method="{1}" class="evaluatedStandardAction">
 			<result name="JumpToJobTitleAction" type="redirectAction">jobTitleStandard_manageJobTitleStandard</result>
  		</action>
@@ -84,10 +80,9 @@
 			<result name="ManageExpertInfoPage">WEB-INF/jsp/Expert/ManageExpertListPage.jsp</result>
 			<result name="RedirectToManageExpertInfo"  type="redirectAction">expert_manageExpertInfoList?currentPage=${currentPage}</result>
 			<result name="ShowExpertInfoPage">WEB-INF/jsp/Expert/ShowExpertInfo.jsp</result>
-			<result name="RedirectToManageExpertInfo" type="redirect">expert_manageExpertInfoList?currentPage=${currentPage}</result>
     		<result name="allEvaluaTeacher">WEB-INF/jsp/ParticipatedPerson/allperson.jsp</result>
  		    <result name="assess">WEB-INF/jsp/Expert/assess.jsp</result>
-			<result name="RedirectToManageExpertInfo" type="redirectAction">expert_manageExpertInfoList?currentPage=${currentPage}</result>
+    		<result name="lookInformation">WEB-INF/jsp/Expert/information.jsp</result>
     	</action>
     	<!-- Unit,Specialty,JobTitle的action配置开始 -->
     	

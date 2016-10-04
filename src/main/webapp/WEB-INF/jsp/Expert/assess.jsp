@@ -11,7 +11,11 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/liwen3.css">
-
+<style type="text/css">
+	label {
+	padding-right: 30px;
+}
+</style>
 </head>
 <body>
 	<div class="container">
@@ -42,62 +46,106 @@
 		<input type="hidden" name="expert_id" value="1">
 		<input type="hidden" name="person_id" value="${person.parti_id }">
 		<div class="table-responsive">
-   			 <table class="table table-bordered table-hover table-striped">
-   			 	<thead>
+   			 <table class="table table-bordered table-hover table-striped" style="Word-break: break-all;">
+   			 	<!-- <thead>
 				<tr class="one">
 					<td>标题</td>
 					<td>内容</td>
 					<td>选项</td>
 				</tr>
-			</thead>
+				</thead> -->
 			<tbody>
 					<tr>
-						<td>您对参评人从事专业</td>
-						<td></td>
+						<td><strong>您对参评人从事专业</strong></td>
+						
+					</tr>
+					<tr>
 						<td>
-							<input type="radio" name="evalRecor_spciaFamiliar" value="A">A.熟悉
+							<label>
+								<input type="radio" name="evalRecor_spciaFamiliar" value="A">A.熟悉
+							</label>
+							<label>
 							<input type="radio" name="evalRecor_spciaFamiliar" value="B" checked="checked">B.比较熟悉
+							</label>
+							<label>
 							<input type="radio" name="evalRecor_spciaFamiliar" value="C">C.不太熟悉
+							</label>
 						</td>
 					</tr>
 					<tr>
-						<td>教学</td>
-						<td>${evaluatedStandard.evalStan_teachStandard }</td>
+						<td>(1)<strong>教学:</strong> ${evaluatedStandard.evalStan_teachStandard } </td>
+					</tr>
+					<tr>
 						<td>
-							<input type="radio" name="evalRecor_teaching" value="A">A.优
-							<input type="radio" name="evalRecor_teaching" value="B" checked="checked">B.良
-							<input type="radio" name="evalRecor_teaching" value="C">C.中
-							<input type="radio" name="evalRecor_teaching" value="D">D.差
+							<label>
+								<input type="radio" name="evalRecor_teaching" value="A">A.优
+							</label>
+							<label>
+								<input type="radio" name="evalRecor_teaching" value="B" checked="checked">B.良
+							</label>
+							<label>
+								<input type="radio" name="evalRecor_teaching" value="C">C.中
+							</label>
+							<label>
+								<input type="radio" name="evalRecor_teaching" value="D">D.差
+							</label>
 						</td>
 					</tr>
 					<tr>
-						<td>科研</td>
-						<td>${evaluatedStandard.evalStan_scientifiStandard }</td>
+						<td><strong>(2)科研:</strong> ${evaluatedStandard.evalStan_scientifiStandard }</td>
+					</tr>
+					<tr>
 						<td>
-							<input type="radio" name="evalRecor_research" value="A">A.优
-							<input type="radio" name="evalRecor_research" value="B" checked="checked">B.良
-							<input type="radio" name="evalRecor_research" value="C">C.中
-							<input type="radio" name="evalRecor_research" value="D">D.差
+							<label>
+								<input type="radio" name="evalRecor_research" value="A">A.优
+							</label>
+							<label>
+								<input type="radio" name="evalRecor_research" value="B" checked="checked">B.良
+							</label>
+							<label>
+								<input type="radio" name="evalRecor_research" value="C">C.中
+							</label>
+							<label>
+								<input type="radio" name="evalRecor_research" value="D">D.差
+							</label>
 						</td>
 					</tr>
 					<tr>
-						<td>师德</td>
-						<td>${evaluatedStandard.evalStan_moralityStandard }</td>
+						<td><strong>(3)师德:</strong> ${evaluatedStandard.evalStan_moralityStandard } </td>
+					</tr>
+					<tr>
 						<td>
-							<input type="radio" name="evalRecor_ethics" value="A">A.优
-							<input type="radio" name="evalRecor_ethics" value="B" checked="checked">B.良
-							<input type="radio" name="evalRecor_ethics" value="C">C.中
-							<input type="radio" name="evalRecor_ethics" value="D">D.差
+							<label>
+								<input type="radio" name="evalRecor_ethics" value="A">A.优
+							</label>
+							<label>
+								<input type="radio" name="evalRecor_ethics" value="B" checked="checked">B.良
+							</label>
+							<label>
+								<input type="radio" name="evalRecor_ethics" value="C">C.中
+							</label>
+							<label>
+								<input type="radio" name="evalRecor_ethics" value="D">D.差
+							</label>
 						</td>
 					</tr>
 					<tr>
-						<td>综合评价</td>
-						<td></td>
+						<td><strong>综合评价</strong></td>
+					</tr>
+					<tr>
 						<td>
-							<input type="radio" name="evalRecor_allAssessment" value="优">A.优
-							<input type="radio" name="evalRecor_allAssessment" value="良" checked="checked">B.良
-							<input type="radio" name="evalRecor_allAssessment" value="中">C.中
-							<input type="radio" name="evalRecor_allAssessment" value="差">D.差
+							<label>
+								<input type="radio" name="evalRecor_allAssessment" value="优">A.优
+							</label>
+							<label>
+								<input type="radio" name="evalRecor_allAssessment" value="良" checked="checked">B.良
+							</label>
+							<label>
+								<input type="radio" name="evalRecor_allAssessment" value="中">C.中
+							</label>
+							<label>
+								<input type="radio" name="evalRecor_allAssessment" value="差">D.差
+							</label>
 						</td>
 					</tr>
 			</tbody>
