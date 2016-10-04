@@ -6,60 +6,87 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>分页查看</title>
+<title>第${page_s.currentPage }页查看所有专业</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/specialty_page_s.css">
 </head>
 <body>
+
+<div class="dangqian">
+  <div class="row">
+    <div class="col-lg-1 col-lg-offset-1 col-md-2  col-xs-2 col-xs-offset-1">
+            <a><p>添加信息</p></a>
+        </div>
+        <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-xs-5  col-xs-offset-1">
+            <p>当前位置：学生服务>>报名</p>
+        </div>
+        <div class="col-lg-2 col-md-3 col-xs-3">
+            <p>欢迎登录本系统</p>
+        </div>
+  </div>
+</div>
 <center>
-	<h1>分页查看</h1>
-	<hr>
-	<h2>第${page_s.currentPage } / ${page_s.pageCount }页</h2>
-	
-		<table>
-			<tbody>
-				<tr>
-					<td>专业ID</td>
-					<td>专业名字</td>
-					<td>修改</td>
-				</tr>
-				
-				<c:forEach var="jt" items="${page_s.recordlist }">
+	<h3>第${page_s.currentPage } / ${page_s.pageCount }页--所有专业信息</h3>
+</center>
+ <table class="table table-bordered table-hover">
+            <tbody>
+                <tr>
+                    
+                    <td>专业名字</td>
+                    <td>修改</td>
+                </tr>
+                <c:forEach var="jt" items="${page_s.recordlist }">
 					<tr>
-					<td>${jt.spec_id }</td>
 					<td>${jt.spec_name }</td>
 					<td><a href="specialty_changePage?specialty.spec_id=${jt.spec_id }">修改</a></td>
 					</tr>
 				</c:forEach>
-			</tbody>
-		</table>
-	页数:
-	<!-- 上一页和下一页用下面的js更改属性 -->
-	<a id="prePage"  href="#">上一页</a>
-	<a id="nextPage"  href="#">下一页</a>
-	<a  href="specialty_page_s?page_s.currentPage=1">首页</a>
-	
-	<c:forEach var="p" begin="${page_s.beginPageIndex }" end="${page_s.endPageIndex }" step="1">
-		<span><a href="specialty_page_s?page_s.currentPage=${p }">${p }</a></span>
-	</c:forEach>
-	
-	<a href="specialty_page_s?page_s.currentPage=${page_s.endPageIndex }">尾页</a>
-	  
-
-	<form>
-		跳转到指定页:<input type="text" name="page_s.currentPage">
-		<input type="submit" value="跳转">
-	</form>
-
-</center>
+            </tbody>
+  </table>
+  <div class="container">
+      <div class="row">
+           <div class="col-lg-3 col-lg-offset-3 col-md-5 col-md-offset-3 col-xs-5 col-xs-offset-3">
+               <nav>
+                   <ul class="pagination">
+                       <li><a href="specialty_page_s?page_s.currentPage=1">首页</a></li>
+                       <li><a id="prePage" href="#">上一页</a></li>
+                       <c:forEach var="p" begin="${page_s.beginPageIndex }" end="${page_s.currentPage - 1 }" step="1">
+							<li><a href="specialty_page_s?page_s.currentPage=${p }">${p }</a></li>
+						</c:forEach>
+						<li><a style="color:red">${page_s.currentPage }</a></li>
+						<c:forEach var="p" begin="${page_s.currentPage + 1 }" end="${page_s.endPageIndex }" step="1">
+							<li><a href="specialty_page_s?page_s.currentPage=${p }">${p }</a></li>
+						</c:forEach>
+                       <li><a id="nextPage" href="#">下一页</a></li>
+                       <li><a href="specialty_page_s?page_s.currentPage=${page_s.endPageIndex }">尾页</a></li>
+                   </ul>
+               </nav>
+            </div>
+           <form>
+	            <label class="col-lg-1 col-md-1 col-xs-1 control-label">跳到第</label>
+                <div class="col-lg-2 col-md-2 col-xs-2">
+	              <select class="form-control" style="width:50%;" name="page_s.currentPage">
+ 	 	              
+					<c:forEach var="p" begin="1" end="${page_s.pageCount }" step="1">
+						 <option>${p }</option>
+					</c:forEach>
+	              </select>
+                <label class="col-lg-1 col-md-1 col-xs-1 control-label" style="margin-top:-28px; margin-left:65%;">页</label>
+                </div>
+                <button type="submit" class="btn btn-primary" >跳转</button>
+             </form>
+     </div>
+</div>
 <script type="text/javascript">
 		var one=${page_s.currentPage};
 		var two=${page_s.pageCount }
-			if(one != 1){
-				document.getElementById("prePage").setAttribute("href", "specialty_page_s?page_s.currentPage="+(one-1));
-			}
-			if(one != two){
-				document.getElementById("nextPage").setAttribute("href", "specialty_page_s?page_s.currentPage="+(one+1));
-			}
-	</script>
+		if(one != 1){
+			document.getElementById("prePage").setAttribute("href", "specialty_page_s?page_s.currentPage="+(one-1));
+		}
+		if(one != two){
+			document.getElementById("nextPage").setAttribute("href", "specialty_page_s?page_s.currentPage="+(one+1));
+		}
+</script>
 </body>
 
 </html>

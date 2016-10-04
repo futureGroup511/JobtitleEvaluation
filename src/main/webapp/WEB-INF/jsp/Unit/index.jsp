@@ -8,25 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>单位管理</title>
 <link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/unit.css">
+<link rel="stylesheet" href="css/unit_index.css">
 
 </head>
 <body>
-	<%-- <center>
-	
-	<form method="post" action="unit_add">
-		单位名字:<input name="unit.uni_name" size="50">
-		<input type="submit" value="增加">
-	</form>
-	<hr>
-	<h2>查看、管理(修改)单位</h2>
-		<form action="unit_findByName" method="post">
-			请输入要管理的单位的名字:<input type="text" name="unit.uni_name" size="50">
-			<input type="submit" value="查找">
-		</form>
-	<hr>
-	<h2><a href="unit_page_s?page_s.currentPage=1">查看所有单位</a></h2>
-	</center> --%>
+
 	<div class="dangqian">
 	  <div class="row">
 	    <div class="col-lg-1 col-lg-offset-1 col-md-2  col-xs-2 col-xs-offset-1">

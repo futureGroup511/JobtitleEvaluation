@@ -48,7 +48,7 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 			return "addSuccess";
 		}
 		if(specialtyService.checkExist(specialty.getSpec_name())){
-			this.addRemind("添加失败!职称名字已经存在");
+			this.addRemind("添加失败!名字已经存在");
 			return "addSuccess";
 		}
 		specialtyService.addSpecialty(specialty);
