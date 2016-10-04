@@ -25,6 +25,7 @@ public class LoginAction extends BaseAction<Object> implements SessionAware{
 	private static final int EXPERT=1;
 	private static final int MANNGER=2;
 	public String login(){
+		session.clear();
 		int status=1;
 		if(role==EXPERT){//专家登陆
 			Expert expert=expertService.findByNumAndPassword(num, password);

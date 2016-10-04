@@ -20,7 +20,7 @@ public class JobTitle {
 	
 	private EvaluatedStandard jobTi_evaluastand;
 	@Id
-	@GeneratedValue
+	@GeneratedValue 
 	@Column(name="jobTi_id")
 	public Integer getJobTi_id() {
 		return jobTi_id;

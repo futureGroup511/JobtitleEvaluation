@@ -5,15 +5,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>个人信息页面</title>
+<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" >
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/liwen15.css">
 </head>
 <body>
-
+	<div class="dangqian">
+	   <div class="row">
+	        <div class="col-lg-1 col-lg-offset-1 col-md-2  col-xs-2 col-xs-offset-1">
+	        </div>
+	        <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
+	            <p>当前位置：管理员>>个人信息</p>
+	        </div>
+	        <div class="col-lg-2 col-md-3 col-xs-3">
+	            <p>欢迎${superManager.sup_name }登录本系统</p>
+	        </div>
+	    </div>
+	</div>
 	<form action="">
-		姓名:<input type="text" value="${ superManager.sup_name}" readonly="readonly"><br>
-		账号:<input type="text" value="${ superManager.sup_accountNum}" readonly="readonly"><br>
-		密码:<input type="text" value="${ superManager.sup_password}" readonly="readonly"><br>
+		<div class="row">
+        	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>姓名：</p></div>
+            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ superManager.sup_name}" readonly="readonly"> </div>
+            <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>账号：</p></div>
+            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ superManager.sup_accountNum}" readonly="readonly"> </div>
+     </div>
+     <div class="row">
+        	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>密码：</p></div>
+            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ superManager.sup_password}" readonly="readonly"></div>
+     </div>
 	</form>
-	
-			
 </body>
 </html>

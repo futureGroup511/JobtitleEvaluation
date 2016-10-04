@@ -10,6 +10,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/liwen2.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/dibu.css">
+
 
 </head>
 <body>
@@ -50,37 +52,48 @@
 		</tbody>
 		</table>
 	</div>
+	
+	
 	<div class="container">
       <div class="row">
-        <div class="col-lg-5 col-lg-offset-5 col-md-6 col-md-offset-4 col-xs-6 col-xs-offset-4">
+           <div class="col-lg-8 col-lg-offset-3 col-md-8 col-md-offset-3 col-xs-8 col-xs-offset-3">
+              <form action="expert_allEvaluaTeacher" method="post">
+	             <nav >
+				  <ul class="pagination">
+				  	<li><a href="#" onclick="return jump(1,${p.pageCount})">首页</a></li>
+				    <li><a href="#" onclick="return jump(${p.currentPage-1},${p.pageCount})">上一页</a></li>
+				    <li><a class="text text-primary">当前页:${p.currentPage}</a></li>
+				    <li><a href="#" onclick="return jump(${p.currentPage+1},${p.pageCount})">下一页</a></li>
+				  	
+				  	<li>	
+				  			<span class="text text-primary">跳到第
+				  			<select name="currentPage" class="from-control ">
+								<c:forEach begin="1"  end="${p.pageCount}" varStatus="index">
+									<c:choose>
+										<c:when test="${p.currentPage eq index.index}">
+											<option value="${index.index}" selected="selected">${index.index}</option>
+										</c:when>
+										<c:otherwise>
+											<option value="${index.index}" >${index.index}</option>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+							</select>
+							页</span>
+					</li>	
+				  	<li><input type="submit" class="btn btn-primary"></li>
+				  	<li><a href="#" onclick="return jump(${p.pageCount},${p.pageCount})">尾页</a></li>
+				  </ul>
+	  			</nav>
+             </form>
+              
+              
+            </div>
            
-	  		<form action="expert_allEvaluaTeacher" method="post">
-	  		<nav>
-			  <ul class="pager">
-			    <li><a href="#" onclick="return jump(${p.currentPage-1},${p.pageCount})">上一页</a></li>
-			    <li><a href="#" onclick="return jump(${p.currentPage+1},${p.pageCount})">下一页</a></li>
-			  </ul>
-	  		</nav>
-	  	跳到第：
-			<select name="currentPage">
-				<c:forEach begin="1"  end="${p.pageCount}" varStatus="index">
-					<c:choose>
-						<c:when test="${p.currentPage eq index.index}">
-							<option value="${index.index}" selected="selected">${index.index}</option>
-						</c:when>
-						<c:otherwise>
-							<option value="${index.index}" >${index.index}</option>
-						</c:otherwise>
-					</c:choose>
-					
-				</c:forEach>
-			</select>
-			页
-			<input type="submit">
-	  </form>
-        </div>
-      </div>
-</div>
+     </div>
+	</div>
+	
+	
 	
 	
 </body>

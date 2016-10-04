@@ -14,6 +14,11 @@
 		var role=$("select[ name='role']").val();
 		var num=$("input[name='num']").val();
 		var password=$("input[name='password']").val();
+		if(num==''||password==''){
+			$("#information").text("");
+			$("#information").text("请填写完整信息");
+			return false;
+		}
 		var datas={
 				"role":role,
 				"num":num,
@@ -25,6 +30,7 @@
 				async:false,
 				data:datas,
 				success:function(data){
+					
 					if(data==="success"){
 						juge=2;
 						$("#information").text("");
@@ -56,8 +62,8 @@
 	</form>
 	<a href="expert_allEvaluaTeacher">教职工评教</a>
 	<a href="super_deleteInformation">删除参评人员数据和记录</a>
-	<a href="expert_lookInformation">管理员查看个人信息页面</a>
-	<a href="super_lookInformation">专家查看个人信息页面</a>
+	<a href="super_lookInformation">管理员查看个人信息页面</a>
+	<a href="expert_lookInformation">专家查看个人信息页面</a>
 	<ol>
 		<li><a href="super_generateRequestCode">生成邀请码</a></li>
 		<li><a href="super_showRequestCode">查看当前邀请码</a></li>
