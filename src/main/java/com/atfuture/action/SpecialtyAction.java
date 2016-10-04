@@ -43,7 +43,10 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 	}
 	
 	public String add(){
-		if(null==specialty||"".equals(specialty.getSpec_name())){
+		if(null==specialty){
+			return SUCCESS;
+		}
+		if("".equals(specialty.getSpec_name())){
 			this.addRemind("添加失败,请不要输入空的名字!");
 			return "addSuccess";
 		}

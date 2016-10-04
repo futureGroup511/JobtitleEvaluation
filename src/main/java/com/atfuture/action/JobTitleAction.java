@@ -47,7 +47,10 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 		ServletActionContext.getRequest().getSession().setAttribute("remind", remind);
 	}
 	public String add(){
-		if(jobTitle==null||"".equals(jobTitle.getJobTi_name())){
+		if(null==jobTitle){
+			return SUCCESS;
+		}
+		if("".equals(jobTitle.getJobTi_name())){
 			this.addRemind("添加失败,请不要输入空的名字!");
 			return "addSuccess";
 		}
