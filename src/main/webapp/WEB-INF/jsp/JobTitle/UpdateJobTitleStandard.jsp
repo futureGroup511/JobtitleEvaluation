@@ -32,18 +32,107 @@ function checkMaxLen(obj,maxlength){
 		 alert("描述字数最多不能超过"+maxlength+"字符");
 	 }
 }
+
+$(function() {
+	$(".btnSub").click(function(){
+		$(".teachTextAreaSpan").css("display", "none");
+		$(".scienceTextAreaSpan").css("display", "none");
+		$(".moralTextAreaSpan").css("display", "none");
+		var teachTextArea = $(".teachTextArea").val();
+		var scienceTextArea = $(".scienceTextArea").val();
+		var moralTextArea = $(".moralTextArea").val();
+		if(teachTextArea == null || teachTextArea.trim() == ""){
+			$(".teachTextAreaSpan").css("display", "inline");
+			return false;
+		}
+		if(scienceTextArea == null || scienceTextArea.trim() == ""){
+			$(".scienceTextAreaSpan").css("display", "inline");
+			return false;
+		}
+		if(moralTextArea == null || moralTextArea.trim() == ""){
+			$(".moralTextAreaSpan").css("display", "inline");
+			return false;
+		}
+		return true;
+	});
+});
+		
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>更改职称对应评估标准</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/liwen10.css">
 </head>
 <body>
+	<div class="dangqian">
+  <div class="row">
+    <div class="col-lg-1 col-lg-offset-1 col-md-2  col-xs-2 col-xs-offset-1">
+            <a><p>添加信息</p></a>
+        </div>
+        <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-xs-5  col-xs-offset-1">
+            <p>当前位置：学生服务>>报名</p>
+        </div>
+        <div class="col-lg-2 col-md-3 col-xs-3">
+            <p>欢迎登录本系统</p>
+        </div>
+  </div>
+</div>
+
+
+
 	<s:form action="evaluatedStandard_UpdateJobTitleStandard" method="post">
 		<s:hidden name="evalStan_id" value="%{#request.evaluatedStandard.evalStan_id}"></s:hidden>
 		<s:hidden name="evalStan_jobtile.jobTi_id" value="%{#request.evaluatedStandard.evalStan_jobtile.jobTi_id}"></s:hidden>
+		
+		<div class="row">
+		  <div class="col-lg-1 col-lg-offset-3 col-md-2 col-lg-offset-3 col-xs-2 col-lg-offset-3">
+		            <p>教学评价标准：</p>
+		        </div>
+		　 <div class="col-lg-6  col-md-6  col-xs-6 ">
+		   <!--   <textarea rows="6">
+		       师德评价标准 教授FF
+		     </textarea> -->
+		     <s:textarea class="teachTextArea" rows="6" onkeydown="checkMaxLen(this,250)" name="evalStan_teachStandard" value="%{#request.evaluatedStandard.evalStan_teachStandard}"></s:textarea>
+		     <span class="teachTextAreaSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>
+		   </div>
+		   <div class="col-lg-1">
+		   </div>
+		</div>
+		
+		<div class="row">
+		  <div class="col-lg-1 col-lg-offset-3 col-md-2 col-lg-offset-3 col-xs-2 col-lg-offset-3">
+		            <p>科研评价标准：</p>
+		        </div>
+		　 <div class="col-lg-6  col-md-6  col-xs-6 ">
+		    <!--  <textarea rows="6">
+		       科研评价标准 教授HH
+		     </textarea> -->
+		     <s:textarea  class="scienceTextArea"  rows="6" onkeydown="checkMaxLen(this,250)" name="evalStan_scientifiStandard" value="%{#request.evaluatedStandard.evalStan_scientifiStandard}"></s:textarea>
+		     <span class="scienceTextAreaSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>
+		   </div>
+		   <div class="col-lg-1">
+		   </div>
+		</div>
+		
+		<div class="row">
+		  <div class="col-lg-1 col-lg-offset-3 col-md-2 col-lg-offset-3 col-xs-2 col-lg-offset-3">
+		            <p>师德评价标准：</p>
+		        </div>
+		　 <div class="col-lg-6  col-md-6  col-xs-6 ">
+		    <!--  <textarea rows="6">
+		       教学评价标准 教授FF
+		     </textarea> -->
+		     <s:textarea class="moralTextArea" rows="6" onkeydown="checkMaxLen(this,250)" name="evalStan_moralityStandard" value="%{#request.evaluatedStandard.evalStan_moralityStandard}"></s:textarea>
+		     <span class="moralTextAreaSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>
+		   </div>
+		   <div class="col-lg-1">
+		   </div>
+		</div>
+		<%-- 
 		教学评价指标：<s:textarea onkeydown="checkMaxLen(this,250)" name="evalStan_teachStandard" value="%{#request.evaluatedStandard.evalStan_teachStandard}"></s:textarea><br/>
 		科研评价指标：<s:textarea onkeydown="checkMaxLen(this,250)" name="evalStan_scientifiStandard" value="%{#request.evaluatedStandard.evalStan_scientifiStandard}"></s:textarea><br/>
-		师德评价指标：<s:textarea onkeydown="checkMaxLen(this,250)" name="evalStan_moralityStandard" value="%{#request.evaluatedStandard.evalStan_moralityStandard}"></s:textarea><br/>
-		<s:submit value="确定"></s:submit>
+		师德评价指标：<s:textarea onkeydown="checkMaxLen(this,250)" name="evalStan_moralityStandard" value="%{#request.evaluatedStandard.evalStan_moralityStandard}"></s:textarea><br/> --%>
+		<s:submit class="btnSub" value="确定"></s:submit>
 	</s:form>
 </body>
 </html>

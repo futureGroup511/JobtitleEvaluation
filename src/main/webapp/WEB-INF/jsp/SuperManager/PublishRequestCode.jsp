@@ -5,10 +5,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>查看邀请码</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/pingzhicheng.css">
 </head>
 <body>
-	邀请码是：
+
+	<%-- 邀请码是：
 	${requestScope.requestCode }
-	请告知需要注册的专家，使用此注册码进行注册
+	请告知需要注册的专家，使用此注册码进行注册 --%>
+	<div id="banous">
+     <div class="one">
+       <img src="images/LittlePerson.png"/>
+     </div>
+     <div class="two">
+       <p class="three">邀请码是：${requestScope.requestCode }</p>
+       <p class="four">请告知需要注册的专家，使用此注册码进行注册</p>
+     </div>
+</div>
 </body>
 </html>

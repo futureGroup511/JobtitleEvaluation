@@ -6,11 +6,47 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>专家注册验证页面</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/liwen8.css">
 </head>
 <body>
-	<s:form action="expert_checkRightToRegister" method="post">
-		请输入邀请码(区分大小写，请注意！！！)：<input name="requestCodeStr"><br/>
-		<s:submit value="确认"></s:submit>
+	<div class="dangqian">
+  <div class="row">
+    <div class="col-lg-1 col-lg-offset-1 col-md-2  col-xs-2 col-xs-offset-1">
+            <a><p>添加信息</p></a>
+        </div>
+        <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-xs-5  col-xs-offset-1">
+            <p>当前位置：学生服务>>报名</p>
+        </div>
+        <div class="col-lg-2 col-md-3 col-xs-3">
+            <p>欢迎登录本系统</p>
+        </div>
+  </div>
+</div>
+	<!-- <form class="form-horizontal" role="form">
+    <div class="form-group">
+       <label for="inputEmail3" class="col-lg-3 col-lg-offset-3 col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3 control-label">请输入邀请码（区分大小写，请注意！！！）：</label>
+       <div class="col-lg-2 col-md-2 col-xs-3">
+          <input type="email" class="form-control" id="inputEmail3" placeholder="12345678">
+       </div>
+       <div class="col-lg-2  col-md-2  col-xs-3 ">
+           <button class="btn btn-primary" type="button" >确认</button>
+       </div>
+    </div>
+</form> -->
+	<s:form  class="form-horizontal" role="form" action="expert_checkRightToRegister" method="post">
+	 <div class="form-group">
+       <label for="inputEmail3" class="col-lg-3 col-lg-offset-3 col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3 control-label">请输入邀请码（区分大小写，请注意！！！）：</label>
+       <div class="col-lg-2 col-md-2 col-xs-3">
+       <!-- 	<input name="requestCodeStr"> -->
+          <input  name="requestCodeStr"  class="form-control" id="inputEmail3" >
+       </div>
+       <div class="col-lg-2  col-md-2  col-xs-3 ">
+         <!--   <button class="btn btn-primary" type="button" >确认</button> -->
+			<s:submit class="btn btn-primary" value="确认"></s:submit>
+       </div>
+    </div>
+		<!-- 请输入邀请码(区分大小写，请注意！！！)：<input name="requestCodeStr"><br/> -->
 	</s:form>
 </body>
 </html>
