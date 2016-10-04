@@ -40,7 +40,7 @@ public class ParticipatedPersonDaoImpl extends BaseDaoImpl<ParticipatedPerson> i
 	}
 
 	public void deleteAll() {
-		String sql="delete participateperson ";
+		String sql="delete from participateperson";
 		executeSQL(sql);
 	}
 

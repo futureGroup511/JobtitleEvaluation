@@ -35,13 +35,9 @@
     		<result name="login" type="json"></result>
     		<result name="finishLogin">success.jsp</result>
  		</action> 
- 		<action name="expert_*" method="{1}" class="expertAction">
- 		    <result name="allEvaluaTeacher">WEB-INF/jsp/ParticipatedPerson/allperson.jsp</result>
- 		    <result name="assess">WEB-INF/jsp/Expert/assess.jsp</result>
- 		</action>
  		<action name="super_*" method="{1}" class="superManagerAction">
 			<result name="RequestCodePublish">WEB-INF/jsp/SuperManager/PublishRequestCode.jsp</result> 		    
- 			<result name=""></result>
+ 			
  		</action>
  		
     	
@@ -78,12 +74,9 @@
 			<result name="RedirectToManageExpertInfo"  type="redirect">expert_manageExpertInfoList?currentPage=${currentPage}</result>
 			<result name="ShowExpertInfoPage">WEB-INF/jsp/Expert/ShowExpertInfo.jsp</result>
 			<result name="RedirectToManageExpertInfo" type="redirect">expert_manageExpertInfoList?currentPage=${currentPage}</result>
+    		<result name="allEvaluaTeacher">WEB-INF/jsp/ParticipatedPerson/allperson.jsp</result>
+ 		    <result name="assess">WEB-INF/jsp/Expert/assess.jsp</result>
     	</action>
-    	
-    	
-    	
-    	
-    	
     	
     	<action name="evaluatedrecord_*" method="{1}" class="evaluatedRecordAction">
     	   <result name="finishAssess">success.jsp</result>

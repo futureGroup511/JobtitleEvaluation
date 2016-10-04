@@ -9,11 +9,25 @@
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" >
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/liwen2.css">
+
 </head>
 <body>
-	<table class="table table-bordered">
-		<thead>
-			<tr>
+
+	<div class="container">
+		<div class="row">
+	        <div class="col-lg-3 col-lg-offset-5 col-md-3 scol-md-offset-5 col-xs-3  col-xs-offset-5">
+	            <p>当前位置：审评人员服务>>审评</p>
+	        </div>
+	        <div class="col-lg-2 col-md-2 col-xs-2">
+	            <p>欢迎${expert.exp_name}登录本系统</p>
+	        </div>
+  		</div>
+	</div>
+	<div class="table-responsive">
+	    <table class="table table-bordered table-hover table-striped">
+	    	<thead>
+			<tr class="one">
 				<th>#</th>
 				<th>姓名</th>
 				<th>申报专业</th>
@@ -34,15 +48,19 @@
 					</tr>
 				</c:forEach>
 		</tbody>
-	</table>
-	<div class="center-block" style="width:500px">
-	  <nav>
-		  <ul class="pager">
-		    <li><a href="#" onclick="return jump(${p.currentPage-1},${p.pageCount})">上一页</a></li>
-		    <li><a href="#" onclick="return jump(${p.currentPage+1},${p.pageCount})">下一页</a></li>
-		  </ul>
-	  </nav>
-	  <form action="expert_allEvaluaTeacher" method="post">
+		</table>
+	</div>
+	<div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-lg-offset-5 col-md-6 col-md-offset-4 col-xs-6 col-xs-offset-4">
+           
+	  		<form action="expert_allEvaluaTeacher" method="post">
+	  		<nav>
+			  <ul class="pager">
+			    <li><a href="#" onclick="return jump(${p.currentPage-1},${p.pageCount})">上一页</a></li>
+			    <li><a href="#" onclick="return jump(${p.currentPage+1},${p.pageCount})">下一页</a></li>
+			  </ul>
+	  		</nav>
 	  	跳到第：
 			<select name="currentPage">
 				<c:forEach begin="1"  end="${p.pageCount}" varStatus="index">
@@ -60,7 +78,11 @@
 			页
 			<input type="submit">
 	  </form>
-	</div>
+        </div>
+      </div>
+</div>
+	
+	
 </body>
 <script type="text/javascript">
 	function jump(value,count){
