@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+  padding:0;
+  margin:0;
+}
+.container{
+  width:100%;
+}
+.row{
+  width:100%;
+}
+.row a:hover{
+  text-decoration: none;
+  color:#FFCA00;
+}
+.row textarea{
+  width:100%;
+  margin-top:30px;
+}
+.form-group{
+  width:100%;
+}
+.row p{
+  margin-top:30px;
+}
+.form-horizontal{
+  margin-top: 50px;
+}
+.table{
+  width:60%;
+  margin:0 auto;
+  margin-top: 40px;
+}
+.table a:hover{
+  text-decoration: none;
+  color:#FFCA00;
+}
+.container{
+	margin-top:40px;
+	}
+.container form{
+ margin-top:20px; 
+}
