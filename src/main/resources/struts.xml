@@ -33,6 +33,7 @@
     		<result name="success" >success.jsp</result>
     		<result name="erro" >erro.jsp</result>
     		<result name="login" type="json"></result>
+    		<result name="finishLogin">success.jsp</result>
  		</action> 
  		<action name="expert_*" method="{1}" class="expertAction">
  		    <result name="allEvaluaTeacher">WEB-INF/jsp/ParticipatedPerson/allperson.jsp</result>

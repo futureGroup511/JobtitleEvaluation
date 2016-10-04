@@ -51,6 +51,10 @@ public class LoginAction extends BaseAction<Object> implements SessionAware{
 		return "login";
 	}
 	
+	public  String finishLogin(){
+		return "finishLogin";
+	}
+	
 	public String getNum() {
 		return num;
 	}
