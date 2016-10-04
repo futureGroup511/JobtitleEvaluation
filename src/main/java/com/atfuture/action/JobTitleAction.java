@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.RequestAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -19,7 +20,7 @@ import com.future.utils.Page_S;
 @Controller
 @Scope("prototype")
 
-public class JobTitleAction extends BaseAction<JobTitle>{
+public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware{
 	private JobTitle jobTitle;
 	private Page_S page_s;
 	

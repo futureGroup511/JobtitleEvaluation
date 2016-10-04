@@ -4,7 +4,7 @@
 	//得到url的根路径
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path +"/";
+			+ path;
 	%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,7 +25,7 @@
          <th>参评人员申报专业</th>
          <th>参评人员申报职称</th>
          <th>推荐单位</th>
-         <th>下载资料</th>
+         <th>预览资料</th>
          <th>修改</th>
        </tr>
        <s:if test="#request.pageBean.recordlist != null && #request.pageBean.recordlist.size() > 0">
