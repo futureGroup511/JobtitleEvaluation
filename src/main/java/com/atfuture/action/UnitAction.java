@@ -62,8 +62,10 @@ public class UnitAction extends BaseAction<Unit> {
 		return "changePage";
 	}
 	public String change(){
-		if(null==unit||"".equals(unit.getUni_name())){
+		if(null==unit||"".equals(unit.getUni_name())||"".equals(unit.getUni_id())){
 			this.addRemind("修改失败,请正确操作!");
+			Unit u=unitService.getUnit(unit.getUni_id());
+			this.getRequest().setAttribute("findResult",u);
 			return "changePage";
 		}
 		if(unitService.checkExist(unit.getUni_name())){

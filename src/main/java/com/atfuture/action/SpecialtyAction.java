@@ -43,7 +43,7 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 	}
 	
 	public String add(){
-		if("".equals(specialty.getSpec_name())||specialty==null){
+		if(null==specialty||"".equals(specialty.getSpec_name())){
 			this.addRemind("添加失败,请不要输入空的名字!");
 			return "addSuccess";
 		}
@@ -56,12 +56,16 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 		return "addSuccess";
 	}
 	public String changePage(){
+		if(null==specialty||"".equals(specialty.getSpec_id())){
+			this.addRemind("添加失败,请不要输入空的名字!");
+			return "addSuccess";
+		}
 		Specialty jt=specialtyService.getSpecialty(specialty.getSpec_id());
 		this.getRequest().setAttribute("findResult",jt);
 		return "changePage";
 	}
 	public String change(){
-		if(null==specialty||"".equals(specialty.getSpec_id())){
+		if(null==specialty||"".equals(specialty.getSpec_id())||"".equals(specialty.getSpec_name())){
 			this.addRemind("修改失败,请正确操作!");
 			return "changePage";
 		}
