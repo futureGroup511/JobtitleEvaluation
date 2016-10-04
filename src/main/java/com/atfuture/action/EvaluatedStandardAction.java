@@ -10,4 +10,12 @@ import com.atfuture.domain.EvaluatedStandard;
 @Scope("prototype")
 public class EvaluatedStandardAction extends BaseAction<EvaluatedStandard> {
 
+	
+	public String UpdateJobTitleStandard(){
+		System.out.println(model);
+		evaluatedStandardService.updateEvaluatedStandard(model);
+		return "JumpToJobTitleAction";
+	}
+	
+
 }

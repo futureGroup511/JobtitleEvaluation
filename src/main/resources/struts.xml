@@ -12,7 +12,7 @@
 	 <!-- 指定允许上传的文件最大字节数。默认值是2097152(2M) -->
     <constant name="struts.multipart.maxSize" value="107010960"/>
      
-     <!-- 由spring 管理action的创建  -->
+    <!-- 由spring 管理action的创建  -->
     <constant name="struts.objectFactory" value="spring" />
     
     <package name="default" namespace="/" extends="json-default">
@@ -35,6 +35,11 @@
     		<result name="login" type="json"></result>
     		<result name="finishLogin">success.jsp</result>
  		</action> 
+ 		<action name="expert_*" method="{1}" class="expertAction">
+ 		    
+ 		    <result name="allEvaluaTeacher">WEB-INF/jsp/ParticipatedPerson/allperson.jsp</result>
+ 		    <result name="assess">WEB-INF/jsp/Expert/assess.jsp</result>
+ 		</action>
  		<action name="super_*" method="{1}" class="superManagerAction">
 			<result name="RequestCodePublish">WEB-INF/jsp/SuperManager/PublishRequestCode.jsp</result> 		    
  			
@@ -47,6 +52,7 @@
 			<result name="RedirectManageParticipatedPerson" type="redirectAction">participated_manageParticipatedPerson</result>
 			<result name="FileTypeNotAllowed">FileTypeNotAllowed.html</result>
 			<result name="ToUpdateParticipatedPerson">WEB-INF/jsp/ParticipatedPerson/UpdateParticipatedPerson.jsp</result>
+			<result name="RedirectManageParticipatedPersonToPage" type="redirectAction">participated_manageParticipatedPerson?currentPage=${currentPage}</result>
 			<result name="RedirectManageParticipatedPersonToPage" type="redirect">participated_manageParticipatedPerson?currentPage=${currentPage}</result>
  			<result type="stream" name="lookResource">
  			    <!-- Stream返回类型的各项参数 -->
@@ -61,9 +67,14 @@
  		</action>
  		
  		<action name="jobTitleStandard_*" method="{1}" class="jobTitleAction">
-			<result name="ManageJobTitleList">WEB-INF/jsp/JobTitle/ManageJobTitleStandard.jsp</result> 		    
+			<result name="ManageJobTitleList">WEB-INF/jsp/JobTitle/ManageJobTitleStandard.jsp</result>
+			<result name="JobTitleStandardPage">WEB-INF/jsp/JobTitle/UpdateJobTitleStandard.jsp</result>
+ 		</action>
+ 		<action name="evaluatedStandard_*" method="{1}" class="evaluatedStandardAction">
+			<result name="JumpToJobTitleAction" type="redirectAction">jobTitleStandard_manageJobTitleStandard</result>
  		</action>
     	<action name="statistic_*" method="{1}" class="statisticsAction">
+			<result name="ShowStatisticListPage" >WEB-INF/jsp/Statistics/ShowStatisticsPage.jsp</result>
     	</action>
     	<action name="expert_*" method="{1}" class="expertAction">
 			<result name="InputRequestCodePage">WEB-INF/jsp/Expert/InputRequestCode.jsp</result> 		    
@@ -71,15 +82,64 @@
 			<result name="RequestCodeWrong">WEB-INF/jsp/Expert/RequestCodeWrong.jsp</result> 		    
 			<result name="ExpertRegisterSuccess">WEB-INF/jsp/Expert/RegisterSuccess.jsp</result>
 			<result name="ManageExpertInfoPage">WEB-INF/jsp/Expert/ManageExpertListPage.jsp</result>
-			<result name="RedirectToManageExpertInfo"  type="redirect">expert_manageExpertInfoList?currentPage=${currentPage}</result>
+			<result name="RedirectToManageExpertInfo"  type="redirectAction">expert_manageExpertInfoList?currentPage=${currentPage}</result>
 			<result name="ShowExpertInfoPage">WEB-INF/jsp/Expert/ShowExpertInfo.jsp</result>
 			<result name="RedirectToManageExpertInfo" type="redirect">expert_manageExpertInfoList?currentPage=${currentPage}</result>
     		<result name="allEvaluaTeacher">WEB-INF/jsp/ParticipatedPerson/allperson.jsp</result>
  		    <result name="assess">WEB-INF/jsp/Expert/assess.jsp</result>
+			<result name="RedirectToManageExpertInfo" type="redirectAction">expert_manageExpertInfoList?currentPage=${currentPage}</result>
+    	</action>
+    	<!-- Unit,Specialty,JobTitle的action配置开始 -->
+    	
+    	<action name="jobTitle_*" method="{1}" class="com.atfuture.action.JobTitleAction">
+    		<result name="success">/WEB-INF/jsp/JobTitle/index.jsp</result>
+    		<result name="addSuccess" type="redirectAction">
+    			<param name="actionName">jobTitle</param>
+    			<param name="namespace">/</param>
+    		</result>  		
+    		<result name="findByName">/WEB-INF/jsp/JobTitle/findByName.jsp</result>
+    		<result name="changePage">/WEB-INF/jsp/JobTitle/changePage.jsp</result>
+    		<result name="changeSuccess" type="redirectAction">
+    			<param name="actionName">jobTitle</param>
+    			<param name="namespace">/</param>
+    		</result>
+    		<result name="page_sSuccess">/WEB-INF/jsp/JobTitle/page_s.jsp</result>
     	</action>
     	
+    	<action name="specialty_*" method="{1}" class="com.atfuture.action.SpecialtyAction">
+    		<result name="success">/WEB-INF/jsp/Specialty/index.jsp</result>
+    		<result name="addSuccess" type="redirectAction">
+    			<param name="actionName">specialty</param>
+    			<param name="namespace">/</param>
+    		</result>  		
+    		<result name="findByName">/WEB-INF/jsp/Specialty/findByName.jsp</result>
+    		<result name="changePage">/WEB-INF/jsp/Specialty/changePage.jsp</result>
+    		<result name="changeSuccess" type="redirectAction">
+    			<param name="actionName">specialty</param>
+    			<param name="namespace">/</param>
+    		</result>
+    		<result name="page_sSuccess">/WEB-INF/jsp/Specialty/page_s.jsp</result>
+    	</action>
+    	
+    	<action name="unit_*" method="{1}" class="com.atfuture.action.UnitAction">
+    		<result name="success">/WEB-INF/jsp/Unit/index.jsp</result>
+    		<result name="addSuccess" type="redirectAction">
+    			<param name="actionName">unit</param>
+    			<param name="namespace">/</param>
+    		</result>  		
+    		<result name="findByName">/WEB-INF/jsp/Unit/findByName.jsp</result>
+    		<result name="changePage">/WEB-INF/jsp/Unit/changePage.jsp</result>
+    		<result name="changeSuccess" type="redirectAction">
+    			<param name="actionName">unit</param>
+    			<param name="namespace">/</param>
+    		</result>
+    		<result name="page_sSuccess">/WEB-INF/jsp/Unit/page_s.jsp</result>
+    	</action>
+    	
+    	<!-- Unit,Specialty,JobTitle的action配置结束 -->
     	<action name="evaluatedrecord_*" method="{1}" class="evaluatedRecordAction">
     	   <result name="finishAssess">success.jsp</result>
+    	   <result name="ShowRecordByExpert">WEB-INF/jsp/EvaluatedRecord/EvaluatedRecordList.jsp</result>
     	</action>
     </package>
 </struts>

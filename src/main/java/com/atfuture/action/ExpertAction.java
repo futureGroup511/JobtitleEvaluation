@@ -1,8 +1,10 @@
 package com.atfuture.action;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.RequestAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -113,10 +115,36 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware{
 	
 	
 	
+	//查找指定账号的专家是否存在
+	private String accountNum;
+	private boolean accountNumExists = false;
+	public String querySpecialAccountNum(){
+System.out.println(accountNum);
+		Expert expert = expertService.querySpecialExpertByAccountNum(accountNum);
+		if(expert != null){
+			accountNumExists = true;
+		}
+System.out.println(accountNumExists);
+		try {
+			ServletActionContext.getResponse().getWriter().print(accountNumExists);
+		} catch (IOException e) {
+			System.out.println("querySpecialAccountNum方法出错");
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	
 	
 	
+	public String getAccountNum() {
+		return accountNum;
+	}
+
+	public void setAccountNum(String accountNum) {
+		this.accountNum = accountNum;
+	}
+
 	public Integer getExp_id() {
 		return exp_id;
 	}

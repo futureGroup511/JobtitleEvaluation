@@ -35,7 +35,7 @@ public class JobTitle {
 		this.jobTi_name = jobTi_name;
 	}
 	
-	@OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY,mappedBy="evalStan_jobtile",targetEntity=EvaluatedStandard.class)
+	@OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY,mappedBy="evalStan_jobtile",targetEntity=EvaluatedStandard.class)
 	public EvaluatedStandard getJobTi_evaluastand() {
 		return jobTi_evaluastand;
 	}

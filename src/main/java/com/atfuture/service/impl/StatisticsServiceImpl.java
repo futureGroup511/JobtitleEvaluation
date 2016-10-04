@@ -1,5 +1,7 @@
 package com.atfuture.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.atfuture.dao.StatisticsDao;
 import com.atfuture.domain.Statistics;
 import com.atfuture.service.StatisticsService;
+import com.future.utils.Page_S;
 @Service
 public class StatisticsServiceImpl implements StatisticsService {
 
@@ -19,5 +22,16 @@ public class StatisticsServiceImpl implements StatisticsService {
 
 	public void saveOrUpdate(Statistics s) {
 		statisticsDao.saveOrUpdate(s);
-	} 
+	}
+
+	public List<Statistics> getAllStatisticByPage(Page_S page) {
+		return statisticsDao.getAllStatisticByPage(page);
+	}
+
+	public List<Statistics> getAllStatistic() {
+		String sql = "from Statistics";
+		return statisticsDao.findEntityByHQL(sql);
+	}
+
+
 }
