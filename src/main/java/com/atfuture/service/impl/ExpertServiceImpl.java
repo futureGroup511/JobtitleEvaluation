@@ -37,5 +37,10 @@ public class ExpertServiceImpl  implements ExpertService {
 		return expertDao.getAllExpert();
 	}
 
+	public Expert querySpecialExpertByAccountNum(String accountNum) {
+		String hql = "from Expert expert where expert.exp_accountNum = ?";
+		return (Expert) expertDao.uniqueResult(hql, accountNum);
+	}
+
 
 }

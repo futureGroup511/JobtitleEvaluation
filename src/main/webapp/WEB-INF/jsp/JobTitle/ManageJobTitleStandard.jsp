@@ -23,7 +23,7 @@
 	       <s:iterator value="#request.jobTitleList" var="jobTitle">
 			<tr>
 				<td>${jobTitle.jobTi_name}</td>
-				<td><a href="">修改其申报标准</a></td>
+				<td><a href="jobTitleStandard_passToJobTitleStandardPage?jobTi_id=${jobTitle.jobTi_id }">修改其申报标准</a></td>
 			</tr>
 			</s:iterator>
        </s:if>

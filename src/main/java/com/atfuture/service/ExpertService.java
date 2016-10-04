@@ -18,4 +18,6 @@ public interface ExpertService {
 	public void updateExpertInfo(Expert expert);
 	//得到所有的专家信息
 	public List<Expert> getAllExpert();
+	//根据账号查询指定专家
+	public Expert querySpecialExpertByAccountNum(String accountNum);
 }

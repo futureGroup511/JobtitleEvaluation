@@ -9,7 +9,7 @@
 </head>
 <body>
 	<s:form action="expert_checkRightToRegister" method="post">
-		请输入邀请码：<input name="requestCodeStr"><br/>
+		请输入邀请码(区分大小写，请注意！！！)：<input name="requestCodeStr"><br/>
 		<s:submit value="确认"></s:submit>
 	</s:form>
 </body>

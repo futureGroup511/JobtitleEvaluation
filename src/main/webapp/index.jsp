@@ -23,7 +23,7 @@
 		<li><a href="participated_manageParticipatedPerson">管理参评人员信息</a></li>
 		<li><a href="jobTitleStandard_manageJobTitleStandard">管理职称申报标准信息</a></li>
 		<li><a href="statistic_statisticAll">统计所有</a></li>
-		<li><a href="statistic_statisticByExpert">按指定专家统计</a></li>
+		<li><a href="evaluatedrecord_statisticByExpert">按指定专家统计</a></li>
 		<li><a href="expert_manageExpertInfoList">专家信息管理</a></li>
 		<li><a href="expert_registerExpert">专家注册</a></li>
 		

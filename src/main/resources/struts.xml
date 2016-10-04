@@ -54,13 +54,18 @@
 			<result name="RedirectManageParticipatedPerson" type="redirectAction">participated_manageParticipatedPerson</result>
 			<result name="FileTypeNotAllowed">FileTypeNotAllowed.html</result>
 			<result name="ToUpdateParticipatedPerson">WEB-INF/jsp/ParticipatedPerson/UpdateParticipatedPerson.jsp</result>
-			<result name="RedirectManageParticipatedPersonToPage" type="redirect">participated_manageParticipatedPerson?currentPage=${currentPage}</result>
+			<result name="RedirectManageParticipatedPersonToPage" type="redirectAction">participated_manageParticipatedPerson?currentPage=${currentPage}</result>
  		</action>
  		
  		<action name="jobTitleStandard_*" method="{1}" class="jobTitleAction">
-			<result name="ManageJobTitleList">WEB-INF/jsp/JobTitle/ManageJobTitleStandard.jsp</result> 		    
+			<result name="ManageJobTitleList">WEB-INF/jsp/JobTitle/ManageJobTitleStandard.jsp</result>
+			<result name="JobTitleStandardPage">WEB-INF/jsp/JobTitle/UpdateJobTitleStandard.jsp</result>
+ 		</action>
+ 		<action name="evaluatedStandard_*" method="{1}" class="evaluatedStandardAction">
+			<result name="JumpToJobTitleAction" type="redirectAction">jobTitleStandard_manageJobTitleStandard</result>
  		</action>
     	<action name="statistic_*" method="{1}" class="statisticsAction">
+			<result name="ShowStatisticListPage" >WEB-INF/jsp/Statistics/ShowStatisticsPage.jsp</result>
     	</action>
     	<action name="expert_*" method="{1}" class="expertAction">
 			<result name="InputRequestCodePage">WEB-INF/jsp/Expert/InputRequestCode.jsp</result> 		    
@@ -68,18 +73,15 @@
 			<result name="RequestCodeWrong">WEB-INF/jsp/Expert/RequestCodeWrong.jsp</result> 		    
 			<result name="ExpertRegisterSuccess">WEB-INF/jsp/Expert/RegisterSuccess.jsp</result>
 			<result name="ManageExpertInfoPage">WEB-INF/jsp/Expert/ManageExpertListPage.jsp</result>
-			<result name="RedirectToManageExpertInfo"  type="redirect">expert_manageExpertInfoList?currentPage=${currentPage}</result>
+			<result name="RedirectToManageExpertInfo"  type="redirectAction">expert_manageExpertInfoList?currentPage=${currentPage}</result>
 			<result name="ShowExpertInfoPage">WEB-INF/jsp/Expert/ShowExpertInfo.jsp</result>
-			<result name="RedirectToManageExpertInfo" type="redirect">expert_manageExpertInfoList?currentPage=${currentPage}</result>
+			<result name="RedirectToManageExpertInfo" type="redirectAction">expert_manageExpertInfoList?currentPage=${currentPage}</result>
     	</action>
-    	
-    	
-    	
-    	
     	
     	
     	<action name="evaluatedrecord_*" method="{1}" class="evaluatedRecordAction">
     	   <result name="finishAssess">success.jsp</result>
+    	   <result name="ShowRecordByExpert">WEB-INF/jsp/EvaluatedRecord/EvaluatedRecordList.jsp</result>
     	</action>
     </package>
 </struts>

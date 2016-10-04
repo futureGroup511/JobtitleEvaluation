@@ -17,4 +17,13 @@ public class EvaluatedStandardServiceImpl  implements EvaluatedStandardService{
 	public EvaluatedStandard findByJobTitleId(Integer id) {
 		return evaluatedStandardDao.findByJobTitleId(id);
 	}
+
+	public EvaluatedStandard getStandardByJobTitleId(Integer jobTi_id) {
+		String hql = "from EvaluatedStandard standard where standard.evalStan_jobtile.jobTi_id = ?";
+		return (EvaluatedStandard) evaluatedStandardDao.uniqueResult(hql, jobTi_id);
+	}
+
+	public void updateEvaluatedStandard(EvaluatedStandard model) {
+		evaluatedStandardDao.updateEntity(model);
+	}
 }
