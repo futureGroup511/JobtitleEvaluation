@@ -45,4 +45,8 @@ public class SpecialtyServiceImpl  implements SpecialtyService  {
 	public boolean checkExist(String name) {
 		return specialtyDao.checkExist(name);
 	}
+	public List<Specialty> getAllSpecialty() {
+		String sql = "from Specialty";
+		return specialtyDao.findEntityByHQL(sql);
+	}
 }

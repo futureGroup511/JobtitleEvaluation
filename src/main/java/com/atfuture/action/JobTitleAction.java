@@ -1,11 +1,18 @@
 package com.atfuture.action;
 
+<<<<<<< HEAD
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
+=======
+import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.RequestAware;
+>>>>>>> fbda4f3b4a8a2c8ca47608a572d219af9c6e6541
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -15,6 +22,7 @@ import com.future.utils.Page_S;
 
 @Controller
 @Scope("prototype")
+<<<<<<< HEAD
 public class JobTitleAction extends BaseAction<JobTitle>{
 	private JobTitle jobTitle;
 	private Page_S page_s;
@@ -86,5 +94,21 @@ public class JobTitleAction extends BaseAction<JobTitle>{
 		
 		this.getRequest().setAttribute("page_s",ps);
 		return "page_sSuccess";
+=======
+public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware{
+
+	
+	private Map<String, Object> requestMap;
+	
+	//管理对应职称的申请标准
+	public String manageJobTitleStandard(){
+		List<JobTitle> jobTitleList = jobTitleService.getAllJobTitle();
+		requestMap.put("jobTitleList", jobTitleList);
+		return "ManageJobTitleList";
+	}
+
+	public void setRequest(Map<String, Object> requestMap) {
+		this.requestMap = requestMap;
+>>>>>>> fbda4f3b4a8a2c8ca47608a572d219af9c6e6541
 	}
 }

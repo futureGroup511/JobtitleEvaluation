@@ -62,5 +62,11 @@ public class Statistics {
 	public void setSta_AllScored(float sta_AllScored) {
 		this.sta_AllScored = sta_AllScored;
 	}
-	
+	public static Statistics newInstance(){
+		return new Statistics();
+		
+	}
+	public void calculate(){
+		this.sta_AllScored=(float) (this.sta_AScored*0.50+this.sta_BScored*0.30+this.sta_CScored*0.20);
+	}
 }

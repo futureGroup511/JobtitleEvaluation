@@ -3,6 +3,7 @@ package com.atfuture.service;
 import java.util.List;
 
 import com.atfuture.domain.Specialty;
+<<<<<<< HEAD
 import com.future.utils.Page_S;
 
 public interface SpecialtyService  {
@@ -12,4 +13,8 @@ public interface SpecialtyService  {
 	void addSpecialty(Specialty unit);
 	void changeSpecialty(Specialty unit);
 	boolean checkExist(String name);
+	public List<Specialty> getAllSpecialty();
+
+	
+	
 }

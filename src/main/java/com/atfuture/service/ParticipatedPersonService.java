@@ -7,6 +7,10 @@ import com.future.utils.Page_S;
 
 public interface ParticipatedPersonService {
 
+	//分页查询所有评教人员
+		public Page_S findAllParticipatedPerson(Page_S p,Integer id);
+	//通过id查找
+		public ParticipatedPerson findById(Integer id);
 	
 	//查询得到所有参评人
 	public List<ParticipatedPerson> getAllParticipatedPerson();
@@ -14,5 +18,11 @@ public interface ParticipatedPersonService {
 	public ParticipatedPerson getParticipatedPersonById(Integer id);
 	//分页查询得到参评人信息
 	public List<ParticipatedPerson> getParticipatedPersonByPage(Page_S page);
+	//增加参评人员信息
+	public void addParticipatedPerson(ParticipatedPerson participatedPerson);
+	public void updateParticipatedPerson(ParticipatedPerson participatedPerson);
+	//删除所有人员信息
+	public void deleteAll();
+	
 
 }

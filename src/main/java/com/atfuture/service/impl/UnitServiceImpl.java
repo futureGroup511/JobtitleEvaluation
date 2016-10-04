@@ -45,4 +45,8 @@ public class UnitServiceImpl  implements UnitService {
 	public boolean checkExist(String name) {
 		return unitDao.checkExist(name);
 	}
+	public List<Unit> getAllUnit() {
+		String sql = "from Unit";
+		return unitDao.findEntityByHQL(sql);
+	}
 }

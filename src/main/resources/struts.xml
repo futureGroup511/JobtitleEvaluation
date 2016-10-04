@@ -9,6 +9,8 @@
     <!-- 禁止缓存 -->
     <constant name="struts.serve.static.browserCache" value="false" /> 
 	<constant name="struts.action.extension" value="action,do,,"/>
+	 <!-- 指定允许上传的文件最大字节数。默认值是2097152(2M) -->
+    <constant name="struts.multipart.maxSize" value="107010960"/>
      
     <!-- 由spring 管理action的创建  -->
     <constant name="struts.objectFactory" value="spring" />
@@ -30,19 +32,53 @@
 	    <action name="loginAction_*" method="{1}" class="loginAction">
     		<result name="success" >success.jsp</result>
     		<result name="erro" >erro.jsp</result>
+    		<result name="login" type="json"></result>
  		</action> 
  		<action name="expert_*" method="{1}" class="expertAction">
  		    
+ 		    <result name="allEvaluaTeacher">WEB-INF/jsp/ParticipatedPerson/allperson.jsp</result>
+ 		    <result name="assess">WEB-INF/jsp/Expert/assess.jsp</result>
  		</action>
  		<action name="super_*" method="{1}" class="superManagerAction">
 			<result name="RequestCodePublish">WEB-INF/jsp/SuperManager/PublishRequestCode.jsp</result> 		    
+ 			<result name=""></result>
  		</action>
+ 		
+    	
  		<action name="participated_*" method="{1}" class="participatedPersonAction">
 			<result name="ManageParticipatedPerson">WEB-INF/jsp/ParticipatedPerson/ParticipatedPersonList.jsp</result>
-			<result name="ToIncrementParticipatedPersonPage">WEB-INF/jsp/ParticipatedPerson/AddParticipatedPerson.jsp</result> 		    
+			<result name="ToIncrementParticipatedPersonPage">WEB-INF/jsp/ParticipatedPerson/AddParticipatedPerson.jsp</result>
+			<result name="RedirectManageParticipatedPerson" type="redirectAction">participated_manageParticipatedPerson</result>
+			<result name="FileTypeNotAllowed">FileTypeNotAllowed.html</result>
+			<result name="ToUpdateParticipatedPerson">WEB-INF/jsp/ParticipatedPerson/UpdateParticipatedPerson.jsp</result>
+			<result name="RedirectManageParticipatedPersonToPage" type="redirect">participated_manageParticipatedPerson?currentPage=${currentPage}</result>
+ 			<result type="stream" name="lookResource">
+ 			    <!-- Stream返回类型的各项参数 -->
+             <param name="inputName">inputStream</param> 
+			<!-- 这里的文件格式建议写这个，可以接收多种格式文件 -->
+             <param name="contentType">application/octet-stream;charset=utf-8</param>
+             <!-- <param name="contentType">multipart/form-data</param> -->
+             <param name="contentDisposition">attachment;fileName="${filename}"</param>
+             <param name="bufferSize">4096</param>
+ 			</result>
+ 			<result name="lookPicture">picture.jsp</result>
  		</action>
-    	
-
+ 		
+ 		<action name="jobTitleStandard_*" method="{1}" class="jobTitleAction">
+			<result name="ManageJobTitleList">WEB-INF/jsp/JobTitle/ManageJobTitleStandard.jsp</result> 		    
+ 		</action>
+    	<action name="statistic_*" method="{1}" class="statisticsAction">
+    	</action>
+    	<action name="expert_*" method="{1}" class="expertAction">
+			<result name="InputRequestCodePage">WEB-INF/jsp/Expert/InputRequestCode.jsp</result> 		    
+			<result name="ExpertRegisterPage">WEB-INF/jsp/Expert/RegisterExpertPage.jsp</result> 		    
+			<result name="RequestCodeWrong">WEB-INF/jsp/Expert/RequestCodeWrong.jsp</result> 		    
+			<result name="ExpertRegisterSuccess">WEB-INF/jsp/Expert/RegisterSuccess.jsp</result>
+			<result name="ManageExpertInfoPage">WEB-INF/jsp/Expert/ManageExpertListPage.jsp</result>
+			<result name="RedirectToManageExpertInfo"  type="redirect">expert_manageExpertInfoList?currentPage=${currentPage}</result>
+			<result name="ShowExpertInfoPage">WEB-INF/jsp/Expert/ShowExpertInfo.jsp</result>
+			<result name="RedirectToManageExpertInfo" type="redirect">expert_manageExpertInfoList?currentPage=${currentPage}</result>
+    	</action>
     	<!-- Unit,Specialty,JobTitle的action配置开始 -->
     	
     	<action name="jobTitle_*" method="{1}" class="com.atfuture.action.JobTitleAction">
@@ -91,5 +127,8 @@
     	</action>
     	
     	<!-- Unit,Specialty,JobTitle的action配置结束 -->
+    	<action name="evaluatedrecord_*" method="{1}" class="evaluatedRecordAction">
+    	   <result name="finishAssess">success.jsp</result>
+    	</action>
     </package>
 </struts>

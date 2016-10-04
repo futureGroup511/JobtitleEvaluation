@@ -39,14 +39,14 @@ public class EvaluatedRecord {
 	public void setEvalRecor_id(Integer evalRecor_id) {
 		this.evalRecor_id = evalRecor_id;
 	}
-	@ManyToOne(cascade=CascadeType.PERSIST,optional=true,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.REMOVE,optional=true,fetch=FetchType.EAGER)
 	public ParticipatedPerson getEvalRecor_participatedPerson() {
 		return evalRecor_participatedPerson;
 	}
 	public void setEvalRecor_participatedPerson(ParticipatedPerson evalRecor_participatedPerson) {
 		this.evalRecor_participatedPerson = evalRecor_participatedPerson;
 	}
-	@ManyToOne(cascade=CascadeType.PERSIST,optional=true,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.REMOVE,optional=true,fetch=FetchType.EAGER)
 	public Expert getEvalRecor_expart() {
 		return evalRecor_expart;
 	}
@@ -84,6 +84,9 @@ public class EvaluatedRecord {
 		this.evalRecor_allAssessment = evalRecor_allAssessment;
 	}
 	
+	public static EvaluatedRecord newInstance(){
+		return new EvaluatedRecord();
+	}
 	
 	
 	

@@ -44,4 +44,8 @@ public class JobTitleServiceImpl  implements JobTitleService{
 	public boolean checkExist(String name) {
 		return jobTitleDao.checkExist(name);
 	}
+	public List<JobTitle> getAllJobTitle() {
+		String sql = "from JobTitle";
+		return jobTitleDao.findEntityByHQL(sql);
+	}
 }

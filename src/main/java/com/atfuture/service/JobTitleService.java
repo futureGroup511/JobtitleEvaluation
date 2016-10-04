@@ -12,4 +12,6 @@ public interface JobTitleService {
 	void addJobTitle(JobTitle jt);
 	void changeJobTitle(JobTitle jt);
 	boolean checkExist(String name);
+	public List<JobTitle> getAllJobTitle();
+
 }
