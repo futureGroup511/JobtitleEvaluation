@@ -46,7 +46,6 @@
 		<h1 class="remind">${remind }</h1>
 		</center>
 		<s:set name="remind" value=" " scope="session"></s:set>
-		
 		<div id="view">
 			<hr>
 			<h3 class="do_title">查看单位</h3>
@@ -74,7 +73,7 @@
 		<div id="manage">
 			<hr>
 			<h3 class="do_title">修改单位</h3>
-			<form class="form-horizontal" role="form">
+			<form class="form-horizontal" role="form" action="unit_findByName" method="post">
 			    <div class="form-group">
 			       <label for="inputEmail3" class="col-lg-2 col-lg-offset-4 col-md-2 col-md-offset-4 col-xs-3 col-xs-offset-4 control-label">要修改的单位名字：</label>
 			       <div class="col-lg-2 col-md-2 col-xs-3">
@@ -85,14 +84,8 @@
 			       </div>
 			    </div>
 			</form>
+			<hr>
 		</div>
-		
-		
-	
 	</div>
-	
-	
-	
-	<hr>
 </body>
 </html>
