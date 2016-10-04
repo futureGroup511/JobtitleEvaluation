@@ -44,7 +44,7 @@ public class UnitAction extends BaseAction<Unit> {
 	}
 
 	public String add(){
-		if("".equals(unit.getUni_id())||unit==null){
+		if("".equals(unit.getUni_name())||unit==null){
 			this.addRemind("添加失败,请不要输入空的名字!");
 			return "addSuccess";
 		}
