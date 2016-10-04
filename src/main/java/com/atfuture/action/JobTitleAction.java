@@ -1,15 +1,17 @@
 package com.atfuture.action;
 
-import java.util.List;
-import java.util.Map;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.atfuture.base.BaseAction;
 import com.atfuture.domain.JobTitle;
 import com.future.utils.Page_S;
-import com.opensymphony.xwork2.ActionContext;
 
 @Controller
 @Scope("prototype")
@@ -33,35 +35,56 @@ public class JobTitleAction extends BaseAction<JobTitle>{
 	public String execute(){
 		return SUCCESS;
 	}
-	
-	public String get(){
-		JobTitle jt=jobTitleService.getJobTitle(jobTitle.getJobTi_id());
-		ActionContext ac=ActionContext.getContext();
-		Map<String,Object> request=(Map)ac.get("request");
-		request.put("jobTitle",jt);
-		return "getSuccess";
+	private HttpServletRequest getRequest(){
+		return ServletActionContext.getRequest();
 	}
-	
+	private void addRemind(String remind){
+		ServletActionContext.getRequest().getSession().setAttribute("remind", remind);
+	}
 	public String add(){
+		if("".equals(jobTitle.getJobTi_name())||jobTitle==null){
+			this.addRemind("添加失败,请不要输入空的名字!");
+			return "addSuccess";
+		}
+		if(jobTitleService.checkExist(jobTitle.getJobTi_name())){
+			this.addRemind("添加失败!职称名字已经存在");
+			return "addSuccess";
+		}
 		jobTitleService.addJobTitle(jobTitle);
+		this.addRemind("添加成功!");
 		return "addSuccess";
 	}
+	public String changePage(){
+		JobTitle jt=jobTitleService.getJobTitle(jobTitle.getJobTi_id());
+		this.getRequest().setAttribute("findResult",jt);
+		return "changePage";
+	}
+	
 	public String change(){
+		if(null==jobTitle||"".equals(jobTitle.getJobTi_id())){
+			this.addRemind("修改失败,请正确操作!");
+			return "changePage";
+		}
+		if(jobTitleService.checkExist(jobTitle.getJobTi_name())){
+			this.addRemind("修改失败,名字已存在!");
+			JobTitle jt=jobTitleService.getJobTitle(jobTitle.getJobTi_id());
+			this.getRequest().setAttribute("findResult",jt);
+			return "changePage";
+		}
 		jobTitleService.changeJobTitle(jobTitle);
+		this.addRemind("修改成功!");
 		return "changeSuccess";
 	}
 	public String findByName(){
 		List<JobTitle> findResults=jobTitleService.findByName(jobTitle.getJobTi_name());
-		ActionContext ac=ActionContext.getContext();
-		Map<String,Object> request=(Map)ac.get("request");
-		request.put("findResults",findResults);
-		return "findSuccess";
+		this.getRequest().setAttribute("findResults",findResults);
+		return "findByName";
 	}
 	public String page_s(){
-		ActionContext ac=ActionContext.getContext();
-		Map request=(Map) ac.get("request");
+		page_s.setPageSize(20);
 		Page_S ps=jobTitleService.page_s(page_s);
-		request.put("page_s",ps);
+		
+		this.getRequest().setAttribute("page_s",ps);
 		return "page_sSuccess";
-	} 
+	}
 }

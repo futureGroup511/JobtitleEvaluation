@@ -6,9 +6,10 @@ import com.atfuture.domain.Specialty;
 import com.future.utils.Page_S;
 
 public interface SpecialtyService  {
-	Specialty getById(int id);
-	void add(Specialty specialty);//添加专业
-	Page_S page_s(Page_S page_s);//分页
-	void change(Specialty s);//修改专业信息
-	List<Specialty> findByName(String name);//根据名字查找专业
+	Specialty getSpecialty(int id);
+	List<Specialty> findByName(String name);
+	Page_S page_s(Page_S ps);
+	void addSpecialty(Specialty unit);
+	void changeSpecialty(Specialty unit);
+	boolean checkExist(String name);
 }

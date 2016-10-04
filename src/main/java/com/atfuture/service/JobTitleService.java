@@ -11,4 +11,5 @@ public interface JobTitleService {
 	Page_S page_s(Page_S ps);
 	void addJobTitle(JobTitle jt);
 	void changeJobTitle(JobTitle jt);
+	boolean checkExist(String name);
 }

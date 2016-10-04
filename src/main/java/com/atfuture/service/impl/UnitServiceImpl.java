@@ -17,19 +17,8 @@ public class UnitServiceImpl  implements UnitService {
 	@Resource
 	private UnitDao unitDao;
 
-	public Unit getById(int id) {
-		return unitDao.getById(id);
-	}
-
-	public void add(Unit unit) {
-		// TODO Auto-generated method stub
-		unitDao.add(unit);
-		
-	}
-
-	public void change(Unit unit) {
-		// TODO Auto-generated method stub
-		unitDao.change(unit);
+	public Unit getUnit(int id) {
+		return unitDao.getUnit(id);
 		
 	}
 
@@ -41,5 +30,19 @@ public class UnitServiceImpl  implements UnitService {
 	public Page_S page_s(Page_S ps) {
 		// TODO Auto-generated method stub
 		return unitDao.page_s(ps);
+	}
+
+	public void addUnit(Unit jt) {
+		unitDao.addUnit(jt);
+		
+	}
+
+	public void changeUnit(Unit jt) {
+		unitDao.changeUnit(jt);
+		
+	}
+
+	public boolean checkExist(String name) {
+		return unitDao.checkExist(name);
 	}
 }

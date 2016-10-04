@@ -17,8 +17,8 @@ public class JobTitleServiceImpl  implements JobTitleService{
 	private JobTitleDao  jobTitleDao ;
 
 	public JobTitle getJobTitle(int id) {
-		jobTitleDao.getJobTitle(id);
-		return null;
+		return jobTitleDao.getJobTitle(id);
+		
 	}
 
 	public List<JobTitle> findByName(String name) {
@@ -39,5 +39,9 @@ public class JobTitleServiceImpl  implements JobTitleService{
 	public void changeJobTitle(JobTitle jt) {
 		jobTitleDao.changeJobTitle(jt);
 		
+	}
+
+	public boolean checkExist(String name) {
+		return jobTitleDao.checkExist(name);
 	}
 }
