@@ -98,7 +98,7 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 		return "findByName";
 	}
 	public String page_s(){
-		page_s.setPageSize(20);
+		page_s.setPageSize(10);
 		Page_S ps=jobTitleService.page_s(page_s);
 		
 		this.getRequest().setAttribute("page_s",ps);

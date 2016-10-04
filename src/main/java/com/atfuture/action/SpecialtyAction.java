@@ -94,7 +94,7 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 		return "findByName";
 	}
 	public String page_s(){
-		page_s.setPageSize(20);
+		page_s.setPageSize(10);
 		Page_S ps=specialtyService.page_s(page_s);
 		
 		this.getRequest().setAttribute("page_s",ps);

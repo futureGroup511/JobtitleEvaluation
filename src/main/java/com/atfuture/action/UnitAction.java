@@ -92,7 +92,7 @@ public class UnitAction extends BaseAction<Unit> {
 	}
 	
 	public String page_s(){
-		page_s.setPageSize(20);
+		page_s.setPageSize(10);
 		Page_S ps=unitService.page_s(page_s);
 		this.getRequest().setAttribute("page_s",ps);
 		return "page_sSuccess";
