@@ -66,7 +66,7 @@ $(function() {
 <body>
 	<div class="dangqian">
   <div class="row">
-    <div class="col-lg-1 col-lg-offset-1 col-md-2  col-xs-2 col-xs-offset-1">
+    <div class="col-lg-2 col-lg-offset-1 col-md-2  col-xs-2 col-xs-offset-1" >
             <a><p>添加信息</p></a>
         </div>
         <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-xs-5  col-xs-offset-1">
@@ -85,7 +85,7 @@ $(function() {
 		<s:hidden name="evalStan_jobtile.jobTi_id" value="%{#request.evaluatedStandard.evalStan_jobtile.jobTi_id}"></s:hidden>
 		
 		<div class="row">
-		  <div class="col-lg-1 col-lg-offset-3 col-md-2 col-lg-offset-3 col-xs-2 col-lg-offset-3">
+		  <div style="font-size:20px" class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-2">
 		            <p>教学评价标准：</p>
 		        </div>
 		　 <div class="col-lg-6  col-md-6  col-xs-6 ">
@@ -100,7 +100,7 @@ $(function() {
 		</div>
 		
 		<div class="row">
-		  <div class="col-lg-1 col-lg-offset-3 col-md-2 col-lg-offset-3 col-xs-2 col-lg-offset-3">
+		  <div style="font-size:20px" class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-2">
 		            <p>科研评价标准：</p>
 		        </div>
 		　 <div class="col-lg-6  col-md-6  col-xs-6 ">
@@ -115,7 +115,7 @@ $(function() {
 		</div>
 		
 		<div class="row">
-		  <div class="col-lg-1 col-lg-offset-3 col-md-2 col-lg-offset-3 col-xs-2 col-lg-offset-3">
+		  <div style="font-size:20px" class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-2">
 		            <p>师德评价标准：</p>
 		        </div>
 		　 <div class="col-lg-6  col-md-6  col-xs-6 ">
@@ -132,7 +132,9 @@ $(function() {
 		教学评价指标：<s:textarea onkeydown="checkMaxLen(this,250)" name="evalStan_teachStandard" value="%{#request.evaluatedStandard.evalStan_teachStandard}"></s:textarea><br/>
 		科研评价指标：<s:textarea onkeydown="checkMaxLen(this,250)" name="evalStan_scientifiStandard" value="%{#request.evaluatedStandard.evalStan_scientifiStandard}"></s:textarea><br/>
 		师德评价指标：<s:textarea onkeydown="checkMaxLen(this,250)" name="evalStan_moralityStandard" value="%{#request.evaluatedStandard.evalStan_moralityStandard}"></s:textarea><br/> --%>
-		<s:submit class="btnSub" value="确定"></s:submit>
+		<div class="col-lg-2 col-lg-offset-9 col-md-2 col-md-offset-9 col-xs-2 col-xs-offset-9">
+				<s:submit  class="btnSub " style="width:34%; margin:10px 0 35px 0"  value="确定"></s:submit>
+		</div>
 	</s:form>
 </body>
 </html>
