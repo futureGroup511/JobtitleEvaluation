@@ -11,13 +11,12 @@ import com.atfuture.base.BaseAction;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.SuperManager;
 import com.atfuture.domain.Test;
+import com.atfuture.interfaceUtils.Role;
 import com.opensymphony.xwork2.ActionContext;
 
 @Controller
 @Scope("prototype")
 public class LoginAction extends BaseAction<Object> implements SessionAware{
-	
-		
 	private String num;
 	private String password;
 	private int role;
@@ -26,32 +25,17 @@ public class LoginAction extends BaseAction<Object> implements SessionAware{
 	private static final int MANNGER=2;
 	public String login(){
 		session.clear();
-		int status=1;
-		if(role==EXPERT){//专家登陆
-			Expert expert=expertService.findByNumAndPassword(num, password);
-			expert.getExp_jobTitle();
-			expert.getExp_specialty();
-			expert.getExp_unit();
-			if(expert!=null){
-				session.put("expert", expert);
-				status=2;
-				
-			}
-		}else if(role==MANNGER){//管理员登陆
-			SuperManager superManager=superManagerService.findByNumAndPassword(num, password);
-			if(superManager!=null){
-				session.put("superManager", superManager);
-				status=2;
-			}
-		}
-		if(status==2){
+		if(jugeRole(role)==2){
 			ActionContext.getContext().getValueStack().push("success");
 		}else{
 			ActionContext.getContext().getValueStack().push("erro");
 		}
 		return "login";
 	}
-	
+	public String loginOut(){
+		session.clear();
+		return "loginOut";
+	}
 	public  String finishLogin(){
 		return "finishLogin";
 	}
@@ -81,7 +65,29 @@ public class LoginAction extends BaseAction<Object> implements SessionAware{
 	public void setSession(Map<String, Object> arg0) {
 		session=arg0;
 	}
+	
 
+	/**
+	 * 角色登陆判断
+	 * @param role 角色
+	 * @return 判断是否存在的状态
+	 */
+	public int jugeRole(int role){
+		Role r = null;
+		if(role==EXPERT){//专家登陆
+			Expert expert=expertService.findByNumAndPassword(num, password);
+			if(expert!=null) expert.getAllCascadeInformation();
+			r=expert;
+		}else if(role==MANNGER){//管理员登陆
+			SuperManager superManager=superManagerService.findByNumAndPassword(num, password);
+			r=superManager;
+		}
+		if(r!=null){
+			session.put(r.findSelfName(),r);
+			return 2;
+		}
+		return 1;
+	}
 	
 
 	

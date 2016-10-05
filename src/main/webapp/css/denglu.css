@@ -23,7 +23,6 @@
   margin-left: 13%;
 }
 .left span{
-  font-family:华文行楷;
   font-size:40px;
   padding-left:2%;
 }
@@ -50,8 +49,8 @@
   width:50%;
 }
 #banous .one img{
-  width:40%;
-  margin-left: 20%;
+  width:80%;
+  margin-left: 30%;
   margin-top: 40px;
 }
 #banous .two{
@@ -67,6 +66,9 @@
 #banous .container .row{
   margin-top: 20px;
   font-size: 20px;
+}
+#banous .right{
+  margin-top: 50px;
 }
 .three{
   margin-top: -160px;
@@ -94,3 +96,63 @@
   position:absolute;
   bottom:0px;
  }
+ .two .row{
+  margin-top:50px;
+  width:90%;
+  margin-left:5%;
+}
+.two .col-sm-5 ul{
+  margin-top:-30px;
+  height:300px;
+}
+.two .col-sm-5 li{
+  margin-top:11px;
+}
+.two .col-sm-5 a{
+  text-decoration: none;
+}
+.two .col-lg-2 li{
+   margin-top:11px;
+}
+.two .col-lg-2 ul{
+  margin-top:-30px;
+  
+}
+.two .col-lg-2 li{
+  list-style: none;
+}
+.two .col-lg-2 a{
+  text-decoration: none;
+}
+.two .col-lg-2 ul{
+  margin-left:-20%;
+}
+.two .right{
+  margin-top:-14%
+}
+.right button{
+  margin-top: 25px;
+}
+.input-group  select{
+  height:40px;
+}
+.input-one .input-lg{
+  font-size:15px;
+}
+.input-one{
+  margin-top:9%;
+} 
+
+.input-two{
+  margin-top:7.5%
+}
+.input-three{
+  margin-top:7.5%;
+}
+.input-three img{
+  height:20px;
+}
+
+
+
+

@@ -6,9 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.atfuture.interfaceUtils.Role;
+
 @Entity
 @Table(name="supermanager")
-public class SuperManager {
+public class SuperManager implements Role{
 	
 	//超级管理员id
 	private Integer sup_id;
@@ -44,6 +46,10 @@ public class SuperManager {
 	}
 	public void setSup_password(String sup_password) {
 		this.sup_password = sup_password;
+	}
+	@Override
+	public String findSelfName() {
+		return "superManager";
 	}
 	
 }

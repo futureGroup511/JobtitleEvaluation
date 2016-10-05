@@ -33,16 +33,17 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 		EvaluatedRecord er=getModel();
 		er.setEvalRecor_expart(expert);
 		er.setEvalRecor_participatedPerson(participatedPerson);
-		if(er.getEvalRecor_allAssessment().equals(Evaluate.EXCELLENT.getName())){
+		String allAssessment=er.getEvalRecor_allAssessment();
+		if(allAssessment.equals(Evaluate.EXCELLENT.getName())){
 			er.setEvalRecor_allAssessment(Evaluate.EXCELLENT.getValue());
 		}
-		if(er.getEvalRecor_allAssessment().equals(Evaluate.GOOD.getName())){
+		if(allAssessment.equals(Evaluate.GOOD.getName())){
 			er.setEvalRecor_allAssessment(Evaluate.GOOD.getValue());		
 			}
-		if(er.getEvalRecor_allAssessment().equals(Evaluate.MEDIUM.getName())){
+		if(allAssessment.equals(Evaluate.MEDIUM.getName())){
 			er.setEvalRecor_allAssessment(Evaluate.MEDIUM.getValue());
 		}
-		if(er.getEvalRecor_allAssessment().equals(Evaluate.POOR.getName())){
+		if(allAssessment.equals(Evaluate.POOR.getName())){
 			er.setEvalRecor_allAssessment(Evaluate.POOR.getValue());
 		}
 		evaluatedRecordService.save(er);

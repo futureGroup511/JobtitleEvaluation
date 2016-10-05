@@ -13,9 +13,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.atfuture.interfaceUtils.Role;
+
 @Entity
 @Table(name="expert")
-public class Expert {
+public class Expert implements Role{
 
 	//专家id
 	private Integer exp_id;
@@ -102,7 +104,18 @@ public class Expert {
 		return new Expert();
 	}
 	
-	
+	/**
+	 * 得到专家拥有对象的信息
+	 */
+	public void getAllCascadeInformation(){
+		this.getExp_jobTitle();
+		this.getExp_specialty();
+		this.getExp_unit();
+	}
+	@Override
+	public String findSelfName() {
+		return "expert";
+	}
 	
 	
 }
