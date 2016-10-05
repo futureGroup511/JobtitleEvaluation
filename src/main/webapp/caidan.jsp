@@ -9,6 +9,17 @@
 <title>菜单</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/caidan.css">
 <script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript">
+	function juge(){
+	 var juge=confirm("确定删除数据么?");
+	 if(juge){
+		return true; 
+	 }
+	 return false;
+	}
+	
+	
+</script>
 </head>
 <body id="bg">
 	<div class="container">
@@ -33,11 +44,10 @@
         		<dl class="channel">
            		<dt>专家管理<img src="images/select_xl01.png"></dt>
            		<dd><a href="expert_manageExpertInfoList" target="right">专家信息管理</a></dd>
-            	<dd><a href="expert_registerExpert" target="right">专家注册</a></dd>
 	           	</dl>
 	           	 <dl class="channel">
 	           	 	<dt>参评人员信息管理<img src="images/select_xl01.png"></dt>
-	           	 	<dd><a href="super_deleteInformation">删除参评人员数据和记录</a></dd>
+	           	 	<dd><a href="super_deleteInformation" target="right" onclick="return juge();">删除参评人员数据和记录</a></dd>
 	           	 	<dd><a href="participated_manageParticipatedPerson" target="right">管理参评人员信息</a></dd>
 	           	 </dl>
 	           	 <dl class="channel">

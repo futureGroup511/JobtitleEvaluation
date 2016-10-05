@@ -43,7 +43,7 @@
 		</c:otherwise>
 	</c:choose>
 	<form action="evaluatedrecord_finishAssess" method="post">
-		<input type="hidden" name="expert_id" value="1">
+		<input type="hidden" name="expert_id" value="${sessionScope.expert.exp_id}">
 		<input type="hidden" name="person_id" value="${person.parti_id }">
 		<div class="table-responsive">
    			 <table class="table table-bordered table-hover table-striped" style="Word-break: break-all;">

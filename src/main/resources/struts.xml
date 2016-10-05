@@ -135,7 +135,7 @@
     	
     	<!-- Unit,Specialty,JobTitle的action配置结束 -->
     	<action name="evaluatedrecord_*" method="{1}" class="evaluatedRecordAction">
-    	   <result name="finishAssess">success.jsp</result>
+    	   <result name="finishAssess" type="redirect">expert_allEvaluaTeacher</result>
     	   <result name="ShowRecordByExpert">WEB-INF/jsp/EvaluatedRecord/EvaluatedRecordList.jsp</result>
     	</action>
     </package>

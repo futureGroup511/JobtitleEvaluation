@@ -18,9 +18,6 @@
 <body>
 	<div class="container">
 	  <div class="row">
-	    <div class="col-lg-1 col-lg-offset-1 col-md-1 col-lg-offset-1  col-xs-1 col-xs-offset-1">
-	            <a><p>添加信息</p></a>
-	        </div>
 	        <div class="col-lg-3 col-lg-offset-5 col-md-3 scol-md-offset-5 col-xs-3  col-xs-offset-5">
 	            <p>当前位置：学生服务>>报名</p>
 	        </div>

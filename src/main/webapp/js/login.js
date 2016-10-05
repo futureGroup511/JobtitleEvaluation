@@ -37,7 +37,7 @@ function juge(){
 			$("#information").text("");
 			return 2;
 		}else if(data==="erro"){
-			$("#information").text("账号密码错误");
+			$("#information").text("账号/密码错误");
 			return 1;
 		}
 	}
