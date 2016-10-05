@@ -101,7 +101,7 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 		}
 		jobTitleService.changeJobTitle(jobTitle);
 		this.addRemind("修改成功!");
-		this.page_s.setPageSize(10);
+		this.page_s.setPageSize(3);
 		this.page_s.setCurrentPage(pageNum);
 		this.page_s();
 		return "page_sSuccess";
@@ -112,7 +112,7 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 		return "findByName";
 	}
 	public String page_s(){
-		page_s.setPageSize(10);
+		page_s.setPageSize(3);
 		Page_S ps=jobTitleService.page_s(page_s);
 		this.getRequest().setAttribute("page_s",ps);
 		return "page_sSuccess";

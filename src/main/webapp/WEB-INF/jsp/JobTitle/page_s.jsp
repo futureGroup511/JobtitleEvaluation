@@ -52,6 +52,8 @@
                    <ul class="pagination">
                        <li><a href="jobTitle_page_s?page_s.currentPage=1">首页</a></li>
                        <li><a id="prePage" href="#">上一页</a></li>
+                       <li><a href="jobTitle_page_s?page_s.currentPage=${page_s.currentPage }">${page_s.currentPage } / ${page_s.pageCount }</a></li>
+                       <%-- 
                        <c:forEach var="p" begin="${page_s.beginPageIndex }" end="${page_s.currentPage - 1 }" step="1">
 							<li><a href="jobTitle_page_s?page_s.currentPage=${p }">${p }</a></li>
 						</c:forEach>
@@ -59,11 +61,13 @@
 						<c:forEach var="p" begin="${page_s.currentPage + 1 }" end="${page_s.endPageIndex }" step="1">
 							<li><a href="jobTitle_page_s?page_s.currentPage=${p }">${p }</a></li>
 						</c:forEach>
+                        --%>
                        <li><a id="nextPage" href="#">下一页</a></li>
                        <li><a href="jobTitle_page_s?page_s.currentPage=${page_s.endPageIndex }">尾页</a></li>
                    </ul>
                </nav>
             </div>
+          <%--   
            <form>
 	            <label class="col-lg-1 col-md-1 col-xs-1 control-label">跳到第</label>
                 <div class="col-lg-2 col-md-2 col-xs-2">
@@ -77,6 +81,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary" >跳转</button>
              </form>
+              --%>
      </div>
 </div>
 <script type="text/javascript">

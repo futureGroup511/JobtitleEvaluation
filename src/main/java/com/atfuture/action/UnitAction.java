@@ -95,7 +95,7 @@ public class UnitAction extends BaseAction<Unit> {
 		}
 		unitService.changeUnit(unit);
 		this.addRemind("修改成功!");
-		this.page_s.setPageSize(10);
+		this.page_s.setPageSize(3);
 		this.page_s.setCurrentPage(pageNum);
 		this.page_s();
 		return "page_sSuccess";
@@ -106,7 +106,7 @@ public class UnitAction extends BaseAction<Unit> {
 		return "findByName";
 	}
 	public String page_s(){
-		page_s.setPageSize(10);
+		page_s.setPageSize(3);
 		Page_S ps=unitService.page_s(page_s);
 		this.getRequest().setAttribute("page_s",ps);
 		return "page_sSuccess";
