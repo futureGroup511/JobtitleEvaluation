@@ -47,7 +47,10 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 		ServletActionContext.getRequest().getSession().setAttribute("remind", remind);
 	}
 	public String add(){
-		if("".equals(jobTitle.getJobTi_name())||jobTitle==null){
+		if(null==jobTitle){
+			return "addSuccess";
+		}
+		if("".equals(jobTitle.getJobTi_name())){
 			this.addRemind("添加失败,请不要输入空的名字!");
 			return "addSuccess";
 		}
@@ -60,14 +63,23 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 		return "addSuccess";
 	}
 	public String changePage(){
+		if(jobTitle==null||"".equals(jobTitle.getJobTi_id())){
+			return SUCCESS;
+		}
 		JobTitle jt=jobTitleService.getJobTitle(jobTitle.getJobTi_id());
 		this.getRequest().setAttribute("findResult",jt);
 		return "changePage";
 	}
 	
 	public String change(){
-		if(null==jobTitle||"".equals(jobTitle.getJobTi_id())){
+		if(null==jobTitle){
+			this.addRemind("错误!请正确操作!");
+			return "changePage";
+		}
+		if("".equals(jobTitle.getJobTi_id())||"".equals(jobTitle.getJobTi_name())){
 			this.addRemind("修改失败,请正确操作!");
+			JobTitle jt=jobTitleService.getJobTitle(jobTitle.getJobTi_id());
+			this.getRequest().setAttribute("findResult",jt);
 			return "changePage";
 		}
 		if(jobTitleService.checkExist(jobTitle.getJobTi_name())){
@@ -86,7 +98,7 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 		return "findByName";
 	}
 	public String page_s(){
-		page_s.setPageSize(20);
+		page_s.setPageSize(10);
 		Page_S ps=jobTitleService.page_s(page_s);
 		
 		this.getRequest().setAttribute("page_s",ps);

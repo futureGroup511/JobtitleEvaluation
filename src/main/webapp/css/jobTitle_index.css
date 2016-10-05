@@ -1,5 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
+
 *{
   padding:0;
   margin:0;
@@ -25,20 +26,25 @@
   margin-top:30px;
 }
 .form-horizontal{
-  margin-top: 50px;
+	width:100%;
+
 }
-.table{
-  width:60%;
-  margin:0 auto;
-  margin-top: 40px;
+#do_{
+	width:100%;
+	margin-top:50px;
 }
-.table a:hover{
-  text-decoration: none;
-  color:#FFCA00;
+#add{
+	
 }
-.container{
-	margin-top:40px;
-	}
-.container form{
- margin-top:20px; 
+#manage{
+
+}
+.do_title{
+	margin-left:200px;
+}
+.view_a{
+	
+}
+.remind{
+	color:red;
 }

@@ -44,7 +44,10 @@ public class UnitAction extends BaseAction<Unit> {
 	}
 
 	public String add(){
-		if("".equals(unit.getUni_name())||unit==null){
+		if(unit==null){
+			return "addSuccess";
+		}
+		if("".equals(unit.getUni_name())){
 			this.addRemind("添加失败,请不要输入空的名字!");
 			return "addSuccess";
 		}
@@ -62,8 +65,14 @@ public class UnitAction extends BaseAction<Unit> {
 		return "changePage";
 	}
 	public String change(){
-		if(null==unit||"".equals(unit.getUni_name())){
+		if(null==unit){
+			this.addRemind("错误!请正确操作!");
+			return "changePage";
+		}
+		if("".equals(unit.getUni_name())||"".equals(unit.getUni_id())){
 			this.addRemind("修改失败,请正确操作!");
+			Unit u=unitService.getUnit(unit.getUni_id());
+			this.getRequest().setAttribute("findResult",u);
 			return "changePage";
 		}
 		if(unitService.checkExist(unit.getUni_name())){
@@ -83,7 +92,7 @@ public class UnitAction extends BaseAction<Unit> {
 	}
 	
 	public String page_s(){
-		page_s.setPageSize(20);
+		page_s.setPageSize(10);
 		Page_S ps=unitService.page_s(page_s);
 		this.getRequest().setAttribute("page_s",ps);
 		return "page_sSuccess";
