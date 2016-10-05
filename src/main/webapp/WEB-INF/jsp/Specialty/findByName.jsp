@@ -11,11 +11,10 @@
 <link rel="stylesheet" href="css/specialty_findResults.css">
 </head>
 <body>
-
 <div class="dangqian">
   <div class="row">
         <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-xs-5  col-xs-offset-1">
-            <p>当前位置：管理员>>专业搜索</p>
+            <p>当前位置：管理员>>搜索专业</p>
         </div>
         <div class="col-lg-2 col-md-3 col-xs-3">
             <p>欢迎登录本系统</p>
@@ -25,17 +24,17 @@
 <table class="table table-bordered table-hover">
 	<tbody>
 		<tr>
-			<td>专业名字</td>
+			<td>单位名字</td>
 			<td>修改</td>
 		</tr>
 		<c:forEach var="jt" items="${findResults }">
 				<tr>
-					<td>${jt.spec_name }</td>
-					<td><a href="specialty_changePage?specialty.spec_id=${jt.spec_id }">修改</a></td>
+				
+				<td>${jt.spec_name }</td>
+				<td><a href="specialty_changePage?specialty.spec_id=${jt.spec_id }">修改</a></td>
 				</tr>
 		</c:forEach>
 	</tbody>
 </table>
-
 </body>
 </html>

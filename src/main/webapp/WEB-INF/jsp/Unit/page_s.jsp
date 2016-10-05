@@ -18,7 +18,7 @@
             <a><p>单位管理</p></a>
         </div>
         <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-xs-5  col-xs-offset-1">
-            <p>当前位置：管理员>>单位搜索</p>
+            <p>当前位置：管理员>>查看单位</p>
         </div>
         <div class="col-lg-2 col-md-3 col-xs-3">
             <p>欢迎登录本系统</p>
@@ -26,6 +26,8 @@
   </div>
 </div>
 <center>
+	<h1 class="remind">${remind }</h1>
+	<s:set name="remind" value=" " scope="session"></s:set>
 	<h3>第${page_s.currentPage } / ${page_s.pageCount }页--所有单位信息</h3>
 </center>
  <table class="table table-bordered table-hover">
@@ -38,7 +40,7 @@
                 <c:forEach var="jt" items="${page_s.recordlist }">
 					<tr>
 					<td>${jt.uni_name }</td>
-					<td><a href="unit_changePage?unit.uni_id=${jt.uni_id }">修改</a></td>
+					<td><a href="unit_changePage?unit.uni_id=${jt.uni_id }&page_s.currentPage=${page_s.currentPage }">修改</a></td>
 					</tr>
 				</c:forEach>
             </tbody>
@@ -50,6 +52,9 @@
                    <ul class="pagination">
                        <li><a href="unit_page_s?page_s.currentPage=1">首页</a></li>
                        <li><a id="prePage" href="#">上一页</a></li>
+                       
+                       <li><a href="unit_page_s?page_s.currentPage=${page_s.currentPage }">${page_s.currentPage } / ${page_s.pageCount }</a></li>
+                       <%-- 
                        <c:forEach var="p" begin="${page_s.beginPageIndex }" end="${page_s.currentPage - 1 }" step="1">
 							<li><a href="unit_page_s?page_s.currentPage=${p }">${p }</a></li>
 						</c:forEach>
@@ -57,11 +62,13 @@
 						<c:forEach var="p" begin="${page_s.currentPage + 1 }" end="${page_s.endPageIndex }" step="1">
 							<li><a href="unit_page_s?page_s.currentPage=${p }">${p }</a></li>
 						</c:forEach>
+						 --%>
                        <li><a id="nextPage" href="#">下一页</a></li>
-                       <li><a href="unit_page_s?page_s.currentPage=${page_s.endPageIndex }">尾页</a></li>
+                       <li><a href="unit_page_s?page_s.currentPage=${page_s.pageCount }">尾页</a></li>
                    </ul>
                </nav>
             </div>
+            <%-- 
            <form>
 	            <label class="col-lg-1 col-md-1 col-xs-1 control-label">跳到第</label>
                 <div class="col-lg-2 col-md-2 col-xs-2">
@@ -75,15 +82,16 @@
                 </div>
                 <button type="submit" class="btn btn-primary" >跳转</button>
              </form>
+              --%>
      </div>
 </div>
 <script type="text/javascript">
 		var one=${page_s.currentPage};
 		var two=${page_s.pageCount }
-		if(one != 1){
+		if(one > 1){
 			document.getElementById("prePage").setAttribute("href", "unit_page_s?page_s.currentPage="+(one-1));
 		}
-		if(one != two){
+		if(one < two){
 			document.getElementById("nextPage").setAttribute("href", "unit_page_s?page_s.currentPage="+(one+1));
 		}
 </script>

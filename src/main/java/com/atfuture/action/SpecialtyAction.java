@@ -9,27 +9,29 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.atfuture.base.BaseAction;
-import com.atfuture.domain.JobTitle;
 import com.atfuture.domain.Specialty;
 import com.future.utils.Page_S;
 @Controller
 @Scope("prototype")
 public class SpecialtyAction extends BaseAction<Specialty>  {
-	
 	private Specialty specialty;
 	private Page_S page_s;
 	
+	public Specialty getSpecialty() {
+		return specialty;
+	}
+	public void setSpecialty(Specialty specialty) {
+		this.specialty = specialty;
+	}
 	public Page_S getPage_s() {
 		return page_s;
 	}
 	public void setPage_s(Page_S page_s) {
 		this.page_s = page_s;
 	}
-	public Specialty getSpecialty() {
-		return specialty;
-	}
-	public void setSpecialty(Specialty specialty) {
-		this.specialty = specialty;
+	
+	public String execute(){
+		return SUCCESS;
 	}
 	private HttpServletRequest getRequest(){
 		return ServletActionContext.getRequest();
@@ -37,11 +39,6 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 	private void addRemind(String remind){
 		ServletActionContext.getRequest().getSession().setAttribute("remind", remind);
 	}
-	
-	public String execute(){
-		return SUCCESS;
-	}
-	
 	public String add(){
 		if(null==specialty){
 			return "addSuccess";
@@ -51,7 +48,7 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 			return "addSuccess";
 		}
 		if(specialtyService.checkExist(specialty.getSpec_name())){
-			this.addRemind("添加失败!名字已经存在");
+			this.addRemind("添加失败!职称名字已经存在");
 			return "addSuccess";
 		}
 		specialtyService.addSpecialty(specialty);
@@ -59,15 +56,26 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 		return "addSuccess";
 	}
 	public String changePage(){
-		if(null==specialty||"".equals(specialty.getSpec_id())){
-			this.addRemind("添加失败,请不要输入空的名字!");
-			return "addSuccess";
+		if(specialty==null||"".equals(specialty.getSpec_id())){
+			return SUCCESS;
 		}
 		Specialty jt=specialtyService.getSpecialty(specialty.getSpec_id());
+		System.out.println("ad");
+		if(null!=page_s&&null!=page_s.getCurrentPage()){
+			String pageNum=page_s.getCurrentPage().toString();
+			this.getRequest().setAttribute("pageNum", pageNum);
+			System.out.println(pageNum);
+		}else{
+			this.getRequest().setAttribute("pageNum", 1);
+		}
 		this.getRequest().setAttribute("findResult",jt);
 		return "changePage";
 	}
+	
 	public String change(){
+		int pageNum=page_s.getCurrentPage();
+		this.getRequest().setAttribute("pageNum", pageNum);
+		System.out.println("change"+pageNum);
 		if(null==specialty){
 			this.addRemind("错误!请正确操作!");
 			return "changePage";
@@ -86,7 +94,10 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 		}
 		specialtyService.changeSpecialty(specialty);
 		this.addRemind("修改成功!");
-		return "changeSuccess";
+		this.page_s.setPageSize(3);
+		this.page_s.setCurrentPage(pageNum);
+		this.page_s();
+		return "page_sSuccess";
 	}
 	public String findByName(){
 		List<Specialty> findResults=specialtyService.findByName(specialty.getSpec_name());
@@ -94,9 +105,8 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 		return "findByName";
 	}
 	public String page_s(){
-		page_s.setPageSize(10);
+		page_s.setPageSize(3);
 		Page_S ps=specialtyService.page_s(page_s);
-		
 		this.getRequest().setAttribute("page_s",ps);
 		return "page_sSuccess";
 	}

@@ -67,11 +67,22 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 			return SUCCESS;
 		}
 		JobTitle jt=jobTitleService.getJobTitle(jobTitle.getJobTi_id());
+		System.out.println("ad");
+		if(null!=page_s&&null!=page_s.getCurrentPage()){
+			String pageNum=page_s.getCurrentPage().toString();
+			this.getRequest().setAttribute("pageNum", pageNum);
+			System.out.println(pageNum);
+		}else{
+			this.getRequest().setAttribute("pageNum", 1);
+		}
 		this.getRequest().setAttribute("findResult",jt);
 		return "changePage";
 	}
 	
 	public String change(){
+		int pageNum=page_s.getCurrentPage();
+		this.getRequest().setAttribute("pageNum", pageNum);
+		System.out.println("change"+pageNum);
 		if(null==jobTitle){
 			this.addRemind("错误!请正确操作!");
 			return "changePage";
@@ -90,7 +101,10 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 		}
 		jobTitleService.changeJobTitle(jobTitle);
 		this.addRemind("修改成功!");
-		return "changeSuccess";
+		this.page_s.setPageSize(3);
+		this.page_s.setCurrentPage(pageNum);
+		this.page_s();
+		return "page_sSuccess";
 	}
 	public String findByName(){
 		List<JobTitle> findResults=jobTitleService.findByName(jobTitle.getJobTi_name());
@@ -98,9 +112,8 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 		return "findByName";
 	}
 	public String page_s(){
-		page_s.setPageSize(10);
+		page_s.setPageSize(3);
 		Page_S ps=jobTitleService.page_s(page_s);
-		
 		this.getRequest().setAttribute("page_s",ps);
 		return "page_sSuccess";
 	}
