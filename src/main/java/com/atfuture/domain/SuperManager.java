@@ -47,7 +47,6 @@ public class SuperManager implements Role{
 	public void setSup_password(String sup_password) {
 		this.sup_password = sup_password;
 	}
-	@Override
 	public String findSelfName() {
 		return "superManager";
 	}
