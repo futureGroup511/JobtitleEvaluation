@@ -12,10 +12,6 @@
 <head>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/liwen2.css">
-<!-- 去掉这3行，则点击直接显示原图，如果移动至下面则IE浏览器报错 begin -->
-<script type='text/javascript' src='ly/js/jquery.js'></script>
-<script type='text/javascript' src='ly/js/jquery.scripts.js'></script>
-<script type='text/javascript' src='ly/js/jquery.custom.js'></script>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <title>参评人员信息管理</title>
 </head>
@@ -57,7 +53,7 @@
 				<td>${participatedPerson.parti_recommendUnit.uni_name}</td>
 				<td>
 					<a class="image-icon" rel="gallery[modal]" href="<%=basePath %>${participatedPerson.parti_pathurl }">
-					<img height="20" width="100" src="<%=basePath %>${participatedPerson.parti_pathurl }"></a></td>
+					<img class="image-icon" height="20" width="100" src="<%=basePath %>${participatedPerson.parti_pathurl }"></a></td>
 				<td><a href="<%=basePath %>participated_updateParticipatedPerson?parti_id=${participatedPerson.parti_id}&currentPage=${requestScope.pageBean.currentPage}">修改</a></td>
 			</tr>
 			</s:iterator>
@@ -129,4 +125,11 @@
 		window.location.href="participated_manageParticipatedPerson?currentPage=" + pageNum;
 	}		
 </script>
+<!-- 去掉这3行，则点击直接显示原图，如果移动至下面则IE浏览器报错 begin -->
+<script type='text/javascript' src='ly/js/jquery.js'></script>
+<script type='text/javascript' src='ly/js/jquery.scripts.js'></script>
+<script type='text/javascript' src='ly/js/jquery.custom.js'></script>
+<!-- 去掉这3行，则点击直接显示原图，如果移动至下面则IE浏览器报错 end -->
+<link rel="stylesheet" type="text/css" media="all" href="ly/css/style.min.css" />
 </html>
+<!-- 去掉这3行，则点击直接显示原图，如果移动至下面则IE浏览器报错 begin -->
