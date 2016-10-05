@@ -33,7 +33,8 @@
     		<result name="success" >success.jsp</result>
     		<result name="erro" >erro.jsp</result>
     		<result name="login" type="json"></result>
-    		<result name="finishLogin">success.jsp</result>
+    		<result name="finishLogin">framset.jsp</result>
+    		<result name="loginOut">login.jsp</result>
  		</action> 
  		
  		<action name="super_*" method="{1}" class="superManagerAction">
@@ -62,10 +63,10 @@
  			<result name="lookPicture">picture.jsp</result>
  		</action>
  		
- 		<!-- <action name="jobTitleStandard_*" method="{1}" class="jobTitleAction">
+ 		<action name="jobTitleStandard_*" method="{1}" class="jobTitleAction">
 			<result name="ManageJobTitleList">WEB-INF/jsp/JobTitle/ManageJobTitleStandard.jsp</result>
 			<result name="JobTitleStandardPage">WEB-INF/jsp/JobTitle/UpdateJobTitleStandard.jsp</result>
- 		</action> -->
+ 		</action> 
  		<action name="evaluatedStandard_*" method="{1}" class="evaluatedStandardAction">
 			<result name="JumpToJobTitleAction" type="redirectAction">jobTitleStandard_manageJobTitleStandard</result>
  		</action>

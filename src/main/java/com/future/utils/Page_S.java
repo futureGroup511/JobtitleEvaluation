@@ -19,24 +19,8 @@ public class Page_S {
 		this.pageSize = pageSize;
 		this.recordCount = recordCount;
 		this.recordlist = recordlist;
-		
-		pageCount=(recordCount+pageSize-1)/pageSize;
-		//如果总页数小于10
-		if(pageCount<10){
-			beginPageIndex=1;
-			endPageIndex =pageCount;
-		}else{
-			beginPageIndex=currentPage-4;
-			endPageIndex=currentPage+5;
-			if(beginPageIndex<1){
-				beginPageIndex=1;
-				endPageIndex=10;
-			}
-			if(endPageIndex>pageCount){
-				endPageIndex=pageCount;
-				beginPageIndex=pageCount-9;
-			}
-		}
+		//计算其他参数的函数
+		calculatePageEndAndBeginIndex();
 	}
 
 	public static Page_S newInstance(){
@@ -108,6 +92,25 @@ public class Page_S {
 				+ pageCount + "]";
 	}
 	
+	public void calculatePageEndAndBeginIndex(){
+		pageCount=(recordCount+pageSize-1)/pageSize;
+		//如果总页数小于10
+		if(pageCount<10){
+			beginPageIndex=1;
+			endPageIndex =pageCount;
+		}else{
+			beginPageIndex=currentPage-4;
+			endPageIndex=currentPage+5;
+			if(beginPageIndex<1){
+				beginPageIndex=1;
+				endPageIndex=10;
+			}
+			if(endPageIndex>pageCount){
+				endPageIndex=pageCount;
+				beginPageIndex=pageCount-9;
+			}
+		}
+	}
 	
 	
 }
