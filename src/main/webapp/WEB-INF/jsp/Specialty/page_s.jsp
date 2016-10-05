@@ -18,7 +18,7 @@
             <a><p>专业管理</p></a>
         </div>
         <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-xs-5  col-xs-offset-1">
-            <p>当前位置：管理员>>专业搜索</p>
+            <p>当前位置：管理员>>查看专业</p>
         </div>
         <div class="col-lg-2 col-md-3 col-xs-3">
             <p>欢迎登录本系统</p>
@@ -26,6 +26,8 @@
   </div>
 </div>
 <center>
+	<h1 class="remind">${remind }</h1>
+	<s:set name="remind" value=" " scope="session"></s:set>
 	<h3>第${page_s.currentPage } / ${page_s.pageCount }页--所有专业信息</h3>
 </center>
  <table class="table table-bordered table-hover">
@@ -38,7 +40,7 @@
                 <c:forEach var="jt" items="${page_s.recordlist }">
 					<tr>
 					<td>${jt.spec_name }</td>
-					<td><a href="specialty_changePage?specialty.spec_id=${jt.spec_id }">修改</a></td>
+					<td><a href="specialty_changePage?specialty.spec_id=${jt.spec_id }&page_s.currentPage=${page_s.currentPage }">修改</a></td>
 					</tr>
 				</c:forEach>
             </tbody>
@@ -80,10 +82,10 @@
 <script type="text/javascript">
 		var one=${page_s.currentPage};
 		var two=${page_s.pageCount }
-		if(one != 1){
+		if(one > 1){
 			document.getElementById("prePage").setAttribute("href", "specialty_page_s?page_s.currentPage="+(one-1));
 		}
-		if(one != two){
+		if(one < two){
 			document.getElementById("nextPage").setAttribute("href", "specialty_page_s?page_s.currentPage="+(one+1));
 		}
 </script>

@@ -26,7 +26,9 @@
   </div>
 </div>
 <center>
+<s:debug></s:debug>
 <h1 class="remind">${remind }</h1>
+<s:set name="remind" value=" " scope="session"></s:set>
 </center>
 <s:set name="remind" value=" " scope="session"></s:set>
 <form class="form-horizontal" role="form" method="post" action="jobTitle_change">
@@ -35,6 +37,7 @@
        <div class="col-lg-2 col-md-2 col-xs-3">
           <input type="text" class="form-control" id="inputEmail3" name="jobTitle.jobTi_name" placeholder="${findResult.jobTi_name }">
           <input type="hidden" name="jobTitle.jobTi_id" value="${findResult.jobTi_id }">
+          <input type="hidden" name="page_s.currentPage" value="${pageNum}">
        </div>
        <div class="col-lg-2  col-md-2  col-xs-3 ">
            <button class="btn btn-primary" type="submit" >修改</button>
