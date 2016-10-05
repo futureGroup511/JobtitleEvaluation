@@ -85,6 +85,8 @@
  		    <result name="assess">WEB-INF/jsp/Expert/assess.jsp</result>
     		<result name="lookInformation">WEB-INF/jsp/Expert/information.jsp</result>
     	</action>
+    	
+    	
     	<!-- Unit,Specialty,JobTitle的action配置开始 -->
     	
     	<action name="jobTitle_*" method="{1}" class="jobTitleAction">
@@ -92,11 +94,15 @@
     		<result name="addSuccess" type="redirectAction">
     			<param name="actionName">jobTitle</param>
     			<param name="namespace">/</param>
-    		</result>  		
-    		<result name="findByName">/WEB-INF/jsp/JobTitle/findByName.jsp</result>
+    		</result>
+    		<!-- 
+    			<result name="findByName">/WEB-INF/jsp/JobTitle/findByName.jsp</result>
+    		 -->  		
+    		
     		<result name="changePage">/WEB-INF/jsp/JobTitle/changePage.jsp</result>
     		<result name="changeSuccess" type="redirectAction">
-    			<param name="actionName">jobTitle</param>
+    			<param name="actionName">jobTitle_page_s</param>
+    			<param name="page_s.currentPage">${pageNum}</param>
     			<param name="namespace">/</param>
     		</result>
     		<result name="page_sSuccess">/WEB-INF/jsp/JobTitle/page_s.jsp</result>

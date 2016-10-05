@@ -12,7 +12,10 @@
 
 </head>
 <body>
-	
+	<center>
+	<h1 class="remind">${remind }</h1>
+	<s:set name="remind" value=" " scope="session"></s:set>
+	</center>
 	<div class="dangqian">
 	  <div class="row">
 	    <div class="col-lg-1 col-lg-offset-1 col-md-2  col-xs-2 col-xs-offset-1">
@@ -28,6 +31,7 @@
 	</div>
 	
 	<div id="do_">
+		<%-- 
 		<center>
 		<h1 class="remind">${remind }</h1>
 		</center>
@@ -39,7 +43,7 @@
 			<a class="view_a" href="jobTitle_page_s?page_s.currentPage=1"><h4>点击这里查看所有职称</h4></a>
 			</center>
 		</div>
-		
+		 --%>
 		<div id="add">
 			<hr>
 			<h3 class="do_title">增加职称</h3>
@@ -55,7 +59,7 @@
 		    </div>
 			</form>
 		</div>
-		
+		<!-- 
 		<div id="manage">
 			<hr>
 			<h3 class="do_title">修改职称</h3>
@@ -72,6 +76,7 @@
 			</form>
 			<hr>
 		</div>
+		 -->
 	</div>
 </body>
 </html>

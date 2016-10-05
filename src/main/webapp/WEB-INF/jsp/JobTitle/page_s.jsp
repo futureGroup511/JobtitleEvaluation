@@ -26,6 +26,8 @@
   </div>
 </div>
 <center>
+	<h1 class="remind">${remind }</h1>
+	<s:set name="remind" value=" " scope="session"></s:set>
 	<h3>第${page_s.currentPage } / ${page_s.pageCount }页--所有职称信息</h3>
 </center>
  <table class="table table-bordered table-hover">
@@ -38,7 +40,7 @@
                 <c:forEach var="jt" items="${page_s.recordlist }">
 					<tr>
 					<td>${jt.jobTi_name }</td>
-					<td><a href="jobTitle_changePage?jobTitle.jobTi_id=${jt.jobTi_id }">修改</a></td>
+					<td><a href="jobTitle_changePage?jobTitle.jobTi_id=${jt.jobTi_id }&page_s.currentPage=${page_s.currentPage }">修改</a></td>
 					</tr>
 				</c:forEach>
             </tbody>
@@ -80,10 +82,10 @@
 <script type="text/javascript">
 		var one=${page_s.currentPage};
 		var two=${page_s.pageCount }
-		if(one != 1){
+		if(one > 1){
 			document.getElementById("prePage").setAttribute("href", "jobTitle_page_s?page_s.currentPage="+(one-1));
 		}
-		if(one != two){
+		if(one < two){
 			document.getElementById("nextPage").setAttribute("href", "jobTitle_page_s?page_s.currentPage="+(one+1));
 		}
 </script>

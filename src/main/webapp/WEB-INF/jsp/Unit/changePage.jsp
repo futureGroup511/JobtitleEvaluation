@@ -18,7 +18,7 @@
             <a><p>单位管理</p></a>
         </div>
         <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-xs-5  col-xs-offset-1">
-            <p>当前位置：管理员>>单位修改</p>
+            <p>当前位置：管理员>>修改单位</p>
         </div>
         <div class="col-lg-2 col-md-3 col-xs-3">
             <p>欢迎登录本系统</p>
@@ -26,7 +26,9 @@
   </div>
 </div>
 <center>
+<s:debug></s:debug>
 <h1 class="remind">${remind }</h1>
+<s:set name="remind" value=" " scope="session"></s:set>
 </center>
 <s:set name="remind" value=" " scope="session"></s:set>
 <form class="form-horizontal" role="form" method="post" action="unit_change">
@@ -35,6 +37,7 @@
        <div class="col-lg-2 col-md-2 col-xs-3">
           <input type="text" class="form-control" id="inputEmail3" name="unit.uni_name" placeholder="${findResult.uni_name }">
           <input type="hidden" name="unit.uni_id" value="${findResult.uni_id }">
+          <input type="hidden" name="page_s.currentPage" value="${pageNum}">
        </div>
        <div class="col-lg-2  col-md-2  col-xs-3 ">
            <button class="btn btn-primary" type="submit" >修改</button>

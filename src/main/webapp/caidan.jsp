@@ -48,7 +48,8 @@
 	           	 <dl class="channel">
 	           	 	<dt>职称管理<img src="images/select_xl01.png"></dt>
 	           	 	<dd><a href="jobTitleStandard_manageJobTitleStandard" target="right">管理职称申报标准信息</a></dd>
-	           	 	<dd><a href="jobTitle" target="right">查看、管理职称</a></dd>
+	           	 	<dd><a href="jobTitle_page_s?page_s.currentPage=1" target="right">查看、管理职称</a></dd>
+	           	 	<dd><a href="jobTitle" target="right">增加职称</a></dd>
 	           	 	
 	           	 </dl>
 	             <dl>
@@ -61,11 +62,13 @@
 	            </dl>
 	            <dl class="channel">
 	            	<dt>单位管理<img src="images/select_xl01.png" ></dt>
-	            	<dd><a href="unit" target="right">查看、管理职称</a></dd>
+	            	<dd><a href="unit_page_s?page_s.currentPage=1" target="right">查看、管理单位</a></dd>
+	           	 	<dd><a href="unit" target="right">增加单位</a></dd>
 	            </dl>
 	            <dl class="channel">
 	            	<dt>专业管理<img src="images/select_xl01.png"></dt>
-	            	<dd><a href="specialty" target="right">查看、管理职称</a></dd>
+	            	<dd><a href="specialty_page_s?page_s.currentPage=1" target="right">查看、管理专业</a></dd>
+	           	 	<dd><a href="specialty" target="right">增加专业</a></dd>
 	            </dl>
         	</c:if>
             
