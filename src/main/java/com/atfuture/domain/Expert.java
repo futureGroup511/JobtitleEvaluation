@@ -112,7 +112,6 @@ public class Expert implements Role{
 		this.getExp_specialty();
 		this.getExp_unit();
 	}
-	@Override
 	public String findSelfName() {
 		return "expert";
 	}
