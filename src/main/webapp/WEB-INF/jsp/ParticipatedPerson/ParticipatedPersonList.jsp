@@ -22,7 +22,7 @@
 	            <p>当前位置：学生服务>>报名</p>
 	        </div>
 	        <div class="col-lg-2 col-md-2 col-xs-2">
-	            <p>欢迎登录本系统</p>
+	            <p>欢迎<s:property value="#session.role.findSelfName()"/>登录本系统</p>
 	        </div>
 	  </div>
 	</div>

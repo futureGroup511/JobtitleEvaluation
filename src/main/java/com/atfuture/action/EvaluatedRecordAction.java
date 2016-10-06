@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -14,10 +15,11 @@ import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.Statistics;
+import com.atfuture.interfaceUtils.Role;
 import com.future.utils.Page_S;
 @Controller
 @Scope("prototype")
-public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implements RequestAware{
+public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implements RequestAware,SessionAware{
 
 	private Integer currentPage;
 	private Map<String, Object> requestMap;
@@ -25,7 +27,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	private Integer expert_id;
 	private Integer person_id;
 	
-	
+	private Map<String, Object> sessionMap;
 	
 	public String finishAssess(){
 		Expert expert=expertService.findById(expert_id);
@@ -75,7 +77,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	
 	
 	//查询指定专家的评估记录
-		private Integer exp_id = 1;
+		private Integer exp_id = ((Expert)sessionMap.get("role")).getExp_id();
 		public String statisticByExpert(){
 			Integer recordCount = evaluatedRecordService.getAllStatisticByExpert(exp_id).size();
 			Integer pageSize = 2;
@@ -121,6 +123,12 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 
 	public void setRequest(Map<String, Object> requestMap) {
 		this.requestMap = requestMap;
+	}
+
+
+
+	public void setSession(Map<String, Object> sessionMap) {
+		this.sessionMap = sessionMap;
 	}
 	
 	

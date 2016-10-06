@@ -68,7 +68,7 @@
   font-size: 20px;
 }
 #banous .right{
-  margin-top: 30px;
+  margin-top: -20px;
   margin-bottom: 40px
 }
 .three{
@@ -153,7 +153,9 @@
 .input-three img{
   height:20px;
 }
-
+.passwordOrAccountWrong h3{
+	margin-bottom:40px;
+}
 
 
 
