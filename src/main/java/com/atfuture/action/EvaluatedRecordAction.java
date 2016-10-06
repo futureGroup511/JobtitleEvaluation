@@ -53,6 +53,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 		if(statistics==null){
 			statistics=Statistics.newInstance();
 		}
+		statistics.setSta_participatedPerson(participatedPerson);
 		Iterator<Object[]> iterator=result.iterator();
 		while(iterator.hasNext()){
 			Object[] objects=iterator.next();

@@ -64,7 +64,7 @@
 						</c:forEach>
 						 --%>
                        <li><a id="nextPage" href="#">下一页</a></li>
-                       <li><a href="unit_page_s?page_s.currentPage=${page_s.endPageIndex }">尾页</a></li>
+                       <li><a href="unit_page_s?page_s.currentPage=${page_s.pageCount }">尾页</a></li>
                    </ul>
                </nav>
             </div>

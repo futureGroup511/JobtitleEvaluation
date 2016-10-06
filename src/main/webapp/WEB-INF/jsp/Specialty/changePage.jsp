@@ -14,9 +14,6 @@
 
 <div class="dangqian">
   <div class="row">
-    <div class="col-lg-1 col-lg-offset-1 col-md-2  col-xs-2 col-xs-offset-1">
-            <a><p>专业管理</p></a>
-        </div>
         <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-xs-5  col-xs-offset-1">
             <p>当前位置：管理员>>修改专业</p>
         </div>

@@ -83,7 +83,7 @@ public class LoginAction extends BaseAction<Object> implements SessionAware{
 			r=superManager;
 		}
 		if(r!=null){
-			session.put(r.findSelfName(),r);
+			session.put("role",r);
 			return 2;
 		}
 		return 1;
