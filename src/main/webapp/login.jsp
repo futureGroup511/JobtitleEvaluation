@@ -61,7 +61,7 @@
     
 </form>
 <div id="footer">
-    	<p>版权所有&emsp;&emsp;河南科技学院&emsp;&emsp;河南省新乡市华兰大道东段&emsp;453003</p>
+    	<p>版权所有&emsp;&emsp;河南艾维特网络技术有限公司与未来工作室共同所有&emsp;&emsp;河南省新乡市华兰大道东段&emsp;453003</p>
     </div>
 </body>
 

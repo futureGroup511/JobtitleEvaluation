@@ -36,7 +36,7 @@
 	        		<!-- <dd><a href="expert_lookInformation" target="right">个人信息</a></dd> -->
 	        	</dl>
 	        	<dl>
-	        		<dt><a style="color:white" href="evaluatedrecord_statisticByExpert" target="right">查看已评审参评人<img src="images/select_xl01.png"></a></dt>
+	        		<dt><a style="color:white" href="evaluatedrecord_statisticByExpert" target="right">查看已评审参评信息<img src="images/select_xl01.png"></a></dt>
 	        		<!-- <dd><a href="evaluatedrecord_statisticByExpert" target="right">按指定专家统计</a></dd> -->
 	        	</dl>
         
@@ -65,11 +65,11 @@
 	           	 	<dd><a href="participated_manageParticipatedPerson" target="right">管理参评人员信息</a></dd>
 	           	 	<dd><a href="participated_incrementParticipatedPerson" target="right">添加参评人员信息</a></dd>
 	           	 </dl>
-	           	 <dl class="channel">
+	           	<!--  <dl class="channel">
 	           	 	<dt>邀请码管理<img src="images/select_xl01.png"></dt>
 	           	 	<dd><a href="super_generateRequestCode" target="right">生成邀请码</a></dd>
 	          		<dd><a href="super_showRequestCode" target="right">查看当前邀请码</a></dd>
-	           	 </dl>
+	           	 </dl> -->
 	           	 <dl class="channel">
 	           	 	<dt>职称管理<img src="images/select_xl01.png"></dt>
 	           	 	<dd><a href="jobTitleStandard_manageJobTitleStandard" target="right">管理职称申报标准信息</a></dd>
@@ -87,15 +87,15 @@
 	           	 	<dd><a href="specialty_add" target="right">增加专业</a></dd>
 	            </dl>
 	           	 <dl class="channel">
-	           	 	<dt><a style="color:white;" href="super_deleteInformation" onclick="return juge();">清空<img src="images/select_xl01.png"></a></dt>
+	           	 	<dt><a style="color:white;" href="super_deleteInformation" onclick="return juge();">清空参评人相关信息<img src="images/select_xl01.png"></a></dt>
 	           	 	<!-- <dd><a href="super_deleteInformation" onclick="return juge();">清空参评人员有关信息</a></dd> -->
 	           	 </dl>
 	           	 <dl>
-	             	<dt><a style="color:white;" href="statistic_statisticAll" target="right">统计<img src="images/select_xl01.png"></a></dt>
+	             	<dt><a style="color:white;" href="statistic_statisticAll" target="right">专家审评统计<img src="images/select_xl01.png"></a></dt>
 	             	<!-- <dd><a style="color:white;" href="statistic_statisticAll" target="right">统计所有</a></dd> -->
 	             </dl>
         		<dl>
-	            	<dt><a style="color:white;" href="super_lookInformation" target="right">查看个人信息页面</a></dt>
+	            	<dt><a style="color:white;" href="super_lookInformation" target="right">查看个人信息</a></dt>
 	            </dl>
         	</s:if>
             
@@ -117,8 +117,8 @@
 	             </dl> -->
 	             
        <dl class="channel">
-           	<dt>退出登陆<img src="images/select_xl01.png" ></dt>
-           	<dd><a href="loginAction_loginOut" target="_top">退出登陆</a></dd>
+           	<dt><a style="color:white" href="loginAction_loginOut" target="_top">退出登陆<img src="images/select_xl01.png" ></a></dt>
+           	<!-- <dd><a href="loginAction_loginOut" target="_top">退出登陆</a></dd> -->
         </dl>
     </div>
 </div>
