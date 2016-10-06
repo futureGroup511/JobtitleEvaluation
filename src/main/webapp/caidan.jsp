@@ -26,8 +26,7 @@
     <div class="leftsidebar_box">
         <div class="line"></div>
         	
-        	<s:if test="	#session.role.findSelfName() == 'expert'">
-        	
+        	<s:if test="#session.role.findSelfName() == 'expert'">
 	        	<dl class="channel">
 	        		<dt>评教<img src="images/select_xl01.png"></dt>
 	        		<dd><a href="expert_allEvaluaTeacher" target="right">教职工评教</a></dd>
@@ -36,19 +35,35 @@
 	        		<dt>查看个人信息<img src="images/select_xl01.png"></dt>
 	        		<dd><a href="expert_lookInformation" target="right">个人信息</a></dd>
 	        	</dl>
+	        	<dl>
+	        		<dt>查看已评议参评人<img src="images/select_xl01.png"></dt>
+	        		<dd><a href="evaluatedrecord_statisticByExpert" target="right">按指定专家统计</a></dd>
+	        	</dl>
         
         	</s:if>
-        
-        
-        		 
-        	<s:if test="#session.role.findSelfName() == 'superManager'">
+        	<%-- <c:if test="${ sessionScope.superManager != null}">
+        		 <dl>
+	            	<dd><a href="super_lookInformation" target="right">管理员查看个人信息页面</a></dd>
+	            </dl>
         		<dl class="channel">
            		<dt>专家管理<img src="images/select_xl01.png"></dt>
-           		<dd><a href="expert_manageExpertInfoList" target="right">专家信息管理</a></dd>
+           			<dd><a href="expert_manageExpertInfoList" target="right">专家信息管理</a></dd>
+            		<!-- <dd><a href="expert_registerExpert" target="right">专家注册</a></dd> -->
+	           	</dl>
+	           	 <dl class="channel">
+	           	 	<dt>参评人员管理<img src="images/select_xl01.png"></dt>
+	           	 	<dd><a href="super_deleteInformation">删除参评人员数据和记录</a></dd> --%>
+	           	 	
+	           	 	
+        	<s:if test="#session.role.findSelfName() == 'superManager'">
+        		<dl class="channel">
+	           		<dt>专家管理<img src="images/select_xl01.png"></dt>
+	           		<dd><a href="expert_manageExpertInfoList" target="right">专家信息管理</a></dd>
 	           	</dl>
 	           	 <dl class="channel">
 	           	 	<dt>参评人员信息管理<img src="images/select_xl01.png"></dt>
 	           	 	<dd><a href="participated_manageParticipatedPerson" target="right">管理参评人员信息</a></dd>
+	           	 	<dd><a href="participated_incrementParticipatedPerson" target="right">添加参评人员信息</a></dd>
 	           	 </dl>
 	           	 <dl class="channel">
 	           	 	<dt>邀请码管理<img src="images/select_xl01.png"></dt>
@@ -71,6 +86,26 @@
 	            	<dd><a href="specialty_page_s?page_s.currentPage=1" target="right">查看/管理专业</a></dd>
 	           	 	<dd><a href="specialty" target="right">增加专业</a></dd>
 	            </dl>
+	           	 <dl class="channel">
+	           	 	<dt>清空<img src="images/select_xl01.png"></dt>
+	           	 	<dd><a href="super_deleteInformation">清空参评人员有关信息</a></dd>
+	           	 </dl>
+	           	 <dl>
+	             	<dt>统计<img src="images/select_xl01.png"></dt>
+	             	<dd><a href="statistic_statisticAll" target="right">统计所有</a></dd>
+	             </dl>
+        		<dl>
+	            	<dd><a href="super_lookInformation" target="right">查看个人信息页面</a></dd>
+	            </dl>
+        	</s:if>
+            
+           <!--  <dl class="channel">
+	            	<dt>退出登陆<img src="images/select_xl01.png" ></dt>
+	            	<dd><a href="loginAction_loginOut" target="_top">退出登陆</a></dd>
+	           </dl> -->
+	            
+	           <!-- 
+	            </dl>
 	            <dl class="channel">
 		           	 	<dt>清空<img src="images/select_xl01.png"></dt>
 		           	 	<dd><a href="super_deleteInformation" onclick="return juge();">清空参评人员有关信息</a></dd>
@@ -79,14 +114,8 @@
 	             	<dt>统计<img src="images/select_xl01.png"></dt>
 	             	<dd><a href="statistic_statisticAll" target="right">统计所有</a></dd>
 	            	<dd><a href="evaluatedrecord_statisticByExpert" target="right">按指定专家统计</a></dd>
-	             </dl>
-        		<dl>
-	            	<dd><a href="super_lookInformation" target="right">查看个人信息页面</a></dd>
-	            </dl>
-        	</s:if>
-            
-           	 
-           	 
+	             </dl> -->
+	             
        <dl class="channel">
            	<dt>退出登陆<img src="images/select_xl01.png" ></dt>
            	<dd><a href="loginAction_loginOut" target="_top">退出登陆</a></dd>

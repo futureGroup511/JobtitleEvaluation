@@ -55,7 +55,7 @@
                     </div>
                     <button class="btn btn-large btn-block btn-primary" onclick="return juge();">登录</button>
                     <a class="btn btn-large btn-block btn-primary" href="expert_registerExpert" target="right">专家注册</a>
-                    <div>
+                    <div class="passwordOrAccountWrong">
                     	<h3 id="information" class="text text-danger col-md-offset-3" ></h3>
                     </div>
         	</div>

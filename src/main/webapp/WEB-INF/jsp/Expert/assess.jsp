@@ -26,7 +26,7 @@
 	            <p>当前位置：审评人员服务>>审评</p>
 	        </div>
 	        <div class="col-lg-2 col-md-2 col-xs-2">
-	            <p>欢迎${expert.exp_name}登录本系统</p>
+	            <p>欢迎<s:property value="#session.role.helloName()"/>登录本系统</p>
 	        </div>
 	  </div>
 	</div>

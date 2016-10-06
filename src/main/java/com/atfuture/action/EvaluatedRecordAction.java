@@ -23,7 +23,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	
 	private Integer expert_id;
 	private Integer person_id;
-	
+	private Map<String, Object> session;
 	
 	public String finishAssess(){
 		Expert expert=(Expert) session.get("role");
@@ -45,17 +45,17 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 		return "finishAssess";
 	}
 
+	
+	public String statisticByExpert(){
 	//查询指定专家的评估记录
-		private Integer exp_id = 1;
-		public String statisticByExpert(){
-			Integer recordCount = evaluatedRecordService.getAllStatisticByExpert(exp_id).size();
+			Integer recordCount = evaluatedRecordService.getAllStatisticByExpert(((Expert)session.get("role")).getExp_id()).size();
 			Integer pageSize = 2;
 			if(currentPage == null || (currentPage+"").trim() == ""){
 				currentPage = 1;
 			}
 			List<EvaluatedRecord> recordList = null; 
 			Page_S page = new Page_S(currentPage, pageSize, recordCount, null);
-			recordList = evaluatedRecordService.getAllStatisticByPageAndExpert(page, exp_id);
+			recordList = evaluatedRecordService.getAllStatisticByPageAndExpert(page, ((Expert)session.get("role")).getExp_id());
 			page.setRecordlist(recordList);
 			requestMap.put("pageBean", page);
 			return "ShowRecordByExpert";
@@ -76,15 +76,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 
 
 
-	public Integer getExp_id() {
-		return exp_id;
-	}
-
-
-
-	public void setExp_id(Integer exp_id) {
-		this.exp_id = exp_id;
-	}
+	
 
 
 
@@ -92,9 +84,6 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 		this.requestMap = requestMap;
 	}
 
-
-	private Map<String, Object> session;
-	@Override
 	public void setSession(Map<String, Object> arg0) {
 		session=arg0;
 	}
