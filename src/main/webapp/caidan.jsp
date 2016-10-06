@@ -79,12 +79,12 @@
 	            <dl class="channel">
 	            	<dt>单位管理<img src="images/select_xl01.png" ></dt>
 	            	<dd><a href="unit_page_s?page_s.currentPage=1" target="right">查看/管理单位</a></dd>
-	           	 	<dd><a href="unit" target="right">增加单位</a></dd>
+	           	 	<dd><a href="unit_add" target="right">增加单位</a></dd>
 	            </dl>
 	            <dl class="channel">
 	            	<dt>专业管理<img src="images/select_xl01.png"></dt>
 	            	<dd><a href="specialty_page_s?page_s.currentPage=1" target="right">查看/管理专业</a></dd>
-	           	 	<dd><a href="specialty" target="right">增加专业</a></dd>
+	           	 	<dd><a href="specialty_add" target="right">增加专业</a></dd>
 	            </dl>
 	           	 <dl class="channel">
 	           	 	<dt><a style="color:white;" href="super_deleteInformation" onclick="return juge();">清空<img src="images/select_xl01.png"></a></dt>

@@ -70,7 +70,7 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 			return SUCCESS;
 		}
 		if(null!=page_s&&null!=page_s.getCurrentPage()){
-			String pageNum=page_s.getCurrentPage().toString();
+			int pageNum=page_s.getCurrentPage();
 			this.getRequest().setAttribute("pageNum", pageNum);
 		}else{
 			this.getRequest().setAttribute("pageNum", 1);

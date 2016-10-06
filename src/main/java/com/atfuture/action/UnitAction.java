@@ -32,7 +32,8 @@ public class UnitAction extends BaseAction<Unit> {
 	}
 	
 	public String execute(){
-		return SUCCESS;
+		this.page_s();
+		return "page_sSuccess";
 	}
 	private HttpServletRequest getRequest(){
 		return ServletActionContext.getRequest();
@@ -42,48 +43,51 @@ public class UnitAction extends BaseAction<Unit> {
 	}
 	public String add(){
 		if(null==unit){
-			return "addSuccess";
+			return "addFail";
 		}
 		if("".equals(unit.getUni_name())){
 			this.addRemind("添加失败,请不要输入空的名字!");
-			return "addSuccess";
+			return "addFail";
 		}
 		if(unitService.checkExist(unit.getUni_name())){
-			this.addRemind("添加失败!职称名字已经存在");
-			return "addSuccess";
+			this.addRemind("添加失败!单位名字已经存在");
+			return "addFail";
 		}
 		unitService.addUnit(unit);
 		this.addRemind("添加成功!");
 		return "addSuccess";
 	}
+	
+	//修改页面
 	public String changePage(){
 		if(unit==null||"".equals(unit.getUni_id())){
 			return SUCCESS;
 		}
-		Unit jt=unitService.getUnit(unit.getUni_id());
-		System.out.println("ad");
 		if(null!=page_s&&null!=page_s.getCurrentPage()){
-			String pageNum=page_s.getCurrentPage().toString();
+			int pageNum=page_s.getCurrentPage();
 			this.getRequest().setAttribute("pageNum", pageNum);
-			System.out.println(pageNum);
 		}else{
 			this.getRequest().setAttribute("pageNum", 1);
 		}
+		Unit jt=unitService.getUnit(unit.getUni_id());
 		this.getRequest().setAttribute("findResult",jt);
 		return "changePage";
 	}
 	
+	//修改操作
 	public String change(){
 		int pageNum=page_s.getCurrentPage();
 		this.getRequest().setAttribute("pageNum", pageNum);
-		System.out.println("change"+pageNum);
 		if(null==unit){
 			this.addRemind("错误!请正确操作!");
 			return "changePage";
 		}
 		if("".equals(unit.getUni_id())||"".equals(unit.getUni_name())){
 			this.addRemind("修改失败,请正确操作!");
-			Unit jt=unitService.getUnit(unit.getUni_id());
+			Unit jt=null;
+			try{
+				jt=unitService.getUnit(unit.getUni_id());
+			}catch(Exception e){}
 			this.getRequest().setAttribute("findResult",jt);
 			return "changePage";
 		}
@@ -100,12 +104,20 @@ public class UnitAction extends BaseAction<Unit> {
 		this.page_s();
 		return "page_sSuccess";
 	}
+	/*
 	public String findByName(){
 		List<Unit> findResults=unitService.findByName(unit.getUni_name());
 		this.getRequest().setAttribute("findResults",findResults);
 		return "findByName";
 	}
+	*/
 	public String page_s(){
+		if(null==page_s){
+			page_s=new Page_S();
+		}
+		if(page_s.getCurrentPage()==null||page_s.getCurrentPage()==0){
+			page_s.setCurrentPage(1);
+		}
 		page_s.setPageSize(3);
 		Page_S ps=unitService.page_s(page_s);
 		this.getRequest().setAttribute("page_s",ps);
