@@ -30,7 +30,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	private Map<String, Object> sessionMap;
 	
 	public String finishAssess(){
-		Expert expert=expertService.findById(expert_id);
+		Expert expert=(Expert) session.get("role");
 		ParticipatedPerson participatedPerson=participatedPersonService.findById(person_id);
 		EvaluatedRecord er=getModel();
 		er.setEvalRecor_expart(expert);
@@ -126,9 +126,16 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	}
 
 
+<<<<<<< HEAD
 
 	public void setSession(Map<String, Object> sessionMap) {
 		this.sessionMap = sessionMap;
+=======
+	private Map<String, Object> session;
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+		session=arg0;
+>>>>>>> e080321ca6f7f86bf3fed412f55e892aeb31c359
 	}
 	
 	
