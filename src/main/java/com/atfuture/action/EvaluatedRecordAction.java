@@ -26,8 +26,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	
 	private Integer expert_id;
 	private Integer person_id;
-	
-	private Map<String, Object> sessionMap;
+	private Map<String, Object> session;
 	
 	public String finishAssess(){
 		Expert expert=(Expert) session.get("role");
@@ -77,7 +76,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	
 	
 	//查询指定专家的评估记录
-		private Integer exp_id = ((Expert)sessionMap.get("role")).getExp_id();
+		private Integer exp_id = ((Expert)session.get("role")).getExp_id();
 		public String statisticByExpert(){
 			Integer recordCount = evaluatedRecordService.getAllStatisticByExpert(exp_id).size();
 			Integer pageSize = 2;
@@ -126,16 +125,8 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	}
 
 
-<<<<<<< HEAD
-
-	public void setSession(Map<String, Object> sessionMap) {
-		this.sessionMap = sessionMap;
-=======
-	private Map<String, Object> session;
-	@Override
 	public void setSession(Map<String, Object> arg0) {
 		session=arg0;
->>>>>>> e080321ca6f7f86bf3fed412f55e892aeb31c359
 	}
 	
 	

@@ -26,12 +26,7 @@
     <div class="leftsidebar_box">
         <div class="line"></div>
         	
-<<<<<<< HEAD
         	<s:if test="#session.role.findSelfName() == 'expert'">
-=======
-        	<s:if test="	#session.role.findSelfName() == 'expert'">
->>>>>>> e080321ca6f7f86bf3fed412f55e892aeb31c359
-        	
 	        	<dl class="channel">
 	        		<dt>评教<img src="images/select_xl01.png"></dt>
 	        		<dd><a href="expert_allEvaluaTeacher" target="right">教职工评教</a></dd>
@@ -46,9 +41,6 @@
 	        	</dl>
         
         	</s:if>
-        
-        
-<<<<<<< HEAD
         	<%-- <c:if test="${ sessionScope.superManager != null}">
         		 <dl>
 	            	<dd><a href="super_lookInformation" target="right">管理员查看个人信息页面</a></dd>
@@ -63,9 +55,6 @@
 	           	 	<dd><a href="super_deleteInformation">删除参评人员数据和记录</a></dd> --%>
 	           	 	
 	           	 	
-=======
-        		 
->>>>>>> e080321ca6f7f86bf3fed412f55e892aeb31c359
         	<s:if test="#session.role.findSelfName() == 'superManager'">
         		<dl class="channel">
            		<dt>专家管理<img src="images/select_xl01.png"></dt>
@@ -96,7 +85,6 @@
 	            	<dt>专业管理<img src="images/select_xl01.png"></dt>
 	            	<dd><a href="specialty_page_s?page_s.currentPage=1" target="right">查看/管理专业</a></dd>
 	           	 	<dd><a href="specialty" target="right">增加专业</a></dd>
-<<<<<<< HEAD
 	            </dl>
         	</s:if>
             
@@ -112,7 +100,6 @@
              	<dt>统计<img src="images/select_xl01.png"></dt>
              	<dd><a href="statistic_statisticAll" target="right">统计所有</a></dd>
              </dl>
-=======
 	            </dl>
 	            <dl class="channel">
 		           	 	<dt>清空<img src="images/select_xl01.png"></dt>
@@ -126,11 +113,6 @@
         		<dl>
 	            	<dd><a href="super_lookInformation" target="right">查看个人信息页面</a></dd>
 	            </dl>
-        	</s:if>
-            
-           	 
-           	 
->>>>>>> e080321ca6f7f86bf3fed412f55e892aeb31c359
        <dl class="channel">
            	<dt>退出登陆<img src="images/select_xl01.png" ></dt>
            	<dd><a href="loginAction_loginOut" target="_top">退出登陆</a></dd>
