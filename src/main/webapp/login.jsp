@@ -17,10 +17,7 @@
 <div id="nav">
     <div class="left">
         <img src="images/header-logo.png"> 
-        <span>河南科技学院</span>
-    </div>
-    <div class="right">
-        <p><strong>评职称系统注册提醒</strong></p>
+        <span>河南科技学院职称评审专家网评系统</span>
     </div>
 </div>
 
@@ -56,7 +53,7 @@
                     <button class="btn btn-large btn-block btn-primary" onclick="return juge();">登录</button>
                     <a class="btn btn-large btn-block btn-primary" href="expert_registerExpert" target="right">专家注册</a>
                     <div class="passwordOrAccountWrong">
-                    	<h3 id="information" class="text text-danger col-md-offset-3" ></h3>
+                    	<h3 id="information" class="text text-danger col-md-offset-2" ></h3>
                     </div>
         	</div>
         </div>

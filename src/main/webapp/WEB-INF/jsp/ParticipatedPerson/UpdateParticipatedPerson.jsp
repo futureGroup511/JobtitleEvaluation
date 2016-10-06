@@ -45,12 +45,12 @@
 		所评职称：<s:select list="#request.jobTitleList" listValue="jobTi_name" listKey="jobTi_id" name="parti_jobTitle.jobTi_id" value="#request.participatedPerson.parti_jobTitle.jobTi_id"></s:select><br/> --%>
 		<div class="row">
         	<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-2"><p>申请人:</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3">
+            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-9%;">
             	<input class="parti_name form-control" type="text" name="parti_name" value="${requestScope.participatedPerson.parti_name }">
             	<span class="parti_nameSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>
             </div>
             <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>所评职称*：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3">
+            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-9%;">
            		 <s:select class="form-control" list="#request.jobTitleList" listValue="jobTi_name" listKey="jobTi_id" name="parti_jobTitle.jobTi_id" value="#request.participatedPerson.parti_jobTitle.jobTi_id"></s:select>
             	<%-- <select class="form-control">
                   <option>教授</option>
@@ -63,7 +63,7 @@
 		 --%>
 		   <div class="row">
             <div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-2"><p>申报专业：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3">
+            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-9%;">
             	<s:select class="form-control" list="#request.specialtyList" listValue="spec_name" listKey="spec_id"  name="parti_specialty.spec_id" value="#request.participatedPerson.parti_specialty.spec_id"></s:select>
             	<%-- <select class="form-control">
                   <option>信息工程</option>
@@ -73,7 +73,7 @@
                 </select> --%>
             </div>
             <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>推荐单位*：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3">
+            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-9%;">
             	<s:select class="form-control" list="#request.unitList" listValue="uni_name" listKey="uni_id"  name="parti_recommendUnit.uni_id" value="#request.participatedPerson.parti_recommendUnit.uni_id"></s:select>
             	<%-- <select class="form-control">
                   <option>信息工程</option>

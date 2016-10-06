@@ -34,7 +34,7 @@
 	
 	<c:choose>
 		<c:when test="${(fn:endsWith( person.parti_pathurl,'.jpg') or fn:endsWith( person.parti_pathurl,'.png'))}">
-			<a href="#" onclick="return go('${pageContext.request.contextPath}/participated_lookPicture?parti_pathurl=${person.parti_pathurl}')">显示图片</a>
+			<a href="#" onclick="return go('${pageContext.request.contextPath}/participated_lookPicture?parti_pathurl=${person.parti_pathurl}')"></a>
 		</c:when>
 		<c:when test="${empty person.parti_pathurl}">
 			<p class="text text-danger">资料不存在</p>
