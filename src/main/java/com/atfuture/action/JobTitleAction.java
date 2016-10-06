@@ -123,7 +123,6 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 		if(null==page_s){
 			page_s=new Page_S();
 		}
-		System.out.println(page_s.getCurrentPage());
 		if(page_s.getCurrentPage()==null||page_s.getCurrentPage()==0){
 			page_s.setCurrentPage(1);
 		}
