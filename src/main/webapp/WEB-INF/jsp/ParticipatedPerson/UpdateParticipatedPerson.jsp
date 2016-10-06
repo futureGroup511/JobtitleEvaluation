@@ -27,15 +27,8 @@
 <body>
 	<div class="dangqian">
    <div class="row">
-<<<<<<< HEAD
-        <div class="col-lg-1 col-lg-offset-1 col-md-1 col-md-offset-1 col-xs-2 col-xs-offset-1">
-            <a><p>添加信息</p></a>
-        </div>
-        <div class="col-lg-3 col-lg-offset-5 col-md-3 col-md-offset-5   col-xs-3 col-xs-offset-5 ">
-=======
         <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
->>>>>>> b017056c6e71a8e3423f3fc36117b1320dfa0224
-            <p>当前位置：学生服务>>报名</p>
+            <p>当前位置：未知</p>
         </div>
         <div class="col-lg-2 col-md-2 col-xs-2">
             <p>欢迎登录本系统</p>

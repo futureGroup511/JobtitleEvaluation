@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,7 +20,7 @@
 	            <p>当前位置：审评人员>>个人信息</p>
 	        </div>
 	        <div class="col-lg-2 col-md-3 col-xs-3">
-	            <p>欢迎${role.exp_name }登录本系统</p>
+	            <p>欢迎$<s:property value="#session.role.helloName()"/>登录本系统</p>
 	        </div>
 	    </div>
 	</div>

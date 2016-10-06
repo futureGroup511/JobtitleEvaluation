@@ -115,6 +115,9 @@ public class Expert implements Role{
 	public String findSelfName() {
 		return "expert";
 	}
+	public String helloName() {
+		return this.exp_name;
+	}
 	
 	
 }

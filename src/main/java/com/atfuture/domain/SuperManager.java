@@ -50,5 +50,8 @@ public class SuperManager implements Role{
 	public String findSelfName() {
 		return "superManager";
 	}
+	public String helloName() {
+		return this.sup_name;
+	}
 	
 }

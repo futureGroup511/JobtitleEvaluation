@@ -15,7 +15,6 @@ import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.Statistics;
-import com.atfuture.interfaceUtils.Role;
 import com.future.utils.Page_S;
 @Controller
 @Scope("prototype")
@@ -75,17 +74,16 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 
 	
 	
+	public String statisticByExpert(){
 	//查询指定专家的评估记录
-		private Integer exp_id = ((Expert)session.get("role")).getExp_id();
-		public String statisticByExpert(){
-			Integer recordCount = evaluatedRecordService.getAllStatisticByExpert(exp_id).size();
+			Integer recordCount = evaluatedRecordService.getAllStatisticByExpert(((Expert)session.get("role")).getExp_id()).size();
 			Integer pageSize = 2;
 			if(currentPage == null || (currentPage+"").trim() == ""){
 				currentPage = 1;
 			}
 			List<EvaluatedRecord> recordList = null; 
 			Page_S page = new Page_S(currentPage, pageSize, recordCount, null);
-			recordList = evaluatedRecordService.getAllStatisticByPageAndExpert(page, exp_id);
+			recordList = evaluatedRecordService.getAllStatisticByPageAndExpert(page, ((Expert)session.get("role")).getExp_id());
 			page.setRecordlist(recordList);
 			requestMap.put("pageBean", page);
 			return "ShowRecordByExpert";
@@ -108,22 +106,13 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 
 
 
-	public Integer getExp_id() {
-		return exp_id;
-	}
-
-
-
-	public void setExp_id(Integer exp_id) {
-		this.exp_id = exp_id;
-	}
+	
 
 
 
 	public void setRequest(Map<String, Object> requestMap) {
 		this.requestMap = requestMap;
 	}
-
 
 	public void setSession(Map<String, Object> arg0) {
 		session=arg0;

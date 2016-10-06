@@ -18,11 +18,11 @@
 
 	<div class="container">
 		<div class="row">
-	        <div class="col-lg-3 col-lg-offset-5 col-md-3 scol-md-offset-5 col-xs-3  col-xs-offset-5">
-	            <p>当前位置：审评人员服务>>审评</p>
+	        <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
+	            <p>当前位置：审评人员服务>>教职工评教</p>
 	        </div>
 	        <div class="col-lg-2 col-md-2 col-xs-2">
-	            <p>欢迎${expert.exp_name}登录本系统</p>
+	            <p>欢迎<s:property value="#session.role.helloName()"/>登录本系统</p>
 	        </div>
   		</div>
 	</div>
