@@ -27,6 +27,8 @@ public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> impleme
 																	.setFirstResult((page.getCurrentPage()-1)*page.getPageSize())
 																		.setMaxResults(page.getPageSize())
 																			.list();
+		
+		System.out.println(evaluatedRecordList);
 		return evaluatedRecordList;
 	}
 

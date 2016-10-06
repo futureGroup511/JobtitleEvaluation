@@ -28,16 +28,16 @@
         	
         	<s:if test="#session.role.findSelfName() == 'expert'">
 	        	<dl class="channel">
-	        		<dt>评教<img src="images/select_xl01.png"></dt>
-	        		<dd><a href="expert_allEvaluaTeacher" target="right">教职工评教</a></dd>
+	        		<dt><a style="color:white" href="expert_allEvaluaTeacher" target="right">在线评审<img src="images/select_xl01.png"></a></dt>
+	        		<!-- <dd><a href="expert_allEvaluaTeacher" target="right">教职工评审</a></dd> -->
 	        	</dl>
 	        	<dl>
-	        		<dt>查看个人信息<img src="images/select_xl01.png"></dt>
-	        		<dd><a href="expert_lookInformation" target="right">个人信息</a></dd>
+	        		<dt><a style="color:white" href="expert_lookInformation" target="right">查看个人信息<img src="images/select_xl01.png"></a></dt>
+	        		<!-- <dd><a href="expert_lookInformation" target="right">个人信息</a></dd> -->
 	        	</dl>
 	        	<dl>
-	        		<dt>查看已评议参评人<img src="images/select_xl01.png"></dt>
-	        		<dd><a href="evaluatedrecord_statisticByExpert" target="right">按指定专家统计</a></dd>
+	        		<dt><a style="color:white" href="evaluatedrecord_statisticByExpert" target="right">查看已评审参评人<img src="images/select_xl01.png"></a></dt>
+	        		<!-- <dd><a href="evaluatedrecord_statisticByExpert" target="right">按指定专家统计</a></dd> -->
 	        	</dl>
         
         	</s:if>
@@ -57,8 +57,8 @@
 	           	 	
         	<s:if test="#session.role.findSelfName() == 'superManager'">
         		<dl class="channel">
-	           		<dt>专家管理<img src="images/select_xl01.png"></dt>
-	           		<dd><a href="expert_manageExpertInfoList" target="right">专家信息管理</a></dd>
+	           		<dt><a href="expert_manageExpertInfoList" target="right" style="color:white;">专家管理<img src="images/select_xl01.png"></a></dt>
+	           		<!-- <dd><a href="expert_manageExpertInfoList" target="right">专家信息管理</a></dd> -->
 	           	</dl>
 	           	 <dl class="channel">
 	           	 	<dt>参评人员信息管理<img src="images/select_xl01.png"></dt>
@@ -87,15 +87,15 @@
 	           	 	<dd><a href="specialty" target="right">增加专业</a></dd>
 	            </dl>
 	           	 <dl class="channel">
-	           	 	<dt>清空<img src="images/select_xl01.png"></dt>
-	           	 	<dd><a href="super_deleteInformation">清空参评人员有关信息</a></dd>
+	           	 	<dt><a style="color:white;" href="super_deleteInformation" onclick="return juge();">清空<img src="images/select_xl01.png"></a></dt>
+	           	 	<!-- <dd><a href="super_deleteInformation" onclick="return juge();">清空参评人员有关信息</a></dd> -->
 	           	 </dl>
 	           	 <dl>
-	             	<dt>统计<img src="images/select_xl01.png"></dt>
-	             	<dd><a href="statistic_statisticAll" target="right">统计所有</a></dd>
+	             	<dt><a style="color:white;" href="statistic_statisticAll" target="right">统计<img src="images/select_xl01.png"></a></dt>
+	             	<!-- <dd><a style="color:white;" href="statistic_statisticAll" target="right">统计所有</a></dd> -->
 	             </dl>
         		<dl>
-	            	<dd><a href="super_lookInformation" target="right">查看个人信息页面</a></dd>
+	            	<dt><a style="color:white;" href="super_lookInformation" target="right">查看个人信息页面</a></dt>
 	            </dl>
         	</s:if>
             

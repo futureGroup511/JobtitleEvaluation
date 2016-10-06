@@ -79,7 +79,7 @@
 	<div class="dangqian">
 	   <div class="row">
 	        <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
-	            <p>当前位置：学生服务>>报名</p>
+	            <p>当前位置：专家信息>>专家注册</p>
 	        </div>
 	        <div class="col-lg-2 col-md-3 col-xs-3">
 	            <p>欢迎<s:property value="#session.role.helloName()"/>登录本系统</p>
