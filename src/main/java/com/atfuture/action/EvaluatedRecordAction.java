@@ -45,7 +45,6 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 		return "finishAssess";
 	}
 
-	
 	public String statisticByExpert(){
 	//查询指定专家的评估记录
 			Integer recordCount = evaluatedRecordService.getAllStatisticByExpert(((Expert)session.get("role")).getExp_id()).size();
@@ -55,6 +54,9 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 			}
 			List<EvaluatedRecord> recordList = null; 
 			Page_S page = new Page_S(currentPage, pageSize, recordCount, null);
+			Integer id = ((Expert)session.get("role")).getExp_id();
+			System.out.println("=========>>>"+id);
+			System.out.println("===========>>"+currentPage);
 			recordList = evaluatedRecordService.getAllStatisticByPageAndExpert(page, ((Expert)session.get("role")).getExp_id());
 			page.setRecordlist(recordList);
 			requestMap.put("pageBean", page);
@@ -86,6 +88,14 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 
 	public void setSession(Map<String, Object> arg0) {
 		session=arg0;
+	}
+
+	public Integer getCurrentPage() {
+		return currentPage;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
 	}
 	
 	

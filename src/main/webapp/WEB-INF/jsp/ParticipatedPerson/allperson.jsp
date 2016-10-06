@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,10 +21,10 @@
 	<div class="container">
 		<div class="row">
 	        <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
-	            <p>当前位置：审评人员服务>>教职工评教</p>
+	            <p><strong>当前位置：审评人员服务>>教职工评教</strong></p>
 	        </div>
 	        <div class="col-lg-2 col-md-2 col-xs-2">
-	            <p>欢迎<s:property value="#session.role.helloName()"/>登录本系统</p>
+	            <p><strong>欢迎  <s:property value="#session.role.helloName()"/>  登录本系统</strong></p>
 	        </div>
   		</div>
 	</div>

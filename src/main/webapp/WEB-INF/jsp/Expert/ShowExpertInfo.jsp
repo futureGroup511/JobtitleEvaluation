@@ -40,10 +40,10 @@
 	<div class="dangqian">
    <div class="row">
         <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
-            <p>当前位置：专家>>修改信息</p>
+            <p><strong>当前位置：专家>>修改信息</strong></p>
         </div>
         <div class="col-lg-2 col-md-3 col-xs-3">
-            <p>欢迎<s:property value="#session.role.helloName()"/>登录本系统</p>
+            <p><strong>欢迎  <s:property value="#session.role.helloName()"/>  登录本系统</strong></p>
         </div>
     </div>
 	</div>
@@ -56,37 +56,37 @@
 		
 		<div class="row">
         	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>姓名：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3">
+            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-12%;">
             	<!-- <input type="text" class="form-control" > -->
             	<input class="exp_name form-control" name="exp_name" value="${request.expert.exp_name }">
             	<span class="exp_nameSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>
             </div>
             <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>账号：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3">
+            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-12%;">
             	<!-- <input type="text" class="form-control"> -->
             	<input class="form-control" readonly="readonly" name="exp_accountNum" value="${request.expert.exp_accountNum }">
             </div>
      </div>
      <div class="row">
         	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>单位：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3">
+            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-12%;">
             	<!-- <input type="text" class="form-control" > -->
             	<s:select class="form-control" list="#request.unitList" listValue="uni_name" listKey="uni_id"  name="exp_unit.uni_id" value="#request.expert.exp_unit.uni_id"></s:select> 
             </div>
             <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>专业：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3">
+            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-12%;">
             <s:select class="form-control" list="#request.specialtyList" listValue="spec_name" listKey="spec_id" name="exp_specialty.spec_id" value="#request.expert.exp_jobTitle.jobTi_id"></s:select>
             	<!-- <input type="text" class="form-control"> --> 
             </div>
      </div>
      <div class="row">
         	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>职称：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3">
+            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-12%;">
             <s:select class="form-control" list="#request.jobTitleList" listValue="jobTi_name" listKey="jobTi_id"  name="exp_jobTitle.jobTi_id" value="#request.expert.exp_specialty.spec_id"></s:select>
             	<!-- <input type="text" class="form-control" >  -->
             </div>
             <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>学历：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3">
+            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-12%;">
             	<!-- <input type="text" class="form-control"> -->
             	<input class="exp_educationLevel form-control" name="exp_educationLevel" value="${request.expert.exp_educationLevel }"><br/>
 		<span class="exp_educationLevelSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>

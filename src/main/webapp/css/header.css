@@ -18,16 +18,16 @@
 }
 .left img{
   width:16%;
-  margin-top: 20px;
-  margin-left: 13%;
+  margin-top: 15px;
+  margin-left: 5%;
 }
 .left span{
-  font-family:华文行楷;
   font-size:30px;
   padding-left:2%;
+   font-family:微软雅黑;
 }
 #header .left span{
-  margin-top:65px;
+  margin-top:50px;
   position:absolute;
 }
 .right{

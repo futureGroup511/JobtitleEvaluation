@@ -31,7 +31,8 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 	}
 	
 	public String execute(){
-		return SUCCESS;
+		this.page_s();
+		return "page_sSuccess";
 	}
 	private HttpServletRequest getRequest(){
 		return ServletActionContext.getRequest();
@@ -41,15 +42,15 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 	}
 	public String add(){
 		if(null==specialty){
-			return "addSuccess";
+			return "addFail";
 		}
 		if("".equals(specialty.getSpec_name())){
 			this.addRemind("添加失败,请不要输入空的名字!");
-			return "addSuccess";
+			return "addFail";
 		}
 		if(specialtyService.checkExist(specialty.getSpec_name())){
-			this.addRemind("添加失败!职称名字已经存在");
-			return "addSuccess";
+			this.addRemind("添加失败!名字已经存在");
+			return "addFail";
 		}
 		specialtyService.addSpecialty(specialty);
 		this.addRemind("添加成功!");
@@ -59,15 +60,14 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 		if(specialty==null||"".equals(specialty.getSpec_id())){
 			return SUCCESS;
 		}
-		Specialty jt=specialtyService.getSpecialty(specialty.getSpec_id());
-		System.out.println("ad");
+		
 		if(null!=page_s&&null!=page_s.getCurrentPage()){
 			String pageNum=page_s.getCurrentPage().toString();
 			this.getRequest().setAttribute("pageNum", pageNum);
-			System.out.println(pageNum);
 		}else{
 			this.getRequest().setAttribute("pageNum", 1);
 		}
+		Specialty jt=specialtyService.getSpecialty(specialty.getSpec_id());
 		this.getRequest().setAttribute("findResult",jt);
 		return "changePage";
 	}
@@ -75,14 +75,16 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 	public String change(){
 		int pageNum=page_s.getCurrentPage();
 		this.getRequest().setAttribute("pageNum", pageNum);
-		System.out.println("change"+pageNum);
 		if(null==specialty){
 			this.addRemind("错误!请正确操作!");
 			return "changePage";
 		}
 		if("".equals(specialty.getSpec_id())||"".equals(specialty.getSpec_name())){
 			this.addRemind("修改失败,请正确操作!");
-			Specialty jt=specialtyService.getSpecialty(specialty.getSpec_id());
+			Specialty jt=null;
+			try{
+				jt=specialtyService.getSpecialty(specialty.getSpec_id());
+			}catch(Exception e){}
 			this.getRequest().setAttribute("findResult",jt);
 			return "changePage";
 		}
@@ -99,12 +101,20 @@ public class SpecialtyAction extends BaseAction<Specialty>  {
 		this.page_s();
 		return "page_sSuccess";
 	}
+	/*
 	public String findByName(){
 		List<Specialty> findResults=specialtyService.findByName(specialty.getSpec_name());
 		this.getRequest().setAttribute("findResults",findResults);
 		return "findByName";
 	}
+	*/
 	public String page_s(){
+		if(null==page_s){
+			page_s=new Page_S();
+		}
+		if(page_s.getCurrentPage()==null||page_s.getCurrentPage()==0){
+			page_s.setCurrentPage(1);
+		}
 		page_s.setPageSize(3);
 		Page_S ps=specialtyService.page_s(page_s);
 		this.getRequest().setAttribute("page_s",ps);

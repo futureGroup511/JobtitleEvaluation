@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -24,17 +25,17 @@
 	    <div class="col-lg-1 col-lg-offset-1 col-md-1 col-lg-offset-1  col-xs-1 col-xs-offset-1">
 	        </div>
 	        <div class="col-lg-3 col-lg-offset-5 col-md-3 scol-md-offset-5 col-xs-3  col-xs-offset-5">
-	            <p>当前位置：审评人员服务>>审评</p>
+	            <p><strong>前位置：审评人员服务>>审评</strong></p>
 	        </div>
 	        <div class="col-lg-2 col-md-2 col-xs-2">
-	            <p>欢迎<s:property value="#session.role.helloName()"/>登录本系统</p>
+	            <p><strong>欢迎   <s:property value="#session.role.helloName()"/>  登录本系统  </strong></p>
 	        </div>
 	  </div>
 	</div>
 	
 	<c:choose>
 		<c:when test="${(fn:endsWith( person.parti_pathurl,'.jpg') or fn:endsWith( person.parti_pathurl,'.png'))}">
-			<a href="#" onclick="return go('${pageContext.request.contextPath}/participated_lookPicture?parti_pathurl=${person.parti_pathurl}')">显示图片</a>
+			<a href="#" onclick="return go('${pageContext.request.contextPath}/participated_lookPicture?parti_pathurl=${person.parti_pathurl}')"></a>
 		</c:when>
 		<c:when test="${empty person.parti_pathurl}">
 			<p class="text text-danger">资料不存在</p>

@@ -22,7 +22,7 @@ public class StatisticsDaoImpl extends BaseDaoImpl<Statistics> implements Statis
 	}
 
 	public List<Statistics> getAllStatisticByPage(Page_S page) {
-		String sql = "from Statistics";
+		String sql = "from Statistics statistics order by statistics.sta_AllScored desc";
 		@SuppressWarnings("unchecked")
 		List<Statistics> statisticList = getSession().createQuery(sql).setFirstResult((page.getCurrentPage()-1)*page.getPageSize())
 														.setMaxResults(page.getPageSize())
