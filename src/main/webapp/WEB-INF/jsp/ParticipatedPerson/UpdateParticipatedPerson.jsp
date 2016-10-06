@@ -27,10 +27,17 @@
 <body>
 	<div class="dangqian">
    <div class="row">
+<<<<<<< HEAD
+        <div class="col-lg-1 col-lg-offset-1 col-md-1 col-md-offset-1 col-xs-2 col-xs-offset-1">
+            <a><p>添加信息</p></a>
+        </div>
+        <div class="col-lg-3 col-lg-offset-5 col-md-3 col-md-offset-5   col-xs-3 col-xs-offset-5 ">
+=======
         <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
+>>>>>>> b017056c6e71a8e3423f3fc36117b1320dfa0224
             <p>当前位置：学生服务>>报名</p>
         </div>
-        <div class="col-lg-2 col-md-3 col-xs-3">
+        <div class="col-lg-2 col-md-2 col-xs-2">
             <p>欢迎登录本系统</p>
         </div>
     </div>
@@ -39,11 +46,12 @@
 	<s:form action="participated_updateParticipatedPersonSuccess" method="post">
 		<s:hidden name="currentPage" value="%{#request.currentPage}"></s:hidden>
 		<s:hidden name="parti_id" value="%{#request.participatedPerson.parti_id}"></s:hidden>
+		<s:hidden name="parti_pathurl" value="%{#request.participatedPerson.parti_pathurl}"></s:hidden>
 		<%-- 申请人姓名：<input class="parti_name" type="text" name="parti_name" value="${requestScope.participatedPerson.parti_name }"><br/>
 		<span class="parti_nameSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>
 		所评职称：<s:select list="#request.jobTitleList" listValue="jobTi_name" listKey="jobTi_id" name="parti_jobTitle.jobTi_id" value="#request.participatedPerson.parti_jobTitle.jobTi_id"></s:select><br/> --%>
 		<div class="row">
-        	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>申请人</p></div>
+        	<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-2"><p>申请人:</p></div>
             <div class="col-lg-2 col-md-2 col-xs-3">
             	<input class="parti_name form-control" type="text" name="parti_name" value="${requestScope.participatedPerson.parti_name }">
             	<span class="parti_nameSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>
@@ -61,7 +69,7 @@
 		推荐单位：<s:select list="#request.unitList" listValue="uni_name" listKey="uni_id"  name="parti_recommendUnit.uni_id" value="#request.participatedPerson.parti_recommendUnit.uni_id"></s:select><br/>
 		 --%>
 		   <div class="row">
-            <div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>申报专业：</p></div>
+            <div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-2"><p>申报专业：</p></div>
             <div class="col-lg-2 col-md-2 col-xs-3">
             	<s:select class="form-control" list="#request.specialtyList" listValue="spec_name" listKey="spec_id"  name="parti_specialty.spec_id" value="#request.participatedPerson.parti_specialty.spec_id"></s:select>
             	<%-- <select class="form-control">
@@ -82,7 +90,7 @@
                 </select> --%>
             </div>
      </div>
-     <div class="col-lg-2 col-lg-offset-3 col-md-2 col-md-offset-3  col-xs-2 col-xs-offset-3 ">
+     <div class="col-lg-2 col-lg-offset-7 col-md-2 col-md-offset-7  col-xs-2 col-xs-offset-7 ">
       <div class="last">
      	<!-- <button type="button" class="btn btn-primary">确定</button> -->
 		<s:submit class="btnSub btn btn-primary" value="确定"></s:submit>

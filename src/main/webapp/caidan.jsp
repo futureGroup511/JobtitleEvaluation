@@ -40,6 +40,7 @@
         	</s:if>
         
         
+        		 
         	<s:if test="#session.role.findSelfName() == 'superManager'">
         		<dl class="channel">
            		<dt>专家管理<img src="images/select_xl01.png"></dt>
@@ -47,7 +48,6 @@
 	           	</dl>
 	           	 <dl class="channel">
 	           	 	<dt>参评人员信息管理<img src="images/select_xl01.png"></dt>
-	           	 	<dd><a href="super_deleteInformation" target="right" onclick="return juge();">删除参评人员数据和记录</a></dd>
 	           	 	<dd><a href="participated_manageParticipatedPerson" target="right">管理参评人员信息</a></dd>
 	           	 </dl>
 	           	 <dl class="channel">
@@ -58,41 +58,40 @@
 	           	 <dl class="channel">
 	           	 	<dt>职称管理<img src="images/select_xl01.png"></dt>
 	           	 	<dd><a href="jobTitleStandard_manageJobTitleStandard" target="right">管理职称申报标准信息</a></dd>
-	           	 	<dd><a href="jobTitle_page_s?page_s.currentPage=1" target="right">查看、管理职称</a></dd>
+	           	 	<dd><a href="jobTitle_page_s?page_s.currentPage=1" target="right">查看/管理职称</a></dd>
 	           	 	<dd><a href="jobTitle" target="right">增加职称</a></dd>
-	           	 	
 	           	 </dl>
-	             <dl>
-	             	<dt>统计<img src="images/select_xl01.png"></dt>
-	             	<dd><a href="statistic_statisticAll" target="right">统计所有</a></dd>
-	            	<dd><a href="evaluatedrecord_statisticByExpert" target="right">按指定专家统计</a></dd>
-	             </dl>
-	            <dl>
-	            	<dd><a href="super_lookInformation" target="right">管理员查看个人信息页面</a></dd>
-	            </dl>
 	            <dl class="channel">
 	            	<dt>单位管理<img src="images/select_xl01.png" ></dt>
-	            	<dd><a href="unit_page_s?page_s.currentPage=1" target="right">查看、管理单位</a></dd>
+	            	<dd><a href="unit_page_s?page_s.currentPage=1" target="right">查看/管理单位</a></dd>
 	           	 	<dd><a href="unit" target="right">增加单位</a></dd>
 	            </dl>
 	            <dl class="channel">
 	            	<dt>专业管理<img src="images/select_xl01.png"></dt>
-	            	<dd><a href="specialty_page_s?page_s.currentPage=1" target="right">查看、管理专业</a></dd>
+	            	<dd><a href="specialty_page_s?page_s.currentPage=1" target="right">查看/管理专业</a></dd>
 	           	 	<dd><a href="specialty" target="right">增加专业</a></dd>
+	            </dl>
+	            <dl class="channel">
+		           	 	<dt>清空<img src="images/select_xl01.png"></dt>
+		           	 	<dd><a href="super_deleteInformation" onclick="return juge();">清空参评人员有关信息</a></dd>
+           	 	</dl>
+	        	<dl>
+	             	<dt>统计<img src="images/select_xl01.png"></dt>
+	             	<dd><a href="statistic_statisticAll" target="right">统计所有</a></dd>
+	            	<dd><a href="evaluatedrecord_statisticByExpert" target="right">按指定专家统计</a></dd>
+	             </dl>
+        		<dl>
+	            	<dd><a href="super_lookInformation" target="right">查看个人信息页面</a></dd>
 	            </dl>
         	</s:if>
             
-            <dl class="channel">
-	            	<dt>退出登陆<img src="images/select_xl01.png" ></dt>
-	            	<dd><a href="loginAction_loginOut" target="_top">退出登陆</a></dd>
-	           </dl>
-            	
-            	
-            	
-           		
-           		
+           	 
+           	 
+       <dl class="channel">
+           	<dt>退出登陆<img src="images/select_xl01.png" ></dt>
+           	<dd><a href="loginAction_loginOut" target="_top">退出登陆</a></dd>
+        </dl>
     </div>
-
 </div>
 <script type="text/javascript">
 

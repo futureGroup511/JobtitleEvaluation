@@ -133,7 +133,7 @@ $(function() {
 		科研评价指标：<s:textarea onkeydown="checkMaxLen(this,250)" name="evalStan_scientifiStandard" value="%{#request.evaluatedStandard.evalStan_scientifiStandard}"></s:textarea><br/>
 		师德评价指标：<s:textarea onkeydown="checkMaxLen(this,250)" name="evalStan_moralityStandard" value="%{#request.evaluatedStandard.evalStan_moralityStandard}"></s:textarea><br/> --%>
 		<div class="col-lg-2 col-lg-offset-9 col-md-2 col-md-offset-9 col-xs-2 col-xs-offset-9">
-				<s:submit  class="btnSub " style="width:34%; margin:10px 0 35px 0"  value="确定"></s:submit>
+				<s:submit  class="btnSub btn btn-primary" style="width:34%; margin:10px 0 35px 0"  value="确定"></s:submit>
 		</div>
 	</s:form>
 </body>
