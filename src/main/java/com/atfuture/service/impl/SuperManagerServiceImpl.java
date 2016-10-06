@@ -17,4 +17,14 @@ public class SuperManagerServiceImpl implements SuperManagerService {
 	public SuperManager findByNumAndPassword(String num, String password) {
 		return superManagerDao.findByNumAndPassword(num, password);
 	}
+
+	@Override
+	public SuperManager findById(Integer id) {
+		return superManagerDao.findById(id);
+	}
+
+	@Override
+	public void save(SuperManager s) {
+		superManagerDao.save(s);
+	}
 }

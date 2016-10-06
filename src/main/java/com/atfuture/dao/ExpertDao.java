@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.atfuture.base.BaseDao;
 import com.atfuture.domain.Expert;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 
 public interface ExpertDao extends BaseDao<Expert>{
 
@@ -16,4 +16,7 @@ public interface ExpertDao extends BaseDao<Expert>{
 	
 	//得到所有的专家
 	public List<Expert> getAllExpert();
+	
+	//保存专家
+	public void save(Expert e);
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -46,13 +47,6 @@
 		<input type="hidden" name="person_id" value="${person.parti_id }">
 		<div class="table-responsive">
    			 <table class="table table-bordered table-hover table-striped" style="Word-break: break-all;">
-   			 	<!-- <thead>
-				<tr class="one">
-					<td>标题</td>
-					<td>内容</td>
-					<td>选项</td>
-				</tr>
-				</thead> -->
 			<tbody>
 					<tr>
 						<td><strong>您对参评人从事专业</strong></td>
@@ -162,20 +156,16 @@
 </body>
 
 <script language="JavaScript">
-		
-		function popWinGD(theURL){
-			
-			 window.location.href=theURL;
-			return false;
-		}
-		
-		function go(url){
-			var pop,w=670,h=450; //window.navigate(theURL);
-			pop=window.open(theURL,"winGD","width="+w+",height="+h+",resizable=yes,menubar=no,toolbar=no,location=no,scrollbars=no,status=no")
- 			pop.moveTo((screen.width-w)/2,(screen.height-h)/2);
-			 
-		}
-		
+	function popWinGD(theURL){
+		window.location.href=theURL;
+		return false;
+	}
+	function go(url){
+		var pop,w=670,h=450; //window.navigate(theURL);
+		pop=window.open(theURL,"winGD","width="+w+",height="+h+",resizable=yes,menubar=no,toolbar=no,location=no,scrollbars=no,status=no")
+			pop.moveTo((screen.width-w)/2,(screen.height-h)/2);
+		 
+	}
 </script>
 
 </html>

@@ -87,8 +87,9 @@ public class EvaluatedRecord {
 	public static EvaluatedRecord newInstance(){
 		return new EvaluatedRecord();
 	}
-	
-	
+	/**
+	 * 转换熟悉度为
+	 */
 	public void changeAssessment(){
 		String allAssessment=this.getEvalRecor_allAssessment();
 		if(allAssessment.equals(Evaluate.EXCELLENT.getName())){

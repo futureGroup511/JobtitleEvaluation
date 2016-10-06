@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.atfuture.dao.JobTitleDao;
 import com.atfuture.domain.JobTitle;
 import com.atfuture.service.JobTitleService;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 @Service
 public class JobTitleServiceImpl  implements JobTitleService{
 

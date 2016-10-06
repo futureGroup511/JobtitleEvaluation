@@ -14,4 +14,14 @@ public class SuperManagerDaoImpl extends BaseDaoImpl<SuperManager> implements Su
 		return superm;
 	}
 
+	@Override
+	public SuperManager findById(Integer id) {
+		return getEntity(id);
+	}
+
+	@Override
+	public void save(SuperManager s) {
+		getSession().save(s);
+	}
+
 }

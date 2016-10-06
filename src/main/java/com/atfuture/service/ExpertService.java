@@ -3,7 +3,7 @@ package com.atfuture.service;
 import java.util.List;
 
 import com.atfuture.domain.Expert;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 
 public interface ExpertService {
 
@@ -24,4 +24,6 @@ public interface ExpertService {
 	public List<Expert> getAllExpert();
 	//根据账号查询指定专家
 	public Expert querySpecialExpertByAccountNum(String accountNum);
+	//保存专家
+	public void save(Expert e);
 }

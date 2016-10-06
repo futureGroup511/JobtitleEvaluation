@@ -11,7 +11,7 @@ import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.EvaluatedStandard;
 import com.atfuture.domain.Statistics;
 import com.atfuture.service.EvaluatedRecordService;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 @Service
 public class EvaluatedRecordServiceImpl  implements EvaluatedRecordService{
 

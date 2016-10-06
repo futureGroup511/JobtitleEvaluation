@@ -18,7 +18,9 @@
     <package name="default" namespace="/" extends="json-default">
     	<!-- 定义新的拦截器栈, 配置 prepare 拦截器栈的 alwaysInvokePrepare 参数值为 false -->
 		<interceptors>
+		    <interceptor name="checkPrivilege" class="com.atfuture.utils.CheckLoginInterceptor"></interceptor>
 			<interceptor-stack name="sshStack">
+			    <interceptor-ref name="checkPrivilege"></interceptor-ref>
 				<interceptor-ref name="paramsPrepareParamsStack">
 					<param name="prepare.alwaysInvokePrepare">false</param>
 				</interceptor-ref>
@@ -41,6 +43,9 @@
 			<result name="RequestCodePublish">WEB-INF/jsp/SuperManager/PublishRequestCode.jsp</result> 		    
  			<result name="lookInformation">WEB-INF/jsp/SuperManager/information.jsp</result>
  			<result name="deleteInformation" type="redirect">expert_allEvaluaTeacher</result>
+ 			<result name="modifyInformationView">WEB-INF/jsp/SuperManager/modifyInformation.jsp</result>
+ 			<result name="jugePassword" type="json"></result>
+ 			<result name="modifyInformation" type="redirectAction">loginAction_loginOut</result>
  		</action>
  		
     	
@@ -85,6 +90,9 @@
     		<result name="allEvaluaTeacher">WEB-INF/jsp/ParticipatedPerson/allperson.jsp</result>
  		    <result name="assess">WEB-INF/jsp/Expert/assess.jsp</result>
     		<result name="lookInformation">WEB-INF/jsp/Expert/information.jsp</result>
+    		<result name="jugePassword" type="json"></result>
+    		<result name="modifyInformation" type="redirectAction">loginAction_loginOut</result>
+    		<result name="modifyInformationView">WEB-INF/jsp/Expert/modifyInformation.jsp</result>
     	</action>
     	
     	

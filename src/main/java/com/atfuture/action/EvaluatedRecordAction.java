@@ -13,7 +13,7 @@ import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.Statistics;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 @Controller
 @Scope("prototype")
 public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implements RequestAware,SessionAware{

@@ -3,7 +3,7 @@ package com.atfuture.service;
 import java.util.List;
 
 import com.atfuture.domain.Statistics;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 
 public interface StatisticsService {
 

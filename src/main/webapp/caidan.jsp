@@ -39,6 +39,10 @@
 	        		<dt>查看已评议参评人<img src="images/select_xl01.png"></dt>
 	        		<dd><a href="evaluatedrecord_statisticByExpert" target="right">按指定专家统计</a></dd>
 	        	</dl>
+	        	<dl>
+        			<dt>修改密码<img src="images/select_xl01.png"></dt>
+	            	<dd><a href="expert_modifyInformationView" target="right">修改个人密码</a></dd>
+	            </dl>
         
         	</s:if>
         	<%-- <c:if test="${ sessionScope.superManager != null}">
@@ -95,7 +99,12 @@
 	             	<dd><a href="statistic_statisticAll" target="right">统计所有</a></dd>
 	             </dl>
         		<dl>
+        			<dt>查看信息<img src="images/select_xl01.png"></dt>
 	            	<dd><a href="super_lookInformation" target="right">查看个人信息页面</a></dd>
+	            </dl>
+        		<dl>
+        			<dt>修改密码<img src="images/select_xl01.png"></dt>
+	            	<dd><a href="super_modifyInformationView" target="right">修改个人密码</a></dd>
 	            </dl>
         	</s:if>
             

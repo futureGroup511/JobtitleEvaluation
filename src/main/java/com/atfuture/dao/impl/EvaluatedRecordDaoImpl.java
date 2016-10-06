@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.atfuture.dao.EvaluatedRecordDao;
 import com.atfuture.domain.EvaluatedRecord;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 @Repository
 public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> implements EvaluatedRecordDao{
 

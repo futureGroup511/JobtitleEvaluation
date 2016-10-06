@@ -18,7 +18,8 @@ import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.RequestCode;
 import com.atfuture.domain.Specialty;
 import com.atfuture.domain.Unit;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
+import com.opensymphony.xwork2.ActionContext;
 @Controller
 @Scope("prototype")
 public class ExpertAction extends BaseAction<Expert> implements RequestAware,SessionAware{
@@ -135,8 +136,25 @@ System.out.println(accountNumExists);
 		}
 		return null;
 	}
+	//判断原密码
+	public String jugePassword(){
+		Expert expert=getModel();
+		expert=expertService.findByNumAndPassword(expert.getExp_accountNum(), expert.getExp_password());
+		if(expert!=null) ActionContext.getContext().getValueStack().push("success");
+		else ActionContext.getContext().getValueStack().push("erro");
+		return "jugePassword";
+	}
+	public String modifyInformationView(){
+		return "modifyInformationView";
+	}
 	
-	
+	public String modifyInformation(){
+		Expert expert=(Expert) session.get("role");
+		expert=expertService.findById(expert.getExp_id());
+		expert.setExp_password(getModel().getExp_password());
+		expertService.save(expert);
+		return "modifyInformation";
+	}
 	
 	
 	public String getAccountNum() {

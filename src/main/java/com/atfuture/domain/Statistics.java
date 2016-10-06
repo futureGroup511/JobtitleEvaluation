@@ -73,9 +73,6 @@ public class Statistics {
 		return new Statistics();
 		
 	}
-	public void calculate(){
-		this.sta_AllScored=(float) (this.sta_AScored*0.50+this.sta_BScored*0.30+this.sta_CScored*0.20);
-	}
 	
 	public void setScoredByTypes(List<Object[]> result){
 		Iterator<Object[]> iterator=result.iterator();
@@ -88,6 +85,6 @@ public class Statistics {
 			if(type.equals(CSCORED)) this.setSta_CScored(scored);
 		}
 		//计算总值
-		calculate();
+		this.sta_AllScored=(float) (this.sta_AScored*0.50+this.sta_BScored*0.30+this.sta_CScored*0.20);
 	}
 }

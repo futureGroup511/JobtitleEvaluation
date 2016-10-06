@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 
 import com.atfuture.service.ExpertService;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 import com.atfuture.dao.ExpertDao;
 import com.atfuture.domain.Expert;
 @Service
@@ -43,6 +43,10 @@ public class ExpertServiceImpl  implements ExpertService {
 	public Expert querySpecialExpertByAccountNum(String accountNum) {
 		String hql = "from Expert expert where expert.exp_accountNum = ?";
 		return (Expert) expertDao.uniqueResult(hql, accountNum);
+	}
+	@Override
+	public void save(Expert e) {
+		expertDao.save(e);
 	}
 
 

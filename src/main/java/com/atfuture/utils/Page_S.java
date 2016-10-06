@@ -1,4 +1,4 @@
-package com.future.utils;
+package com.atfuture.utils;
 
 import java.util.List;
 

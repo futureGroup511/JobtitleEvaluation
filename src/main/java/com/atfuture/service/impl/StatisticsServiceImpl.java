@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.atfuture.dao.StatisticsDao;
 import com.atfuture.domain.Statistics;
 import com.atfuture.service.StatisticsService;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 @Service
 public class StatisticsServiceImpl implements StatisticsService {
 
