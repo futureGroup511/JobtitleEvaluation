@@ -92,6 +92,9 @@
     	
     	<action name="jobTitle_*" method="{1}" class="jobTitleAction">
     		<result name="success">/WEB-INF/jsp/JobTitle/index.jsp</result>
+    		
+    		<result name="addFail">/WEB-INF/jsp/JobTitle/index.jsp</result>
+    		
     		<result name="addSuccess" type="redirectAction">
     			<param name="actionName">jobTitle</param>
     			<param name="namespace">/</param>

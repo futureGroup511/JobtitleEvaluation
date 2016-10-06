@@ -48,15 +48,15 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 	}
 	public String add(){
 		if(null==jobTitle){
-			return "addSuccess";
+			return "addFail";
 		}
 		if("".equals(jobTitle.getJobTi_name())){
 			this.addRemind("添加失败,请不要输入空的名字!");
-			return "addSuccess";
+			return "addFail";
 		}
 		if(jobTitleService.checkExist(jobTitle.getJobTi_name())){
 			this.addRemind("添加失败!职称名字已经存在");
-			return "addSuccess";
+			return "addFail";
 		}
 		jobTitleService.addJobTitle(jobTitle);
 		this.addRemind("添加成功!");
