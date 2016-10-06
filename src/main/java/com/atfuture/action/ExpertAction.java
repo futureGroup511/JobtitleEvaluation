@@ -28,7 +28,7 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware,Ses
 	private ParticipatedPerson person=ParticipatedPerson.newInstance();
 	//所有参评人员
 	public String allEvaluaTeacher(){
-		Expert expert=(Expert) session.get("expert");
+		Expert expert=(Expert) session.get("role");
 		Page_S p=Page_S.newInstance();
 		p.setCurrentPage(currentPage);
 		p.setPageSize(pageSize);
@@ -39,7 +39,7 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware,Ses
 
 	//审评
 	public String assess(){
-		Expert expert=(Expert) session.get("expert");
+		Expert expert=(Expert) session.get("role");
 		EvaluatedStandard evaluatedStandard=evaluatedStandardService.findByJobTitleId(expert.getExp_jobTitle().getJobTi_id());
 		request.put("evaluatedStandard", evaluatedStandard);
 		person=participatedPersonService.findById(person.getParti_id());
