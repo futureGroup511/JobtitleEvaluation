@@ -62,7 +62,7 @@
 				  <ul class="pagination">
 				  	<li><a href="#" onclick="return jump(1,${p.pageCount})">首页</a></li>
 				    <li><a href="#" onclick="return jump(${p.currentPage-1},${p.pageCount})">上一页</a></li>
-				    <li><a class="text text-primary">当前页:${p.currentPage}</a></li>
+				    <li><a class="text text-primary">当前页/总页数:${p.currentPage}/${p.pageCount}</a></li>
 				    <li><a href="#" onclick="return jump(${p.currentPage+1},${p.pageCount})">下一页</a></li>
 				  	
 				  	<li>	

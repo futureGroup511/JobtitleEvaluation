@@ -89,5 +89,21 @@ public class EvaluatedRecord {
 	}
 	
 	
+	public void changeAssessment(){
+		String allAssessment=this.getEvalRecor_allAssessment();
+		if(allAssessment.equals(Evaluate.EXCELLENT.getName())){
+			this.setEvalRecor_allAssessment(Evaluate.EXCELLENT.getValue());
+		}
+		if(allAssessment.equals(Evaluate.GOOD.getName())){
+			this.setEvalRecor_allAssessment(Evaluate.GOOD.getValue());		
+			}
+		if(allAssessment.equals(Evaluate.MEDIUM.getName())){
+			this.setEvalRecor_allAssessment(Evaluate.MEDIUM.getValue());
+		}
+		if(allAssessment.equals(Evaluate.POOR.getName())){
+			this.setEvalRecor_allAssessment(Evaluate.POOR.getValue());
+		}
+	}
+	
 	
 }

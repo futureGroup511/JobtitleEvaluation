@@ -11,7 +11,7 @@
 		<frame src="header.html" scrolling="no"></frame>
 	<frameset cols="15%,88%" rows="100%" frameborder="yes"  framespacing="1">
 		<frame src="caidan.jsp" scrolling="no"></frame>
-	    <frame src="liwen1.jsp"  frameborder="yes" framespacing="1" name="right"></frame>
+	    <frame src="huanying.html"  frameborder="yes" framespacing="1" name="right"></frame>
 	    </frameset>
 	    <noframes></noframes>
 

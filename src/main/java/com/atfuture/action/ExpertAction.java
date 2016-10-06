@@ -39,8 +39,8 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware,Ses
 
 	//审评
 	public String assess(){
-		Expert expert=(Expert) session.get("role");
-		EvaluatedStandard evaluatedStandard=evaluatedStandardService.findByJobTitleId(expert.getExp_jobTitle().getJobTi_id());
+		person=participatedPersonService.findById(person.getParti_id());
+		EvaluatedStandard evaluatedStandard=evaluatedStandardService.findByJobTitleId(person.getParti_jobTitle().getJobTi_id());
 		request.put("evaluatedStandard", evaluatedStandard);
 		person=participatedPersonService.findById(person.getParti_id());
 		request.put("person", person);
