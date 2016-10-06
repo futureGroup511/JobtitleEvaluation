@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -17,7 +18,7 @@ import com.atfuture.domain.Statistics;
 import com.future.utils.Page_S;
 @Controller
 @Scope("prototype")
-public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implements RequestAware{
+public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implements RequestAware,SessionAware{
 
 	private Integer currentPage;
 	private Map<String, Object> requestMap;
@@ -28,7 +29,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	
 	
 	public String finishAssess(){
-		Expert expert=expertService.findById(expert_id);
+		Expert expert=(Expert) session.get("role");
 		ParticipatedPerson participatedPerson=participatedPersonService.findById(person_id);
 		EvaluatedRecord er=getModel();
 		er.setEvalRecor_expart(expert);
@@ -121,6 +122,13 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 
 	public void setRequest(Map<String, Object> requestMap) {
 		this.requestMap = requestMap;
+	}
+
+
+	private Map<String, Object> session;
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+		session=arg0;
 	}
 	
 	
