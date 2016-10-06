@@ -13,10 +13,10 @@
 	<div class="dangqian">
   <div class="row">
         <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-xs-5  col-xs-offset-1">
-            <p>当前位置：学生服务>>报名</p>
+            <p>当前位置：</p>
         </div>
         <div class="col-lg-2 col-md-3 col-xs-3">
-            <p>欢迎登录本系统</p>
+            <p>欢迎<s:property value="#session.role.findSelfName()"/>登录本系统</p>
         </div>
   </div>
 </div>

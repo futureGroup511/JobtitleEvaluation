@@ -126,7 +126,6 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 
 
 	private Map<String, Object> session;
-	@Override
 	public void setSession(Map<String, Object> arg0) {
 		session=arg0;
 	}

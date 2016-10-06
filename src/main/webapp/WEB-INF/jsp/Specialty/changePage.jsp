@@ -14,11 +14,11 @@
 
 <div class="dangqian">
   <div class="row">
-        <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-xs-5  col-xs-offset-1">
+        <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
             <p>当前位置：管理员>>修改专业</p>
         </div>
         <div class="col-lg-2 col-md-3 col-xs-3">
-            <p>欢迎登录本系统</p>
+            <p>欢迎<s:property value="#session.role.findSelfName()"/>登录本系统</p>
         </div>
   </div>
 </div>
