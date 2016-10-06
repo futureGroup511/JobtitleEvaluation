@@ -26,21 +26,21 @@
     <div class="leftsidebar_box">
         <div class="line"></div>
         	
-        	<s:if test="	#session.expert != null">
+        	<s:if test="	#session.role.findSelfName() == 'expert'">
         	
-        	<dl class="channel">
-        		<dt>评教<img src="images/select_xl01.png"></dt>
-        		<dd><a href="expert_allEvaluaTeacher" target="right">教职工评教</a></dd>
-        	</dl>
-        	<dl>
-        		<dt>查看个人信息<img src="images/select_xl01.png"></dt>
-        		<dd><a href="expert_lookInformation" target="right">个人信息</a></dd>
-        	</dl>
+	        	<dl class="channel">
+	        		<dt>评教<img src="images/select_xl01.png"></dt>
+	        		<dd><a href="expert_allEvaluaTeacher" target="right">教职工评教</a></dd>
+	        	</dl>
+	        	<dl>
+	        		<dt>查看个人信息<img src="images/select_xl01.png"></dt>
+	        		<dd><a href="expert_lookInformation" target="right">个人信息</a></dd>
+	        	</dl>
         
         	</s:if>
         
         
-        	<c:if test="${ sessionScope.superManager != null}">
+        	<s:if test="#session.role.findSelfName() == 'superManager'">
         		<dl class="channel">
            		<dt>专家管理<img src="images/select_xl01.png"></dt>
            		<dd><a href="expert_manageExpertInfoList" target="right">专家信息管理</a></dd>
@@ -80,7 +80,7 @@
 	            	<dd><a href="specialty_page_s?page_s.currentPage=1" target="right">查看、管理专业</a></dd>
 	           	 	<dd><a href="specialty" target="right">增加专业</a></dd>
 	            </dl>
-        	</c:if>
+        	</s:if>
             
             <dl class="channel">
 	            	<dt>退出登陆<img src="images/select_xl01.png" ></dt>
