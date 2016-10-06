@@ -28,10 +28,10 @@
 	<div class="dangqian">
    <div class="row">
         <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
-            <p>当前位置：</p>
+            <p><strong>当前位置：>>更新参与人信息</strong></p>
         </div>
         <div class="col-lg-2 col-md-2 col-xs-2">
-            <p>欢迎登录本系统</p>
+            <p><strong>欢迎  <s:property value="#session.role.helloName()"/>登录本系统</strong></p>
         </div>
     </div>
 	</div>

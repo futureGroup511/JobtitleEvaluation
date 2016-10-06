@@ -27,7 +27,7 @@
             <p><strong>当前位置：管理员>>按指定专家统计</strong></p>
         </div>
         <div class="col-lg-2 col-md-3 col-xs-3">
-            <p><strong>欢迎<s:property value="#session.role.helloName()"/>登录本系统</strong></p>
+            <p><strong>欢迎  <s:property value="#session.role.helloName()"/>  登录本系统</strong></p>
         </div>
     </div>
 </div>

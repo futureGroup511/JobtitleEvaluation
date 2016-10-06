@@ -24,10 +24,10 @@
 	    <div class="col-lg-1 col-lg-offset-1 col-md-1 col-lg-offset-1  col-xs-1 col-xs-offset-1">
 	        </div>
 	        <div class="col-lg-3 col-lg-offset-5 col-md-3 scol-md-offset-5 col-xs-3  col-xs-offset-5">
-	            <p>当前位置：审评人员服务>>审评</p>
+	            <p><strong>前位置：审评人员服务>>审评</strong></p>
 	        </div>
 	        <div class="col-lg-2 col-md-2 col-xs-2">
-	            <p>欢迎<s:property value="#session.role.helloName()"/>登录本系统</p>
+	            <p><strong>欢迎   <s:property value="#session.role.helloName()"/>  登录本系统  </strong></p>
 	        </div>
 	  </div>
 	</div>

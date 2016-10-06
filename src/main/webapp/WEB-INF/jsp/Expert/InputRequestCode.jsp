@@ -13,11 +13,11 @@
 	<div class="dangqian">
   <div class="row">
         <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-xs-5  col-xs-offset-1">
-            <p>当前位置：</p>
+            <p><strong>当前位置：邀请码》》发布</strong></p>
         </div>
         <div class="col-lg-2 col-md-3 col-xs-3">
-            <p>欢迎<s:property value="#session.role.helloName()"/>登录本系统</p>
-        </div>
+            <p><strong>欢迎  <s:property value="#session.role.helloName()"/> 登录本系统</strong></p>
+        </div> 
   </div>
 </div>
 	<!-- <form class="form-horizontal" role="form">

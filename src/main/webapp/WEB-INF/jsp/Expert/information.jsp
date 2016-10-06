@@ -20,7 +20,7 @@
 	            <p><strong>审评人员>>个人信息</strong></p>
 	        </div>
 	        <div class="col-lg-2 col-md-3 col-xs-3">
-	            <p>欢迎$<s:property value="#session.role.helloName()"/>登录本系统</p>
+	            <p>欢迎    <s:property value="#session.role.helloName()"/>  登录本系统</p>
 	        </div>
 	    </div>
 	</div>
