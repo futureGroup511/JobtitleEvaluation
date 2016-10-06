@@ -19,7 +19,7 @@
 	            <p>当前位置：审评人员>>个人信息</p>
 	        </div>
 	        <div class="col-lg-2 col-md-3 col-xs-3">
-	            <p>欢迎${expert.exp_name }登录本系统</p>
+	            <p>欢迎${role.exp_name }登录本系统</p>
 	        </div>
 	    </div>
 	</div>
@@ -27,25 +27,25 @@
 	<form action="">
 		<div class="row">
         	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>姓名：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ expert.exp_name}" readonly="readonly" class="form-control"> </div>
+            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ role.exp_name}" readonly="readonly" class="form-control"> </div>
             <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>账号：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ expert.exp_accountNum}" readonly="readonly" class="form-control"> </div>
+            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ role.exp_accountNum}" readonly="readonly" class="form-control"> </div>
      </div>
      <div class="row">
         	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>密码：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ expert.exp_password}" readonly="readonly" class="form-control"> </div>
+            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ role.exp_password}" readonly="readonly" class="form-control"> </div>
             <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>专业：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ expert.exp_specialty.spec_name}" readonly="readonly" class="form-control"></div>
+            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ role.exp_specialty.spec_name}" readonly="readonly" class="form-control"></div>
      </div>
      <div class="row">
         	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>职称：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ expert.exp_jobTitle.jobTi_name}" readonly="readonly" class="form-control"> </div>
+            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ role.exp_jobTitle.jobTi_name}" readonly="readonly" class="form-control"> </div>
             <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>学历：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ expert.exp_educationLevel}" readonly="readonly" class="form-control"></div>
+            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ role.exp_educationLevel}" readonly="readonly" class="form-control"></div>
      </div>
      <div class="row">
         	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>单元：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ expert.exp_unit.uni_name}" readonly="readonly" class="form-control"></div>
+            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ role.exp_unit.uni_name}" readonly="readonly" class="form-control"></div>
      </div>
 	</form>
 </body>
