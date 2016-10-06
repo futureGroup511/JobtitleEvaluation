@@ -15,6 +15,7 @@ import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.Statistics;
+import com.atfuture.interfaceUtils.Role;
 import com.future.utils.Page_S;
 @Controller
 @Scope("prototype")
@@ -26,7 +27,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	private Integer expert_id;
 	private Integer person_id;
 	
-	
+	private Map<String, Object> sessionMap;
 	
 	public String finishAssess(){
 		Expert expert=(Expert) session.get("role");
@@ -76,7 +77,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	
 	
 	//查询指定专家的评估记录
-		private Integer exp_id = 1;
+		private Integer exp_id = ((Expert)sessionMap.get("role")).getExp_id();
 		public String statisticByExpert(){
 			Integer recordCount = evaluatedRecordService.getAllStatisticByExpert(exp_id).size();
 			Integer pageSize = 2;
@@ -125,9 +126,15 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	}
 
 
+<<<<<<< HEAD
+
+	public void setSession(Map<String, Object> sessionMap) {
+		this.sessionMap = sessionMap;
+=======
 	private Map<String, Object> session;
 	public void setSession(Map<String, Object> arg0) {
 		session=arg0;
+>>>>>>> e080321ca6f7f86bf3fed412f55e892aeb31c359
 	}
 	
 	
