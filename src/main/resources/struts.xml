@@ -91,15 +91,14 @@
     	<!-- Unit,Specialty,JobTitle的action配置开始 -->
     	
     	<action name="jobTitle_*" method="{1}" class="jobTitleAction">
-    		<result name="success">/WEB-INF/jsp/JobTitle/index.jsp</result>
+    		<result name="success">/WEB-INF/jsp/JobTitle/page_s.jsp</result>
+
+    		<result name="addFail">/WEB-INF/jsp/JobTitle/add.jsp</result>
+    		
     		<result name="addSuccess" type="redirectAction">
-    			<param name="actionName">jobTitle</param>
+    			<param name="actionName">jobTitle_page_s</param>
     			<param name="namespace">/</param>
     		</result>
-    		<!-- 
-    			<result name="findByName">/WEB-INF/jsp/JobTitle/findByName.jsp</result>
-    		 -->  		
-    		
     		<result name="changePage">/WEB-INF/jsp/JobTitle/changePage.jsp</result>
     		<result name="changeSuccess" type="redirectAction">
     			<param name="actionName">jobTitle_page_s</param>
@@ -110,30 +109,33 @@
     	</action>
     	
     	<action name="specialty_*" method="{1}" class="com.atfuture.action.SpecialtyAction">
-    		<result name="success">/WEB-INF/jsp/Specialty/index.jsp</result>
+    		<result name="success">/WEB-INF/jsp/Specialty/page_s.jsp</result>
+    		<result name="addFail">/WEB-INF/jsp/Specialty/add.jsp</result>
+    		
     		<result name="addSuccess" type="redirectAction">
-    			<param name="actionName">specialty</param>
+    			<param name="actionName">specialty_page_s</param>
     			<param name="namespace">/</param>
     		</result>  		
-    		<result name="findByName">/WEB-INF/jsp/Specialty/findByName.jsp</result>
     		<result name="changePage">/WEB-INF/jsp/Specialty/changePage.jsp</result>
     		<result name="changeSuccess" type="redirectAction">
-    			<param name="actionName">specialty</param>
+    			<param name="actionName">specialty_page_s</param>
     			<param name="namespace">/</param>
     		</result>
     		<result name="page_sSuccess">/WEB-INF/jsp/Specialty/page_s.jsp</result>
     	</action>
     	
     	<action name="unit_*" method="{1}" class="com.atfuture.action.UnitAction">
-    		<result name="success">/WEB-INF/jsp/Unit/index.jsp</result>
+    		<result name="success">/WEB-INF/jsp/Unit/add.jsp</result>
+    		<result name="addFail">/WEB-INF/jsp/Unit/add.jsp</result>
+    		
     		<result name="addSuccess" type="redirectAction">
-    			<param name="actionName">unit</param>
+    			<param name="actionName">unit_page_s</param>
     			<param name="namespace">/</param>
     		</result>  		
-    		<result name="findByName">/WEB-INF/jsp/Unit/findByName.jsp</result>
+    		
     		<result name="changePage">/WEB-INF/jsp/Unit/changePage.jsp</result>
     		<result name="changeSuccess" type="redirectAction">
-    			<param name="actionName">unit</param>
+    			<param name="actionName">unit_page_s</param>
     			<param name="namespace">/</param>
     		</result>
     		<result name="page_sSuccess">/WEB-INF/jsp/Unit/page_s.jsp</result>

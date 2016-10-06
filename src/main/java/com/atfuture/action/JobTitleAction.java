@@ -38,7 +38,8 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 	}
 	
 	public String execute(){
-		return SUCCESS;
+		this.page_s();
+		return "page_sSuccess";
 	}
 	private HttpServletRequest getRequest(){
 		return ServletActionContext.getRequest();
@@ -48,48 +49,53 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 	}
 	public String add(){
 		if(null==jobTitle){
-			return "addSuccess";
+			return "addFail";
 		}
 		if("".equals(jobTitle.getJobTi_name())){
 			this.addRemind("添加失败,请不要输入空的名字!");
-			return "addSuccess";
+			return "addFail";
 		}
 		if(jobTitleService.checkExist(jobTitle.getJobTi_name())){
 			this.addRemind("添加失败!职称名字已经存在");
-			return "addSuccess";
+			return "addFail";
 		}
 		jobTitleService.addJobTitle(jobTitle);
 		this.addRemind("添加成功!");
 		return "addSuccess";
 	}
+	
+	//修改页面
 	public String changePage(){
 		if(jobTitle==null||"".equals(jobTitle.getJobTi_id())){
 			return SUCCESS;
 		}
-		JobTitle jt=jobTitleService.getJobTitle(jobTitle.getJobTi_id());
-		System.out.println("ad");
 		if(null!=page_s&&null!=page_s.getCurrentPage()){
-			String pageNum=page_s.getCurrentPage().toString();
+			int pageNum=page_s.getCurrentPage();
 			this.getRequest().setAttribute("pageNum", pageNum);
-			System.out.println(pageNum);
 		}else{
 			this.getRequest().setAttribute("pageNum", 1);
 		}
+		JobTitle jt=jobTitleService.getJobTitle(jobTitle.getJobTi_id());
 		this.getRequest().setAttribute("findResult",jt);
 		return "changePage";
 	}
 	
+	//修改操作
 	public String change(){
 		int pageNum=page_s.getCurrentPage();
 		this.getRequest().setAttribute("pageNum", pageNum);
-		System.out.println("change"+pageNum);
 		if(null==jobTitle){
 			this.addRemind("错误!请正确操作!");
 			return "changePage";
 		}
 		if("".equals(jobTitle.getJobTi_id())||"".equals(jobTitle.getJobTi_name())){
-			this.addRemind("修改失败,请正确操作!");
-			JobTitle jt=jobTitleService.getJobTitle(jobTitle.getJobTi_id());
+			this.addRemind("修改失败,请输入名字!");
+			JobTitle jt=null;
+			try{
+				jt=jobTitleService.getJobTitle(jobTitle.getJobTi_id());
+			}catch(Exception e){
+				
+			}
 			this.getRequest().setAttribute("findResult",jt);
 			return "changePage";
 		}
@@ -106,12 +112,20 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 		this.page_s();
 		return "page_sSuccess";
 	}
+	/*
 	public String findByName(){
 		List<JobTitle> findResults=jobTitleService.findByName(jobTitle.getJobTi_name());
 		this.getRequest().setAttribute("findResults",findResults);
 		return "findByName";
 	}
+	*/
 	public String page_s(){
+		if(null==page_s){
+			page_s=new Page_S();
+		}
+		if(page_s.getCurrentPage()==null||page_s.getCurrentPage()==0){
+			page_s.setCurrentPage(1);
+		}
 		page_s.setPageSize(3);
 		Page_S ps=jobTitleService.page_s(page_s);
 		this.getRequest().setAttribute("page_s",ps);

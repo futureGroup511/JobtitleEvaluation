@@ -28,7 +28,7 @@
 	<div class="dangqian">
    <div class="row">
         <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
-            <p>当前位置：未知</p>
+            <p>当前位置：</p>
         </div>
         <div class="col-lg-2 col-md-2 col-xs-2">
             <p>欢迎登录本系统</p>
