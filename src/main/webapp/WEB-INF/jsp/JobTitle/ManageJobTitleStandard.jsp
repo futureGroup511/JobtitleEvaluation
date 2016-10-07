@@ -35,7 +35,6 @@
                     <th>修改其申报标准</th>
                 </tr>
             </thead>
-		
             <tbody>
          <s:if test="#request.jobTitleList != null && #request.jobTitleList.size() > 0">
 	       <s:iterator value="#request.jobTitleList" var="jobTitle">
@@ -53,27 +52,5 @@
      </tbody>
         </table>
 </div>
-
-
-<%-- <table>
-      <tr>  
-         <th>职称对应名称</th>
-         <th>修改其申报标准</th>
-       </tr>
-       <s:if test="#request.jobTitleList != null && #request.jobTitleList.size() > 0">
-	       <s:iterator value="#request.jobTitleList" var="jobTitle">
-			<tr>
-				<td>${jobTitle.jobTi_name}</td>
-				<td><a href="jobTitleStandard_passToJobTitleStandardPage?jobTi_id=${jobTitle.jobTi_id }">修改其申报标准</a></td>
-			</tr>
-			</s:iterator>
-       </s:if>
-	   <s:else>
-	   	<tr>
-	   		<td>暂无职称信息，请添加</td>
-	   	</tr>
-	   </s:else>
-    </table> --%>
-
 </body>
 </html>
