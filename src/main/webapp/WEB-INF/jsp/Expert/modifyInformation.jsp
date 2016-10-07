@@ -9,31 +9,35 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/liwen15.css">
-
+<style type="text/css">
+	.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+</style>
 </head>
 <body>
-	
-	
-		<form action="expert_modifyInformation">
+		<form action="expert_modifyInformation"   class="col-lg-11 col-lg-offset-2 col-md-9 col-md-offset-3 col-xs-9 col-xs-offset-2">
 			<input type="hidden" value="${role.exp_accountNum}" id="num" name="sup_accountNum">
 			<div class="row">
 	        	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>原始密码：</p></div>
-	            <div class="col-lg-2 col-md-2 col-xs-3 "><input type="password" class=" form-control "  id="oldpassword" onchange="jugeOldPassword('expert_jugePassword',2);"> </div>
+	            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:10%;"><input type="password" class=" form-control "  id="oldpassword" onchange="jugeOldPassword('expert_jugePassword',2);"> </div>
 	     	</div>
 	     	
 			<div class="row">
 	        	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>新密码：</p></div>
-	            <div class="col-lg-2 col-md-2 col-xs-3"><input type="password"  class="form-control"  id="newpassword" onchange="compareInput();"> </div>
+	            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:10%;"><input type="password"  class="form-control"  id="newpassword" onchange="compareInput();"> </div>
 	     	</div>
 	     	<div class="row">
-	        	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>再次输入密码：</p></div>
-	            <div class="col-lg-2 col-md-2 col-xs-3"><input type="password"  class="form-control" name="exp_password" id="secondpassword" onchange="compareInput();"> </div>
+	        	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>再次输入：</p></div>
+	            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:10%;"><input type="password"  class="form-control" name="exp_password" id="secondpassword" onchange="compareInput();"> </div>
 	     	</div>
 	     	<br>
-	     	<div class="col-lg-1 col-lg-offset-3 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-3">
+	     	<div class="col-lg-5 col-lg-offset-3 col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3">
+	     		<h3 class="text text-danger" id="information"></h3>
 	     		<button class="btn btn-large  btn-primary" >确定修改</button>
 	     	</div>
-	     	<h3 class="text text-danger" id="information"></h3>
+	     	
 		</form>
 </body>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/modifyInformation.js"></script>

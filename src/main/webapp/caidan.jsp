@@ -28,20 +28,20 @@
         	
         	<s:if test="#session.role.findSelfName() == 'expert'">
 	        	<dl class="channel">
-	        		<dt><a style="color:white" href="expert_allEvaluaTeacher" target="right">在线评审<img src="images/select_xl01.png"></a></dt>
+	        		<dt><a style="color:white" href="expert_allEvaluaTeacher" target="right">在线评审</a></dt>
 	        		<!-- <dd><a href="expert_allEvaluaTeacher" target="right">教职工评审</a></dd> -->
 	        	</dl>
 	        	<dl>
-	        		<dt><a style="color:white" href="expert_lookInformation" target="right">查看个人信息<img src="images/select_xl01.png"></a></dt>
+	        		<dt><a style="color:white" href="expert_lookInformation" target="right">查看个人信息</a></dt>
 	        		<!-- <dd><a href="expert_lookInformation" target="right">个人信息</a></dd> -->
 	        	</dl>
 	        	<dl>
-	        		<dt><a style="color:white" href="evaluatedrecord_statisticByExpert" target="right">查看已评审参评信息<img src="images/select_xl01.png"></a></dt>
+	        		<dt><a style="color:white" href="evaluatedrecord_statisticByExpert" target="right">查看已评审参评信息</a></dt>
 	        		<!-- <dd><a href="evaluatedrecord_statisticByExpert" target="right">按指定专家统计</a></dd> -->
 	        	</dl>
 	        	<dl>
         			
-	            	<dd><a style="color:white;" href="expert_modifyInformationView" target="right">修改个人密码</a></dd>
+	            	<dt><a style="color:white;" href="expert_modifyInformationView" target="right">修改个人密码</a><dt>
 	            </dl>
         
         	</s:if>
@@ -125,7 +125,7 @@
 	             </dl> -->
 	             
        <dl class="channel">
-           	<dt><a style="color:white" href="loginAction_loginOut" target="_top">退出登陆<img src="images/select_xl01.png" ></a></dt>
+           	<dt><a style="color:white" href="loginAction_loginOut" target="_top">退出登陆</a></dt>
            	<!-- <dd><a href="loginAction_loginOut" target="_top">退出登陆</a></dd> -->
         </dl>
     </div>

@@ -9,7 +9,6 @@
 	if(window!=window.parent){
 		parent.location.href='login.jsp';
 	}
-	
 </script>
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/css/denglu.css" rel="stylesheet" >

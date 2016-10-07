@@ -15,6 +15,7 @@
     <!-- 由spring 管理action的创建  -->
     <constant name="struts.objectFactory" value="spring" />
     
+   
     <package name="default" namespace="/" extends="json-default">
     	<!-- 定义新的拦截器栈, 配置 prepare 拦截器栈的 alwaysInvokePrepare 参数值为 false -->
 		<interceptors>
@@ -28,7 +29,9 @@
 		</interceptors>
 		<!-- 使用新的拦截器栈 -->
 		<default-interceptor-ref name="sshStack"></default-interceptor-ref>
-		
+			 <global-results >
+ 		   	 	<result name="loginLy" type="redirect">loginAction_loginOut</result>
+ 			</global-results>
 	    	<!-- 配置默认 paramsPrepareParam 拦截器栈 -->
 	    	<!-- <default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref> -->
 	    <action name="loginAction_*" method="{1}" class="loginAction">
