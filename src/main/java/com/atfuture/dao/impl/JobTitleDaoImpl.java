@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.atfuture.dao.JobTitleDao;
 import com.atfuture.domain.JobTitle;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 
 @Repository
 public class JobTitleDaoImpl extends BaseDaoImpl<JobTitle> implements JobTitleDao{

@@ -3,7 +3,7 @@ package com.atfuture.service;
 import java.util.List;
 
 import com.atfuture.domain.Unit;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 
 public interface UnitService {
 	Unit getUnit(int id);

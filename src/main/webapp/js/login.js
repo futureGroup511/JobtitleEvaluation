@@ -4,6 +4,7 @@ function juge(){
 		var role=$("select[ name='role']").val();
 		var num=$("input[name='num']").val();
 		var password=$("input[name='password']").val();
+		var title="账号/密码错误";
 		if(num==''||password==''){
 			$("#information").text("");
 			$("#information").text("请填写完整信息");
@@ -21,23 +22,12 @@ function juge(){
 				type:"post",
 				async:false,
 				data:datas,
-				success:function(data){juge=asyncJuge(data)}
+				success:function(data){juge=asyncJuge(data,title)}
 		
 		});
 		
-		if(juge==2){
-			return true;
-		}
-		return false;
+		if(juge==2)return true;
+		 else return false;
 	}
+
 	
-	function asyncJuge(data){
-		console.log(data);
-		if(data==="success"){
-			$("#information").text("");
-			return 2;
-		}else if(data==="erro"){
-			$("#information").text("账号/密码错误");
-			return 1;
-		}
-	}

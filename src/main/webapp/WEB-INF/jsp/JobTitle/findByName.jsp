@@ -30,7 +30,6 @@
 		</tr>
 		<c:forEach var="jt" items="${findResults }">
 				<tr>
-				
 				<td>${jt.jobTi_name }</td>
 				<td><a href="jobTitle_changePage?jobTitle.jobTi_id=${jt.jobTi_id }">修改</a></td>
 				</tr>

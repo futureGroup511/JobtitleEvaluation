@@ -5,13 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>登陆页面</title>
-
+<script type="text/javascript">
+	if(window!=window.parent){
+		parent.location.href='login.jsp';
+	}
+</script>
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/css/denglu.css" rel="stylesheet" >
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/login.js"></script>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/asyncJuge.js"></script>
 </head>
 <body>
 <div id="nav">

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -32,31 +33,33 @@
 	  </div>
 	</div>
 	
-	<c:choose>
-		<c:when test="${(fn:endsWith( person.parti_pathurl,'.jpg') or fn:endsWith( person.parti_pathurl,'.png'))}">
-			<a href="#" onclick="return go('${pageContext.request.contextPath}/participated_lookPicture?parti_pathurl=${person.parti_pathurl}')"></a>
-		</c:when>
-		<c:when test="${empty person.parti_pathurl}">
-			<p class="text text-danger">资料不存在</p>
-		</c:when>
-		<c:otherwise>
-			<p class="text text-danger">无法显示请下载文件</p>
-		</c:otherwise>
-	</c:choose>
+	
 	<form action="evaluatedrecord_finishAssess" method="post">
+		
 		<input type="hidden" name="person_id" value="${person.parti_id }">
 		<div class="table-responsive">
    			 <table class="table table-bordered table-hover table-striped" style="Word-break: break-all;">
-   			 	<!-- <thead>
-				<tr class="one">
-					<td>标题</td>
-					<td>内容</td>
-					<td>选项</td>
-				</tr>
-				</thead> -->
 			<tbody>
 					<tr>
-						<td><strong>您对参评人从事专业</strong></td>
+						<td>
+							<c:choose>
+							<c:when test="${(fn:endsWith( person.parti_pathurl,'.jpg') or fn:endsWith( person.parti_pathurl,'.png'))}">
+								<a href="#" onclick="return go('${pageContext.request.contextPath}/participated_lookPicture?parti_pathurl=${person.parti_pathurl}')" class="btn btn-primary btn-lg">显示图片</a>
+							</c:when>
+							<c:when test="${empty person.parti_pathurl}">
+								<p class="text text-danger">资料不存在</p>
+							</c:when>
+							<c:otherwise>
+								<p class="text text-danger">无法显示请下载文件</p>
+							</c:otherwise>
+							</c:choose>
+							<c:if test="${!empty person.parti_pathurl }">
+								<a href="#" onclick="return popWinGD('${pageContext.request.contextPath}/participated_lookResource?parti_pathurl=${person.parti_pathurl}')" class="btn btn-primary btn-lg">下载文件</a>
+							</c:if>
+						</td>
+					</tr>
+					<tr>
+						<td><strong>1、您对参评人从事专业</strong></td>
 						
 					</tr>
 					<tr>
@@ -65,12 +68,15 @@
 								<input type="radio" name="evalRecor_spciaFamiliar" value="A">A.熟悉
 							</label>
 							<label>
-							<input type="radio" name="evalRecor_spciaFamiliar" value="B" checked="checked">B.比较熟悉
+								<input type="radio" name="evalRecor_spciaFamiliar" value="B" checked="checked">B.比较熟悉
 							</label>
 							<label>
-							<input type="radio" name="evalRecor_spciaFamiliar" value="C">C.不太熟悉
+								<input type="radio" name="evalRecor_spciaFamiliar" value="C">C.不太熟悉
 							</label>
 						</td>
+					</tr>
+					<tr>
+						<td><strong>2、重要指标评价</strong></td>
 					</tr>
 					<tr>
 						<td>(1)<strong>教学:</strong> ${evaluatedStandard.evalStan_teachStandard } </td>
@@ -130,7 +136,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td><strong>综合评价</strong></td>
+						<td><strong>3、综合评价</strong></td>
 					</tr>
 					<tr>
 						<td>
@@ -156,27 +162,21 @@
 			<input type="submit" class="btn btn-primary" value="提交">
     	</div>
 	</form>
-	<c:if test="${!empty person.parti_pathurl }">
-		<a href="#" onclick="return popWinGD('${pageContext.request.contextPath}/participated_lookResource?parti_pathurl=${person.parti_pathurl}')">下载文件</a>
-	</c:if>
+	
 	
 </body>
 
 <script language="JavaScript">
-		
-		function popWinGD(theURL){
-			
-			 window.location.href=theURL;
-			return false;
-		}
-		
-		function go(url){
-			var pop,w=670,h=450; //window.navigate(theURL);
-			pop=window.open(theURL,"winGD","width="+w+",height="+h+",resizable=yes,menubar=no,toolbar=no,location=no,scrollbars=no,status=no")
- 			pop.moveTo((screen.width-w)/2,(screen.height-h)/2);
-			 
-		}
-		
+	function popWinGD(theURL){
+		window.location.href=theURL;
+		return false;
+	}
+	function go(url){
+		var pop,w=670,h=450; //window.navigate(theURL);
+		pop=window.open(url,"winGD","width="+w+",height="+h+",resizable=yes,menubar=no,toolbar=no,location=no,scrollbars=no,status=no")
+		pop.moveTo((screen.width-w)/2,(screen.height-h)/2);
+		console.log(url);
+	}
 </script>
 
 </html>

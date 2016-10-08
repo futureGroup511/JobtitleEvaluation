@@ -13,7 +13,7 @@ import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.Statistics;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 @Controller
 @Scope("prototype")
 public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implements RequestAware,SessionAware{
@@ -31,7 +31,6 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 		EvaluatedRecord er=getModel();
 		er.setEvalRecor_expart(expert);
 		er.setEvalRecor_participatedPerson(participatedPerson);
-		er.changeAssessment();//综合评价为分值
 		evaluatedRecordService.save(er);
 		//判断类型
 		List<Object[]> result=evaluatedRecordService.calculateGroupCountByPersonId(person_id);

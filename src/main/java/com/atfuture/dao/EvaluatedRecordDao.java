@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.atfuture.base.BaseDao;
 import com.atfuture.domain.EvaluatedRecord;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 
 public interface EvaluatedRecordDao extends BaseDao<EvaluatedRecord>{
 

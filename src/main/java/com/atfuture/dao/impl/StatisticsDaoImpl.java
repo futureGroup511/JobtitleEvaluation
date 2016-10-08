@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.atfuture.dao.StatisticsDao;
 import com.atfuture.domain.Statistics;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 
 @Repository
 public class StatisticsDaoImpl extends BaseDaoImpl<Statistics> implements StatisticsDao {

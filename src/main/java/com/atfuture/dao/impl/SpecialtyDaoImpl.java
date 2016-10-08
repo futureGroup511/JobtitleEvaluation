@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.atfuture.dao.SpecialtyDao;
 import com.atfuture.domain.Specialty;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 
 @Repository
 public class SpecialtyDaoImpl extends BaseDaoImpl<Specialty> implements SpecialtyDao  {

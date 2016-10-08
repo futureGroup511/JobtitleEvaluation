@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.atfuture.dao.ParticipatedPersonDao;
 import com.atfuture.domain.ParticipatedPerson;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 
 @Repository
 public class ParticipatedPersonDaoImpl extends BaseDaoImpl<ParticipatedPerson> implements ParticipatedPersonDao{

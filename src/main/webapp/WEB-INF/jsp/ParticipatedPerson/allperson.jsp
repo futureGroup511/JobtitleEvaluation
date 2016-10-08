@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -100,12 +101,8 @@
 </body>
 <script type="text/javascript">
 	function jump(value,count){
-		if(value<=0){
-			value=1;
-		}
-		if(value>=count){
-			value=count;
-		}
+		value=(value<=0)? 1:value; //如果小于零怎么办
+		value=(value>=count)? count:value; //如果大于页数怎么办
 		window.location.href="expert_allEvaluaTeacher?currentPage="+value;
 		return false;
 	}

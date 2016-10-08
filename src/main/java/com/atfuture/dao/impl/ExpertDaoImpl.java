@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.atfuture.dao.ExpertDao;
 import com.atfuture.domain.Expert;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 @Repository
 public class ExpertDaoImpl extends BaseDaoImpl<Expert> implements ExpertDao {
 
@@ -32,6 +32,11 @@ public class ExpertDaoImpl extends BaseDaoImpl<Expert> implements ExpertDao {
 	public List<Expert> getAllExpert() {
 		String sql = "from Expert";
 		return getSession().createQuery(sql).list();
+	}
+
+	@Override
+	public void save(Expert e) {
+		saveEntity(e);
 	}
 
 }

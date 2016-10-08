@@ -23,7 +23,7 @@
   </div>
 </div>
 <center>
-<s:debug></s:debug>
+
 <h1 class="remind">${remind }</h1>
 <s:set name="remind" value=" " scope="session"></s:set>
 </center>

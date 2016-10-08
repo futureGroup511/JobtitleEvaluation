@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.atfuture.dao.ParticipatedPersonDao;
 import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.service.ParticipatedPersonService;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 
 @Service
 public class ParticipatedPersonServiceImpl  implements ParticipatedPersonService{

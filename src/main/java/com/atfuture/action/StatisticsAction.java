@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import com.atfuture.base.BaseAction;
 import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.Statistics;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 
 @Controller
 @Scope("prototype")

@@ -5,7 +5,7 @@ import java.util.List;
 import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.EvaluatedStandard;
 import com.atfuture.domain.Statistics;
-import com.future.utils.Page_S;
+import com.atfuture.utils.Page_S;
 
 public interface EvaluatedRecordService  {
 

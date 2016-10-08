@@ -29,19 +29,7 @@
 	</div>
 	
 	<div id="do_">
-		<%-- 
-		<center>
-		<h1 class="remind">${remind }</h1>
-		</center>
-		<s:set name="remind" value=" " scope="session"></s:set>
-		<div id="view">
-			<hr>
-			<h3 class="do_title">查看职称</h3>
-			<center>
-			<a class="view_a" href="jobTitle_page_s?page_s.currentPage=1"><h4>点击这里查看所有职称</h4></a>
-			</center>
-		</div>
-		 --%>
+
 		<div id="add">
 			<hr>
 			<h3 class="do_title">增加职称</h3>
@@ -57,24 +45,7 @@
 		    </div>
 			</form>
 		</div>
-		<!-- 
-		<div id="manage">
-			<hr>
-			<h3 class="do_title">修改职称</h3>
-			<form class="form-horizontal" role="form" action="jobTitle_findByName" method="post">
-			    <div class="form-group">
-			       <label for="inputEmail3" class="col-lg-2 col-lg-offset-4 col-md-2 col-md-offset-4 col-xs-3 col-xs-offset-4 control-label">要修改的职称名字：</label>
-			       <div class="col-lg-2 col-md-2 col-xs-3">
-			          <input type="text" class="form-control" id="inputEmail3" placeholder="输入名字进行搜索" name="jobTitle.jobTi_name">
-			       </div>
-			       <div class="col-lg-2  col-md-2  col-xs-3 ">
-			           <button class="btn btn-primary" type="submit" >搜索</button>
-			       </div>
-			    </div>
-			</form>
-			<hr>
-		</div>
-		 -->
+		
 	</div>
 </body>
 </html>
