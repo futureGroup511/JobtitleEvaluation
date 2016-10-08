@@ -65,21 +65,6 @@
                    </ul>
                </nav>
             </div>
-          <%--   
-           <form>
-	            <label class="col-lg-1 col-md-1 col-xs-1 control-label">跳到第</label>
-                <div class="col-lg-2 col-md-2 col-xs-2">
-	              <select class="form-control" style="width:50%;" name="page_s.currentPage">
- 	 	              
-					<c:forEach var="p" begin="1" end="${page_s.pageCount }" step="1">
-						 <option>${p }</option>
-					</c:forEach>
-	              </select>
-                <label class="col-lg-1 col-md-1 col-xs-1 control-label" style="margin-top:-28px; margin-left:65%;">页</label>
-                </div>
-                <button type="submit" class="btn btn-primary" >跳转</button>
-             </form>
-              --%>
      </div>
 </div>
 <script type="text/javascript">
