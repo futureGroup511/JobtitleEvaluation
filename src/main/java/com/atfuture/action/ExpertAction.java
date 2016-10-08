@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.ParameterAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.context.annotation.Scope;
@@ -19,13 +20,16 @@ import com.atfuture.domain.RequestCode;
 import com.atfuture.domain.Specialty;
 import com.atfuture.domain.Unit;
 import com.future.utils.Page_S;
+import com.future.utils.StringUtils;
 @Controller
 @Scope("prototype")
-public class ExpertAction extends BaseAction<Expert> implements RequestAware,SessionAware{
-
+public class ExpertAction extends BaseAction<Expert> implements RequestAware,SessionAware, ParameterAware{
+	//批量导入专家信息的 数量大小
+	private static final Integer bashRegisterSize = 8;
 	private Integer currentPage=1;
 	private Integer pageSize=10;
 	private ParticipatedPerson person=ParticipatedPerson.newInstance();
+	private Map<String, String[]> paramMap;
 	//所有参评人员
 	public String allEvaluaTeacher(){
 		Expert expert=(Expert) session.get("role");
@@ -75,6 +79,67 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware,Ses
 		}
 		return "RequestCodeWrong";
 	}
+	
+	//到达批量注册专家信息 页面
+	public String bashRegisterExpert(){
+		List<JobTitle> jobTitleList = jobTitleService.getAllJobTitle();
+		List<Specialty> specialtyList = specialtyService.getAllSpecialty();
+		List<Unit> unitList = unitService.getAllUnit();
+		request.put("jobTitleList", jobTitleList);
+		request.put("specialtyList", specialtyList);
+		request.put("unitList", unitList);
+		return "BashRegisterExpertPage";
+	}
+	
+	
+	/**
+	 * <tr>
+				<td><input class="expName_0" name="expName_0"/></td>
+				<td><input class="expNum_0" name="expNum_0" onblur="queryCompeName(this)"></td>
+				<td><s:select class="form-control" list="#request.unitList" listValue="uni_name" listKey="uni_id"  name="expUnit_0"></s:select></td>
+				<td><s:select class="form-control" list="#request.specialtyList" listValue="spec_name" listKey="spec_id"  name="expSpe_0"></s:select></td>
+				<td><s:select class="form-control" list="#request.jobTitleList" listValue="jobTi_name" listKey="jobTi_id"  name="expJobTi_0"></s:select></td>
+				<td><input class="expEdu_0" name="expEdu_0"></td>
+			</tr>
+	 */
+	
+	//批量注册专家信息的保存
+	public String bashRegisterrToDb(){
+		for(int i=0;i<bashRegisterSize;i++){
+			//姓名  账号   学历信息，只有有一个为空就放弃该条数据不进行录入 
+			String expName = StringUtils.isValidArr(paramMap.get("expName_"+i))?paramMap.get("expName_"+i)[0]+"":null;
+			String expNum = StringUtils.isValidArr(paramMap.get("expNum_"+i))?paramMap.get("expNum_"+i)[0]+"":null;
+			String expEdu = StringUtils.isValidArr(paramMap.get("expEdu_"+i))?paramMap.get("expEdu_"+i)[0]+"":null;
+			String[] strArr = {expName, expNum, expEdu};
+			if(StringUtils.isInvalidArr(strArr)){
+				Expert expert = new Expert();
+				expert.setExp_name(expName);
+				expert.setExp_accountNum(expNum);
+				expert.setExp_educationLevel(expEdu);
+				expert.setExp_password("123");
+				Integer unitId = Integer.parseInt(paramMap.get("expUnit_"+i)[0]+"");
+				Integer speId = Integer.parseInt(paramMap.get("expSpe_"+i)[0]+"");
+				Integer jobTiId = Integer.parseInt(paramMap.get("expJobTi_"+i)[0]+"");
+				Unit unit = new Unit();
+				unit.setUni_id(unitId);
+				Specialty specialty = new Specialty();
+				specialty.setSpec_id(speId);
+				JobTitle jobTitle = new JobTitle();
+				jobTitle.setJobTi_id(jobTiId);
+				expert.setExp_unit(unit);
+				expert.setExp_specialty(specialty);
+				expert.setExp_jobTitle(jobTitle);
+				expertService.saveExpertInfo(expert);
+				 
+			}else{  //放弃该组数据
+				continue;
+			}
+		}
+		return "RedirectToExpertPage";
+	}
+	
+	
+	
 	
 	public String registerExpertToDB(){
 		System.out.println(model);
@@ -192,6 +257,10 @@ System.out.println(accountNumExists);
 	private Map<String, Object> session;
 	public void setSession(Map<String, Object> arg0) {
 		session=arg0;
+	}
+
+	public void setParameters(Map<String, String[]> paramMap) {
+		this.paramMap = paramMap;
 	}
 
 	

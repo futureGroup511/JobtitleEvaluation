@@ -97,6 +97,9 @@
         		<dl>
 	            	<dt><a style="color:white;" href="super_lookInformation" target="right">查看个人信息</a></dt>
 	            </dl>
+	            <dl>
+	            	<dt><a style="color:white;" href="expert_bashRegisterExpert" target="right">批量录入专家信息</a></dt>
+	            </dl>
         	</s:if>
             
            <!--  <dl class="channel">
