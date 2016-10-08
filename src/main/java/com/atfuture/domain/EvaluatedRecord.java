@@ -30,6 +30,7 @@ public class EvaluatedRecord {
 	//总和得分
 	private String evalRecor_allAssessment;
 	
+	private Evaluate[] evaluates={Evaluate.EXCELLENT,Evaluate.GOOD,Evaluate.MEDIUM,Evaluate.POOR};
 	@Id
 	@GeneratedValue
 	@Column(name="evalrecor_id")
@@ -81,29 +82,18 @@ public class EvaluatedRecord {
 		return evalRecor_allAssessment;
 	}
 	public void setEvalRecor_allAssessment(String evalRecor_allAssessment) {
-		this.evalRecor_allAssessment = evalRecor_allAssessment;
+		for (Evaluate e:evaluates) {
+			if(evalRecor_allAssessment.equals(e.getName())){
+				this.evalRecor_allAssessment=e.getValue();
+				break;
+			}else{
+				this.evalRecor_allAssessment=evalRecor_allAssessment;
+			}
+		}
 	}
 	
 	public static EvaluatedRecord newInstance(){
 		return new EvaluatedRecord();
-	}
-	/**
-	 * 转换熟悉度为
-	 */
-	public void changeAssessment(){
-		String allAssessment=this.getEvalRecor_allAssessment();
-		if(allAssessment.equals(Evaluate.EXCELLENT.getName())){
-			this.setEvalRecor_allAssessment(Evaluate.EXCELLENT.getValue());
-		}
-		if(allAssessment.equals(Evaluate.GOOD.getName())){
-			this.setEvalRecor_allAssessment(Evaluate.GOOD.getValue());		
-			}
-		if(allAssessment.equals(Evaluate.MEDIUM.getName())){
-			this.setEvalRecor_allAssessment(Evaluate.MEDIUM.getValue());
-		}
-		if(allAssessment.equals(Evaluate.POOR.getName())){
-			this.setEvalRecor_allAssessment(Evaluate.POOR.getValue());
-		}
 	}
 	
 	

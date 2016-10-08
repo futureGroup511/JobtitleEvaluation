@@ -31,7 +31,6 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 		EvaluatedRecord er=getModel();
 		er.setEvalRecor_expart(expert);
 		er.setEvalRecor_participatedPerson(participatedPerson);
-		er.changeAssessment();//综合评价为分值
 		evaluatedRecordService.save(er);
 		//判断类型
 		List<Object[]> result=evaluatedRecordService.calculateGroupCountByPersonId(person_id);
