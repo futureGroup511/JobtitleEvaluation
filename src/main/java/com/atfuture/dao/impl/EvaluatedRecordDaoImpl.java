@@ -11,7 +11,10 @@ import com.atfuture.dao.EvaluatedRecordDao;
 import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
+<<<<<<< HEAD
 import com.atfuture.domain.TypeNumber;
+=======
+>>>>>>> 5212ce9ea1d4dbb82882cacebd9031dcd06f1e52
 import com.atfuture.utils.Page_S;
 @Repository
 public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> implements EvaluatedRecordDao{

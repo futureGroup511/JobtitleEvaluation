@@ -81,6 +81,13 @@
  		</action>
     	<action name="statistic_*" method="{1}" class="statisticsAction">
 			<result name="ShowStatisticListPage" >WEB-INF/jsp/Statistics/ShowStatisticsPage.jsp</result>
+			
+			<!-- 分类查看开始 -->
+			
+			<result name="viewByUnit">/WEB-INF/jsp/Statistics/viewByUnit.jsp</result>
+			<result name="viewBySpecialty">/WEB-INF/jsp/Statistics/viewBySpecialty.jsp</result>
+			<!-- 分类查看结束 -->
+			
     	</action>
     	<action name="expert_*" method="{1}" class="expertAction">
 			<result name="InputRequestCodePage">WEB-INF/jsp/Expert/InputRequestCode.jsp</result> 		    
@@ -93,8 +100,15 @@
     		<result name="allEvaluaTeacher">WEB-INF/jsp/ParticipatedPerson/allperson.jsp</result>
  		    <result name="assess">WEB-INF/jsp/Expert/assess.jsp</result>
     		<result name="lookInformation">WEB-INF/jsp/Expert/information.jsp</result>
+<<<<<<< HEAD
     		<result name="BashRegisterExpertPage">WEB-INF/jsp/Expert/BashRegisterExpert.jsp</result>
     		<result name="RedirectToExpertPage" type="redirectAction">expert_manageExpertInfoList?currentPage=1</result>
+=======
+
+    		<result name="BashRegisterExpertPage">WEB-INF/jsp/Expert/BashRegisterExpert.jsp</result>
+    		<result name="RedirectToExpertPage" type="redirectAction">expert_manageExpertInfoList?currentPage=1</result>
+
+>>>>>>> 5212ce9ea1d4dbb82882cacebd9031dcd06f1e52
     		<result name="jugePassword" type="json"></result>
     		<result name="modifyInformation" type="redirectAction">loginAction_loginOut</result>
     		<result name="modifyInformationView">WEB-INF/jsp/Expert/modifyInformation.jsp</result>

@@ -19,9 +19,10 @@ import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.RequestCode;
 import com.atfuture.domain.Specialty;
 import com.atfuture.domain.Unit;
-import com.atfuture.utils.Page_S;
 import com.future.utils.StringUtils;
+import com.atfuture.utils.Page_S;
 import com.opensymphony.xwork2.ActionContext;
+
 @Controller
 @Scope("prototype")
 public class ExpertAction extends BaseAction<Expert> implements RequestAware,SessionAware, ParameterAware{
@@ -56,9 +57,6 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware,Ses
 	public String lookInformation(){
 		return "lookInformation";
 	}
-	
-	
-	//========================================
 	
 	//到达输入邀请码页面
 	public String registerExpert(){
