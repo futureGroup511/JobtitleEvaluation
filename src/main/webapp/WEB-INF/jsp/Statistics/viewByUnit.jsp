@@ -25,10 +25,11 @@
 	            <p><strong>欢迎   <s:property value="#session.role.helloName()"/> 登录本系统</strong></p>
 	        </div>
 	    </div>
+	    
 	</div>
-	
 	<form action="statistic_viewByUnit">
-		单位<select name="unit.uni_id">
+	<div class="col-lg-1 col-lg-offset-1 col-md-1 col-md-offset-1 col-xs-1 col-xs-offset-1" style="font-size:18px;">
+		单位</div><select name="unit.uni_id">
 			<option value ="0">未选择</option>
 			<s:iterator value="#request.unitList" var="u">
 				<s:if test="#u.uni_id == #request.chosedUni_id ">
@@ -40,7 +41,7 @@
 			</s:iterator>
 		</select>
 		
-		<button type="submit">筛选</button>
+		<button type="submit" class="btn btn-primary" style="margin-left:4%;">筛选</button>
 	</form>
 
  <div class="container">

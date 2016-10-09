@@ -28,8 +28,9 @@
 	</div>
 	
 	<form action="statistic_viewBySpecialty">
-		专业<select name="specialty.spec_id">
-			<option value ="0">未选择</option>
+	  <div class="col-lg-1 col-lg-offset-1 col-md-1 col-md-offset-1 col-xs-1 col-xs-offset-1" style="font-size:18px;">
+		专业</div><select name="specialty.spec_id">
+			<option value ="0" >未选择</option>
 			<s:iterator value="#request.specialtyList" var="u">
 				<s:if test="#u.spec_id == #request.chosedSpec_id ">
 					<option selected = "selected" value ="${u.spec_id }"> ${u.spec_name }</option>
@@ -40,7 +41,7 @@
 			</s:iterator>
 		</select>
 		
-		<button type="submit">筛选</button>
+		<button  class="btn btn-primary" type="submit" style="margin-left:4%;">筛选</button>
 	</form>
 
  <div class="container">
