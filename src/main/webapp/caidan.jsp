@@ -101,9 +101,14 @@
         		<dl>
 	            	<dt><a style="color:white;" href="super_lookInformation" target="right">查看个人信息</a></dt>
 	            </dl>
+<<<<<<< HEAD
+	            <dl>
+	            	<dt><a style="color:white;" href="expert_bashRegisterExpert" target="right">批量录入专家信息</a></dt>
+=======
         		<dl>
         			
 	            	<dd><a  style="color:white;"href="super_modifyInformationView" target="right">修改个人密码</a></dd>
+>>>>>>> ee1c3ee1ec2efc37abf43a233c18f92a52f54ed7
 	            </dl>
         	</s:if>
             
