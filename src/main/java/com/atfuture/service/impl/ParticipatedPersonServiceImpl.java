@@ -49,4 +49,8 @@ public class ParticipatedPersonServiceImpl  implements ParticipatedPersonService
 		participatedPersonDao.deleteAll();
 	}
 
+	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Integer unitId,Integer speciaId) {
+		return participatedPersonDao.findByExpertUnitAndSpecialt(unitId, speciaId);
+	}
+
 }

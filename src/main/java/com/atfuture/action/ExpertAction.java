@@ -58,9 +58,6 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware,Ses
 		return "lookInformation";
 	}
 	
-	
-	//========================================
-	
 	//到达输入邀请码页面
 	public String registerExpert(){
 		return "InputRequestCodePage";

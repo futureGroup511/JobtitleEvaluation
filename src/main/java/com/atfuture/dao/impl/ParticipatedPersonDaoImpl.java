@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
-import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.atfuture.dao.ParticipatedPersonDao;
@@ -42,6 +42,13 @@ public class ParticipatedPersonDaoImpl extends BaseDaoImpl<ParticipatedPerson> i
 	public void deleteAll() {
 		String sql="delete from participateperson";
 		executeSQL(sql);
+	}
+
+	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Integer unitId, Integer speciaId) {
+		Criteria criteria=getSession().createCriteria(ParticipatedPerson.class);
+		if(unitId!=null&&unitId!=0) criteria.add(Restrictions.eq("parti_recommendUnit.uni_id", unitId));
+		if(speciaId!=null&&speciaId!=0) criteria.add(Restrictions.eq("parti_specialty.spec_id", speciaId));
+		return criteria.list();
 	}
 
 }

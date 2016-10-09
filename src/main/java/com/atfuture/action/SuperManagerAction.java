@@ -91,7 +91,6 @@ public class SuperManagerAction extends BaseAction<SuperManager> implements Requ
 	}
 
 	private Map<String, Object> session;
-	@Override
 	public void setSession(Map<String, Object> arg0) {
 		session=arg0;
 	}

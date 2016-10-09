@@ -1,5 +1,7 @@
 package com.atfuture.domain;
 
+import java.util.Arrays;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -94,6 +96,14 @@ public class EvaluatedRecord {
 	
 	public static EvaluatedRecord newInstance(){
 		return new EvaluatedRecord();
+	}
+	@Override
+	public String toString() {
+		return "EvaluatedRecord [evalRecor_id=" + evalRecor_id + ", evalRecor_participatedPerson="
+				+ evalRecor_participatedPerson + ", evalRecor_expart=" + evalRecor_expart + ", evalRecor_spciaFamiliar="
+				+ evalRecor_spciaFamiliar + ", evalRecor_teaching=" + evalRecor_teaching + ", evalRecor_research="
+				+ evalRecor_research + ", evalRecor_ethics=" + evalRecor_ethics + ", evalRecor_allAssessment="
+				+ evalRecor_allAssessment + ", evaluates=" + Arrays.toString(evaluates) + "]";
 	}
 	
 	
