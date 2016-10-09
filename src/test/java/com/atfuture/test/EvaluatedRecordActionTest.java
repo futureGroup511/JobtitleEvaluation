@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.atfuture.domain.ChooseType;
 import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
@@ -32,17 +33,22 @@ public class EvaluatedRecordActionTest {
 		Expert expert=Expert.newInstance();
 		expert.setExp_id(1);
 		//先得到专家，要想查同单位或者同专业的先查人员，不想查的直接写null
-		List<ParticipatedPerson> persons=participatedPersonService.findByExpertUnitAndSpecialt(1, 1);
+		//List<ParticipatedPerson> persons=participatedPersonService.findByExpertUnitAndSpecialt(1, 1);
 		Page_S data=evaluatedRecordService.findByExpertUnitAndSpecialty(expert, page,null);
 		printfPagedata(data);
 	}
 	
 	@Test
 	public void TestLikeFindByExpert(){
-		Page_S data=evaluatedRecordService.likeFindByExpertNameOrAllassessment("夏", "30", page);
+		Page_S data=evaluatedRecordService.FindByExpertNameOrAllassessment("夏", "30", page);
 		printfPagedata(data);
 	}
 	
+	@Test
+	public void TestGetAllRecord(){
+		Page_S data=evaluatedRecordService.findAllRecord(page);
+		printfPagedata(data);
+	}
 	
 	public void printfPagedata(Page_S page){
 		List<EvaluatedRecord> es=page.getRecordlist();
@@ -51,4 +57,17 @@ public class EvaluatedRecordActionTest {
 			System.out.println(iterator.next());
 		}
 	}
+	
+	@Test
+	public void test(){
+		List<Object[]> numresult=evaluatedRecordService.getAssessmentCountByExpertId(9);
+		Iterator<Object[]> iterator=numresult.iterator();
+		while(iterator.hasNext()){
+			Object[] objects=iterator.next();
+			System.out.println(objects[0]);
+			System.out.println(objects[1]);
+		}
+	}
+	
+	
 }

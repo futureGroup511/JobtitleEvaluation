@@ -26,4 +26,6 @@ public interface ExpertService {
 	public Expert querySpecialExpertByAccountNum(String accountNum);
 	//保存专家
 	public void save(Expert e);
+	//根据姓名查找专家
+	public Expert findByname(String name);
 }

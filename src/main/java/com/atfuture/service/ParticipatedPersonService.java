@@ -3,6 +3,8 @@ package com.atfuture.service;
 import java.util.List;
 
 import com.atfuture.domain.ParticipatedPerson;
+import com.atfuture.domain.Specialty;
+import com.atfuture.domain.Unit;
 import com.atfuture.utils.Page_S;
 
 public interface ParticipatedPersonService {
@@ -24,6 +26,6 @@ public interface ParticipatedPersonService {
 	//删除所有人员信息
 	public void deleteAll();
 	//根据与专家相同单位和专业查询参评人员
-	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Integer unitId,Integer speciaId);
+	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Unit unit, Specialty specia);
 
 }

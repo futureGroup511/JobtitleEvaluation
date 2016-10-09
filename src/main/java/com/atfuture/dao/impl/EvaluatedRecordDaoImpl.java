@@ -1,10 +1,8 @@
 package com.atfuture.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -13,8 +11,7 @@ import com.atfuture.dao.EvaluatedRecordDao;
 import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
-import com.atfuture.domain.Specialty;
-import com.atfuture.domain.Unit;
+import com.atfuture.domain.TypeNumber;
 import com.atfuture.utils.Page_S;
 @Repository
 public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> implements EvaluatedRecordDao{
@@ -28,6 +25,8 @@ public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> impleme
 		List<Object[]> result=getSession().createSQLQuery(sql).setParameter(0, id).list();
 		return result;
 	}
+	
+	
 
 	public List<EvaluatedRecord> getAllStatisticByPageAndExpert(Page_S page, Integer exp_id) {
 		String sql = "from EvaluatedRecord evaluatedRecord where evaluatedRecord.evalRecor_expart.exp_id = :exp_id";
@@ -51,17 +50,21 @@ public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> impleme
 		return page;
 	}
 
-	public Page_S likeFindByExpertNameOrAllassessment(String expertanme, String allassessment,Page_S page) {
+	public Page_S FindByExpertNameOrAllassessment(String expertanme, String allassessment,Page_S page) {
 		Criteria criteria=getSession().createCriteria(EvaluatedRecord.class); 
-		if(expertanme!=null) criteria.createCriteria("evalRecor_expart").add(Restrictions.like("exp_name", "%"+expertanme+"%"));
-		if(allassessment!=null)criteria.add(Restrictions.eq("evalRecor_allAssessment", allassessment));
+		if(expertanme!=null) criteria.createCriteria("evalRecor_expart").add(Restrictions.eq("exp_name", expertanme));
+		if(!allassessment.equals("请选择"))criteria.add(Restrictions.eq("evalRecor_allAssessment", allassessment));
 		criteria.setProjection(Projections.rowCount());
-		Integer num = ((Number)criteria.uniqueResult()).intValue();//查询总数
 		getPageByCriteriaSet(criteria, page);
 		return page;
 	}
 	
-	
+	public Page_S findAllRecord(Page_S page) {
+		Criteria criteria=getSession().createCriteria(EvaluatedRecord.class);
+		criteria.setProjection(Projections.rowCount());
+		getPageByCriteriaSet(criteria, page);
+		return page;
+	}
 	
 	public Page_S getPageByCriteriaSet(Criteria criteria,Page_S page){
 		criteria.setProjection(Projections.rowCount());
@@ -75,6 +78,21 @@ public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> impleme
 		page.calculatePageEndAndBeginIndex();
 		return page;
 	}
+
+	public List<Object[]> calculateGroupCountByExpertId(Integer id) {
+		String sql="select (SUM(evalRecor_allAssessment)/COUNT(evalrecor_id)) as result,evalRecor_spciaFamiliar from  evaluaterecord e  where evalRecor_expart_exp_id=? GROUP BY evalRecor_spciaFamiliar";
+		List<Object[]> result=getSession().createSQLQuery(sql).setParameter(0, id).list();
+		return result;
+	} 
+
+	public  List<Object[]> getAssessmentCountByExpertId(Integer id) {
+		String sql="select COUNT(evalrecor_id) as count,e.evalRecor_allAssessment  from  evaluaterecord e  where evalRecor_expart_exp_id=? GROUP BY evalRecor_allAssessment";
+		List<Object[]> result=getSession().createSQLQuery(sql).setParameter(0, id).list();
+		return result;
+	}
+	
+	
+	
 
 	
 

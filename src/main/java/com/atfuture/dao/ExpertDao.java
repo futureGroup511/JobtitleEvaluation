@@ -20,6 +20,9 @@ public interface ExpertDao extends BaseDao<Expert>{
 	//保存专家
 	public void save(Expert e);
 	
+	//通过专家姓名查找专家
+	public Expert findByname(String name);
+	
 	
 	
 }

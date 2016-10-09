@@ -28,12 +28,23 @@ public interface EvaluatedRecordService  {
 	public Page_S findByExpertUnitAndSpecialty(Expert expert,Page_S page,List<ParticipatedPerson> persons);
 	
 	/**
-	 * 模糊查询通过专家姓名和总平的分
+	 * 查询通过专家姓名和总平的分
 	 * @param expertanme 专家姓名
 	 * @param allassessment 总平均分
 	 * @param page 分页
 	 * @return
 	 */
-	public Page_S likeFindByExpertNameOrAllassessment(String expertanme, String allassessment,Page_S page);
-
+	public Page_S FindByExpertNameOrAllassessment(String expertanme, String allassessment,Page_S page);
+	
+	/**
+	 * 得到所有审评记录
+	 * @param page
+	 * @return
+	 */
+	public Page_S findAllRecord(Page_S page);
+	
+	public List<Object[]> calculateGroupCountByExpertId(Integer id);
+	
+	//查找专家评选不同综合分值类型的人数
+	public  List<Object[]> getAssessmentCountByExpertId(Integer id);
 }

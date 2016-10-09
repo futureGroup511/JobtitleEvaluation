@@ -41,10 +41,23 @@ public class EvaluatedRecordServiceImpl  implements EvaluatedRecordService{
 		return evaluatedRecordDao.findByExpertUnitAndSpecialty(expert, page,persons);
 	}
 
-	public Page_S likeFindByExpertNameOrAllassessment(String expertanme, String allassessment, Page_S page) {
-		return evaluatedRecordDao.likeFindByExpertNameOrAllassessment(expertanme, allassessment, page);
+	public Page_S FindByExpertNameOrAllassessment(String expertanme, String allassessment, Page_S page) {
+		return evaluatedRecordDao.FindByExpertNameOrAllassessment(expertanme, allassessment, page);
 	}
 
+	public Page_S findAllRecord(Page_S page) {
+		return evaluatedRecordDao.findAllRecord(page);
+	}
+
+	public List<Object[]> calculateGroupCountByExpertId(Integer id) {
+		return evaluatedRecordDao.calculateGroupCountByExpertId(id);
+	}
+
+	public List<Object[]> getAssessmentCountByExpertId(Integer id) {
+		return evaluatedRecordDao.getAssessmentCountByExpertId(id);
+	}
+	
+	
 	
 
 }
