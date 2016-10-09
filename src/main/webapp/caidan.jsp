@@ -96,6 +96,8 @@
 	           	 </dl>
 	           	 <dl>
 	             	<dt><a style="color:white;" href="statistic_statisticAll" target="right">专家审评统计<img src="images/select_xl01.png"></a></dt>
+	             	<dd><a href="statistic_viewBySpecialty" target="right">根据专业统计</a></dd>
+	             	<dd><a href="statistic_viewByUnit" target="right">根据单位统计</a></dd>
 	             	<!-- <dd><a style="color:white;" href="statistic_statisticAll" target="right">统计所有</a></dd> -->
 	             </dl>
         		<dl>
