@@ -19,4 +19,7 @@ public interface ExpertDao extends BaseDao<Expert>{
 	
 	//保存专家
 	public void save(Expert e);
+	
+	
+	
 }

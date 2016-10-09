@@ -18,12 +18,10 @@ public class SuperManagerServiceImpl implements SuperManagerService {
 		return superManagerDao.findByNumAndPassword(num, password);
 	}
 
-	@Override
 	public SuperManager findById(Integer id) {
 		return superManagerDao.findById(id);
 	}
 
-	@Override
 	public void save(SuperManager s) {
 		superManagerDao.save(s);
 	}

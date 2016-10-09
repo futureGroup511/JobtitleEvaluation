@@ -1,11 +1,20 @@
 package com.atfuture.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.atfuture.dao.EvaluatedRecordDao;
 import com.atfuture.domain.EvaluatedRecord;
+import com.atfuture.domain.Expert;
+import com.atfuture.domain.ParticipatedPerson;
+import com.atfuture.domain.Specialty;
+import com.atfuture.domain.Unit;
 import com.atfuture.utils.Page_S;
 @Repository
 public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> implements EvaluatedRecordDao{
@@ -31,5 +40,42 @@ public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> impleme
 		System.out.println(evaluatedRecordList);
 		return evaluatedRecordList;
 	}
+
+	public Page_S findByExpertUnitAndSpecialty(Expert expert,Page_S page,List<ParticipatedPerson> persons) {
+		Criteria criteria=getSession().createCriteria(EvaluatedRecord.class);
+		if(expert==null) return null; //如果专家为空则所有条件不成立
+		criteria.add(Restrictions.eq("evalRecor_expart", expert));
+		//集合为空的时候说明只是查询了此专家的审评记录，为零的时候说明与这个专家相同的专业和单位相同的人员不存在所以结果为0
+		if(persons!=null) criteria.add(Restrictions.in("evalRecor_participatedPerson",persons));
+		getPageByCriteriaSet(criteria, page);
+		return page;
+	}
+
+	public Page_S likeFindByExpertNameOrAllassessment(String expertanme, String allassessment,Page_S page) {
+		Criteria criteria=getSession().createCriteria(EvaluatedRecord.class); 
+		if(expertanme!=null) criteria.createCriteria("evalRecor_expart").add(Restrictions.like("exp_name", "%"+expertanme+"%"));
+		if(allassessment!=null)criteria.add(Restrictions.eq("evalRecor_allAssessment", allassessment));
+		criteria.setProjection(Projections.rowCount());
+		Integer num = ((Number)criteria.uniqueResult()).intValue();//查询总数
+		getPageByCriteriaSet(criteria, page);
+		return page;
+	}
+	
+	
+	
+	public Page_S getPageByCriteriaSet(Criteria criteria,Page_S page){
+		criteria.setProjection(Projections.rowCount());
+		Integer num = ((Number)criteria.uniqueResult()).intValue();//查询总数
+		criteria.setProjection(null);
+		criteria.setFirstResult(page.getPageSize()*(page.getCurrentPage()-1));
+		criteria.setMaxResults(page.getPageSize());
+		List ers=criteria.list();
+		page.setRecordCount(num);
+		page.setRecordlist(ers);
+		page.calculatePageEndAndBeginIndex();
+		return page;
+	}
+
+	
 
 }

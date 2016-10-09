@@ -23,6 +23,7 @@ public interface ParticipatedPersonService {
 	public void updateParticipatedPerson(ParticipatedPerson participatedPerson);
 	//删除所有人员信息
 	public void deleteAll();
-	
+	//根据与专家相同单位和专业查询参评人员
+	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Integer unitId,Integer speciaId);
 
 }

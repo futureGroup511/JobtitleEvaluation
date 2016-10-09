@@ -118,6 +118,12 @@ public class Expert implements Role{
 	public String helloName() {
 		return this.exp_name;
 	}
+	@Override
+	public String toString() {
+		return "Expert [exp_id=" + exp_id + "]";
+	}
+	
+	
 	
 	
 }

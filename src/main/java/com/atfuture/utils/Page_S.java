@@ -92,6 +92,17 @@ public class Page_S {
 				+ pageCount + "]";
 	}
 	
+	/**
+	 * 得到默认值当前页为第一页，一页显示十条的page
+	 * @return
+	 */
+	public static Page_S getDefaultInstace(){
+		Page_S page=Page_S.newInstance();
+		page.setCurrentPage(1);
+		page.setPageSize(10);
+		return page;
+	}
+	
 	public void calculatePageEndAndBeginIndex(){
 		pageCount=(recordCount+pageSize-1)/pageSize;
 		//如果总页数小于10

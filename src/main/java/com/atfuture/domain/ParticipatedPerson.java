@@ -74,5 +74,9 @@ public class ParticipatedPerson {
 	public static ParticipatedPerson newInstance(){
 		return new ParticipatedPerson();
 	}
+	@Override
+	public String toString() {
+		return "ParticipatedPerson [parti_id=" + parti_id + "]";
+	}
 	
 }

@@ -16,4 +16,6 @@ public interface ParticipatedPersonDao extends BaseDao<ParticipatedPerson>{
 	public List<ParticipatedPerson> getParticipatedPersonByPage(Page_S page);
 	//删除所有参评人员
 	public void deleteAll();
+	//查询与专家单位和专家专业相关的参评人员
+	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Integer unitId,Integer speciaId);
 }
