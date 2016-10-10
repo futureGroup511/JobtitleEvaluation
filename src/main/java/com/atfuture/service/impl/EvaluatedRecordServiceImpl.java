@@ -1,6 +1,7 @@
 package com.atfuture.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -33,6 +34,22 @@ public class EvaluatedRecordServiceImpl  implements EvaluatedRecordService{
 
 	public List<EvaluatedRecord> getAllStatisticByPageAndExpert(Page_S page, Integer exp_id) {
 		return evaluatedRecordDao.getAllStatisticByPageAndExpert(page, exp_id);
+	}
+
+	public List<EvaluatedRecord> getRecordByCondition(Integer participatedId, String familiarStatus,
+			String evalRecor_allAssessment, Page_S pageBean) {
+		return evaluatedRecordDao.getRecordByCondition(participatedId, familiarStatus,
+				evalRecor_allAssessment, pageBean);
+	}
+
+	public List<EvaluatedRecord> getRecordByCondition(Integer participatedId, String familiarStatus,
+			String evalRecor_allAssessment) {
+		return evaluatedRecordDao.getRecordByCondition( participatedId, familiarStatus,
+				 evalRecor_allAssessment);
+	}
+
+	public Map<String, Integer> getExpertNumForSpec(Integer participatedId) {
+		return evaluatedRecordDao.getExpertNumForSpec(participatedId);
 	}
 
 	

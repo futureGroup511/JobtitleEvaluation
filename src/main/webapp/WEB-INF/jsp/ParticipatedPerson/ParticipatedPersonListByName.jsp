@@ -12,6 +12,7 @@
 <head>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/liwen12.css">
+<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>查看统计信息</title>
 </head>
@@ -19,18 +20,12 @@
 	<div class="dangqian">
 	   <div class="row">
 	        <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
-	            <p><strong>当前位置：管理员>>查看统计</strong></p>
+	            <p><strong>当前位置：管理员>>模糊查询统计</strong></p>
 	        </div>
 	        <div class="col-lg-2 col-md-3 col-xs-3">
 	            <p><strong>欢迎   <s:property value="#session.role.helloName()"/> 登录本系统</strong></p>
 	        </div>
 	    </div>
-	</div>
-	<div style="margin-left:60px;">
-		<form method="post" action="participated_findParticipatedPersonByName">
-			<Strong>姓名：</Strong><input name="participatedPersonName" placeHolder="输入申报人的姓名" />
-			<input class="btn btn-primary" type="submit" value="查找">
-		</form>
 	</div>
  <div class="container">
         <table class="table table-striped table-bordered table-hover">
@@ -44,6 +39,7 @@
 	         <th>B类专家评论得分</th>
 	         <th>C类专家评论得分</th>
 	         <th>合计总得分</th>
+	         <th>查看详细情况</th>
 	       </tr>
        </thead>
         <tbody>
@@ -58,6 +54,7 @@
 				<td>${statistics.sta_BScored}</td>
 				<td>${statistics.sta_CScored}</td>
 				<td>${statistics.sta_AllScored}</td>
+				<td><a href="participated_fetchSpecialRecord?participatedId=${statistics.sta_participatedPerson.parti_id}">查看详细</a></td>
 			</tr>
 			</s:iterator>
        </s:if>
@@ -94,8 +91,9 @@
 		}
 		if(pageNum < 1){
 			pageNum = 1;
-		}	
-		window.location.href="statistic_statisticAll?currentPage="+ pageNum;
+		}
+		var parName = encodeURI(encodeURI("${requestScope.participatedPersonName }"));
+		window.location.href="participated_findParticipatedPersonByName?currentPage="+pageNum+"&participatedPersonName="+parName+"";
 	}		
 </script>
 </html>

@@ -18,14 +18,11 @@ import com.atfuture.domain.JobTitle;
 import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.RequestCode;
 import com.atfuture.domain.Specialty;
+import com.atfuture.domain.Statistics;
 import com.atfuture.domain.Unit;
-<<<<<<< HEAD
-import com.future.utils.Page_S;
 import com.future.utils.StringUtils;
-=======
 import com.atfuture.utils.Page_S;
 import com.opensymphony.xwork2.ActionContext;
->>>>>>> ee1c3ee1ec2efc37abf43a233c18f92a52f54ed7
 @Controller
 @Scope("prototype")
 public class ExpertAction extends BaseAction<Expert> implements RequestAware,SessionAware, ParameterAware{
@@ -142,6 +139,8 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware,Ses
 		}
 		return "RedirectToExpertPage";
 	}
+	
+	
 	
 	
 	
@@ -285,6 +284,4 @@ System.out.println(accountNumExists);
 		this.paramMap = paramMap;
 	}
 
-	
-	
 }

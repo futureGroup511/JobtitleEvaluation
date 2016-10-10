@@ -44,7 +44,6 @@ public class ExpertServiceImpl  implements ExpertService {
 		String hql = "from Expert expert where expert.exp_accountNum = ?";
 		return (Expert) expertDao.uniqueResult(hql, accountNum);
 	}
-	@Override
 	public void save(Expert e) {
 		expertDao.save(e);
 	}

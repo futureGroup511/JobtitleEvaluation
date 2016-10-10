@@ -20,9 +20,9 @@ public class EvaluatedRecord {
 	//评估专家
 	private Expert evalRecor_expart;
 	//熟悉度
-	private String evalRecor_spciaFamiliar;
+	private String evalRecor_spciaFamiliar; //ABC
 	//教学
-	private String evalRecor_teaching;
+	private String evalRecor_teaching; //30 20. 10. 0
 	//科研
 	private String evalRecor_research;
 	//师德

@@ -34,7 +34,6 @@ public class ExpertDaoImpl extends BaseDaoImpl<Expert> implements ExpertDao {
 		return getSession().createQuery(sql).list();
 	}
 
-	@Override
 	public void save(Expert e) {
 		saveEntity(e);
 	}
