@@ -5,11 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hibernate.Criteria;
-<<<<<<< HEAD
-import org.hibernate.Hibernate;
-=======
 import org.hibernate.criterion.Expression;
->>>>>>> c34d4edbb054b6fac0a20d6440460d4eaa155e00
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.Transformers;
@@ -20,10 +16,7 @@ import com.atfuture.dao.EvaluatedRecordDao;
 import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
-<<<<<<< HEAD
 import com.atfuture.domain.TypeNumber;
-=======
->>>>>>> c34d4edbb054b6fac0a20d6440460d4eaa155e00
 import com.atfuture.utils.Page_S;
 @Repository
 public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> implements EvaluatedRecordDao{
