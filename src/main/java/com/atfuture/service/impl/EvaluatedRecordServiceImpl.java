@@ -12,6 +12,7 @@ import com.atfuture.domain.EvaluatedStandard;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.Statistics;
+import com.atfuture.domain.TypeNumber;
 import com.atfuture.service.EvaluatedRecordService;
 import com.atfuture.utils.Page_S;
 @Service
@@ -53,7 +54,7 @@ public class EvaluatedRecordServiceImpl  implements EvaluatedRecordService{
 		return evaluatedRecordDao.calculateGroupCountByExpertId(id);
 	}
 
-	public List<Object[]> getAssessmentCountByExpertId(Integer id) {
+	public List<TypeNumber> getAssessmentCountByExpertId(Integer id) {
 		return evaluatedRecordDao.getAssessmentCountByExpertId(id);
 	}
 	

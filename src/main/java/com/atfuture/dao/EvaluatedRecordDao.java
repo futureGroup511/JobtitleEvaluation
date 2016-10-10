@@ -35,6 +35,6 @@ public interface EvaluatedRecordDao extends BaseDao<EvaluatedRecord>{
 	
 	public List<Object[]> calculateGroupCountByExpertId(Integer id);
 	
-	public  List<Object[]> getAssessmentCountByExpertId(Integer id);
+	public  List<TypeNumber> getAssessmentCountByExpertId(Integer id);
 }
 

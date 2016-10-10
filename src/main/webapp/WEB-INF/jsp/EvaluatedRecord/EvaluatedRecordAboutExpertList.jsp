@@ -59,7 +59,7 @@
            		</c:choose>
            		<button>确定</button>
 	        </th>
-	        <th><a href="evaluatedrecord_statisticByExpert" class="btn btn-primary btn-lg">返回</a></th>
+	        <th><a href="evaluatedrecord_findAllRecord" class="btn btn-primary btn-lg">返回</a></th>
 	        </tr>
         </table>
  </div>
@@ -72,10 +72,9 @@
        			<td>熟悉平均分值:${statistics.sta_AScored }</td>
        			<td>比较熟悉平均分值:${statistics.sta_BScored }</td>
        			<td>不太熟悉平均分值:${statistics.sta_CScored }</td>
-       			<td>评价参评人员为A的人数:${typeNumber.ANumber}</td>
-       			<td>评价参评人员为B的人数:${typeNumber.BNumber}</td>
-       			<td>评价参评人员为C的人数:${typeNumber.CNumber}</td>
-       			<td>评价参评人员为D的人数:${typeNumber.DNumber}</td>
+       			<c:forEach items="${typeNumbers}" var="typeNumber">
+       				<td>评价参评人员为${typeNumber.assessmentType}的人数:${typeNumber.count}</td>
+       			</c:forEach>
        			<td></td>
        		</tr>
 	      <tr>  

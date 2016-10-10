@@ -68,7 +68,16 @@
 <div class="container">
         <table class="table table-striped table-bordered table-hover">
             <thead>
-           
+           <tr>
+       			<td></td>
+       			<td>熟悉平均分值:${statistics.sta_AScored }</td>
+       			<td>比较熟悉平均分值:${statistics.sta_BScored }</td>
+       			<td>不太熟悉平均分值:${statistics.sta_CScored }</td>
+       			<c:forEach items="${typeNumbers}" var="typeNumber">
+       				<td>评价参评人员为${typeNumber.assessmentType}的人数:${typeNumber.count}</td>
+       			</c:forEach>
+       			<td></td>
+       		</tr>
       <tr>  
          <th>评议人姓名</th>
          <th>评议人申报专业</th>

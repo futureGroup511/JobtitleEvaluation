@@ -100,15 +100,12 @@
     		<result name="allEvaluaTeacher">WEB-INF/jsp/ParticipatedPerson/allperson.jsp</result>
  		    <result name="assess">WEB-INF/jsp/Expert/assess.jsp</result>
     		<result name="lookInformation">WEB-INF/jsp/Expert/information.jsp</result>
-<<<<<<< HEAD
     		<result name="BashRegisterExpertPage">WEB-INF/jsp/Expert/BashRegisterExpert.jsp</result>
     		<result name="RedirectToExpertPage" type="redirectAction">expert_manageExpertInfoList?currentPage=1</result>
-=======
 
     		<result name="BashRegisterExpertPage">WEB-INF/jsp/Expert/BashRegisterExpert.jsp</result>
     		<result name="RedirectToExpertPage" type="redirectAction">expert_manageExpertInfoList?currentPage=1</result>
 
->>>>>>> 5212ce9ea1d4dbb82882cacebd9031dcd06f1e52
     		<result name="jugePassword" type="json"></result>
     		<result name="modifyInformation" type="redirectAction">loginAction_loginOut</result>
     		<result name="modifyInformationView">WEB-INF/jsp/Expert/modifyInformation.jsp</result>
