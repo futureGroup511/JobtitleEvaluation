@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.atfuture.dao.EvaluatedRecordDao;
 import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.EvaluatedStandard;
+import com.atfuture.domain.Expert;
+import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.Statistics;
 import com.atfuture.service.EvaluatedRecordService;
 import com.atfuture.utils.Page_S;
@@ -52,6 +54,26 @@ public class EvaluatedRecordServiceImpl  implements EvaluatedRecordService{
 		return evaluatedRecordDao.getExpertNumForSpec(participatedId);
 	}
 
+	public Page_S findByExpertUnitAndSpecialty(Expert expert, Page_S page,List<ParticipatedPerson> persons) {
+		return evaluatedRecordDao.findByExpertUnitAndSpecialty(expert, page,persons);
+	}
+
+	public Page_S FindByExpertNameOrAllassessment(String expertanme, String allassessment, Page_S page) {
+		return evaluatedRecordDao.FindByExpertNameOrAllassessment(expertanme, allassessment, page);
+	}
+
+	public Page_S findAllRecord(Page_S page) {
+		return evaluatedRecordDao.findAllRecord(page);
+	}
+
+	public List<Object[]> calculateGroupCountByExpertId(Integer id) {
+		return evaluatedRecordDao.calculateGroupCountByExpertId(id);
+	}
+
+	public List<Object[]> getAssessmentCountByExpertId(Integer id) {
+		return evaluatedRecordDao.getAssessmentCountByExpertId(id);
+	}
+	
 	
 
 }

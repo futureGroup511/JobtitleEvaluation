@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.hibernate.Criteria;
-import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Expression;
-import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.atfuture.dao.EvaluatedRecordDao;
@@ -15,8 +15,6 @@ import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.utils.Page_S;
-
-import javafx.scene.shape.Circle;
 @Repository
 public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> implements EvaluatedRecordDao{
 
@@ -32,6 +30,8 @@ public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> impleme
 		List<Object[]> result=getSession().createSQLQuery(sql).setParameter(0, id).list();
 		return result;
 	}
+	
+	
 
 	public List<EvaluatedRecord> getAllStatisticByPageAndExpert(Page_S page, Integer exp_id) {
 		String sql = "from EvaluatedRecord evaluatedRecord where evaluatedRecord.evalRecor_expart.exp_id = :exp_id";
@@ -47,10 +47,10 @@ public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> impleme
 		//附加基本的条件进行查询  //基本的必须的条件
 		Criteria criteria = getSession().createCriteria(EvaluatedRecord.class);
 		criteria.add(Expression.eq("evalRecor_participatedPerson.parti_id", participatedId));
-		if((familiarStatus != null && familiarStatus.trim() != "")){//数据库中是ABC
+		if((familiarStatus != null) && ((""+familiarStatus).trim() != "")&& familiarStatus.length()>0){//数据库中是ABC
 			criteria.add(Expression.eq("evalRecor_spciaFamiliar", familiarStatus));
 		}
-		if((evalRecor_allAssessment != null && evalRecor_allAssessment.trim() != "")){// 30 20 10 0
+		if((evalRecor_allAssessment != null) && ((""+evalRecor_allAssessment).trim() != "") && evalRecor_allAssessment.length()>0){// 30 20 10 0
 			criteria.add(Expression.eq("evalRecor_allAssessment", evalRecor_allAssessment));
 		}
 		List<EvaluatedRecord> list = criteria.setFirstResult((pageBean.getCurrentPage()-1)*pageBean.getPageSize())
@@ -92,10 +92,11 @@ public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> impleme
 		
 		Criteria criteria = getSession().createCriteria(EvaluatedRecord.class);
 		criteria.add(Expression.eq("evalRecor_participatedPerson.parti_id", participatedId));
-		if((familiarStatus != null && familiarStatus.trim() != "")){//数据库中是ABC
+		System.out.println(((evalRecor_allAssessment != null) && ((""+evalRecor_allAssessment).trim() != "") && evalRecor_allAssessment.length()>0));
+		if((familiarStatus != null) && ((familiarStatus+"").trim() != "") && familiarStatus.length() >0){//数据库中是ABC
 			criteria.add(Expression.eq("evalRecor_spciaFamiliar", familiarStatus));
 		}
-		if((evalRecor_allAssessment != null && evalRecor_allAssessment.trim() != "")){// 30 20 10 0
+		if((evalRecor_allAssessment != null) && ((evalRecor_allAssessment+"").trim() != "") && evalRecor_allAssessment.length()>0){// 30 20 10 0
 			criteria.add(Expression.eq("evalRecor_allAssessment", evalRecor_allAssessment));
 		}
 		
@@ -139,5 +140,60 @@ public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> impleme
 		}
 		return expertNumMap;
 	}
+	public Page_S findByExpertUnitAndSpecialty(Expert expert,Page_S page,List<ParticipatedPerson> persons) {
+		Criteria criteria=getSession().createCriteria(EvaluatedRecord.class);
+		if(expert==null) return null; //如果专家为空则所有条件不成立
+		criteria.add(Restrictions.eq("evalRecor_expart", expert));
+		//集合为空的时候说明只是查询了此专家的审评记录，为零的时候说明与这个专家相同的专业和单位相同的人员不存在所以结果为0
+		if(persons!=null) criteria.add(Restrictions.in("evalRecor_participatedPerson",persons));
+		getPageByCriteriaSet(criteria, page);
+		return page;
+	}
+
+	public Page_S FindByExpertNameOrAllassessment(String expertanme, String allassessment,Page_S page) {
+		Criteria criteria=getSession().createCriteria(EvaluatedRecord.class); 
+		if(expertanme!=null) criteria.createCriteria("evalRecor_expart").add(Restrictions.eq("exp_name", expertanme));
+		if(!allassessment.equals("请选择"))criteria.add(Restrictions.eq("evalRecor_allAssessment", allassessment));
+		criteria.setProjection(Projections.rowCount());
+		getPageByCriteriaSet(criteria, page);
+		return page;
+	}
+	
+	public Page_S findAllRecord(Page_S page) {
+		Criteria criteria=getSession().createCriteria(EvaluatedRecord.class);
+		criteria.setProjection(Projections.rowCount());
+		getPageByCriteriaSet(criteria, page);
+		return page;
+	}
+	
+	public Page_S getPageByCriteriaSet(Criteria criteria,Page_S page){
+		criteria.setProjection(Projections.rowCount());
+		Integer num = ((Number)criteria.uniqueResult()).intValue();//查询总数
+		criteria.setProjection(null);
+		criteria.setFirstResult(page.getPageSize()*(page.getCurrentPage()-1));
+		criteria.setMaxResults(page.getPageSize());
+		List ers=criteria.list();
+		page.setRecordCount(num);
+		page.setRecordlist(ers);
+		page.calculatePageEndAndBeginIndex();
+		return page;
+	}
+
+	public List<Object[]> calculateGroupCountByExpertId(Integer id) {
+		String sql="select (SUM(evalRecor_allAssessment)/COUNT(evalrecor_id)) as result,evalRecor_spciaFamiliar from  evaluaterecord e  where evalRecor_expart_exp_id=? GROUP BY evalRecor_spciaFamiliar";
+		List<Object[]> result=getSession().createSQLQuery(sql).setParameter(0, id).list();
+		return result;
+	} 
+
+	public  List<Object[]> getAssessmentCountByExpertId(Integer id) {
+		String sql="select COUNT(evalrecor_id) as count,e.evalRecor_allAssessment  from  evaluaterecord e  where evalRecor_expart_exp_id=? GROUP BY evalRecor_allAssessment";
+		List<Object[]> result=getSession().createSQLQuery(sql).setParameter(0, id).list();
+		return result;
+	}
+	
+	
+	
+
+	
 
 }

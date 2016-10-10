@@ -185,7 +185,7 @@ if(new String(participatedPersonName).length() == participatedPersonName.getByte
 		requestMap.put("familiarStatus", familiarStatus);
 		requestMap.put("evalRecor_allAssessment", evalRecor_allAssessment);
 		requestMap.put("currentPage", currentPage);
-		if(participatedId != null && (participatedId+"").trim() != ""){
+		/*if(participatedId != null && (participatedId+"").trim() != ""){
 			requestMap.put("participatedId", participatedId);
 		}
 		if(familiarStatus== null || familiarStatus.trim() == ""){
@@ -196,8 +196,10 @@ if(new String(participatedPersonName).length() == participatedPersonName.getByte
 			requestMap.put("evalRecor_allAssessment", null);
 			evalRecor_allAssessment = null;
 		}
-		requestMap.put("currentPage", currentPage);
-		
+		if(currentPage == null || (currentPage+"").trim() == ""){
+			requestMap.put("currentPage", 1);
+		}
+		*/
 		Integer pageSize = 2;
 		Integer recordCount = evaluatedRecordService.getRecordByCondition(participatedId, familiarStatus, evalRecor_allAssessment).size();
 		Page_S pageBean = new Page_S(currentPage, pageSize, recordCount, null);

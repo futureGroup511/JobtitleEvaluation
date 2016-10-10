@@ -13,14 +13,15 @@ import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.Statistics;
+import com.atfuture.domain.TypeNumber;
 import com.atfuture.utils.Page_S;
 @Controller
 @Scope("prototype")
 public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implements RequestAware,SessionAware{
 
-	private Integer currentPage;
+	private Integer currentPage=1;
 	private Map<String, Object> requestMap;
-	
+	private Expert expert=Expert.newInstance();
 	private Integer expert_id;
 	private Integer person_id;
 	private Map<String, Object> session;
@@ -61,6 +62,63 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 			requestMap.put("pageBean", page);
 			return "ShowRecordByExpert";
 		}
+	/**
+	 * 得到所有审评记录
+	 * @return
+	 */
+	public String findAllRecord(){
+		Page_S page=Page_S.getDefaultInstace();
+		page.setCurrentPage(currentPage);
+		Page_S data=evaluatedRecordService.findAllRecord(page);
+		requestMap.put("pageBean", data);
+		return "findAllRecord";
+	}
+	
+	public String FindByExpertNameOrAllassessment(){
+		Page_S page=Page_S.getDefaultInstace();
+		page.setCurrentPage(currentPage);
+		String name=expert.getExp_name();
+		Expert ex=expertService.findByname(name);
+		Page_S data=null;
+		if(ex==null){
+			data=Page_S.newInstance();
+			requestMap.put("pageBean", data);
+			return "fuzzyQuery";
+		}
+		data=evaluatedRecordService.FindByExpertNameOrAllassessment(name, getModel().getEvalRecor_allAssessment(), page);
+		TypeNumber typeNumber=getAssessmentCountByExpertId(ex.getExp_id());
+		Statistics statistics=calculateGroupCountByExpertId(ex.getExp_id());
+		requestMap.put("pageBean", data);
+		requestMap.put("expert", ex);
+		requestMap.put("typeNumber", typeNumber);
+		requestMap.put("statistics", statistics);
+		return "fuzzyQuery";
+	}
+	
+	
+	
+	
+	public String  FindByExpertUnitOrSpecialty(){
+		Page_S page=Page_S.getDefaultInstace();
+		page.setCurrentPage(currentPage);
+		List<ParticipatedPerson> persons=participatedPersonService.findByExpertUnitAndSpecialt(expert.getExp_unit(), expert.getExp_specialty());
+		if(!(expert.getExp_unit()==null&&expert.getExp_specialty()==null)){
+			if(expert.getExp_unit()==null) requestMap.put("choose","specialty");
+			if(expert.getExp_specialty()==null)requestMap.put("choose","unit");
+			if(expert.getExp_unit()!=null&&expert.getExp_specialty()!=null)requestMap.put("choose","all");
+		}
+		
+		
+		Page_S data=evaluatedRecordService.findByExpertUnitAndSpecialty(expert, page,persons);
+		TypeNumber typeNumber=getAssessmentCountByExpertId(expert.getExp_id());
+		Statistics statistics=calculateGroupCountByExpertId(expert.getExp_id());
+		Expert ex=expertService.findById(expert.getExp_id());
+		requestMap.put("typeNumber", typeNumber);
+		requestMap.put("statistics", statistics);
+		requestMap.put("expert", ex);
+		requestMap.put("pageBean", data);
+		return "FindByExpertUnitOrSpecialty";
+	}
 
 	public Integer getExpert_id() {
 		return expert_id;
@@ -95,6 +153,28 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 
 	public void setCurrentPage(Integer currentPage) {
 		this.currentPage = currentPage;
+	}
+
+	public Expert getExpert() {
+		return expert;
+	}
+
+	public void setExpert(Expert expert) {
+		this.expert = expert;
+	}
+
+	public Statistics calculateGroupCountByExpertId(Integer id){
+		List<Object[]> result=evaluatedRecordService.calculateGroupCountByExpertId(id);
+		Statistics statistics=Statistics.newInstance();
+		statistics.setScoredByTypes(result);
+		return statistics;
+	}
+	
+	public TypeNumber getAssessmentCountByExpertId(Integer id){
+		List<Object[]> numresult=evaluatedRecordService.getAssessmentCountByExpertId(id);
+		TypeNumber typeNumber=TypeNumber.newInstance();
+		typeNumber.giveTypeNum(numresult);
+		return typeNumber;
 	}
 	
 	

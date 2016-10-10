@@ -5,6 +5,9 @@ import java.util.Map;
 
 import com.atfuture.base.BaseDao;
 import com.atfuture.domain.EvaluatedRecord;
+import com.atfuture.domain.Expert;
+import com.atfuture.domain.ParticipatedPerson;
+import com.atfuture.domain.TypeNumber;
 import com.atfuture.utils.Page_S;
 
 public interface EvaluatedRecordDao extends BaseDao<EvaluatedRecord>{
@@ -25,7 +28,23 @@ public interface EvaluatedRecordDao extends BaseDao<EvaluatedRecord>{
 	//得到指定参评人被参评 的  专家评分为ABCD的 人数  返回 map  键为 A  B   C  D
 	public Map<String, Integer> getExpertNumForSpec(Integer participatedId);
 
-
-
+	/**
+	 * 通过专家，单位，专业来选择获得评选记录
+	 */
+	public Page_S findByExpertUnitAndSpecialty(Expert expert,Page_S page,List<ParticipatedPerson> persons);
+	/**
+	 * 查询通过专家姓名和总平的分
+	 * @param expertanme 专家姓名
+	 * @param allassessment 总平均分
+	 * @param page 分页
+	 * @return
+	 */
+	public Page_S FindByExpertNameOrAllassessment(String expertanme,String allassessment,Page_S page);
 	
+	public Page_S findAllRecord(Page_S page);
+	
+	public List<Object[]> calculateGroupCountByExpertId(Integer id);
+	
+	public  List<Object[]> getAssessmentCountByExpertId(Integer id);
 }
+

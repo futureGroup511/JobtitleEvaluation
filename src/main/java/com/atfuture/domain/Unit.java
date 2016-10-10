@@ -30,6 +30,9 @@ public class Unit {
 		this.uni_name = uni_name;
 	}
 	
+	public static Unit newInstance(){
+		return new Unit();
+	}
 	
 	
 }

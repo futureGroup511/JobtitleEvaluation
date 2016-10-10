@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
-import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.atfuture.dao.ParticipatedPersonDao;
 import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.Statistics;
+import com.atfuture.domain.Specialty;
+import com.atfuture.domain.Unit;
 import com.atfuture.utils.Page_S;
 
 @Repository
@@ -60,6 +62,12 @@ public class ParticipatedPersonDaoImpl extends BaseDaoImpl<ParticipatedPerson> i
 															.list();
 																				
 		return statisticList;
+	}
+	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Unit unit, Specialty specia) {
+		Criteria criteria=getSession().createCriteria(ParticipatedPerson.class);
+		if(unit!=null) criteria.add(Restrictions.eq("parti_recommendUnit.uni_id", unit.getUni_id()));
+		if(specia!=null) criteria.add(Restrictions.eq("parti_specialty.spec_id", specia.getSpec_id()));
+		return criteria.list();
 	}
 
 }
