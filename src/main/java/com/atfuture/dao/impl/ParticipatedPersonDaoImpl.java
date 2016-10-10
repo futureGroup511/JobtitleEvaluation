@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.atfuture.dao.ParticipatedPersonDao;
 import com.atfuture.domain.ParticipatedPerson;
+import com.atfuture.domain.Statistics;
 import com.atfuture.domain.Specialty;
 import com.atfuture.domain.Unit;
 import com.atfuture.utils.Page_S;
@@ -46,6 +47,22 @@ public class ParticipatedPersonDaoImpl extends BaseDaoImpl<ParticipatedPerson> i
 		executeSQL(sql);
 	}
 
+	public List<Statistics> getParticipatedPersonByName(String participatedPerson) {
+		String sql = "from Statistics statistic where statistic.sta_participatedPerson.parti_name like '%"+participatedPerson+"%'";
+		List<Statistics> statisticList = getSession().createQuery(sql).list();
+		return statisticList;
+	}
+
+	public List<Statistics> getParticipatedPersonByNameAndPage(String participatedPerson, Page_S pageBean) {
+		String sql = "from Statistics statistic where 1=1 and statistic.sta_participatedPerson.parti_name like '%"+participatedPerson+"%'";
+		@SuppressWarnings("unchecked")
+		List<Statistics> statisticList = getSession().createQuery(sql)
+															.setFirstResult((pageBean.getCurrentPage()-1)*pageBean.getPageSize())
+															.setMaxResults(pageBean.getPageSize())
+															.list();
+																				
+		return statisticList;
+	}
 	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Unit unit, Specialty specia) {
 		Criteria criteria=getSession().createCriteria(ParticipatedPerson.class);
 		if(unit!=null) criteria.add(Restrictions.eq("parti_recommendUnit.uni_id", unit.getUni_id()));

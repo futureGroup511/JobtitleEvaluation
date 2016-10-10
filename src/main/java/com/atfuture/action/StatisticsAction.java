@@ -88,7 +88,7 @@ public class StatisticsAction extends BaseAction<Statistics> implements RequestA
 			page_s=new Page_S();
 			page_s.setCurrentPage(1);
 		}
-		page_s.setPageSize(10);
+		page_s.setPageSize(2);
 		requestMap.put("pageBean",this.statisticsService.getBySpecialty(page_s, specialty));
 		requestMap.put("specialtyList", specialtyService.getAllSpecialty());
 		return "viewBySpecialty";
@@ -97,15 +97,15 @@ public class StatisticsAction extends BaseAction<Statistics> implements RequestA
 	public String viewByUnit(){
 		if(unit==null||unit.getUni_id()==null){
 			requestMap.put("chosedUni_id",0);
-		}else if(unit.getUni_id()>0){
+		}else if(unit.getUni_id()>=0){
 			requestMap.put("chosedUni_id",unit.getUni_id());
 		}
 		if(page_s==null){
 			page_s=new Page_S();
 			page_s.setCurrentPage(1);
 		}
-		page_s.setPageSize(10);
-		requestMap.put("pageBean",this.statisticsService.getByUnit(page_s, unit) );
+		page_s.setPageSize(2);
+		requestMap.put("pageBean",this.statisticsService.getByUnit(page_s, unit));
 		requestMap.put("unitList", unitService.getAllUnit());
 		return "viewByUnit";
 	}

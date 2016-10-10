@@ -107,9 +107,9 @@
 	            </dl>
 	            <dl>
 	            	<dt><a style="color:white;" href="expert_bashRegisterExpert" target="right">批量录入专家信息</a></dt>
+	            	</dl>
         		 </dl>
         		<dl>
-        			
 	            	<dd><a  style="color:white;"href="super_modifyInformationView" target="right">修改个人密码</a></dd>
 	            </dl>
         	</s:if>

@@ -70,6 +70,8 @@
              <param name="bufferSize">4096</param>
  			</result>
  			<result name="lookPicture">picture.jsp</result>
+ 			<result name="ParticipatedPersonListByName">WEB-INF/jsp/ParticipatedPerson/ParticipatedPersonListByName.jsp</result>
+ 			<result name="ParticipatedPersonInspectExperts">WEB-INF/jsp/EvaluatedRecord/EvaluatedPersonByCondition.jsp</result>
  		</action>
  		
  		<action name="jobTitleStandard_*" method="{1}" class="jobTitleAction">
@@ -103,8 +105,8 @@
     		<result name="BashRegisterExpertPage">WEB-INF/jsp/Expert/BashRegisterExpert.jsp</result>
     		<result name="RedirectToExpertPage" type="redirectAction">expert_manageExpertInfoList?currentPage=1</result>
 
-    		<result name="BashRegisterExpertPage">WEB-INF/jsp/Expert/BashRegisterExpert.jsp</result>
-    		<result name="RedirectToExpertPage" type="redirectAction">expert_manageExpertInfoList?currentPage=1</result>
+    		<!-- <result name="BashRegisterExpertPage">WEB-INF/jsp/Expert/BashRegisterExpert.jsp</result>
+    		<result name="RedirectToExpertPage" type="redirectAction">expert_manageExpertInfoList?currentPage=1</result> -->
 
     		<result name="jugePassword" type="json"></result>
     		<result name="modifyInformation" type="redirectAction">loginAction_loginOut</result>
@@ -169,6 +171,7 @@
     	<action name="evaluatedrecord_*" method="{1}" class="evaluatedRecordAction">
     	   <result name="finishAssess" type="redirect">expert_allEvaluaTeacher</result>
     	   <result name="ShowRecordByExpert">WEB-INF/jsp/EvaluatedRecord/EvaluatedRecordList.jsp</result>
+    	   <result name="ParticipatedPersonInspectExperts"></result>
     		<result name="findAllRecord">WEB-INF/jsp/EvaluatedRecord/AllEvaluatedRecordList.jsp</result>
     		<result name="fuzzyQuery">WEB-INF/jsp/EvaluatedRecord/EvaluatedRecordAboutExpertList.jsp</result>
     		<result name="FindByExpertUnitOrSpecialty">WEB-INF/jsp/EvaluatedRecord/EvaluatedRecordAboutExpertList.jsp</result>

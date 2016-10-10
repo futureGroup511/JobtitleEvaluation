@@ -3,6 +3,7 @@ package com.atfuture.service;
 import java.util.List;
 
 import com.atfuture.domain.ParticipatedPerson;
+import com.atfuture.domain.Statistics;
 import com.atfuture.domain.Specialty;
 import com.atfuture.domain.Unit;
 import com.atfuture.utils.Page_S;
@@ -25,6 +26,11 @@ public interface ParticipatedPersonService {
 	public void updateParticipatedPerson(ParticipatedPerson participatedPerson);
 	//删除所有人员信息
 	public void deleteAll();
+	//通过姓名进行模糊查找 申报人信息
+	public List<Statistics> getParticipatedPersonByName(String participatedPerson);
+	//分页查找申报人的信息， 通过申报人的姓名
+	public List<Statistics> getParticipatedPersonByNameAndPage(String participatedPerson, Page_S pageBean);
+	
 	//根据与专家相同单位和专业查询参评人员
 	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Unit unit, Specialty specia);
 

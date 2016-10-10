@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.atfuture.dao.ParticipatedPersonDao;
 import com.atfuture.domain.ParticipatedPerson;
+import com.atfuture.domain.Statistics;
 import com.atfuture.domain.Specialty;
 import com.atfuture.domain.Unit;
 import com.atfuture.service.ParticipatedPersonService;
@@ -51,6 +52,13 @@ public class ParticipatedPersonServiceImpl  implements ParticipatedPersonService
 		participatedPersonDao.deleteAll();
 	}
 
+	public List<Statistics> getParticipatedPersonByName(String participatedPerson) {
+		return participatedPersonDao.getParticipatedPersonByName(participatedPerson);
+	}
+
+	public List<Statistics> getParticipatedPersonByNameAndPage(String participatedPerson, Page_S pageBean) {
+		return participatedPersonDao.getParticipatedPersonByNameAndPage(participatedPerson, pageBean);
+	}
 	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Unit unit, Specialty specia) {
 		return participatedPersonDao.findByExpertUnitAndSpecialt(unit, specia);
 	}

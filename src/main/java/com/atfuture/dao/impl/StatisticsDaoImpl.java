@@ -1,6 +1,7 @@
 package com.atfuture.dao.impl;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -36,62 +37,64 @@ public class StatisticsDaoImpl extends BaseDaoImpl<Statistics> implements Statis
 	public Page_S getBySpecialty(Page_S page_s,Specialty specialty) {
 		String hql="from Statistics statistics order by statistics.sta_AllScored desc";
 		List<Statistics> list=this.findEntityByHQL(hql);
-		
+		int temp=page_s.getCurrentPage()*page_s.getPageSize();
 		if(specialty==null||"".equals(specialty.getSpec_id())||specialty.getSpec_id()<=0){
 			if(page_s.getPageSize()>=list.size()){
-				page_s.setRecordlist(list);
+				Page_S ps=new Page_S(page_s.getCurrentPage(),page_s.getPageSize(),list.size(),list);
+				return ps;
 			}else{
-				page_s.setRecordlist(list.subList(0, page_s.getPageSize()));
+				Page_S ps=new Page_S(page_s.getCurrentPage(),page_s.getPageSize(),list.size(),list.subList(temp-page_s.getPageSize(), temp>list.size()?list.size():temp));
+				return ps;
 			}
-			return page_s;
 		};
-		
-		List<Statistics> rList=new ArrayList(page_s.getPageSize());
+		List<Statistics> rList=new LinkedList();
 		
 		int num=0;
 		for(Statistics s:list){
 			if(specialty.getSpec_id()==s.getSta_participatedPerson().getParti_specialty().getSpec_id()){
-				rList.add(s);
 				num++;
-				if(num==page_s.getPageSize()){
-					break;
+				if(num>temp){
+					continue;
+				}
+				if(num>(temp-page_s.getPageSize())){
+					rList.add(s);
 				}
 			}
-			
 		}
-		page_s.setRecordlist(rList);
-		return page_s;
+		Page_S ps=new Page_S(page_s.getCurrentPage(),page_s.getPageSize(),num,rList);
+		return ps;
 	}
 
 	public Page_S getByUnit(Page_S page_s,Unit unit) {
 		
 		String hql="from Statistics statistics order by statistics.sta_AllScored desc";
+		int temp=page_s.getCurrentPage()*page_s.getPageSize();
 		List<Statistics> list=this.findEntityByHQL(hql);
-		
 		if(unit==null||"".equals(unit.getUni_id())||unit.getUni_id()<=0){
 			if(page_s.getPageSize()>=list.size()){
-				page_s.setRecordlist(list);
+				Page_S ps=new Page_S(page_s.getCurrentPage(),page_s.getPageSize(),list.size(),list);
+				return ps;
 			}else{
-				page_s.setRecordlist(list.subList(0, page_s.getPageSize()));
+				Page_S ps=new Page_S(page_s.getCurrentPage(),page_s.getPageSize(),list.size(),list.subList(temp-page_s.getPageSize(), temp>list.size()?list.size():temp));
+				return ps;
 			}
-			return page_s;
 		};
-		
-		List<Statistics> rList=new ArrayList(page_s.getPageSize());
+		List<Statistics> rList=new LinkedList();
 		
 		int num=0;
 		for(Statistics s:list){
 			if(unit.getUni_id()==s.getSta_participatedPerson().getParti_recommendUnit().getUni_id()){
-				rList.add(s);
 				num++;
-				if(num==page_s.getPageSize()){
-					break;
+				if(num>temp){
+					continue;
+				}
+				if(num>(temp-page_s.getPageSize())){
+					rList.add(s);
 				}
 			}
-			
 		}
-		page_s.setRecordlist(rList);
-		return page_s;
+		Page_S ps=new Page_S(page_s.getCurrentPage(),page_s.getPageSize(),num,rList);
+		return ps;
 	}
 
 	

@@ -26,7 +26,12 @@
 	        </div>
 	    </div>
 	</div>
-
+	<div style="margin-left:60px;">
+		<form method="post" action="participated_findParticipatedPersonByName">
+			<Strong>姓名：</Strong><input name="participatedPersonName" placeHolder="输入申报人的姓名" />
+			<input class="btn btn-primary" type="submit" value="查找">
+		</form>
+	</div>
  <div class="container">
         <table class="table table-striped table-bordered table-hover">
          <thead>
