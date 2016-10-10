@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.atfuture.base.BaseDao;
 import com.atfuture.domain.ParticipatedPerson;
+import com.atfuture.domain.Specialty;
+import com.atfuture.domain.Unit;
 import com.atfuture.utils.Page_S;
 
 public interface ParticipatedPersonDao extends BaseDao<ParticipatedPerson>{
@@ -17,5 +19,5 @@ public interface ParticipatedPersonDao extends BaseDao<ParticipatedPerson>{
 	//删除所有参评人员
 	public void deleteAll();
 	//查询与专家单位和专家专业相关的参评人员
-	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Integer unitId,Integer speciaId);
+	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Unit unit,Specialty specia);
 }

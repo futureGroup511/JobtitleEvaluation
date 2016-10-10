@@ -47,6 +47,10 @@ public class ExpertServiceImpl  implements ExpertService {
 	public void save(Expert e) {
 		expertDao.save(e);
 	}
+	public Expert findByname(String name) {
+		
+		return expertDao.findByname(name);
+	}
 
 
 }

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import com.atfuture.dao.ParticipatedPersonDao;
 import com.atfuture.domain.ParticipatedPerson;
+import com.atfuture.domain.Specialty;
+import com.atfuture.domain.Unit;
 import com.atfuture.utils.Page_S;
 
 @Repository
@@ -44,10 +46,10 @@ public class ParticipatedPersonDaoImpl extends BaseDaoImpl<ParticipatedPerson> i
 		executeSQL(sql);
 	}
 
-	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Integer unitId, Integer speciaId) {
+	public List<ParticipatedPerson> findByExpertUnitAndSpecialt(Unit unit, Specialty specia) {
 		Criteria criteria=getSession().createCriteria(ParticipatedPerson.class);
-		if(unitId!=null&&unitId!=0) criteria.add(Restrictions.eq("parti_recommendUnit.uni_id", unitId));
-		if(speciaId!=null&&speciaId!=0) criteria.add(Restrictions.eq("parti_specialty.spec_id", speciaId));
+		if(unit!=null) criteria.add(Restrictions.eq("parti_recommendUnit.uni_id", unit.getUni_id()));
+		if(specia!=null) criteria.add(Restrictions.eq("parti_specialty.spec_id", specia.getSpec_id()));
 		return criteria.list();
 	}
 

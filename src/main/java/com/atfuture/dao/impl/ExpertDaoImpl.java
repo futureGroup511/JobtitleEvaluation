@@ -38,4 +38,10 @@ public class ExpertDaoImpl extends BaseDaoImpl<Expert> implements ExpertDao {
 		saveEntity(e);
 	}
 
+	public Expert findByname(String name) {
+		String hql="from Expert e where e.exp_name=?";
+		Expert expert=(Expert) getSession().createQuery(hql).setParameter(0, name).uniqueResult();
+		return expert;
+	}
+
 }

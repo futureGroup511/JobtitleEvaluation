@@ -95,6 +95,9 @@
 	           	 	<!-- <dd><a href="super_deleteInformation" onclick="return juge();">清空参评人员有关信息</a></dd> -->
 	           	 </dl>
 	           	 <dl>
+	           	 	<dt>统计<img src="images/select_xl01.png"></dt>
+	             	<dd><a style="color:white;" href="statistic_statisticAll" target="right">专家审评统计</a></dd>
+	             	<dd><a style="color:white;" href="evaluatedrecord_findAllRecord" target="right">专家审评记录</a></dd>
 	             	<dt><a style="color:white;" href="statistic_statisticAll" target="right">专家审评统计<img src="images/select_xl01.png"></a></dt>
 	             	<dd><a href="statistic_viewBySpecialty" target="right">根据专业统计</a></dd>
 	             	<dd><a href="statistic_viewByUnit" target="right">根据单位统计</a></dd>
@@ -103,14 +106,12 @@
         		<dl>
 	            	<dt><a style="color:white;" href="super_lookInformation" target="right">查看个人信息</a></dt>
 	            </dl>
-<<<<<<< HEAD
 	            <dl>
 	            	<dt><a style="color:white;" href="expert_bashRegisterExpert" target="right">批量录入专家信息</a></dt>
-=======
+        		 </dl>
         		<dl>
         			
 	            	<dd><a  style="color:white;"href="super_modifyInformationView" target="right">修改个人密码</a></dd>
->>>>>>> ee1c3ee1ec2efc37abf43a233c18f92a52f54ed7
 	            </dl>
         	</s:if>
             
