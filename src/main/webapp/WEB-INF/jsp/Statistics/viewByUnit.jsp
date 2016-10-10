@@ -40,7 +40,6 @@
 				</s:else>
 			</s:iterator>
 		</select>
-		
 		<button type="submit" class="btn btn-primary" style="margin-left:4%;">筛选</button>
 	</form>
 
@@ -107,7 +106,7 @@
 		if(pageNum < 1){
 			pageNum = 1;
 		}	
-		window.location.href="statistic_statisticAll?currentPage="+ pageNum;
+		window.location.href="statistic_viewByUnit?page_s.currentPage="+ pageNum + "&unit.uni_id=${chosedUni_id}";
 	}		
 </script>
 </html>

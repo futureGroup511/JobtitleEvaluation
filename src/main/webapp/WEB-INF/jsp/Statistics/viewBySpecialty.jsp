@@ -107,7 +107,7 @@
 		if(pageNum < 1){
 			pageNum = 1;
 		}	
-		window.location.href="statistic_statisticAll?currentPage="+ pageNum;
+		window.location.href="statistic_viewBySpecialty?page_s.currentPage="+ pageNum+"&specialty.spec_id=${chosedSpec_id}";
 	}		
 </script>
 </html>
