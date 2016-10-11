@@ -8,6 +8,7 @@ import com.atfuture.domain.EvaluatedStandard;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
 import com.atfuture.domain.Statistics;
+import com.atfuture.domain.TypeNumber;
 import com.atfuture.utils.Page_S;
 
 public interface EvaluatedRecordService  {
@@ -57,5 +58,5 @@ public interface EvaluatedRecordService  {
 	public List<Object[]> calculateGroupCountByExpertId(Integer id);
 	
 	//查找专家评选不同综合分值类型的人数
-	public  List<Object[]> getAssessmentCountByExpertId(Integer id);
+	public  List<TypeNumber> getAssessmentCountByExpertId(Integer id);
 }

@@ -47,7 +47,8 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 
 	public String statisticByExpert(){
 	//查询指定专家的评估记录
-			Integer recordCount = evaluatedRecordService.getAllStatisticByExpert(((Expert)session.get("role")).getExp_id()).size();
+			Integer expId=((Expert)session.get("role")).getExp_id();
+			Integer recordCount = evaluatedRecordService.getAllStatisticByExpert(expId).size();
 			Integer pageSize = 2;
 			if(currentPage == null || (currentPage+"").trim() == ""){
 				currentPage = 1;
@@ -57,7 +58,9 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 			Integer id = ((Expert)session.get("role")).getExp_id();
 			System.out.println("=========>>>"+id);
 			System.out.println("===========>>"+currentPage);
-			recordList = evaluatedRecordService.getAllStatisticByPageAndExpert(page, ((Expert)session.get("role")).getExp_id());
+			recordList = evaluatedRecordService.getAllStatisticByPageAndExpert(page, expId);
+			setStatisticsByExpertId(expId);
+			setTypeNumbersByExpertId(expId);
 			page.setRecordlist(recordList);
 			requestMap.put("pageBean", page);
 			return "ShowRecordByExpert";
@@ -86,12 +89,10 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 			return "fuzzyQuery";
 		}
 		data=evaluatedRecordService.FindByExpertNameOrAllassessment(name, getModel().getEvalRecor_allAssessment(), page);
-		TypeNumber typeNumber=getAssessmentCountByExpertId(ex.getExp_id());
-		Statistics statistics=calculateGroupCountByExpertId(ex.getExp_id());
+		setTypeNumbersByExpertId(ex.getExp_id());
+		setStatisticsByExpertId(ex.getExp_id());
 		requestMap.put("pageBean", data);
 		requestMap.put("expert", ex);
-		requestMap.put("typeNumber", typeNumber);
-		requestMap.put("statistics", statistics);
 		return "fuzzyQuery";
 	}
 	
@@ -107,14 +108,10 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 			if(expert.getExp_specialty()==null)requestMap.put("choose","unit");
 			if(expert.getExp_unit()!=null&&expert.getExp_specialty()!=null)requestMap.put("choose","all");
 		}
-		
-		
 		Page_S data=evaluatedRecordService.findByExpertUnitAndSpecialty(expert, page,persons);
-		TypeNumber typeNumber=getAssessmentCountByExpertId(expert.getExp_id());
-		Statistics statistics=calculateGroupCountByExpertId(expert.getExp_id());
+		setTypeNumbersByExpertId(expert.getExp_id());
+		setStatisticsByExpertId(expert.getExp_id());
 		Expert ex=expertService.findById(expert.getExp_id());
-		requestMap.put("typeNumber", typeNumber);
-		requestMap.put("statistics", statistics);
 		requestMap.put("expert", ex);
 		requestMap.put("pageBean", data);
 		return "FindByExpertUnitOrSpecialty";
@@ -132,12 +129,6 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	public void setPerson_id(Integer person_id) {
 		this.person_id = person_id;
 	}
-
-
-
-	
-
-
 
 	public void setRequest(Map<String, Object> requestMap) {
 		this.requestMap = requestMap;
@@ -163,18 +154,17 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 		this.expert = expert;
 	}
 
-	public Statistics calculateGroupCountByExpertId(Integer id){
+	public void setStatisticsByExpertId(Integer id){
 		List<Object[]> result=evaluatedRecordService.calculateGroupCountByExpertId(id);
 		Statistics statistics=Statistics.newInstance();
 		statistics.setScoredByTypes(result);
-		return statistics;
+		requestMap.put("statistics", statistics);
 	}
 	
-	public TypeNumber getAssessmentCountByExpertId(Integer id){
-		List<Object[]> numresult=evaluatedRecordService.getAssessmentCountByExpertId(id);
-		TypeNumber typeNumber=TypeNumber.newInstance();
-		typeNumber.giveTypeNum(numresult);
-		return typeNumber;
+	public void setTypeNumbersByExpertId(Integer id){
+		List<TypeNumber> numresult=evaluatedRecordService.getAssessmentCountByExpertId(id);
+		requestMap.put("typeNumbers", numresult);
+		
 	}
 	
 	

@@ -8,12 +8,15 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.transform.Transformers;
+import org.hibernate.type.StandardBasicTypes;
 import org.springframework.stereotype.Repository;
 
 import com.atfuture.dao.EvaluatedRecordDao;
 import com.atfuture.domain.EvaluatedRecord;
 import com.atfuture.domain.Expert;
 import com.atfuture.domain.ParticipatedPerson;
+import com.atfuture.domain.TypeNumber;
 import com.atfuture.utils.Page_S;
 @Repository
 public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> implements EvaluatedRecordDao{
@@ -185,9 +188,9 @@ public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> impleme
 		return result;
 	} 
 
-	public  List<Object[]> getAssessmentCountByExpertId(Integer id) {
-		String sql="select COUNT(evalrecor_id) as count,e.evalRecor_allAssessment  from  evaluaterecord e  where evalRecor_expart_exp_id=? GROUP BY evalRecor_allAssessment";
-		List<Object[]> result=getSession().createSQLQuery(sql).setParameter(0, id).list();
+	public  List<TypeNumber> getAssessmentCountByExpertId(Integer id) {
+		String sql="select e.evalRecor_allAssessment as assessmentType ,COUNT(evalrecor_id) as count from  evaluaterecord e  where evalRecor_expart_exp_id=? GROUP BY evalRecor_allAssessment";
+		List<TypeNumber> result=getSession().createSQLQuery(sql).addScalar("assessmentType",StandardBasicTypes.STRING).addScalar("count",StandardBasicTypes.INTEGER).setParameter(0, id).setResultTransformer(Transformers.aliasToBean(TypeNumber.class)).list();
 		return result;
 	}
 	

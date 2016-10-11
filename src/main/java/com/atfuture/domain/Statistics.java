@@ -25,6 +25,10 @@ public class Statistics {
 	//总得分
 	private float sta_AllScored;
 	
+	private final static String  AITEMS="A";
+	private final static String  BITEMS="B";
+	private final static String  CITEMS="C";
+	
 	@Id
 	@GeneratedValue
 	@Column(name="sta_id")
@@ -76,9 +80,9 @@ public class Statistics {
 			Object[] objects=iterator.next();
 			String type=String.valueOf(objects[1]);
 			float scored=Float.valueOf(objects[0].toString());
-			if(type.equals(ChooseType.A.toString())) this.setSta_AScored(scored);
-			else if(type.equals(ChooseType.B.toString())) this.setSta_BScored(scored);
-			else if(type.equals(ChooseType.C.toString())) this.setSta_CScored(scored);
+			if(type.equals(AITEMS)) this.setSta_AScored(scored);
+			else if(type.equals(BITEMS)) this.setSta_BScored(scored);
+			else if(type.equals(CITEMS)) this.setSta_CScored(scored);
 			
 		}
 		//计算总值
