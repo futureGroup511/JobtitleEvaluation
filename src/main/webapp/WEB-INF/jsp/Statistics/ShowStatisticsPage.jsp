@@ -14,6 +14,13 @@
 <link rel="stylesheet" href="css/liwen12.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>查看统计信息</title>
+<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript">
+	function queryCompeName(){
+		var participatedPersonName = $(".participatedPersonName").val();
+		$()
+	}
+</script>
 </head>
 <body>
 	<div class="dangqian">
@@ -27,10 +34,10 @@
 	    </div>
 	</div>
 	<div style="margin-left:60px;">
-		<form method="post" action="participated_findParticipatedPersonByName">
-			<Strong>姓名：</Strong><input name="participatedPersonName" placeHolder="输入申报人的姓名" />
-			<input class="btn btn-primary" type="submit" value="查找">
-		</form>
+		<s:form onsubmit="return encodeName();" action="participated_findParticipatedPersonByName" method="post">
+			<Strong>姓名：</Strong><s:textfield class="participatedPersonName" name="participatedPersonName"></s:textfield>
+			<s:submit class="btn btn-primary subButton" type="submit" value="查找"></s:submit>
+		</s:form>
 	</div>
  <div class="container">
         <table class="table table-striped table-bordered table-hover">

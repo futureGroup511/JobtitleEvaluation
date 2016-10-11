@@ -48,13 +48,13 @@ public class ParticipatedPersonDaoImpl extends BaseDaoImpl<ParticipatedPerson> i
 	}
 
 	public List<Statistics> getParticipatedPersonByName(String participatedPerson) {
-		String sql = "from Statistics statistic where statistic.sta_participatedPerson.parti_name like '%"+participatedPerson+"%'";
+		String sql = "from Statistics statistic where statistic.sta_participatedPerson.parti_name LIKE '%"+participatedPerson+"%'";
 		List<Statistics> statisticList = getSession().createQuery(sql).list();
 		return statisticList;
 	}
 
 	public List<Statistics> getParticipatedPersonByNameAndPage(String participatedPerson, Page_S pageBean) {
-		String sql = "from Statistics statistic where 1=1 and statistic.sta_participatedPerson.parti_name like '%"+participatedPerson+"%'";
+		String sql = "from Statistics statistic where 1=1 and statistic.sta_participatedPerson.parti_name LIKE '%"+participatedPerson+"%'";
 		@SuppressWarnings("unchecked")
 		List<Statistics> statisticList = getSession().createQuery(sql)
 															.setFirstResult((pageBean.getCurrentPage()-1)*pageBean.getPageSize())

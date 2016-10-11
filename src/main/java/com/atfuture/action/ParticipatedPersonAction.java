@@ -9,10 +9,12 @@ import java.net.URLDecoder;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ParameterAware;
 import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -25,11 +27,13 @@ import com.atfuture.domain.Statistics;
 import com.atfuture.domain.Unit;
 import com.atfuture.utils.FileUpLoadUtils;
 import com.atfuture.utils.Page_S;
+import com.opensymphony.xwork2.ActionContext;
 
 @Controller
 @Scope("prototype")
-public class ParticipatedPersonAction extends BaseAction<ParticipatedPerson> implements RequestAware{
+public class ParticipatedPersonAction extends BaseAction<ParticipatedPerson> implements RequestAware, ServletRequestAware{
 
+	private HttpServletRequest httpServletRequest;
 	
 	private Map<String, Object> requestMap;
 	private InputStream inputStream;
@@ -139,13 +143,21 @@ public class ParticipatedPersonAction extends BaseAction<ParticipatedPerson> imp
 		
 		List<Statistics> statisticList = null;
 System.out.println(participatedPersonName);
-if(new String(participatedPersonName).length() == participatedPersonName.getBytes().length){
+/*if(new String(participatedPersonName).length() == participatedPersonName.getBytes().length){
 	try {
 		//对汉字进行解码 
 		participatedPersonName = new String(participatedPersonName.getBytes("iso-8859-1"), "utf-8");
 		System.out.println(participatedPersonName);
 		participatedPersonName = URLDecoder.decode(participatedPersonName, "utf-8");
 		System.out.println(participatedPersonName);
+	} catch (UnsupportedEncodingException e) {
+		e.printStackTrace();
+	}
+}*/
+
+if(httpServletRequest.getMethod()=="GET"){
+	try {
+		participatedPersonName = URLDecoder.decode(URLDecoder.decode(participatedPersonName, "UTF-8"), "UTF-8");
 	} catch (UnsupportedEncodingException e) {
 		e.printStackTrace();
 	}
@@ -327,6 +339,10 @@ if(new String(participatedPersonName).length() == participatedPersonName.getByte
 
 	public void setEvalRecor_allAssessment(String evalRecor_allAssessment) {
 		this.evalRecor_allAssessment = evalRecor_allAssessment;
+	}
+
+	public void setServletRequest(HttpServletRequest httpServletRequest) {
+		this.httpServletRequest = httpServletRequest;
 	}
 
 	

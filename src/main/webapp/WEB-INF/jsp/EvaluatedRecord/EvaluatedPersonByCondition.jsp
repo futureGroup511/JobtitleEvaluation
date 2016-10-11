@@ -31,12 +31,11 @@
         </div>
     </div>
 </div>
-
 <div style="margin-left:60px;">
 		<s:form method="post" action="participated_fetchSpecialRecord">
 			<s:hidden name="participatedId" value="%{#request.participatedId}"></s:hidden>
-			<Strong>专家熟悉度：</Strong><s:select name="familiarStatus" list="#{'':'《《请选择》》', 'A':'熟悉', 'B':'比较熟悉', 'C':'不太熟悉'}" ></s:select>
-			<Strong>总评得分情况：</Strong><s:select name="evalRecor_allAssessment" list="#{'':'《《请选择》》', '30':'A', '20':'B', '10':'C', '0':'D'}" ></s:select>
+			<Strong>专家熟悉度：</Strong><s:select name="familiarStatus" list="#{'':'《《请选择》》', 'A':'熟悉(50%)', 'B':'比较熟悉(30%)', 'C':'不太熟悉(20%)'}" ></s:select>
+			<Strong>总评得分情况：</Strong><s:select name="evalRecor_allAssessment" list="#{'':'《《请选择》》', '30':'A(30分)', '20':'B(20分)', '10':'C(10分)', '0':'D(0分)'}" ></s:select>
 			<s:submit class="btn btn-primary" value="查找"></s:submit>
 		</s:form>
 </div>
