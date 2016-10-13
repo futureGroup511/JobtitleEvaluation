@@ -32,7 +32,9 @@
         </div>
     </div>
 </div>
-<form action="evaluatedrecord_FindByExpertNameOrAllassessment" method="post">
+<form action="evaluatedrecord_FindByExpertNameOrAllassessment" method="post" id="form">
+	<input type="hidden" value="${expert.exp_id}" name="expert.exp_id" >
+ 	<input type="hidden" value="1" name="currentPage" id="currentPage">
 <div class="container">
         <table class="table table-striped table-bordered table-hover">
         <thead>
@@ -116,13 +118,14 @@
 </body>
 <script type="text/javascript">
 	function gotoPage(pageNum){
+		
 		if(pageNum > "${requestScope.pageBean.pageCount}"){
 			pageNum = "${requestScope.pageBean.pageCount}"
 		}
 		if(pageNum < 1){
 			pageNum = 1;
 		}	
-		window.location.href="evaluatedrecord_FindByExpertNameOrAllassessment?currentPage="+pageNum;
+		window.location.href="evaluatedrecord_findAllRecord?currentPage="+pageNum;
 	}		
 </script>
 </html>
