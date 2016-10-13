@@ -81,7 +81,7 @@ public class StatisticsAction extends BaseAction<Statistics> implements RequestA
 	public String viewBySpecialty(){
 		if(specialty==null||specialty.getSpec_id()==null){
 			requestMap.put("chosedSpec_id",0);
-		}else if(specialty.getSpec_id()>0){
+		}else if(specialty.getSpec_id()>=0){
 			requestMap.put("chosedSpec_id",specialty.getSpec_id());
 		}
 		if(page_s==null){

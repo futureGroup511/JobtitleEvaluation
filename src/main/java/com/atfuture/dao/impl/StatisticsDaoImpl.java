@@ -35,8 +35,10 @@ public class StatisticsDaoImpl extends BaseDaoImpl<Statistics> implements Statis
 	}
 
 	public Page_S getBySpecialty(Page_S page_s,Specialty specialty) {
-		String hql="from Statistics statistics order by statistics.sta_AllScored desc";
+		String hql="from Statistics statistics order by statistics.sta_participatedPerson.parti_specialty, statistics.sta_AllScored desc";
+		// group by statistics.sta_participatedPerson.parti_specialty 
 		List<Statistics> list=this.findEntityByHQL(hql);
+		System.out.println(list.size());
 		int temp=page_s.getCurrentPage()*page_s.getPageSize();
 		if(specialty==null||"".equals(specialty.getSpec_id())||specialty.getSpec_id()<=0){
 			if(page_s.getPageSize()>=list.size()){
@@ -67,7 +69,7 @@ public class StatisticsDaoImpl extends BaseDaoImpl<Statistics> implements Statis
 
 	public Page_S getByUnit(Page_S page_s,Unit unit) {
 		
-		String hql="from Statistics statistics order by statistics.sta_AllScored desc";
+		String hql="from Statistics statistics order by statistics.sta_participatedPerson.parti_specialty, statistics.sta_AllScored desc";
 		int temp=page_s.getCurrentPage()*page_s.getPageSize();
 		List<Statistics> list=this.findEntityByHQL(hql);
 		if(unit==null||"".equals(unit.getUni_id())||unit.getUni_id()<=0){

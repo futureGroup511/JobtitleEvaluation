@@ -96,11 +96,12 @@
 										<option value="差">D、差(0)</option>
 									</c:otherwise>
 								</c:choose>
-									
 						</select>
 		           		<button>确定</button>
 			        </th>
-	           	<th><a href="evaluatedrecord_statisticByExpert" class="btn btn-primary btn-lg">返回</a></th>
+			        <s:if test="#session.role.findSelfName =='superManager'">
+			        	<th><a href="evaluatedrecord_statisticByExpert" class="btn btn-primary btn-lg">返回</a></th>
+			        </s:if>
 	        </tr>
         </table>
  </div>

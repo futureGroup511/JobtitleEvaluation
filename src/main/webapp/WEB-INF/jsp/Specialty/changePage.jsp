@@ -32,7 +32,7 @@
     <div class="form-group">
        <label for="inputEmail3" class="col-lg-2 col-lg-offset-4 col-md-2 col-md-offset-4 col-xs-3 col-xs-offset-4 control-label">请输入要修改的名字：</label>
        <div class="col-lg-2 col-md-2 col-xs-3">
-          <input type="text" class="form-control" id="inputEmail3" name="specialty.spec_name" placeholder="${findResult.spec_name }">
+          <input type="text" class="form-control"  maxlength="50"id="inputEmail3" name="specialty.spec_name" placeholder="${findResult.spec_name }">
           <input type="hidden" name="specialty.spec_id" value="${findResult.spec_id }">
           <input type="hidden" name="page_s.currentPage" value="${pageNum}">
        </div>
