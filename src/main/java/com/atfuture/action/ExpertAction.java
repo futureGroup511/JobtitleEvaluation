@@ -35,9 +35,8 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware,Ses
 	//所有参评人员
 	public String allEvaluaTeacher(){
 		Expert expert=(Expert) session.get("role");
-		Page_S p=Page_S.newInstance();
+		Page_S p=Page_S.getDefaultInstace();
 		p.setCurrentPage(currentPage);
-		p.setPageSize(pageSize);
 		p=participatedPersonService.findAllParticipatedPerson(p,expert.getExp_id());
 		request.put("p", p);
 		return "allEvaluaTeacher";

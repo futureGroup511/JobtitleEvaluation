@@ -175,6 +175,7 @@
     		<result name="findAllRecord">WEB-INF/jsp/EvaluatedRecord/AllEvaluatedRecordList.jsp</result>
     		<result name="fuzzyQuery">WEB-INF/jsp/EvaluatedRecord/EvaluatedRecordAboutExpertList.jsp</result>
     		<result name="FindByExpertUnitOrSpecialty">WEB-INF/jsp/EvaluatedRecord/EvaluatedRecordAboutExpertList.jsp</result>
+    		<result name="toFindAllRecord" type="redirectAction">evaluatedrecord_findAllRecord</result>
     	</action>
     </package>
 </struts>
