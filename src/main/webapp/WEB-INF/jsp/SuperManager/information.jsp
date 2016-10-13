@@ -23,25 +23,22 @@
 	        </div>
 	    </div>
 	</div>
-	<form >
+	<div>
+	
+	</div>
+	<div style=" float: none;  
+    display: block;  
+    margin-left: auto;  
+    margin-right: auto; 
+    ">
+		<form >
 		<div class="row">
         	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>姓名：</p></div>
-
-            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ role.sup_name}" readonly="readonly" class="form-control"> </div>
-            <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>账号：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ role.sup_accountNum}" readonly="readonly" class="form-control"> </div>
+            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:10%;"><input type="text" value="${ role.sup_name}" readonly="readonly" class="form-control"> </div>
+     		<div class="col-lg-1  col-md-2 col-xs-2 "><p>账号：</p></div>
+            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:10%;"><input type="text" value="${ role.sup_accountNum}" readonly="readonly" class="form-control"> </div>
      	</div>
-
-            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-12%;"><input type="text" value="${ role.sup_name}" readonly="readonly" class="form-control"> </div>
-            <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>账号：</p></div>
-            <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-12%;"><input type="text" value="${ role.sup_accountNum}" readonly="readonly" class="form-control"> </div>
-     </div>
-     <div class="row">
-        	<%-- <div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>密码：</p></div> 
-            <div class="col-lg-2 col-md-2 col-xs-3"><input type="text" value="${ role.sup_password}" readonly="readonly" class="form-control"></div>
-		     --%>
-     </div> 
-
 	</form>
+	</div>
 </body>
 </html>

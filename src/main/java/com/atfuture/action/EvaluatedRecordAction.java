@@ -86,7 +86,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 		if(ex==null){
 			data=Page_S.newInstance();
 			requestMap.put("pageBean", data);
-			return "fuzzyQuery";
+			return "toFindAllRecord";
 		}
 		data=evaluatedRecordService.FindByExpertName(name, page);
 		setTypeNumbersByExpertId(ex.getExp_id());
