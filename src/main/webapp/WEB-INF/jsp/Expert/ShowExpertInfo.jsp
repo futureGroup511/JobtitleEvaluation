@@ -24,10 +24,10 @@
 					$(".exp_nameSpan").css("display", "inline");
 					return false;
 				}
-				if(exp_educationLevelSpan== null || exp_educationLevelSpan.trim() == ""){
+				/* if(exp_educationLevelSpan== null || exp_educationLevelSpan.trim() == ""){
 					$(".exp_educationLevelSpan").css("display", "inline");
 					return false;
-				}
+				} */
 				return true;
 			});
 		});
@@ -88,7 +88,8 @@
             <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>学历：</p></div>
             <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-12%;">
             	<!-- <input type="text" class="form-control"> -->
-            	<input class="exp_educationLevel form-control" name="exp_educationLevel" value="${request.expert.exp_educationLevel }"><br/>
+            	<s:select class="form-control expEdu_1" list="#{'本科':'本科', '硕士':'硕士', '博士':'博士' }"  value="${request.expert.exp_educationLevel }  name="exp_educationLevel"></s:select>
+            	<%-- <input class="exp_educationLevel form-control" name="exp_educationLevel" value="${request.expert.exp_educationLevel }"><br/> --%>
 		<span class="exp_educationLevelSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>
             </div>
      </div>
