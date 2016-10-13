@@ -37,6 +37,7 @@
          <th>专家职称</th>
          <th>所属单位</th>
          <th>专家学历</th>
+         <th>重置密码</th>
          <th>查看/修改</th>
        </tr>
        </thead>
@@ -50,6 +51,9 @@
 				<td>${expert.exp_jobTitle.jobTi_name}</td>
 				<td>${expert.exp_unit.uni_name}</td>
 				<td>${expert.exp_educationLevel}</td>
+				<td>
+					<a href="expert_updateExpertpwd?exp_id=${expert.exp_id }&currentPage=${currentPage}">重置密码</a>
+				</td>
 				<td>
 					<a href="expert_updateExpertInfoPage?exp_id=${expert.exp_id }&currentPage=${currentPage}">查看/修改</a>
 				</td>

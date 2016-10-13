@@ -107,13 +107,19 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware,Ses
 		for(int i=0;i<bashRegisterSize;i++){
 			//姓名  账号   学历信息，只有有一个为空就放弃该条数据不进行录入 
 			String expName = StringUtils.isValidArr(paramMap.get("expName_"+i))?paramMap.get("expName_"+i)[0]+"":null;
-			String expNum = StringUtils.isValidArr(paramMap.get("expNum_"+i))?paramMap.get("expNum_"+i)[0]+"":null;
+			//String expNum = StringUtils.isValidArr(paramMap.get("expNum_"+i))?paramMap.get("expNum_"+i)[0]+"":null;
 			String expEdu = StringUtils.isValidArr(paramMap.get("expEdu_"+i))?paramMap.get("expEdu_"+i)[0]+"":null;
-			String[] strArr = {expName, expNum, expEdu};
+			//String[] strArr = {expName, expNum, expEdu};
+			String[] strArr = {expName, expEdu};
 			if(StringUtils.isInvalidArr(strArr)){
 				Expert expert = new Expert();
 				expert.setExp_name(expName);
-				expert.setExp_accountNum(expNum);
+				
+				//得到最大的用户名字符串
+				String maxAccountNum = expertService.getMaxAccountNum();
+				int startNum = StringUtils.str2Int(maxAccountNum)+1;
+				expert.setExp_accountNum(StringUtils.getFourStr(startNum));
+				
 				expert.setExp_educationLevel(expEdu);
 				expert.setExp_password("123");
 				Integer unitId = Integer.parseInt(paramMap.get("expUnit_"+i)[0]+"");
@@ -220,7 +226,15 @@ System.out.println(accountNumExists);
 		expertService.save(expert);
 		return "modifyInformation";
 	}
+
 	
+	
+	//重置密码
+	public String updateExpertpwd(){
+		//exp_id
+		expertService.resetPwd(exp_id);
+		return "RedirectToManageExpertInfo";
+	}
 	
 	public String getAccountNum() {
 		return accountNum;

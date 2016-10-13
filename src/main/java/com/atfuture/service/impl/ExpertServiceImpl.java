@@ -51,6 +51,12 @@ public class ExpertServiceImpl  implements ExpertService {
 		
 		return expertDao.findByname(name);
 	}
+	public String getMaxAccountNum() {
+		return expertDao.getMaxAccountNum();
+	}
+	public void resetPwd(Integer exp_id) {
+		expertDao.resetPwd(exp_id);
+	}
 
 
 }

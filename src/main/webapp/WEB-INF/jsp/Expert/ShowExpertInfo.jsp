@@ -58,7 +58,7 @@
         	<div class="col-lg-1 col-lg-offset-2 col-md-2 col-md-offset-3 col-xs-2 col-xs-offset-2"><p>姓名：</p></div>
             <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-12%;">
             	<!-- <input type="text" class="form-control" > -->
-            	<input class="exp_name form-control" name="exp_name" value="${request.expert.exp_name }">
+            	<input maxlength="50" class="exp_name form-control" name="exp_name" value="${request.expert.exp_name }">
             	<span class="exp_nameSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>
             </div>
             <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>账号：</p></div>

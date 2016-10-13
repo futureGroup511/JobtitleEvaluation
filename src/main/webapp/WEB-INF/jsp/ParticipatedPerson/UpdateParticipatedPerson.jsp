@@ -46,7 +46,7 @@
 		<div class="row">
         	<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-2"><p>申请人:</p></div>
             <div class="col-lg-2 col-md-2 col-xs-3" style="margin-left:-9%;">
-            	<input class="parti_name form-control" type="text" name="parti_name" value="${requestScope.participatedPerson.parti_name }">
+            	<input maxlength="50" class="parti_name form-control" type="text" name="parti_name" value="${requestScope.participatedPerson.parti_name }">
             	<span class="parti_nameSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>
             </div>
             <div class="col-lg-1 col-lg-offset-1 col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1"><p>所评职称*：</p></div>
