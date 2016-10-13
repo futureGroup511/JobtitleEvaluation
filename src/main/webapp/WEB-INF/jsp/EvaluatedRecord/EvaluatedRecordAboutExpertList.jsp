@@ -57,6 +57,46 @@
            			同专业参评人员:<input  type="checkbox" name="expert.exp_specialty.spec_id" value="${expert.exp_specialty.spec_id }" class="from-control">
            		</c:otherwise>
            		</c:choose>
+           		总评得分:<select name="evalRecor_allAssessment" class="from-control">
+								<c:choose>
+									<c:when test="${allAssessment eq '30' }">
+										<option >请选择</option>
+										<option value="优" selected="selected">A、优(30)</option>
+										<option value="良">B、良(20)</option>
+										<option value="中">C、中(10)</option>
+										<option value="差">D、差(0)</option>
+									</c:when>
+									<c:when test="${allAssessment eq '20' }">
+										<option >请选择</option>
+										<option value="优">A、优(30)</option>
+										<option value="良" selected="selected">B、良(20)</option>
+										<option value="中">C、中(10)</option>
+										<option value="差">D、差(0)</option>
+									</c:when>
+									<c:when test="${allAssessment eq '10' }">
+										<option >请选择</option>
+										<option value="优">A、优(30)</option>
+										<option value="良">B、良(20)</option>
+										<option value="中" selected="selected">C、中(10)</option>
+										<option value="差">D、差(0)</option>
+									</c:when>
+									<c:when test="${allAssessment eq '0' }">
+										<option >请选择</option>
+										<option value="优">A、优(30)</option>
+										<option value="良">B、良(20)</option>
+										<option value="中">C、中(10)</option>
+										<option value="差" selected="selected">D、差(0)</option>
+									</c:when>
+									<c:otherwise>
+										<option selected="selected">请选择</option>
+										<option value="优">A、优(30)</option>
+										<option value="良">B、良(20)</option>
+										<option value="中">C、中(10)</option>
+										<option value="差">D、差(0)</option>
+									</c:otherwise>
+								</c:choose>
+									
+						</select>
            		<button>确定</button>
 	        </th>
 	        <th><a href="evaluatedrecord_findAllRecord" class="btn btn-primary btn-lg">返回</a></th>
@@ -78,11 +118,11 @@
        			<td></td>
        		</tr>
 	      <tr>  
-	      	 <th>审评人姓名</th>
-	         <th>评议人姓名</th>
-	         <th>评议人申报专业</th>
-	         <th>评议人申报职称</th>
-	         <th>评议人推荐单位</th>
+	      	 <th>专家姓名</th>
+	         <th>参评人姓名</th>
+	         <th>参评人申报专业</th>
+	         <th>参评人申报职称</th>
+	         <th>参评人推荐单位</th>
 	         <th>教学评议得分</th>
 	         <th>科研评议得分</th>
 	         <th>师德评议得分</th>

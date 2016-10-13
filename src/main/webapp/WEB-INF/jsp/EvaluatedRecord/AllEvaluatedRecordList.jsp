@@ -41,13 +41,6 @@
         	<tr>
         		<th>
         			专家姓名:<input type="text" name="expert.exp_name" class="from-control">
-        			总评得分:<select name="evalRecor_allAssessment" class="from-control">
-					<option selected="selected">请选择</option>
-					<option value="优">A、优(30)</option>
-					<option value="良">B、良(20)</option>
-					<option value="中">C、中(10)</option>
-					<option value="差">D、差(0)</option>	
-						</select>
 					<button>确定</button>
         		</th>
         	</tr>
@@ -60,11 +53,11 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
       <tr>  
-      	 <th>审评人姓名</th>
-         <th>评议人姓名</th>
-         <th>评议人申报专业</th>
-         <th>评议人申报职称</th>
-         <th>评议人推荐单位</th>
+      	 <th>专家姓名</th>
+         <th>参评人姓名</th>
+         <th>参评人申报专业</th>
+         <th>参评人申报职称</th>
+         <th>参评人推荐单位</th>
          <th>教学评议得分</th>
          <th>科研评议得分</th>
          <th>师德评议得分</th>

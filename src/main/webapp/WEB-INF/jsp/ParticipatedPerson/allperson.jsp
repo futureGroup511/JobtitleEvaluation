@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="row">
 	        <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
-	            <p><strong>当前位置：审评人员服务>>教职工评教</strong></p>
+	            <p><strong>当前位置：参评人服务>>教职工评教</strong></p>
 	        </div>
 	        <div class="col-lg-2 col-md-2 col-xs-2">
 	            <p><strong>欢迎  <s:property value="#session.role.helloName()"/>  登录本系统</strong></p>

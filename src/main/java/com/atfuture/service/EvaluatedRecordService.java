@@ -37,7 +37,7 @@ public interface EvaluatedRecordService  {
 	 * 根据专家条件查询彩屏人员
 	 * 
 	 */
-	public Page_S findByExpertUnitAndSpecialty(Expert expert,Page_S page,List<ParticipatedPerson> persons);
+	public Page_S findByExpertUnitAndSpecialtyAndAllassessment(Expert expert,Page_S page,List<ParticipatedPerson> persons,String allassessment);
 	
 	/**
 	 * 查询通过专家姓名和总平的分
@@ -46,7 +46,7 @@ public interface EvaluatedRecordService  {
 	 * @param page 分页
 	 * @return
 	 */
-	public Page_S FindByExpertNameOrAllassessment(String expertanme, String allassessment,Page_S page);
+	public Page_S FindByExpertName(String expertanme,Page_S page);
 	
 	/**
 	 * 得到所有审评记录

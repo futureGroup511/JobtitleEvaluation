@@ -17,7 +17,7 @@
 	<div class="dangqian">
 	   <div class="row">
 	        <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
-	            <p><strong>审评人员>>个人信息</strong></p>
+	            <p><strong>专家>>个人信息</strong></p>
 	        </div>
 	        <div class="col-lg-2 col-md-3 col-xs-3">
 	            <p>欢迎    <s:property value="#session.role.helloName()"/>  登录本系统</p>

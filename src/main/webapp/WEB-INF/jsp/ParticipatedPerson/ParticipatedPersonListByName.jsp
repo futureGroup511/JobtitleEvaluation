@@ -31,10 +31,10 @@
         <table class="table table-striped table-bordered table-hover">
          <thead>
 	      <tr>  
-	         <th>申报人姓名</th>
-	         <th>申报人申报专业</th>
-	         <th>申报人申报职称</th>
-	         <th>申报人推荐单位</th>
+	         <th>参评人姓名</th>
+	         <th>参评人申报专业</th>
+	         <th>参评人申报职称</th>
+	         <th>参评人推荐单位</th>
 	         <th>A类专家评论得分</th>
 	         <th>B类专家评论得分</th>
 	         <th>C类专家评论得分</th>

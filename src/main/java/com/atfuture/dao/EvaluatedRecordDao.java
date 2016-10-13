@@ -31,7 +31,7 @@ public interface EvaluatedRecordDao extends BaseDao<EvaluatedRecord>{
 	/**
 	 * 通过专家，单位，专业来选择获得评选记录
 	 */
-	public Page_S findByExpertUnitAndSpecialty(Expert expert,Page_S page,List<ParticipatedPerson> persons);
+	public Page_S findByExpertUnitAndSpecialtyAndAllassessment(Expert expert,Page_S page,List<ParticipatedPerson> persons,String allassessment);
 	/**
 	 * 查询通过专家姓名和总平的分
 	 * @param expertanme 专家姓名
@@ -39,7 +39,7 @@ public interface EvaluatedRecordDao extends BaseDao<EvaluatedRecord>{
 	 * @param page 分页
 	 * @return
 	 */
-	public Page_S FindByExpertNameOrAllassessment(String expertanme,String allassessment,Page_S page);
+	public Page_S FindByExpertName(String expertanme,Page_S page);
 	
 	public Page_S findAllRecord(Page_S page);
 	

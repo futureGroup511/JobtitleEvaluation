@@ -88,7 +88,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 			requestMap.put("pageBean", data);
 			return "fuzzyQuery";
 		}
-		data=evaluatedRecordService.FindByExpertNameOrAllassessment(name, getModel().getEvalRecor_allAssessment(), page);
+		data=evaluatedRecordService.FindByExpertName(name, page);
 		setTypeNumbersByExpertId(ex.getExp_id());
 		setStatisticsByExpertId(ex.getExp_id());
 		requestMap.put("pageBean", data);
@@ -108,10 +108,11 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 			if(expert.getExp_specialty()==null)requestMap.put("choose","unit");
 			if(expert.getExp_unit()!=null&&expert.getExp_specialty()!=null)requestMap.put("choose","all");
 		}
-		Page_S data=evaluatedRecordService.findByExpertUnitAndSpecialty(expert, page,persons);
+		Page_S data=evaluatedRecordService.findByExpertUnitAndSpecialtyAndAllassessment(expert, page,persons,getModel().getEvalRecor_allAssessment());
 		setTypeNumbersByExpertId(expert.getExp_id());
 		setStatisticsByExpertId(expert.getExp_id());
 		Expert ex=expertService.findById(expert.getExp_id());
+		requestMap.put("allAssessment", getModel().getEvalRecor_allAssessment());
 		requestMap.put("expert", ex);
 		requestMap.put("pageBean", data);
 		return "FindByExpertUnitOrSpecialty";

@@ -55,12 +55,12 @@ public class EvaluatedRecordServiceImpl  implements EvaluatedRecordService{
 		return evaluatedRecordDao.getExpertNumForSpec(participatedId);
 	}
 
-	public Page_S findByExpertUnitAndSpecialty(Expert expert, Page_S page,List<ParticipatedPerson> persons) {
-		return evaluatedRecordDao.findByExpertUnitAndSpecialty(expert, page,persons);
+	public Page_S findByExpertUnitAndSpecialtyAndAllassessment(Expert expert, Page_S page,List<ParticipatedPerson> persons,String allassessment) {
+		return evaluatedRecordDao.findByExpertUnitAndSpecialtyAndAllassessment(expert, page,persons,allassessment);
 	}
 
-	public Page_S FindByExpertNameOrAllassessment(String expertanme, String allassessment, Page_S page) {
-		return evaluatedRecordDao.FindByExpertNameOrAllassessment(expertanme, allassessment, page);
+	public Page_S FindByExpertName(String expertanme, Page_S page) {
+		return evaluatedRecordDao.FindByExpertName(expertanme,page);
 	}
 
 	public Page_S findAllRecord(Page_S page) {
