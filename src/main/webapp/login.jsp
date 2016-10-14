@@ -61,8 +61,9 @@
     </div>
 </form>
 <div id="footer">
-    	<p>版权所有&emsp;&emsp;河南科技学院人事处&emsp;&emsp;</br>
-    	技术支持：河南科技学院未来软件工作室 河南艾未特网络技术有限公司&emsp;</p>
+    	<p class="zou" style="margin-left:45%;">版权所有&emsp;&emsp;河南科技学院人事处&emsp;&emsp;</br></p>
+    	<span class="zzou" style="margin-left:37%;">技术支持：河南科技学院未来软件工作室 河南艾未特网络技术有限公司 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+
     </div>
 </body>
 
