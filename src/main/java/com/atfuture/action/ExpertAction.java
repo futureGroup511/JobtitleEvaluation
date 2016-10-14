@@ -29,7 +29,7 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware,Ses
 	//批量导入专家信息的 数量大小
 	private static final Integer bashRegisterSize = 8;
 	private Integer currentPage=1;
-	private Integer pageSize=10;
+	private Integer pageSize=8;
 	private ParticipatedPerson person=ParticipatedPerson.newInstance();
 	private Map<String, String[]> paramMap;
 	//所有参评人员
@@ -154,7 +154,7 @@ public class ExpertAction extends BaseAction<Expert> implements RequestAware,Ses
 	}
 	public String manageExpertInfoList(){
 		Integer recordCount = expertService.getAllExpert().size();
-		Integer pageSize = 2;
+		Integer pageSize = 8;
 		if(currentPage == null || (currentPage+"").trim() == ""){
 			currentPage = 1;
 		}

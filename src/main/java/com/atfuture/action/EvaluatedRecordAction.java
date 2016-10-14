@@ -49,7 +49,7 @@ public class EvaluatedRecordAction extends BaseAction<EvaluatedRecord> implement
 	//查询指定专家的评估记录
 			Integer expId=((Expert)session.get("role")).getExp_id();
 			Integer recordCount = evaluatedRecordService.getAllStatisticByExpert(expId).size();
-			Integer pageSize = 2;
+			Integer pageSize = 8;
 			if(currentPage == null || (currentPage+"").trim() == ""){
 				currentPage = 1;
 			}

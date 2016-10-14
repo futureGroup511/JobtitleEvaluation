@@ -23,7 +23,7 @@ public class StatisticsAction extends BaseAction<Statistics> implements RequestA
 	//统计记录
 	public String statisticAll(){
 		Integer recordCount = statisticsService.getAllStatistic().size();
-		Integer pageSize = 2;
+		Integer pageSize = 8;
 		if(currentPage == null || (currentPage+"").trim() == ""){
 			currentPage = 1;
 		}
@@ -88,7 +88,7 @@ public class StatisticsAction extends BaseAction<Statistics> implements RequestA
 			page_s=new Page_S();
 			page_s.setCurrentPage(1);
 		}
-		page_s.setPageSize(2);
+		page_s.setPageSize(8);
 		requestMap.put("pageBean",this.statisticsService.getBySpecialty(page_s, specialty));
 		requestMap.put("specialtyList", specialtyService.getAllSpecialty());
 		return "viewBySpecialty";
@@ -104,7 +104,7 @@ public class StatisticsAction extends BaseAction<Statistics> implements RequestA
 			page_s=new Page_S();
 			page_s.setCurrentPage(1);
 		}
-		page_s.setPageSize(2);
+		page_s.setPageSize(8);
 		requestMap.put("pageBean",this.statisticsService.getByUnit(page_s, unit));
 		requestMap.put("unitList", unitService.getAllUnit());
 		return "viewByUnit";

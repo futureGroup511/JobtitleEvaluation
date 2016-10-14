@@ -126,7 +126,7 @@ public class JobTitleAction extends BaseAction<JobTitle> implements RequestAware
 		if(page_s.getCurrentPage()==null||page_s.getCurrentPage()==0){
 			page_s.setCurrentPage(1);
 		}
-		page_s.setPageSize(3);
+		page_s.setPageSize(8);
 		Page_S ps=jobTitleService.page_s(page_s);
 		this.getRequest().setAttribute("page_s",ps);
 		return "page_sSuccess";
