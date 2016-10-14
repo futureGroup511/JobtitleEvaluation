@@ -19,17 +19,14 @@
 </head>
 <body>
 <div id="nav">
-    <div class="left">
-        <img src="images/header-logo.png"> 
-        <span>河南科技学院职称评审专家网评系统</span>
-    </div>
+   <img src="${pageContext.request.contextPath}/images/fadeaway.jpg"> 
 </div>
 
 <form action="loginAction_finishLogin" method="post">
    <div id="banous">
        <div class="one">
           <div class="col-lg-7 col-lg-offset-2 col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-2">
-           <img src="images/xiaoren.png"> </div>
+           <img src="images/equal.png"> </div>
        </div>
        <div class="col-lg-4 col-md-3 col-xs-3">
           <div class="right">

@@ -116,7 +116,7 @@
 	             </dl>
         		<dl>
         			<dt>个人相关<img src="images/select_xl01.png"></dt>
-	            	<dt><a style="color:white;" href="super_lookInformation" target="right">查看个人信息</a></dt>
+	            	<dd><a style="color:white;" href="super_lookInformation" target="right">查看个人信息</a></dd>
 	            	<dd><a style="color:white;"href="super_modifyInformationView" target="right">修改个人密码</a></dd>
 	            </dl>
         		</s:if>
