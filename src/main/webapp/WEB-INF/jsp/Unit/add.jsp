@@ -36,7 +36,7 @@
 		    <div class="form-group">
 		       <label for="inputEmail3" class="col-lg-2 col-lg-offset-4 col-md-2 col-md-offset-4 col-xs-3 col-xs-offset-4 control-label">要增加的单位名字：</label>
 		       <div class="col-lg-2 col-md-2 col-xs-3">
-		          <input type="text" class="form-control" id="inputEmail3" placeholder="单位名称" name="unit.uni_name">
+		          <input type="text" class="form-control" id="inputEmail3" maxlength="50" placeholder="单位名称" name="unit.uni_name">
 		       </div>
 		       <div class="col-lg-2  col-md-2  col-xs-3 ">
 		           <button class="btn btn-primary" type="submit" >增加</button>

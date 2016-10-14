@@ -64,7 +64,7 @@
 <div class="container">
   <div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-xs-5 col-md-offset-1">
      <span>申请人姓名：</span>
-     <input class="parti_name" name="parti_name"><br/>
+     <input maxlength="50" class="parti_name" name="parti_name"><br/>
      <span class="parti_nameSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span>
   </div>
   <div class="col-lg-2 col-lg-offset-2 col-md-2 col-lmd-offset-2 col-xs-2 col-xs-offset-2">

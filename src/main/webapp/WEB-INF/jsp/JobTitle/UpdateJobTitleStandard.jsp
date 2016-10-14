@@ -90,7 +90,7 @@ $(function() {
 		   <!--   <textarea rows="6">
 		       师德评价标准 教授FF
 		     </textarea> -->
-		     <s:textarea class="teachTextArea" rows="6" onkeydown="checkMaxLen(this,250)" name="evalStan_teachStandard" value="%{#request.evaluatedStandard.evalStan_teachStandard}"></s:textarea>
+		     <s:textarea class="teachTextArea" rows="6" onpropertychange="checkMaxLen(this,250)" name="evalStan_teachStandard" value="%{#request.evaluatedStandard.evalStan_teachStandard}"></s:textarea>
 		     <span class="teachTextAreaSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>
 		   </div>
 		   <div class="col-lg-1">
@@ -105,7 +105,7 @@ $(function() {
 		    <!--  <textarea rows="6">
 		       科研评价标准 教授HH
 		     </textarea> -->
-		     <s:textarea  class="scienceTextArea"  rows="6" onkeydown="checkMaxLen(this,250)" name="evalStan_scientifiStandard" value="%{#request.evaluatedStandard.evalStan_scientifiStandard}"></s:textarea>
+		     <s:textarea  class="scienceTextArea"  rows="6" onpropertychange="checkMaxLen(this,250)" name="evalStan_scientifiStandard" value="%{#request.evaluatedStandard.evalStan_scientifiStandard}"></s:textarea>
 		     <span class="scienceTextAreaSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>
 		   </div>
 		   <div class="col-lg-1">
@@ -120,7 +120,7 @@ $(function() {
 		    <!--  <textarea rows="6">
 		       教学评价标准 教授FF
 		     </textarea> -->
-		     <s:textarea class="moralTextArea" rows="6" onkeydown="checkMaxLen(this,250)" name="evalStan_moralityStandard" value="%{#request.evaluatedStandard.evalStan_moralityStandard}"></s:textarea>
+		     <s:textarea class="moralTextArea" rows="6" onpropertychange="checkMaxLen(this,250)" name="evalStan_moralityStandard" value="%{#request.evaluatedStandard.evalStan_moralityStandard}"></s:textarea>
 		     <span class="moralTextAreaSpan" style="display:none;color:red;font-size:20px;">请填写此内容，不可留空</span><br/>
 		   </div>
 		   <div class="col-lg-1">

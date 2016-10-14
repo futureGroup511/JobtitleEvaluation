@@ -44,4 +44,16 @@ public class ExpertDaoImpl extends BaseDaoImpl<Expert> implements ExpertDao {
 		return expert;
 	}
 
+	public String getMaxAccountNum() {
+		String sql = "select max(expert.exp_accountNum) from Expert expert";
+		Object obj = getSession().createQuery(sql).uniqueResult();
+		return obj==null?"0001":obj.toString();
+	}
+
+	public void resetPwd(Integer exp_id) {
+		String sql = "update Expert expert set expert.exp_password = '123' where expert.exp_id = :exp_id";
+		getSession().createQuery(sql).setParameter("exp_id", exp_id)
+							.executeUpdate();
+	}
+
 }

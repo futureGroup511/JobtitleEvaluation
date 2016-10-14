@@ -23,6 +23,11 @@ public interface ExpertDao extends BaseDao<Expert>{
 	//通过专家姓名查找专家
 	public Expert findByname(String name);
 	
+	//得到用户名最大的字符串
+	public String getMaxAccountNum();
+	//重置密码
+	public void resetPwd(Integer exp_id);
+	
 	
 	
 }

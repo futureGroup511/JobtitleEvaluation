@@ -28,4 +28,8 @@ public interface ExpertService {
 	public void save(Expert e);
 	//根据姓名查找专家
 	public Expert findByname(String name);
+	//得到最大的账号字符串
+	public String getMaxAccountNum();
+	//重置密码
+	public void resetPwd(Integer exp_id);
 }
