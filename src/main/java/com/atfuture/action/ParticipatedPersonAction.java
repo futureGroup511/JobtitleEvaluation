@@ -184,6 +184,8 @@ if(httpServletRequest.getMethod()=="GET"){
 		Map<String, Integer> expertNumMap = evaluatedRecordService.getExpertNumForSpec(participatedId);
 		//该参评人的统计数据   
 		Statistics statistics = statisticsService.findByPersonId(participatedId);
+		ParticipatedPerson participatedPerson = participatedPersonService.findById(participatedId);
+		requestMap.put("participatedPerson", participatedPerson);
 		
 		requestMap.put("statistics", statistics);
 		requestMap.put("aScore", expertNumMap.get("A"));

@@ -27,6 +27,7 @@
 	}
 		$(function() {
 			$(".btnSub").click(function(){
+				$(".fileSpanType").css("display", "none");
 				$(".parti_nameSpan").css("display", "none");
 				$(".fileSpan").css("display", "none");
 				var parti_nameSpan = $(".parti_name").val();
@@ -39,10 +40,25 @@
 					$(".fileSpan").css("display", "inline");
 					return false;
 				}
+				var fileAllowedType = new Array(".jpg", ".jpeg", ".png");
+				var fileType = fileSpan.substring(fileSpan.lastIndexOf(".")).toLowerCase();
+				var status = 0;
+				
+				for(var i=0;i<fileAllowedType.length;i++){
+					if(fileType == fileAllowedType[i]){
+						status = 1;
+					}
+				}
+				
+				if(status == 0){
+					alert("您不能上传非法文件类型！！！！");
+					$(".fileSpanType").css("display", "inline");
+					$(".file").val(""); 
+					return false;
+				}
 				return true;
 			});
 		});
-			
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>添加参评人员信息</title>
@@ -110,6 +126,7 @@
     <div class="col-lg-1 col-md-2 col-xs-2">
     	<input class="file btn btn-primary" type="file" name="image">
     	<span class="fileSpan" style="display:none;color:red;font-size:20px;">请务必上传您的个人信息！！！</span><br/>
+    	<span class="fileSpanType" style="display:none;color:red;font-size:20px;">请上传*.png, *.jpg, *.jpeg类型图片</span><br/>
      <!--  <button class="btn btn-primary" type="button" >选择文件</button> -->
    </div>
    <div class="col-lg-2  col-md-2 col-xs-2">
