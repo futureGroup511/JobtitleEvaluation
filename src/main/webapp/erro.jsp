@@ -7,6 +7,6 @@
 <title>成功页面</title>
 </head>
 <body>
-	操作失败了！
+	操作失败了，请联系管理员！
 </body>
 </html>

@@ -31,7 +31,12 @@
 		<default-interceptor-ref name="sshStack"></default-interceptor-ref>
 			 <global-results >
  		   	 	<result name="loginLy" type="redirect">loginAction_loginOut</result>
+ 				<result name="error">error.jsp</result>
  			</global-results>
+ 			<!-- 定义全局异常映射 --> 
+			<global-exception-mappings> 
+				<exception-mapping result="error" exception="java.lang.Exception"> </exception-mapping> 
+			</global-exception-mappings>
 	    	<!-- 配置默认 paramsPrepareParam 拦截器栈 -->
 	    	<!-- <default-interceptor-ref name="paramsPrepareParamsStack"></default-interceptor-ref> -->
 	    <action name="loginAction_*" method="{1}" class="loginAction">

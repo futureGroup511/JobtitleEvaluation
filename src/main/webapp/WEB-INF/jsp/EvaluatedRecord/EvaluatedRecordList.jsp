@@ -63,44 +63,44 @@
 									<c:when test="${allAssessment eq '30' }">
 										<option >请选择</option>
 										<option value="优" selected="selected">A、优(30)</option>
-										<option value="良">B、良(20)</option>
-										<option value="中">C、中(10)</option>
-										<option value="差">D、差(0)</option>
+										<option value="良">B、良</option>
+										<option value="中">C、中</option>
+										<option value="差">D、差</option>
 									</c:when>
 									<c:when test="${allAssessment eq '20' }">
 										<option >请选择</option>
-										<option value="优">A、优(30)</option>
+										<option value="优">A、优</option>
 										<option value="良" selected="selected">B、良(20)</option>
-										<option value="中">C、中(10)</option>
-										<option value="差">D、差(0)</option>
+										<option value="中">C、中</option>
+										<option value="差">D、差</option>
 									</c:when>
 									<c:when test="${allAssessment eq '10' }">
 										<option >请选择</option>
-										<option value="优">A、优(30)</option>
-										<option value="良">B、良(20)</option>
-										<option value="中" selected="selected">C、中(10)</option>
-										<option value="差">D、差(0)</option>
+										<option value="优">A、优</option>
+										<option value="良">B、良</option>
+										<option value="中" selected="selected">C、中</option>
+										<option value="差">D、差</option>
 									</c:when>
 									<c:when test="${allAssessment eq '0' }">
 										<option >请选择</option>
-										<option value="优">A、优(30)</option>
-										<option value="良">B、良(20)</option>
-										<option value="中">C、中(10)</option>
-										<option value="差" selected="selected">D、差(0)</option>
+										<option value="优">A、优</option>
+										<option value="良">B、良</option>
+										<option value="中">C、中</option>
+										<option value="差" selected="selected">D、差</option>
 									</c:when>
 									<c:otherwise>
 										<option selected="selected">请选择</option>
-										<option value="优">A、优(30)</option>
-										<option value="良">B、良(20)</option>
-										<option value="中">C、中(10)</option>
-										<option value="差">D、差(0)</option>
+										<option value="优">A、优</option>
+										<option value="良">B、良</option>
+										<option value="中">C、中</option>
+										<option value="差">D、差</option>
 									</c:otherwise>
 								</c:choose>
 						</select>
-		           		<button>确定</button>
+		           		<button class="btn btn-primary btn-lg">确定</button>
 			        </th>
 			        <s:if test="#session.role.findSelfName =='superManager'">
-			        	<th><a href="evaluatedrecord_statisticByExpert" class="btn btn-primary btn-lg">返回</a></th>
+			        	<th><a href="evaluatedrecord_statisticByExpert" class="btn btn-info btn-lg">返回</a></th>
 			        </s:if>
 	        </tr>
         </table>
@@ -153,7 +153,6 @@
 	   </tbody>
     </table>
   </div>
-  
   <div class="container">
       <div class="row">
            <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-xs-5 col-xs-offset-2">
@@ -161,7 +160,14 @@
                    <ul class="pagination">
                      <li><a href="javascript:gotoPage(1)">首页</a></li>
 		            <li><a href="javascript:gotoPage(${requestScope.pageBean.currentPage }-1)">上一页</a></li>
-		            <li><a href="#">${requestScope.pageBean.currentPage }/${requestScope.pageBean.pageCount }</a></li>
+		            <c:choose>
+		            	<c:when test="${requestScope.pageBean.pageCount le 0}">
+		            		<li><a href="#">${requestScope.pageBean.currentPage }/1</a></li>
+		            	</c:when>
+		            	<c:otherwise>
+		            		<li><a href="#">${requestScope.pageBean.currentPage }/${requestScope.pageBean.pageCount }</a></li>
+		            	</c:otherwise>
+		            </c:choose>
 		            <li><a href="javascript:gotoPage(${requestScope.pageBean.currentPage }+1)">下一页</a></li>
 		            <li><a href="javascript:gotoPage(${requestScope.pageBean.pageCount })">尾页</a></li>
                    </ul>
@@ -169,7 +175,6 @@
             </div>
      </div>
 </div>
-
 </body>
 <script type="text/javascript">
 	function gotoPage(pageNum){
