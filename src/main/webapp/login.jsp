@@ -37,7 +37,7 @@
 	        		  <div class="input-group">
 	            		  <div class="input-group-addon"><span>身份</span></div>
 	    		               <select name="role" class="form-control input-lg">
-				                     <option value="1">审评人员</option>
+				                     <option value="1">专家</option>
 									 <option value="2">管理员</option>
 	             			</select>
 	            	   </div>

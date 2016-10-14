@@ -192,7 +192,7 @@ function queryCompeName(obj){
 	</table>
 </div>
 <div class="row">
-      <div class="col-lg-1 col-lg-offset-11 col-md-1 col-md-offset-11 col-xs-1 col-xs-offset-11">
+      <div class="col-lg-1 col-lg-offset-11 col-md-1 col-md-offset-11 col-xs-1 col-xs-offset-11" style="margin-top:20px; width:10%;">
           <!--  <button class="btn btn-primary" type="button" >提交</button> -->
            <s:submit class="btn btn-primary" value="提交"></s:submit>
        </div>

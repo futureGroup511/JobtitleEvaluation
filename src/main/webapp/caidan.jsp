@@ -20,11 +20,20 @@
 	
 	
 </script>
+<style type="text/css">
+	dl > dt{
+		font-size:15px;
+	}
+</style>
 </head>
 <body id="bg">
 	<div class="container">
     <div class="leftsidebar_box">
         <div class="line"></div>
+        	
+        		 <%--
+	           	 专家
+	           	  --%>	
         	
         	<s:if test="#session.role.findSelfName() == 'expert'">
 	        	<dl class="channel">
@@ -32,12 +41,12 @@
 	        		<!-- <dd><a href="expert_allEvaluaTeacher" target="right">教职工评审</a></dd> -->
 	        	</dl>
 	        	<dl>
-	        		<dt><a style="color:white" href="expert_lookInformation" target="right">查看个人信息</a></dt>
-	        		<!-- <dd><a href="expert_lookInformation" target="right">个人信息</a></dd> -->
-	        	</dl>
-	        	<dl>
 	        		<dt><a style="color:white" href="evaluatedrecord_statisticByExpert" target="right">查看已评审参评信息</a></dt>
 	        		<!-- <dd><a href="evaluatedrecord_statisticByExpert" target="right">按指定专家统计</a></dd> -->
+	        	</dl>
+	        	<dl style=”font-size:15px;">
+	        		<dt><a style="color:white" href="expert_lookInformation" target="right">查看个人信息</a></dt>
+	        		<!-- <dd><a href="expert_lookInformation" target="right">个人信息</a></dd> -->
 	        	</dl>
 	        	<dl>
         			
@@ -58,22 +67,78 @@
 	           	 	<dt>参评人员管理<img src="images/select_xl01.png"></dt>
 	           	 	<dd><a href="super_deleteInformation">删除参评人员数据和记录</a></dd> --%>
 	           	 	
+	           	 <%--
+	           			 管理员
+	           	  --%>	
 	           	 	
         	<s:if test="#session.role.findSelfName() == 'superManager'">
-        		<dl class="channel">
-	           		<dt><a href="expert_manageExpertInfoList" target="right" style="color:white;">专家管理<img src="images/select_xl01.png"></a></dt>
-	           		<!-- <dd><a href="expert_manageExpertInfoList" target="right">专家信息管理</a></dd> -->
-	           	</dl>
-	           	 <dl class="channel">
-	           	 	<dt>参评人员信息管理<img src="images/select_xl01.png"></dt>
-	           	 	<dd><a href="participated_manageParticipatedPerson" target="right">管理参评人员信息</a></dd>
-	           	 	<dd><a href="participated_incrementParticipatedPerson" target="right">添加参评人员信息</a></dd>
+        	
+        	 	 <dl class="channel" style="font-size:15px;">
+	           	 	<dt>基本信息管理<img src="images/select_xl01.png"></dt>
+		           	 	<dd><a href="expert_manageExpertInfoList" target="right" style="color:white;">专家管理<img src="images/select_xl01.png"></a></dd>
+		           	 	
+		           	 	<dd><a href="participated_manageParticipatedPerson" target="right">参评人员信息管理</a></dd>
+		           	 	<dd><a href="participated_incrementParticipatedPerson" target="right">添加参评人员信息</a></dd>
+		           	 	
+		           	 	<dd><a style="color:white;" href="super_deleteInformation" onclick="return juge();">清空参评人相关信息</a></dd>
 	           	 </dl>
-	           	<!--  <dl class="channel">
+	           	 
+        		 <dl class="channel">
+	           	 	<dt>职称管理<img src="images/select_xl01.png"></dt>
+	           	 	<dd><a href="jobTitleStandard_manageJobTitleStandard" target="right">管理职称申报标准信息</a></dd>
+	           	 	<dd><a href="jobTitle_page_s?page_s.currentPage=1" target="right">查看/管理职称</a></dd>
+	           	 	<dd><a href="jobTitle_add" target="right">增加职称</a></dd>
+	           	 </dl>
+	           	 
+        		 <dl class="channel">
+	            	<dt>单位管理<img src="images/select_xl01.png" ></dt>
+	            	<dd><a href="unit_page_s?page_s.currentPage=1" target="right">查看/管理单位</a></dd>
+	           	 	<dd><a href="unit_add" target="right">增加单位</a></dd>
+	            </dl>
+	            
+	            <dl class="channel">
+	            	<dt>专业管理<img src="images/select_xl01.png"></dt>
+	            	<dd><a href="specialty_page_s?page_s.currentPage=1" target="right">查看/管理专业</a></dd>
+	           	 	<dd><a href="specialty_add" target="right">增加专业</a></dd>
+	            </dl>
+        		 <dl>
+	            	<dt><a style="color:white;" href="expert_bashRegisterExpert" target="right">批量录入专家信息</a></dt>
+	            </dl>
+        		<dl>
+	           	 	<dt>审评记录统计<img src="images/select_xl01.png"></dt>
+	             	<dd><a style="color:white;" href="statistic_statisticAll" target="right">参评人员结果</a></dd>
+	             	<dd><a style="color:white;" href="evaluatedrecord_findAllRecord" target="right">专家审评结果</a></dd>
+	             </dl>
+	             <dl>
+	           	 	<dt>排名统计<img src="images/select_xl01.png"></dt>
+	             	<dd><a href="statistic_viewBySpecialty" target="right">根据专业统计</a></dd>
+	             	<dd><a href="statistic_viewByUnit" target="right">根据单位统计</a></dd>
+	             </dl>
+        		<dl>
+        			<dt>个人相关<img src="images/select_xl01.png"></dt>
+	            	<dt><a style="color:white;" href="super_lookInformation" target="right">查看个人信息</a></dt>
+	            	<dd><a style="color:white;"href="super_modifyInformationView" target="right">修改个人密码</a></dd>
+	            </dl>
+        		</s:if>
+        		
+        		
+        		
+        		
+        		
+        		<!--  <dl class="channel">
+	           		<dt><a href="expert_manageExpertInfoList" target="right" style="color:white;">专家管理<img src="images/select_xl01.png"></a></dt>
+	           		<dd><a href="expert_manageExpertInfoList" target="right">专家信息管理</a></dd>
+	           	</dl>
+	           	 <dl class="channel" style="font-size:15px;">
+	           	 	<dt>参评人员信息管理<img src="images/select_xl01.png"></dt>
+	           	 	<dd><a href="participated_manageParticipatedPerson" target="right">参评人员信息管理</a></dd>
+	           	 	<dd><a href="participated_incrementParticipatedPerson" target="right">增添参评人员</a></dd>
+	           	 </dl>
+	           	 <dl class="channel">
 	           	 	<dt>邀请码管理<img src="images/select_xl01.png"></dt>
 	           	 	<dd><a href="super_generateRequestCode" target="right">生成邀请码</a></dd>
 	          		<dd><a href="super_showRequestCode" target="right">查看当前邀请码</a></dd>
-	           	 </dl> -->
+	           	 </dl>
 	           	 <dl class="channel">
 	           	 	<dt>职称管理<img src="images/select_xl01.png"></dt>
 	           	 	<dd><a href="jobTitleStandard_manageJobTitleStandard" target="right">管理职称申报标准信息</a></dd>
@@ -92,7 +157,6 @@
 	            </dl>
 	           	 <dl class="channel">
 	           	 	<dt><a style="color:white;" href="super_deleteInformation" onclick="return juge();">清空参评人相关信息<img src="images/select_xl01.png"></a></dt>
-	           	 	<!-- <dd><a href="super_deleteInformation" onclick="return juge();">清空参评人员有关信息</a></dd> -->
 	           	 </dl>
 	           	 <dl>
 	           	 	<dt>统计<img src="images/select_xl01.png"></dt>
@@ -100,7 +164,6 @@
 	             	<dd><a style="color:white;" href="evaluatedrecord_findAllRecord" target="right">专家审评所有记录</a></dd>
 	             	<dd><a href="statistic_viewBySpecialty" target="right">根据专业统计</a></dd>
 	             	<dd><a href="statistic_viewByUnit" target="right">根据单位统计</a></dd>
-	             	<!-- <dd><a style="color:white;" href="statistic_statisticAll" target="right">统计所有</a></dd> -->
 	             </dl>
 	             
         		<dl>
@@ -108,12 +171,12 @@
 	            </dl>
 	            <dl>
 	            	<dt><a style="color:white;" href="expert_bashRegisterExpert" target="right">批量录入专家信息</a></dt>
-	            	</dl>
-        		 </dl>
+	            </dl>
         		<dl>
 	            	<dd><a  style="color:white;"href="super_modifyInformationView" target="right">修改个人密码</a></dd>
 	            </dl>
-        	</s:if>
+	            
+	             -->
             
            <!--  <dl class="channel">
 	            	<dt>退出登陆<img src="images/select_xl01.png" ></dt>
@@ -130,12 +193,13 @@
 	             	<dt>统计<img src="images/select_xl01.png"></dt>
 	             	<dd><a href="statistic_statisticAll" target="right">统计所有</a></dd>
 	            	<dd><a href="evaluatedrecord_statisticByExpert" target="right">按指定专家统计</a></dd>
-	             </dl> -->
+	             </dl> 
+			        -->
 	             
-       <dl class="channel">
-           	<dt><a style="color:white" href="loginAction_loginOut" target="_top">退出登陆</a></dt>
-           	<!-- <dd><a href="loginAction_loginOut" target="_top">退出登陆</a></dd> -->
-        </dl>
+	       	<dl class="channel">
+	           	<dt><a style="color:white" href="loginAction_loginOut" target="_top">退出登陆</a></dt>
+	        </dl>
+	        
     </div>
 </div>
 <script type="text/javascript">
