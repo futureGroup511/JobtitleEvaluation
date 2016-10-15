@@ -214,7 +214,7 @@ if(httpServletRequest.getMethod()=="GET"){
 			requestMap.put("currentPage", 1);
 		}
 		*/
-		Integer pageSize = 2;
+		Integer pageSize = 8;
 		Integer recordCount = evaluatedRecordService.getRecordByCondition(participatedId, familiarStatus, evalRecor_allAssessment).size();
 		Page_S pageBean = new Page_S(currentPage, pageSize, recordCount, null);
 		List<EvaluatedRecord> recordList = evaluatedRecordService.getRecordByCondition(participatedId, familiarStatus, evalRecor_allAssessment, pageBean);

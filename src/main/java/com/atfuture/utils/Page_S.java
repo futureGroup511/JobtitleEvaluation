@@ -98,7 +98,7 @@ public class Page_S {
 	 */
 	public static Page_S getDefaultInstace(){
 		Page_S page=Page_S.newInstance();
-		page.setPageSize(2);
+		page.setPageSize(8);
 		return page;
 	}
 	
