@@ -22,12 +22,10 @@
 <body>
 	<div class="container">
 	  <div class="row">
-	    <div class="col-lg-1 col-lg-offset-1 col-md-1 col-lg-offset-1  col-xs-1 col-xs-offset-1">
-	        </div>
-	        <div class="col-lg-3 col-lg-offset-5 col-md-3 scol-md-offset-5 col-xs-3  col-xs-offset-5">
+	        <div class="col-lg-3 col-lg-offset-3 col-md-3 scol-md-offset-3 col-xs-3  col-xs-offset-3">
 	            <p><strong>前位置：审评人员服务>>审评</strong></p>
 	        </div>
-	        <div class="col-lg-2 col-md-2 col-xs-2">
+	        <div class="col-lg-4 col-md-4 col-xs-4">
 	            <p><strong>欢迎   <s:property value="#session.role.helloName()"/>  登录本系统  </strong></p>
 	        </div>
 	  </div>
@@ -44,7 +42,7 @@
 						<td>
 							<c:choose>
 							<c:when test="${(fn:endsWith( person.parti_pathurl,'.jpg') or fn:endsWith( person.parti_pathurl,'.png'))}">
-								<a href="#" onclick="return go('${pageContext.request.contextPath}/participated_lookPicture?parti_pathurl=${person.parti_pathurl}')" class="btn btn-primary btn-lg">显示图片</a>
+								<a href="#" onclick="return go('${pageContext.request.contextPath}/participated_lookPicture?parti_pathurl=${person.parti_pathurl}')" class="btn btn-primary btn-lg">显示评审简表</a>
 							</c:when>
 							<c:when test="${empty person.parti_pathurl}">
 								<p class="text text-danger">资料不存在</p>
@@ -54,7 +52,7 @@
 							</c:otherwise>
 							</c:choose>
 							<c:if test="${!empty person.parti_pathurl }">
-								<a href="#" onclick="return popWinGD('${pageContext.request.contextPath}/participated_lookResource?parti_pathurl=${person.parti_pathurl}')" class="btn btn-primary btn-lg">下载文件</a>
+								<a href="#" onclick="return popWinGD('${pageContext.request.contextPath}/participated_lookResource?parti_pathurl=${person.parti_pathurl}')" class="btn btn-primary btn-lg">下载评审简表</a>
 							</c:if>
 						</td>
 					</tr>

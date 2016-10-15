@@ -47,9 +47,9 @@
 </div> 
 <div style="margin-left:60px;margin-top:40px"> 
 			<Strong>当前参评人姓名：:<s:property value="#request.participatedPerson.parti_name"/></Strong>, 
-			<Strong>A类专家评论得分: <s:property value="#request.statistics.sta_AScored"/></Strong>,
-			<Strong>B类专家评论得分:<s:property value="#request.statistics.sta_BScored"/></Strong>,
-			<Strong>C类专家评论得分: <s:property value="#request.statistics.sta_CScored"/></Strong>,
+			<Strong>A类专家平均得分: <s:property value="#request.statistics.sta_AScored"/></Strong>,
+			<Strong>B类专家平均得分:<s:property value="#request.statistics.sta_BScored"/></Strong>,
+			<Strong>C类专家平均得分: <s:property value="#request.statistics.sta_CScored"/></Strong>,
 			<Strong>合计总得分: <s:property value="#request.statistics.sta_AllScored"/></Strong>,
 </div>
 <div class="container">

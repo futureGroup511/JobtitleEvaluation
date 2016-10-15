@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ 	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -20,10 +20,10 @@
 
 	<div class="container">
 		<div class="row">
-	        <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
+	        <div class="col-lg-5 col-lg-offset-3 col-md-5 col-md-offset-3 col-xs-5 col-xs-offset-3">
 	            <p><strong>当前位置：参评人服务>>教职工评教</strong></p>
 	        </div>
-	        <div class="col-lg-2 col-md-2 col-xs-2">
+	        <div class="col-lg-3 col-md-3 col-xs-3">
 	            <p><strong>欢迎  <s:property value="#session.role.helloName()"/>  登录本系统</strong></p>
 	        </div>
   		</div>
@@ -37,7 +37,7 @@
 				<th>申报专业</th>
 				<th>申报职称</th>
 				<th>推荐单位</th>
-				<th>评教</th>
+				<th>评审</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -48,7 +48,7 @@
 						<td>${person.parti_specialty.spec_name}</td>
 						<td>${person.parti_jobTitle.jobTi_name}</td>
 						<td>${person.parti_recommendUnit.uni_name}</td>
-						<td><a href="expert_assess?person.parti_id=${person.parti_id}">审评</a></td>
+						<td><a href="expert_assess?person.parti_id=${person.parti_id}">评审</a></td>
 					</tr>
 				</c:forEach>
 		</tbody>

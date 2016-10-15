@@ -118,7 +118,7 @@ public class UnitAction extends BaseAction<Unit> {
 		if(page_s.getCurrentPage()==null||page_s.getCurrentPage()==0){
 			page_s.setCurrentPage(1);
 		}
-		page_s.setPageSize(3);
+		page_s.setPageSize(8);
 		Page_S ps=unitService.page_s(page_s);
 		this.getRequest().setAttribute("page_s",ps);
 		return "page_sSuccess";

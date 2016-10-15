@@ -40,7 +40,9 @@ public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> impleme
 		String sql = "from EvaluatedRecord evaluatedRecord where evaluatedRecord.evalRecor_expart.exp_id = :exp_id";
 		@SuppressWarnings("unchecked")
 		List<EvaluatedRecord> evaluatedRecordList = getSession().createQuery(sql).setParameter("exp_id", exp_id)
-																			.list();
+																	.setFirstResult((page.getCurrentPage()-1)*page.getPageSize())
+																			.setMaxResults(page.getPageSize())
+																				.list();
 		System.out.println(evaluatedRecordList);
 		return evaluatedRecordList;
 	}
@@ -145,9 +147,9 @@ public class EvaluatedRecordDaoImpl extends BaseDaoImpl<EvaluatedRecord> impleme
 	}
 	public Page_S findByExpertUnitAndSpecialtyAndAllassessment(Expert expert,Page_S page,List<ParticipatedPerson> persons,String allassessment) {
 		Criteria criteria=getSession().createCriteria(EvaluatedRecord.class);
-		if(expert==null) return null; //如果专家为空则所有条件不成立
+		if(expert==null||persons.size()==0) return null; //如果专家为空则所有条件不成立
 		if(!allassessment.equals("请选择"))criteria.add(Restrictions.eq("evalRecor_allAssessment", allassessment));
-		criteria.add(Restrictions.eq("evalRecor_expart", expert));
+		criteria.add(Restrictions.eq("evalRecor_expart.exp_id", expert.getExp_id()));
 		//集合为空的时候说明只是查询了此专家的审评记录，为零的时候说明与这个专家相同的专业和单位相同的人员不存在所以结果为0
 		if(persons!=null) criteria.add(Restrictions.in("evalRecor_participatedPerson",persons));
 		getPageByCriteriaSet(criteria, page);

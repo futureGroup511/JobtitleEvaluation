@@ -41,7 +41,7 @@ public class ExpertDaoImpl extends BaseDaoImpl<Expert> implements ExpertDao {
 	public Expert findByname(String name) {
 		String hql="from Expert e where e.exp_name=?";
 		List<Expert> experts= getSession().createQuery(hql).setParameter(0, name).list();
-		return experts.get(0);
+		return experts.size()==0?null:experts.get(0);
 	}
 
 	public String getMaxAccountNum() {

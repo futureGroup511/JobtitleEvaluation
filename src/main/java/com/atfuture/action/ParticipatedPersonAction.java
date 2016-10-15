@@ -47,7 +47,7 @@ public class ParticipatedPersonAction extends BaseAction<ParticipatedPerson> imp
 	//管理参评人员信息 分页查询
 	public String manageParticipatedPerson(){
 		Integer recordCount = participatedPersonService.getAllParticipatedPerson().size();
-		Integer pageSize = 2;
+		Integer pageSize = 8;
 		if(currentPage == null || (currentPage+"").trim() == ""){
 			currentPage = 1;
 		}
@@ -162,7 +162,7 @@ if(httpServletRequest.getMethod()=="GET"){
 		e.printStackTrace();
 	}
 }
-		Integer pageSize = 2;
+		Integer pageSize = 8;
 		statisticList= participatedPersonService.getParticipatedPersonByName(participatedPersonName);
 		Integer recordCount = statisticList.size();
 		Page_S pageBean = new Page_S(currentPage, pageSize, recordCount, null);
@@ -214,7 +214,7 @@ if(httpServletRequest.getMethod()=="GET"){
 			requestMap.put("currentPage", 1);
 		}
 		*/
-		Integer pageSize = 2;
+		Integer pageSize = 8;
 		Integer recordCount = evaluatedRecordService.getRecordByCondition(participatedId, familiarStatus, evalRecor_allAssessment).size();
 		Page_S pageBean = new Page_S(currentPage, pageSize, recordCount, null);
 		List<EvaluatedRecord> recordList = evaluatedRecordService.getRecordByCondition(participatedId, familiarStatus, evalRecor_allAssessment, pageBean);

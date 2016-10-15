@@ -62,7 +62,7 @@
 								<c:choose>
 									<c:when test="${allAssessment eq '30' }">
 										<option >请选择</option>
-										<option value="优" selected="selected">A、优(30)</option>
+										<option value="优" selected="selected">A、优</option>
 										<option value="良">B、良</option>
 										<option value="中">C、中</option>
 										<option value="差">D、差</option>
@@ -70,7 +70,7 @@
 									<c:when test="${allAssessment eq '20' }">
 										<option >请选择</option>
 										<option value="优">A、优</option>
-										<option value="良" selected="selected">B、良(20)</option>
+										<option value="良" selected="selected">B、良</option>
 										<option value="中">C、中</option>
 										<option value="差">D、差</option>
 									</c:when>
