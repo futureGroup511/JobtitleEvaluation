@@ -118,7 +118,9 @@
        			<td></td>
        		</tr>
 	      <tr>  
-	      	 <th>专家姓名</th>
+	      <s:if test="#session.role.findSelfName =='superManager'">
+	      	<th>专家姓名</th>
+	      </s:if>
 	         <th>参评人姓名</th>
 	         <th>参评人申报专业</th>
 	         <th>参评人申报职称</th>
@@ -135,7 +137,9 @@
        <s:if test="#request.pageBean.recordlist != null && #request.pageBean.recordlist.size() > 0">
 	       <s:iterator value="#request.pageBean.recordlist" var="evaluatedRecord">
 			<tr>
-				<td>${evaluatedRecord.evalRecor_expart.exp_name}</td>
+				<s:if test="#session.role.findSelfName =='superManager'">
+					<td>${evaluatedRecord.evalRecor_expart.exp_name}</td>
+				</s:if>
 				<td>${evaluatedRecord.evalRecor_participatedPerson.parti_name}</td>
 				<td>${evaluatedRecord.evalRecor_participatedPerson.parti_specialty.spec_name}</td>
 				<td>${evaluatedRecord.evalRecor_participatedPerson.parti_jobTitle.jobTi_name}</td>
