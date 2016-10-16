@@ -1,5 +1,6 @@
 package com.atfuture.domain;
 
+import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 
@@ -74,12 +75,21 @@ public class Statistics {
 		
 	}
 	
+	public float changeFloat(float data){
+		int scale = 2;//设置位数 
+		int roundingMode = 4;//表示四舍五入，可以选择其他舍值方式，例如去尾，等等. 
+		BigDecimal bd = new BigDecimal((double)data); 
+		bd = bd.setScale(scale,roundingMode); 
+		return bd.floatValue();
+	}
+	
 	public void setScoredByTypes(List<Object[]> result){
 		Iterator<Object[]> iterator=result.iterator();
 		while(iterator.hasNext()){
 			Object[] objects=iterator.next();
 			String type=String.valueOf(objects[1]);
 			float scored=Float.valueOf(objects[0].toString());
+			scored=changeFloat(scored);
 			if(type.equals(AITEMS)) this.setSta_AScored(scored);
 			else if(type.equals(BITEMS)) this.setSta_BScored(scored);
 			else if(type.equals(CITEMS)) this.setSta_CScored(scored);

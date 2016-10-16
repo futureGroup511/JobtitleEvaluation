@@ -42,21 +42,22 @@
            		<c:choose>
            			<c:when test="${choose eq 'specialty'}">
            			同单位参评人员:<input   type="checkbox" name="expert.exp_unit.uni_id" value="${expert.exp_unit.uni_id }" class="from-control ">
-           			同专业参评人员:<input   checked="checked" type="checkbox" name="expert.exp_specialty.spec_id" value="${expert.exp_specialty.spec_id }" class="from-control">
+           			&nbsp;&nbsp;&nbsp;同专业参评人员:<input   checked="checked" type="checkbox" name="expert.exp_specialty.spec_id" value="${expert.exp_specialty.spec_id }" class="from-control">
            		</c:when>
            		<c:when test="${choose eq 'unit'}">
            			同单位参评人员:<input  checked="checked" type="checkbox" name="expert.exp_unit.uni_id" value="${expert.exp_unit.uni_id }" class="from-control ">
-           			同专业参评人员:<input   type="checkbox" name="expert.exp_specialty.spec_id" value="${expert.exp_specialty.spec_id }" class="from-control">
+           			&nbsp;&nbsp;&nbsp;同专业参评人员:<input   type="checkbox" name="expert.exp_specialty.spec_id" value="${expert.exp_specialty.spec_id }" class="from-control">
            		</c:when>
            		<c:when test="${choose eq 'all'}">
            			同单位参评人员:<input  checked="checked" type="checkbox" name="expert.exp_unit.uni_id" value="${expert.exp_unit.uni_id }" class="from-control ">
-           			同专业参评人员:<input  checked="checked" type="checkbox" name="expert.exp_specialty.spec_id" value="${expert.exp_specialty.spec_id }" class="from-control">
+           			&nbsp;&nbsp;&nbsp;同专业参评人员:<input  checked="checked" type="checkbox" name="expert.exp_specialty.spec_id" value="${expert.exp_specialty.spec_id }" class="from-control">
            		</c:when>
            		<c:otherwise>
            			同单位参评人员:<input  type="checkbox" name="expert.exp_unit.uni_id" value="${expert.exp_unit.uni_id }" class="from-control ">
-           			同专业参评人员:<input  type="checkbox" name="expert.exp_specialty.spec_id" value="${expert.exp_specialty.spec_id }" class="from-control">
+           			&nbsp;&nbsp;&nbsp;同专业参评人员:<input  type="checkbox" name="expert.exp_specialty.spec_id" value="${expert.exp_specialty.spec_id }" class="from-control">
            		</c:otherwise>
            		</c:choose>
+           		&nbsp;&nbsp;&nbsp;
            		总评得分:<select name="evalRecor_allAssessment" class="from-control">
 								<c:choose>
 									<c:when test="${allAssessment eq '30' }">

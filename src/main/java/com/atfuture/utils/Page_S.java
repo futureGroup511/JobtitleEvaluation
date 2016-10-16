@@ -7,7 +7,7 @@ public class Page_S {
 	private Integer currentPage; //当前页
 	private Integer pageSize;// 显示记录
 	private Integer recordCount; //查询总记录数
-	private List recordlist;    //查询出来所需要的数据
+	private List<?> recordlist;    //查询出来所需要的数据
 	
 	private Integer endPageIndex; //尾页
 	private Integer beginPageIndex; //首页

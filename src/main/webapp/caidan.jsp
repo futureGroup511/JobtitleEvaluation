@@ -76,11 +76,12 @@
         	 	 <dl class="channel" style="font-size:15px;">
 	           	 	<dt>基本信息管理<img src="images/select_xl01.png"></dt>
 		           	 	<dd><a href="expert_manageExpertInfoList" target="right" style="color:white;">专家管理</a></dd>
-		           	 	
+		           	 	<dd><a style="color:white;" href="expert_bashRegisterExpert" target="right">批量录入专家信息</a></dd>
 		           	 	<dd><a href="participated_manageParticipatedPerson" target="right">参评人员信息管理</a></dd>
 		           	 	<dd><a href="participated_incrementParticipatedPerson" target="right">添加参评人员信息</a></dd>
 		           	 	
 		           	 	<dd><a style="color:white;" href="super_deleteInformation" onclick="return juge();">清空参评人相关信息</a></dd>
+	           	 		
 	           	 </dl>
 	           	 
         		 <dl class="channel">
@@ -101,9 +102,7 @@
 	            	<dd><a href="specialty_page_s?page_s.currentPage=1" target="right">查看/管理专业</a></dd>
 	           	 	<dd><a href="specialty_add" target="right">增加专业</a></dd>
 	            </dl>
-        		 <dl>
-	            	<dt><a style="color:white;" href="expert_bashRegisterExpert" target="right">批量录入专家信息</a></dt>
-	            </dl>
+	            	
         		<dl>
 	           	 	<dt>审评记录统计<img src="images/select_xl01.png"></dt>
 	             	<dd><a style="color:white;" href="statistic_statisticAll" target="right">参评人员结果</a></dd>

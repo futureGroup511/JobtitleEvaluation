@@ -68,11 +68,13 @@ public class SuperManagerAction extends BaseAction<SuperManager> implements Requ
 	}
 	public String deleteInformation(){
 		String path=ServletActionContext.getServletContext().getRealPath("UploadFile");
+		if(path==null||path.equals("")) {
+			participatedPersonService.deleteAll();
+			return "deleteInformation";
+		}
 		File file=new File(path);
         File[] files=file.listFiles();
-        for (File f:files){
-        	if(f.exists()) f.delete();
-        }
+        if(files!=null) for(File f:files){ if(f.exists()) f.delete(); } 
 		participatedPersonService.deleteAll();
 		return "deleteInformation";
 	}

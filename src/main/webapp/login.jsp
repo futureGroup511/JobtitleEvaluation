@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>登陆页面</title>
+<link  rel=”Shortcut Icon” href="images/zx1.ico">
+<link rel="icon" href="images/zx1.ico" type="image/x-icon" />
 <script type="text/javascript">
 	if(window!=window.parent){
 		parent.location.href='login.jsp';
@@ -61,8 +63,8 @@
     </div>
 </form>
 <div id="footer">
-    	<p class="zou" style="margin-left:45%;">版权所有&emsp;&emsp;河南科技学院人事处&emsp;&emsp;</br></p>
-    	<span class="zzou" style="margin-left:37%;">技术支持：河南科技学院未来软件工作室 河南艾未特网络技术有限公司 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+    	<p class="zou" style="margin-left:42%;">技术支持：河南科技学院未来软件工作室</br></p>
+    	<span class="zzou" style="margin-left:43.5%;"> 河南艾未特网络技术有限公司 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
 
     </div>
 </body>
