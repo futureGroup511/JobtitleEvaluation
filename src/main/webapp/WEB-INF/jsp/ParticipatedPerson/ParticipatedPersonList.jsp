@@ -19,7 +19,7 @@
 	<div class="container">
 	  <div class="row">
 	        <div class="col-lg-3 col-lg-offset-5 col-md-5 col-md-offset-2 col-xs-6">
-	            <p><strong>当前位置：管理员>>参评人员信息管理</strong></p>
+	            <p><strong>当前位置：管理员>>参评人员信息</strong></p>
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-xs-4">
 	            <p><strong>欢迎  <s:property value="#session.role.helloName()"/>登录本系统</strong></p>
