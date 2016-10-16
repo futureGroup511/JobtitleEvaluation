@@ -1,6 +1,5 @@
 package com.atfuture.dao.impl;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -69,7 +68,7 @@ public class StatisticsDaoImpl extends BaseDaoImpl<Statistics> implements Statis
 
 	public Page_S getByUnit(Page_S page_s,Unit unit) {
 		
-		String hql="from Statistics statistics order by statistics.sta_participatedPerson.parti_specialty, statistics.sta_AllScored desc";
+		String hql="from Statistics statistics order by statistics.sta_participatedPerson.parti_recommendUnit,statistics.sta_AllScored desc";
 		int temp=page_s.getCurrentPage()*page_s.getPageSize();
 		List<Statistics> list=this.findEntityByHQL(hql);
 		if(unit==null||"".equals(unit.getUni_id())||unit.getUni_id()<=0){

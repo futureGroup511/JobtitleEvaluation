@@ -32,7 +32,7 @@
 	    <table class="table table-bordered table-hover table-striped">
 	    	<thead>
 			<tr class="one">
-				<th>#</th>
+				<th>序号</th>
 				<th>姓名</th>
 				<th>申报专业</th>
 				<th>申报职称</th>
