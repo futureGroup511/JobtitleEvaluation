@@ -11,7 +11,29 @@
 	$(function() {
 		$(".btnSub").click(function(){
 			$(".parti_nameSpan").css("display", "none");
+			$(".fileSpanType").css("display", "none");
 			var parti_nameSpan = $(".parti_name").val();
+			var fileSpan = $(".file").val();
+			
+			var fileAllowedType = new Array(".jpg", ".jpeg", ".png");
+			if(fileSpan != null && fileSpan != ""){
+				var fileType = fileSpan.substring(fileSpan.lastIndexOf(".")).toLowerCase();
+				var status = 0;
+				
+				for(var i=0;i<fileAllowedType.length;i++){
+					if(fileType == fileAllowedType[i]){
+						status = 1;
+					}
+				}
+				
+				if(status == 0){
+					alert("您不能上传非法文件类型！！！！");
+					$(".fileSpanType").css("display", "inline");
+					$(".file").val(""); 
+					return false;
+				}
+			}
+			
 			if(parti_nameSpan == null || parti_nameSpan.trim() == ""){
 				$(".parti_nameSpan").css("display", "inline");
 				return false;
@@ -36,7 +58,7 @@
     </div>
 	</div>
 
-	<s:form action="participated_updateParticipatedPersonSuccess" method="post">
+	<s:form action="participated_updateParticipatedPersonSuccess" method="post" enctype="multipart/form-data">
 		<s:hidden name="currentPage" value="%{#request.currentPage}"></s:hidden>
 		<s:hidden name="parti_id" value="%{#request.participatedPerson.parti_id}"></s:hidden>
 		<s:hidden name="parti_pathurl" value="%{#request.participatedPerson.parti_pathurl}"></s:hidden>
@@ -83,7 +105,29 @@
                 </select> --%>
             </div>
      </div>
-     <div class="col-lg-2 col-lg-offset-7 col-md-2 col-md-offset-7  col-xs-2 col-xs-offset-7 ">
+     
+     
+     
+     
+     <div class="container" >
+    <div class="col-lg-2 col-lmd-offset-4 col-md-2 col-lmd-offset-1 col-xs-2 col-xs-offset-1">
+      <p>个人资料修改(若修改请上传，否则请留空)：</p>
+    </div>
+    <div class="col-lg-1 col-md-2 col-xs-2">
+    	<input class="file btn btn-primary" type="file" name="image">
+    	<span class="fileSpanType" style="display:none;color:red;font-size:20px;">请上传*.png, *.jpg, *.jpeg类型图片</span><br/>
+     <!--  <button class="btn btn-primary" type="button" >选择文件</button> -->
+   </div>
+   <div class="col-lg-2  col-md-2 col-xs-2">
+     <p><a href="#"></a></p>
+   </div>
+   <div class="col-lg-2 col-lg-offset-4 col-md-2 col-xs-offset-4 col-xs-2 col-xs-offset-4">
+    <!--  <button class="btn btn-primary" type="button" >提交</button> -->
+   </div>
+</div>
+
+
+	<div class="col-lg-2 col-lg-offset-7 col-md-2 col-md-offset-7  col-xs-2 col-xs-offset-7 ">     
       <div class="last">
      	<!-- <button type="button" class="btn btn-primary">确定</button> -->
 		<s:submit class="btnSub btn btn-primary" value="确定"></s:submit>

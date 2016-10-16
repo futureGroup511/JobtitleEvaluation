@@ -56,4 +56,10 @@ public class ExpertDaoImpl extends BaseDaoImpl<Expert> implements ExpertDao {
 							.executeUpdate();
 	}
 
+	public void resetPwdToNull(Integer exp_id) {
+		String sql = "update Expert expert set expert.exp_password = '' where expert.exp_id = :exp_id";
+		getSession().createQuery(sql).setParameter("exp_id", exp_id)
+							.executeUpdate();
+	}
+
 }

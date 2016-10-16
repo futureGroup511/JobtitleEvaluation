@@ -27,6 +27,8 @@ public interface ExpertDao extends BaseDao<Expert>{
 	public String getMaxAccountNum();
 	//重置密码
 	public void resetPwd(Integer exp_id);
+	//置空密码
+	public void resetPwdToNull(Integer exp_id);
 	
 	
 	

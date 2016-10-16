@@ -33,4 +33,21 @@ public class FileUpLoadUtils {
 		}
 		return null;
 	}
+
+	//把指定文件删除，并重新写入同名字的文件
+	public static String processUploadFile(File compeProgramFile, String compeProgramFileFileName, String imageContentType,	String realPath) {
+		System.out.println(realPath);
+		File file = new File(realPath);
+		if(file.exists()){
+			file.delete();
+		}
+		try {
+			FileUtils.copyFile(compeProgramFile, new File(realPath));
+		} catch (IOException e) {
+			System.out.println("文件复制发生错误");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }

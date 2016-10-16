@@ -235,6 +235,12 @@ System.out.println(accountNumExists);
 		return "RedirectToManageExpertInfo";
 	}
 	
+	//exp_id
+	public String forbidExpertReg(){
+		expertService.resetPwdToNull(exp_id);
+		return "RedirectToManageExpertInfo";
+	}
+	
 	public String getAccountNum() {
 		return accountNum;
 	}

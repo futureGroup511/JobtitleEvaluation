@@ -101,7 +101,14 @@ public class ParticipatedPersonAction extends BaseAction<ParticipatedPerson> imp
 		return "ToUpdateParticipatedPerson";
 	}
 	
+	
 	public String updateParticipatedPersonSuccess(){
+		//更新个人资料的文件
+		if(image != null){
+			String realPath = ServletActionContext.getServletContext().getRealPath(model.getParti_pathurl());
+			FileUpLoadUtils.processUploadFile(image, imageFileName, imageContentType, realPath);
+		}
+		
 		System.out.println(currentPage);
 		System.out.println(model);
 		participatedPersonService.updateParticipatedPerson(model);

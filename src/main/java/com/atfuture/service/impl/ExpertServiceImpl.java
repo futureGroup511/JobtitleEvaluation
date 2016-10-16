@@ -57,6 +57,10 @@ public class ExpertServiceImpl  implements ExpertService {
 	public void resetPwd(Integer exp_id) {
 		expertDao.resetPwd(exp_id);
 	}
+	public void resetPwdToNull(Integer exp_id) {
+		expertDao.resetPwdToNull(exp_id);
+		
+	}
 
 
 }

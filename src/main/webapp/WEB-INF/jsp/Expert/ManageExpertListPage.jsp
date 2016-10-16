@@ -38,6 +38,7 @@
          <th>所属单位</th>
          <th>专家学历</th>
          <th>重置密码</th>
+         <th>密码置空以禁用该专家</th>
          <th>查看/修改</th>
        </tr>
        </thead>
@@ -53,6 +54,9 @@
 				<td>${expert.exp_educationLevel}</td>
 				<td>
 					<a href="expert_updateExpertpwd?exp_id=${expert.exp_id }&currentPage=${currentPage}">重置密码</a>
+				</td>
+				<td>
+					<a href="expert_forbidExpertReg?exp_id=${expert.exp_id }&currentPage=${currentPage}">密码置空以禁用该专家</a>
 				</td>
 				<td>
 					<a href="expert_updateExpertInfoPage?exp_id=${expert.exp_id }&currentPage=${currentPage}">查看/修改</a>
