@@ -104,9 +104,9 @@
 	            </dl>
 	            	
         		<dl>
-	           	 	<dt>审评记录统计<img src="images/select_xl01.png"></dt>
+	           	 	<dt>评审记录统计<img src="images/select_xl01.png"></dt>
 	             	<dd><a style="color:white;" href="statistic_statisticAll" target="right">参评人员结果</a></dd>
-	             	<dd><a style="color:white;" href="evaluatedrecord_findAllRecord" target="right">专家审评结果</a></dd>
+	             	<dd><a style="color:white;" href="evaluatedrecord_findAllRecord" target="right">专家评审结果</a></dd>
 	             </dl>
 	             <dl>
 	           	 	<dt>排名统计<img src="images/select_xl01.png"></dt>
@@ -159,8 +159,8 @@
 	           	 </dl>
 	           	 <dl>
 	           	 	<dt>统计<img src="images/select_xl01.png"></dt>
-	             	<dd><a style="color:white;" href="statistic_statisticAll" target="right">专家审评统计</a></dd>
-	             	<dd><a style="color:white;" href="evaluatedrecord_findAllRecord" target="right">专家审评所有记录</a></dd>
+	             	<dd><a style="color:white;" href="statistic_statisticAll" target="right">专家评审统计</a></dd>
+	             	<dd><a style="color:white;" href="evaluatedrecord_findAllRecord" target="right">专家评审所有记录</a></dd>
 	             	<dd><a href="statistic_viewBySpecialty" target="right">根据专业统计</a></dd>
 	             	<dd><a href="statistic_viewByUnit" target="right">根据单位统计</a></dd>
 	             </dl>

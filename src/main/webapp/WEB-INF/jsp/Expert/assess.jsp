@@ -23,7 +23,7 @@
 	<div class="container">
 	  <div class="row">
 	        <div class="col-lg-3 col-lg-offset-3 col-md-3 scol-md-offset-3 col-xs-3  col-xs-offset-3">
-	            <p><strong>前位置：审评人员服务>>审评</strong></p>
+	            <p><strong>前位置：评审人员服务>>评审</strong></p>
 	        </div>
 	        <div class="col-lg-4 col-md-4 col-xs-4">
 	            <p><strong>欢迎   <s:property value="#session.role.helloName()"/>  登录本系统  </strong></p>
